@@ -1,7 +1,7 @@
 <h3 class="display-5 text-center">Add Details</h3>
 
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
-    
+    <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
     <div class="form-gorup">
         <label>Full Name:</label>
         <input name="FullName" #FullName="ngModel" [(ngModel)]="service.formData.FullName"  class="form-control">

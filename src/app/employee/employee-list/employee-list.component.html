@@ -1,12 +1,19 @@
 <h3 class="display-5 text-center">Employee List</h3>
-<div class="list">
+<br>
     <table class="table table-hover">
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td><button>x</button></td>
+    <tr *ngFor="let emp of service.list">
+        <td (click)="populateForm(emp)">{{emp.FullName}}</td>
+        <td (click)="populateForm(emp)">{{emp.Address}}</td>
+        <td (click)="populateForm(emp)">{{emp.BirthDay}}</td>
+        <td (click)="populateForm(emp)">{{emp.NicNo}}</td>
+        <td (click)="populateForm(emp)">{{emp.Contact}}</td>
+        <td (click)="populateForm(emp)">{{emp.Email}}</td>
+        <td><button (click)="onDelete(emp.EmployeeID)" class="btn btn-sm btn-outline-danger">x</button></td>
+       
     </tr>
     </table>
-    </div>
+    
+    
+    
+    
     
