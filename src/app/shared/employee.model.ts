@@ -4,6 +4,6 @@ export class Employee {
     Address: string;
     BirthDay: string;
     NicNo: string;
-    Contact: number;
+    Contact: string;
     Email: string;
 }
