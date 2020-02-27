@@ -3,27 +3,32 @@
     
     <div class="form-gorup">
         <label>Full Name:</label>
-        <input name="FullName"  class="form-control">
+        <input name="FullName" #FullName="ngModel" [(ngModel)]="service.formData.FullName" class="form-control">
+    </div>
+
+    <div class="form-gorup">
+        <label>Address</label>
+        <input  name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address" class="form-control">
     </div>
 
     <div class="form-gorup">
         <label>Birth Day</label>
-        <input type="date" name="BirthDay"  class="form-control">
+        <input type="date" name="BirthDay" #BirthDay="ngModel" [(ngModel)]="service.formData.BirthDay" class="form-control">
     </div>
 
     <div class="form-gorup">
         <label>NIC NO:</label>
-        <input name="NicNo"  class="form-control">
+        <input name="NicNo" #NicNo="ngModel" [(ngModel)]="service.formData.NicNo" class="form-control">
     </div>
 
     <div class="form-gorup">
         <label>E-mail:</label>
-        <input type="email" name="Email"  class="form-control">
+        <input type="email" name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
     </div>
 
     <div class="form-gorup">
         <label>Contact Number:</label>
-        <input type="number" name="Contact"  class="form-control">
+        <input type="number" name="Contact" #Contact="ngModel" [(ngModel)]="service.formData.Contact" class="form-control">
     </div>
    <br>
     <div class="form-group">
