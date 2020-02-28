@@ -12,6 +12,12 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { EmployeeService } from './shared/employee.service';
 import { EmployeeRegisterComponent } from "./employee/employee-register/employee-register.component";
+import { DestinationsComponent } from './destinations/destinations.component';
+import { DestinationComponent } from './destinations/destination/destination.component';
+import { DestinationListComponent } from './destinations/destination-list/destination-list.component';
+
+
+
 
 
  @NgModule({
@@ -21,6 +27,12 @@ import { EmployeeRegisterComponent } from "./employee/employee-register/employee
     EmployeeComponent,
     EmployeeListComponent,
     EmployeeRegisterComponent,
+    DestinationsComponent,
+    DestinationComponent,
+    DestinationListComponent,
+ 
+
+   
     
     
   ],
