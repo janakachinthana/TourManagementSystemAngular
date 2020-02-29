@@ -3,32 +3,32 @@
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
     <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
     <div class="form-gorup">
-        <label>Full Name:</label>
+        <label class="text-info">Full Name:</label>
         <input name="FullName" #FullName="ngModel" [(ngModel)]="service.formData.FullName"  class="form-control">
     </div>
 
     <div class="form-gorup">
-        <label>Address</label>
+        <label class="text-info">Address</label>
         <input  name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address" class="form-control">
     </div>
 
     <div class="form-gorup">
-        <label>Birth Day</label>
+        <label class="text-info">Birth Day</label>
         <input type="date" name="BirthDay" #BirthDay="ngModel" [(ngModel)]="service.formData.BirthDay" class="form-control">
     </div>
 
     <div class="form-gorup">
-        <label>NIC NO:</label>
+        <label class="text-info">NIC NO:</label>
         <input name="NicNo" #NicNo="ngModel" [(ngModel)]="service.formData.NicNo" class="form-control">
     </div>
 
     <div class="form-gorup">
-        <label>E-mail:</label>
+        <label class="text-info">E-mail:</label>
         <input type="email" name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
     </div>
 
     <div class="form-gorup">
-        <label>Contact Number:</label>
+        <label class="text-info">Contact Number:</label>
         <input type="number" name="Contact" #Contact="ngModel" [(ngModel)]="service.formData.Contact" class="form-control">
     </div>
    <br>

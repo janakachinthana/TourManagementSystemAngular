@@ -15,6 +15,11 @@ import { EmployeeRegisterComponent } from "./employee/employee-register/employee
 import { DestinationsComponent } from './destinations/destinations.component';
 import { DestinationComponent } from './destinations/destination/destination.component';
 import { DestinationListComponent } from './destinations/destination-list/destination-list.component';
+import { HotelsComponent } from './hotels/hotels.component';
+import { HotelComponent } from './hotels/hotel/hotel.component';
+import { HotelListComponent } from './hotels/hotel-list/hotel-list.component';
+
+
 
 
 
@@ -30,7 +35,12 @@ import { DestinationListComponent } from './destinations/destination-list/destin
     DestinationsComponent,
     DestinationComponent,
     DestinationListComponent,
+    HotelsComponent,
+    HotelComponent,
+    HotelListComponent,
  
+
+
 
    
     
