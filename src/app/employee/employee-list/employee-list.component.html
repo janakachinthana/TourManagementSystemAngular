@@ -2,13 +2,14 @@
 <br>
     <table class="table table-hover">
     <tr *ngFor="let emp of service.list">
-        <td class="text-info" (click)="populateForm(emp)">{{emp.FullName}}</td>
-        <td class="text-info" (click)="populateForm(emp)">{{emp.Address}}</td>
-        <td class="text-info" (click)="populateForm(emp)">{{emp.BirthDay}}</td>
-        <td class="text-info" (click)="populateForm(emp)">{{emp.NicNo}}</td>
-        <td class="text-info" (click)="populateForm(emp)">{{emp.Contact}}</td>
-        <td class="text-info" (click)="populateForm(emp)">{{emp.Email}}</td>
-        <td><button (click)="onDelete(emp.EmployeeID)" class="btn btn-sm btn-outline-danger">x</button></td>
+        <td class="text-info">{{emp.FullName}}</td>
+        <td class="text-info">{{emp.Address}}</td>
+        <td class="text-info">{{emp.BirthDay}}</td>
+        <td class="text-info">{{emp.NicNo}}</td>
+        <td class="text-info">{{emp.Contact}}</td>
+        <td class="text-info">{{emp.Email}}</td>
+        <td><button (click)="populateForm(emp)" class="btn btn-sm btn-outline-success">Change</button></td>
+        <td><button (click)="onDelete(emp.EmployeeID)" class="btn btn-sm btn-outline-danger">delete</button></td>
        
     </tr>
     </table>
