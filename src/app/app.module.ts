@@ -18,6 +18,9 @@ import { DestinationListComponent } from './destinations/destination-list/destin
 import { HotelsComponent } from './hotels/hotels.component';
 import { HotelComponent } from './hotels/hotel/hotel.component';
 import { HotelListComponent } from './hotels/hotel-list/hotel-list.component';
+import { GuidesComponent } from './guides/guides.component';
+import { GuideComponent } from './guides/guide/guide.component';
+import { GuideListComponent } from './guides/guide-list/guide-list.component';
 
 
 
@@ -38,6 +41,9 @@ import { HotelListComponent } from './hotels/hotel-list/hotel-list.component';
     HotelsComponent,
     HotelComponent,
     HotelListComponent,
+    GuidesComponent,
+    GuideComponent,
+    GuideListComponent,
  
 
 
