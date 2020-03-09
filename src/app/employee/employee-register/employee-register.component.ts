@@ -7,46 +7,60 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './employee-register.component.html',
   styleUrls: ['./employee-register.component.scss']
 })
+
 export class EmployeeRegisterComponent implements OnInit {
+  
 
   constructor(public service: EmployeeService,
    
  private toastr : ToastrService) { }
+ 
   ngOnInit() {
     this.resetForm();
   }
 
   resetForm(form? : NgForm){
-    if(form != null)
-
-    form.resetForm();
+    
     this.service.formData ={
-
+      
       EmployeeID : null,
-      FullName : '',
-      Address : '',
-      BirthDay : '',
-      NicNo : '',
-      Contact : '',
-      Email : ''
-
-
+      FullName : null,
+      Address : null,
+      BirthDay : null,
+      NicNo : null,
+      Contact : null,
+      Email : null
     }
+    
   }
-
+  
     onSubmit(form : NgForm){
       if(form.value.EmployeeID == null )
-      this.insertRecord(form)
-      else
-      this.updateRecord(form);
+      {
+        
+        if(form.value.FullName == null || form.value.Address == null || form.value.BirthDay == null || form.value.NicNo == null || form.value.Contact == null || form.value.Email == null)
+        {
+        this.toastr.warning('Insert faild', 'EMP. Register');
+        }
+        else
+        {
+          this.insertRecord(form);
+        }
+      }
+        
+      else{
+        if(form.value.FullName!= null && form.value.Address != null && form.value.BirthDay != null && form.value.NicNo != null && form.value.Contact != null && form.value.Email != null)
+        this.updateRecord(form);
+      }
     }
 
     insertRecord(form : NgForm){
-      this.service.postEmployeee(form.value).subscribe(res =>{
-        this.toastr.success('Insert successfully', 'EMP. Register');
-        this.resetForm(form);
-        this.service.refreshList();
-      });
+          this.service.postEmployeee(form.value).subscribe(res =>{
+            this.toastr.success('Insert successfully', 'EMP. Register');
+            this.resetForm(form);
+            this.service.refreshList();
+          });
+      
     }
 
     updateRecord(form : NgForm){
