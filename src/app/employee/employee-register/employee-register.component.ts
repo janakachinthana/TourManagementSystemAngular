@@ -15,52 +15,52 @@ export class EmployeeRegisterComponent implements OnInit {
    
  private toastr : ToastrService) { }
  
-  ngOnInit() {
-    this.resetForm();
-  }
+ ngOnInit() {
+  this.resetForm();
+}
+
 
   resetForm(form? : NgForm){
-    
-    this.service.formData ={
-      
+    this.service.formData ={ 
       EmployeeID : null,
-      FullName : null,
-      Address : null,
-      BirthDay : null,
-      NicNo : null,
-      Contact : null,
-      Email : null
-    }
-    
+      FullName : '',
+      Address : '',
+      BirthDay : '',
+      NicNo : '',
+      Contact : '',
+      Email : '',
+    }    
   }
+
   
     onSubmit(form : NgForm){
       if(form.value.EmployeeID == null )
       {
         
-        if(form.value.FullName == null || form.value.Address == null || form.value.BirthDay == null || form.value.NicNo == null || form.value.Contact == null || form.value.Email == null)
+        if(form.value.FullName == '' || form.value.Address == '' || form.value.BirthDay == '' || form.value.NicNo == '' || form.value.Contact == '' || form.value.Email == '')
         {
         this.toastr.warning('Insert faild', 'EMP. Register');
         }
         else
         {
           this.insertRecord(form);
+          this.service.refreshList;
         }
       }
         
       else{
-        if(form.value.FullName!= null && form.value.Address != null && form.value.BirthDay != null && form.value.NicNo != null && form.value.Contact != null && form.value.Email != null)
+        if(form.value.FullName!= '' && form.value.Address != '' && form.value.BirthDay != '' && form.value.NicNo != '' && form.value.Contact != '' && form.value.Email != '')
         this.updateRecord(form);
       }
     }
 
     insertRecord(form : NgForm){
           this.service.postEmployeee(form.value).subscribe(res =>{
-            this.toastr.success('Insert successfully', 'EMP. Register');
-            this.resetForm(form);
-            this.service.refreshList();
+          this.toastr.success('Insert successfully', 'EMP. Register');
+          this.resetForm();
+          this.service.refreshList();
           });
-      
+
     }
 
     updateRecord(form : NgForm){
