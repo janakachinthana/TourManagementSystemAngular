@@ -28,7 +28,7 @@ export class EmployeeRegisterComponent implements OnInit {
       BirthDay : '',
       NicNo : '',
       Contact : '',
-      Email : '',
+      Email : ''
     }    
   }
 
@@ -44,7 +44,6 @@ export class EmployeeRegisterComponent implements OnInit {
         else
         {
           this.insertRecord(form);
-          this.service.refreshList;
         }
       }
         
