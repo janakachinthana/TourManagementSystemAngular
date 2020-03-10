@@ -22,6 +22,9 @@ import { GuidesComponent } from './guides/guides.component';
 import { GuideComponent } from './guides/guide/guide.component';
 import { GuideListComponent } from './guides/guide-list/guide-list.component';
 import { VehiclesComponent } from './vehicles/vehicles.component';
+import { VehicleComponent } from './vehicles/vehicle/vehicle.component';
+import { VehicleListComponent } from './vehicles/vehicle-list/vehicle-list.component';
+import { VehicleService } from './shared/vehicle.service';
 
 
 
@@ -46,6 +49,8 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
     GuideComponent,
     GuideListComponent,
     VehiclesComponent,
+    VehicleComponent,
+    VehicleListComponent,
  
 
 
@@ -64,7 +69,7 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
 
 
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService , VehicleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
