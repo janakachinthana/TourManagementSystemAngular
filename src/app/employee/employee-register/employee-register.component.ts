@@ -7,21 +7,21 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './employee-register.component.html',
   styleUrls: ['./employee-register.component.scss']
 })
+
 export class EmployeeRegisterComponent implements OnInit {
+  
 
   constructor(public service: EmployeeService,
    
  private toastr : ToastrService) { }
-  ngOnInit() {
-    this.resetForm();
-  }
+ 
+ ngOnInit() {
+  this.resetForm();
+}
+
 
   resetForm(form? : NgForm){
-    if(form != null)
-
-    form.resetForm();
-    this.service.formData ={
-
+    this.service.formData ={ 
       EmployeeID : null,
       FullName : '',
       Address : '',
@@ -29,24 +29,37 @@ export class EmployeeRegisterComponent implements OnInit {
       NicNo : '',
       Contact : '',
       Email : ''
-
-
-    }
+    }    
   }
 
+  
     onSubmit(form : NgForm){
       if(form.value.EmployeeID == null )
-      this.insertRecord(form)
-      else
-      this.updateRecord(form);
+      {
+        
+        if(form.value.FullName == '' || form.value.Address == '' || form.value.BirthDay == '' || form.value.NicNo == '' || form.value.Contact == '' || form.value.Email == '')
+        {
+        this.toastr.warning('Insert faild', 'EMP. Register');
+        }
+        else
+        {
+          this.insertRecord(form);
+        }
+      }
+        
+      else{
+        if(form.value.FullName!= '' && form.value.Address != '' && form.value.BirthDay != '' && form.value.NicNo != '' && form.value.Contact != '' && form.value.Email != '')
+        this.updateRecord(form);
+      }
     }
 
     insertRecord(form : NgForm){
-      this.service.postEmployeee(form.value).subscribe(res =>{
-        this.toastr.success('Insert successfully', 'EMP. Register');
-        this.resetForm(form);
-        this.service.refreshList();
-      });
+          this.service.postEmployeee(form.value).subscribe(res =>{
+          this.toastr.success('Insert successfully', 'EMP. Register');
+          this.resetForm();
+          this.service.refreshList();
+          });
+
     }
 
     updateRecord(form : NgForm){
