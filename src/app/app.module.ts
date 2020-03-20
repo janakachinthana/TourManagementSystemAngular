@@ -26,6 +26,8 @@ import { VehicleComponent } from './vehicles/vehicle/vehicle.component';
 import { VehicleListComponent } from './vehicles/vehicle-list/vehicle-list.component';
 import { VehicleService } from './shared/vehicle.service';
 import { MainComponent } from './main/main.component';
+import { ConfirmedTourComponent } from './confirmed-tour/confirmed-tour.component';
+import { CompletedTourComponent } from './completed-tour/completed-tour.component';
 
 
 
@@ -53,6 +55,8 @@ import { MainComponent } from './main/main.component';
     VehicleComponent,
     VehicleListComponent,
     MainComponent,
+    ConfirmedTourComponent,
+    CompletedTourComponent,
  
 
 

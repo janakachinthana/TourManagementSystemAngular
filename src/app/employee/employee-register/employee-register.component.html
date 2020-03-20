@@ -1,4 +1,4 @@
-<h3 class="display-5 text-center" >Add Employee Details</h3>
+
 
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
     <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
@@ -6,7 +6,7 @@
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Image</span>
+          <span class="input-group-text bg-info text-white" id="basic-addon1">Image</span>
         </div>
         <input type="file"  name="Image"  class="form-control" >
         
@@ -14,7 +14,7 @@
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Full Name</span>
+          <span class="input-group-text bg-info text-white" id="basic-addon1">Full Name</span>
         </div >
         <input required  name="FullName" #FullName="ngModel" [(ngModel)]="service.formData.FullName" class="form-control">
         <div class="validation-error"*ngIf="FullName.invalid && FullName.touched" >This field required</div>
@@ -23,7 +23,7 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Address</span>
+          <span class="input-group-text bg-info text-white" id="basic-addon1">Address</span>
         </div>
         <input required name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address" class="form-control">
         <div class="validation-error"*ngIf="Address.invalid && Address.touched" >This field required</div>
@@ -31,7 +31,7 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Birth Day</span>
+          <span class="input-group-text bg-info text-white" id="basic-addon1">Birth Day</span>
         </div>
         <input required type="date" name="BirthDay" #BirthDay="ngModel" [(ngModel)]="service.formData.BirthDay" class="form-control">
         <div class="validation-error"*ngIf="BirthDay.invalid && BirthDay.touched" >This field required</div>
@@ -39,7 +39,7 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Nic No</span>
+          <span class="input-group-text bg-info text-white" id="basic-addon1">Nic No</span>
         </div>
         <input required name="NicNo" #NicNo="ngModel" [(ngModel)]="service.formData.NicNo" class="form-control">
         <div class="validation-error"*ngIf="NicNo.invalid && NicNo.touched" >This field required</div>
@@ -47,7 +47,7 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Email</span>
+          <span class="input-group-text bg-info text-white" id="basic-addon1">Email</span>
         </div>
         <input required type="email" name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
         <div class="validation-error"*ngIf="Email.invalid && Email.touched" >This field required</div>
@@ -55,7 +55,7 @@
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">Contact</span>
+          <span class="input-group-text bg-info text-white" id="basic-addon1">Contact</span>
         </div>
         <input required type="number" name="Contact" #Contact="ngModel" [(ngModel)]="service.formData.Contact" class="form-control">
         <div class="validation-error"*ngIf="Contact.invalid && Contact.touched" >This field required</div>

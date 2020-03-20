@@ -1,4 +1,4 @@
-<h3 class="display-5 text-center">Employee List</h3>
+
 <br>
     <!-- <table class="table table-hover">
             <thead class="thead-dark">
@@ -34,22 +34,23 @@
   
     
     <br>
-       <div class="row" >  
-          <div class="col-md-4" *ngFor="let emp of service.list " >
+    <div class="row" > 
+          <div class="col-md-6" *ngFor="let emp of service.list " >
+            
   <br>
   <div class="card" style="width: 18rem;" >
       <img class="card-img-top" src="https://static1.squarespace.com/static/5898e29c725e25e7132d5a5a/58aa11bc9656ca13c4524c68/58aa11e99656ca13c45253e2/1487540713345/600x400-Image-Placeholder.jpg?format=original" alt="Card image cap">
       <div class="card-body">
-        <h5 class="card-title">{{emp.EmployeeID}}</h5>
+        <!-- <h5 class="card-title">{{emp.EmployeeID}}</h5> -->
         
       </div>
-      <ul class="list-group list-group-flush">
+      <ul class="list-group list-group-flush ">
         <!-- <li class="list-group-item" style="color: crimson; font-weight: bold; text-align: center;">{{veh.Brand}} {{veh.Model}}</li> -->
-        <li class="list-group-item">{{emp.FullName}}</li>
-        <li class="list-group-item">{{emp.Address}}</li>
-        <li class="list-group-item">{{emp.BirthDay}}</li>
-        <li class="list-group-item">{{emp.NicNo}}</li>
-        <li class="list-group-item">{{emp.Email}}</li>
+        <li class="btn btn-sm btn-outline-info">{{emp.FullName}}</li>
+        <li class="btn btn-sm btn-outline-info">{{emp.Address}}</li>
+        <li class="btn btn-sm btn-outline-info">{{emp.BirthDay}}</li>
+        <li class="btn btn-sm btn-outline-info">{{emp.NicNo}}</li>
+        <li class="btn btn-sm btn-outline-info">{{emp.Email}}</li>
         <!-- <li class="list-group-item " style="font-weight: bolder; text-align: center;">Rate : Rs.{{veh.RatePerKM}}/=</li> -->
   
       </ul>
@@ -62,8 +63,7 @@
       </div>
     </div>
     <br>
-  
-   </div>
+  </div>
        </div>
 
        <br>
