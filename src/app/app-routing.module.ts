@@ -6,10 +6,12 @@ import { DestinationsComponent } from "./destinations/destinations.component";
 import { HotelsComponent } from "./hotels/hotels.component";
 import { GuidesComponent } from "./guides/guides.component";
 import {  VehiclesComponent} from "./vehicles/vehicles.component";
+import { MainComponent } from "./main/main.component";
 
 
 const routes: Routes = [
-  { path : '', component : HomeComponent},
+  { path : '', component : MainComponent},
+  { path : 'home', component : HomeComponent},
   { path : 'employee', component : EmployeeComponent},
   { path : 'destination', component : DestinationsComponent},
   { path : 'hotel', component : HotelsComponent},

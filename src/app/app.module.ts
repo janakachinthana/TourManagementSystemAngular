@@ -25,6 +25,7 @@ import { VehiclesComponent } from './vehicles/vehicles.component';
 import { VehicleComponent } from './vehicles/vehicle/vehicle.component';
 import { VehicleListComponent } from './vehicles/vehicle-list/vehicle-list.component';
 import { VehicleService } from './shared/vehicle.service';
+import { MainComponent } from './main/main.component';
 
 
 
@@ -51,6 +52,7 @@ import { VehicleService } from './shared/vehicle.service';
     VehiclesComponent,
     VehicleComponent,
     VehicleListComponent,
+    MainComponent,
  
 
 

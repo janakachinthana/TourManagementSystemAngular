@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 }) 
 export class VehicleListComponent implements OnInit {
 
-  constructor(private service : VehicleService,
+  constructor(public service : VehicleService,
     private toastr : ToastrService ) { }
 
   ngOnInit() {

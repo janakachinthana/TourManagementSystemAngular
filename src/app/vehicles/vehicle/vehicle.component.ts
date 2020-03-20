@@ -11,7 +11,7 @@ import { NgForm } from '@angular/forms';
 })
 export class VehicleComponent implements OnInit {
 
-  constructor(private service : VehicleService,
+  constructor(public service : VehicleService,
     private toastr : ToastrService) { }
 
   ngOnInit() {
