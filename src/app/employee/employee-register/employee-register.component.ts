@@ -19,11 +19,13 @@ export class EmployeeRegisterComponent implements OnInit {
   this.resetForm();
 }
 
-
   resetForm(form? : NgForm){
+    if(form != null)
+    form.resetForm();
     this.service.formData ={ 
       EmployeeID : null,
-      FullName : '',
+      FirstName : '',
+      LastName : '',
       Address : '',
       BirthDay : '',
       NicNo : '',
@@ -37,7 +39,7 @@ export class EmployeeRegisterComponent implements OnInit {
       if(form.value.EmployeeID == null )
       {
         
-        if(form.value.FullName == '' || form.value.Address == '' || form.value.BirthDay == '' || form.value.NicNo == '' || form.value.Contact == '' || form.value.Email == '')
+        if(form.value.FirstName == '' || form.value.LastName == '' || form.value.Address == '' || form.value.BirthDay == '' || form.value.NicNo == '' || form.value.Contact == '' || form.value.Email == '')
         {
         this.toastr.warning('Insert faild', 'EMP. Register');
         }
@@ -48,7 +50,7 @@ export class EmployeeRegisterComponent implements OnInit {
       }
         
       else{
-        if(form.value.FullName!= '' && form.value.Address != '' && form.value.BirthDay != '' && form.value.NicNo != '' && form.value.Contact != '' && form.value.Email != '')
+        if(form.value.FirstName != null && form.value.LastName != null && form.value.Address != null && form.value.BirthDay != null && form.value.NicNo != null && form.value.Contact != null && form.value.Email != null)
         this.updateRecord(form);
       }
     }
@@ -56,7 +58,7 @@ export class EmployeeRegisterComponent implements OnInit {
     insertRecord(form : NgForm){
           this.service.postEmployeee(form.value).subscribe(res =>{
           this.toastr.success('Insert successfully', 'EMP. Register');
-          this.resetForm();
+          this.resetForm(form);
           this.service.refreshList();
           });
 
