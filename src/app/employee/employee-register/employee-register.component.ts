@@ -31,6 +31,7 @@ export class EmployeeRegisterComponent implements OnInit {
  
  ngOnInit() {
   this.resetForm();
+
 }
 
   resetForm(form? : NgForm){
@@ -45,8 +46,9 @@ export class EmployeeRegisterComponent implements OnInit {
       NicNo : '',
       Contact : '',
       Email : '',
-      Image : ''
+      Image : null,
     }    
+    this.imageUrl = "/assets/img/img.jpg"
   }
 
   
