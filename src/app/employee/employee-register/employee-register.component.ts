@@ -10,10 +10,24 @@ import { ToastrService } from 'ngx-toastr';
 
 export class EmployeeRegisterComponent implements OnInit {
   
-
+  imageUrl: string = "/assets/img/img.jpg";
+  fileToUpload: File = null;
   constructor(public service: EmployeeService,
    
  private toastr : ToastrService) { }
+
+
+ 
+ handleFileInput(file: FileList) {
+  this.fileToUpload = file.item(0);
+
+  //Show image preview
+  var reader = new FileReader();
+  reader.onload = (event:any) => {
+    this.imageUrl = event.target.result;
+  }
+  reader.readAsDataURL(this.fileToUpload);
+}
  
  ngOnInit() {
   this.resetForm();

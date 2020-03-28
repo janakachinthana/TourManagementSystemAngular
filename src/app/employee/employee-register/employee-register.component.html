@@ -8,7 +8,9 @@
         <div class="input-group-prepend">
           <span class="input-group-text bg-info text-white" id="basic-addon1">Image</span>
         </div>
-        <input type="file"   name="Image" #Image="ngModel" [(ngModel)]="service.formData.Image" class="form-control">  
+        <img [src]="imageUrl"  style="width:250px;height:200px">
+      
+        <input type="file" name="Image" #Image accept="image/*" (change)="handleFileInput($event.target.files)" #Image="ngModel" [(ngModel)]="service.formData.Image" >  
       </div>
 
     <div class="input-group mb-3">
