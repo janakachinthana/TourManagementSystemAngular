@@ -24,8 +24,7 @@ export class EmployeeRegisterComponent implements OnInit {
     form.resetForm();
     this.service.formData ={ 
       EmployeeID : null,
-      FirstName : '',
-      LastName : '',
+      FullName : '',
       Address : '',
       BirthDay : '',
       NicNo : '',
@@ -39,7 +38,7 @@ export class EmployeeRegisterComponent implements OnInit {
       if(form.value.EmployeeID == null )
       {
         
-        if(form.value.FirstName == '' || form.value.LastName == '' || form.value.Address == '' || form.value.BirthDay == '' || form.value.NicNo == '' || form.value.Contact == '' || form.value.Email == '')
+        if(form.value.FullName == '' || form.value.Address == '' || form.value.BirthDay == '' || form.value.NicNo == '' || form.value.Contact == '' || form.value.Email == '')
         {
         this.toastr.warning('Insert faild', 'EMP. Register');
         }
@@ -50,7 +49,7 @@ export class EmployeeRegisterComponent implements OnInit {
       }
         
       else{
-        if(form.value.FirstName != null && form.value.LastName != null && form.value.Address != null && form.value.BirthDay != null && form.value.NicNo != null && form.value.Contact != null && form.value.Email != null)
+        if(form.value.FullName != null && form.value.Address != null && form.value.BirthDay != null && form.value.NicNo != null && form.value.Contact != null && form.value.Email != null)
         this.updateRecord(form);
       }
     }

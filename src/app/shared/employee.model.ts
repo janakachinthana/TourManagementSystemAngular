@@ -1,7 +1,6 @@
 export class Employee {
     EmployeeID: number;
-    FirstName: string;
-    LastName: string;
+    FullName: string;
     Address: string;
     BirthDay: string;
     NicNo: string;
@@ -9,20 +8,20 @@ export class Employee {
     Email: string;
 }
 
-export class Vehicle {
+// export class Vehicle {
 
-    VehicleID:number;
-    VehicleNo :string
-    Brand :string
-    Model :string
-    RegistrationNo :string
-    ManuYr :number;
-    NoOfSeats :number;
-    OwnersName :string
-    OwneresID :string
-    OwnersContact :string
-    VehicleInsuaranceNo :string
-    RatePerKM :number;
+//     VehicleID:number;
+//     VehicleNo :string
+//     Brand :string
+//     Model :string
+//     RegistrationNo :string
+//     ManuYr :number;
+//     NoOfSeats :number;
+//     OwnersName :string
+//     OwneresID :string
+//     OwnersContact :string
+//     VehicleInsuaranceNo :string
+//     RatePerKM :number;
 
-}
+// }
 
