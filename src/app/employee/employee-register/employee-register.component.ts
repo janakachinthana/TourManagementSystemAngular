@@ -24,12 +24,14 @@ export class EmployeeRegisterComponent implements OnInit {
     form.resetForm();
     this.service.formData ={ 
       EmployeeID : null,
-      FullName : '',
+      FirstName : '',
+      LastName : '',
       Address : '',
       BirthDay : '',
       NicNo : '',
       Contact : '',
-      Email : ''
+      Email : '',
+      Image : ''
     }    
   }
 

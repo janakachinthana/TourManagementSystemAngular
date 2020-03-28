@@ -4,30 +4,30 @@
     <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
     
 
-    <!-- <div class="input-group mb-3">
+    <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text bg-info text-white" id="basic-addon1">Image</span>
         </div>
         <input type="file"  name="Image"  class="form-control" >
         
-      </div> -->
+      </div>
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text bg-info text-white" id="basic-addon1">Full Name</span>
         </div >
-        <input required  name="FullName" #FullName="ngModel" [(ngModel)]="service.formData.FullName" class="form-control">
-        <div class="validation-error"*ngIf="FullName.invalid && FullName.touched" >This field required</div>
+        <input required  name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control">
+        <div class="validation-error"*ngIf="FirstName.invalid && FirstName.touched" >This field required</div>
     </div>
 
 
-    <!-- <div class="input-group mb-3">
+    <div class="input-group mb-3">
       <div class="input-group-prepend">
         <span class="input-group-text bg-info text-white" id="basic-addon1">Last Name</span>
       </div >
       <input required  name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control">
       <div class="validation-error"*ngIf="LastName.invalid && LastName.touched" >This field required</div>
-  </div> -->
+  </div>
 
 
       <div class="input-group mb-3">

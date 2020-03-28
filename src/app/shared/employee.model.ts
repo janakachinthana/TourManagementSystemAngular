@@ -1,11 +1,13 @@
 export class Employee {
     EmployeeID: number;
-    FullName: string;
+    FirstName: string;
+    LastName: string;
     Address: string;
     BirthDay: string;
     NicNo: string;
     Contact: string;
     Email: string;
+    Image: string;
 }
 
 // export class Vehicle {
