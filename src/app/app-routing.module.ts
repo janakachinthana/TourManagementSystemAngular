@@ -21,11 +21,6 @@ const routes: Routes = [
   { path : 'vehicle', component : VehiclesComponent},
   { path : 'confirmed', component : ConfirmedTourComponent},
   { path : 'completed', component : CompletedTourComponent},
-
-  { path : 'employee', component : EmployeeComponent},
-  { path : 'destination', component : DestinationsComponent},
-  { path : 'hotel', component : HotelsComponent},
-  { path : 'guide', component : GuidesComponent},
 ];
 
 @NgModule({
