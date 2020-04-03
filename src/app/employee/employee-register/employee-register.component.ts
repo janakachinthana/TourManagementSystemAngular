@@ -21,6 +21,10 @@ export class EmployeeRegisterComponent implements OnInit {
  handleFileInput(file: FileList) {
   this.fileToUpload = file.item(0);
 
+
+
+  
+
   //Show image preview
   var reader = new FileReader();
   reader.onload = (event:any) => {
@@ -56,7 +60,7 @@ export class EmployeeRegisterComponent implements OnInit {
       if(form.value.EmployeeID == null )
       {
         
-        if(form.value.FirstName == '' || form.value.LastName == '' ||form.value.Address == '' || form.value.BirthDay == '' || form.value.NicNo == '' || form.value.Contact == '' || form.value.Email == ''|| form.value.Image == '')
+        if(form.value.FirstName == '' || form.value.LastName == '' ||form.value.Address == '' || form.value.BirthDay == '' || form.value.NicNo == '' || form.value.Contact == '' || form.value.Email == '')
         {
         this.toastr.warning('Insert faild', 'EMP. Register');
         }
@@ -67,7 +71,7 @@ export class EmployeeRegisterComponent implements OnInit {
       }
         
       else{
-        if(form.value.FillName != null || form.value.LastName != null || form.value.Address || null && form.value.BirthDay != null || form.value.NicNo != null || form.value.Contact != null || form.value.Email != null)
+        if(form.value.FillName != '' && form.value.LastName != '' && form.value.Address != '' && form.value.BirthDay != '' && form.value.NicNo != '' && form.value.Contact != null && form.value.Email != '')
         this.updateRecord(form);
         else
         this.toastr.warning('Update faild', 'EMP. Register');
@@ -90,5 +94,6 @@ export class EmployeeRegisterComponent implements OnInit {
         this.service.refreshList();
       });
     }
+    
 
 }
