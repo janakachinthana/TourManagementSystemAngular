@@ -27,8 +27,8 @@ export class EmployeeService {
     return this.http.put(this.rootURL+'/Employee/'+formData.EmployeeID,formData)
    }
 
-   deleteEmployee(id : number){
-     return this.http.delete(this.rootURL+'/Employee/'+id);
+   deleteEmployee(id: number){
+     return this.http.delete(this.rootURL + '/Customer/' + id);
    }
 }
 
