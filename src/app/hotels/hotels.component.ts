@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HotelService } from '../shared/hotel.service';
+
+
 
 @Component({
   selector: 'app-hotels',

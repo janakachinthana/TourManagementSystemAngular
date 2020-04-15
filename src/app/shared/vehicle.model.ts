@@ -13,5 +13,6 @@ export class Vehicle {
     VehicleInsuaranceNo :string
     RatePerKM :number;
 
+
 }
 

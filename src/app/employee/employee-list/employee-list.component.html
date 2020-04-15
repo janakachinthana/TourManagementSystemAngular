@@ -1,5 +1,5 @@
 
-<br>
+<!-- <br> -->
     <!-- <table class="table table-hover">
             <thead class="thead-dark">
                 <tr>
@@ -32,31 +32,30 @@
     
     
   
-    
+<!--     
     <br>
     <div class="row" > 
           <div class="col-md-6" *ngFor="let emp of service.list " >
             
   <br>
   <div class="card" style="width: 18rem;" >
-      <img class="card-img-top" src="/assets/img/img.jpg">
-      <div class="card-body">
+      <img class="card-img-top" src="/assets/img/Janaka1.jpg">
+      <div class="card-body"> -->
         <!-- <h5 class="card-title">{{emp.EmployeeID}}</h5> -->
-        
+<!--         
       </div>
-      <ul class="list-group list-group-flush ">
+      <ul class="list-group list-group-flush "> -->
         <!-- <li class="list-group-item" style="color: crimson; font-weight: bold; text-align: center;">{{veh.Brand}} {{veh.Model}}</li> -->
-        <li class="btn btn-sm btn-outline-info">{{emp.FirstName}} {{emp.LastName}}</li>
+        <!-- <li class="btn btn-sm btn-outline-info">{{emp.FirstName}} {{emp.LastName}}</li>
         <li class="btn btn-sm btn-outline-info">{{emp.Address}}</li>
         <li class="btn btn-sm btn-outline-info">{{emp.Contact}}</li>
         <li class="btn btn-sm btn-outline-info">{{emp.BirthDay}}</li>
         <li class="btn btn-sm btn-outline-info">{{emp.NicNo}}</li>
         <li class="btn btn-sm btn-outline-info">{{emp.Email}}</li>
-        <li class="btn btn-sm btn-outline-info">{{emp.Image}}
-        </li>
+        <li class="btn btn-sm btn-outline-info">{{emp.Image}}</li> -->
         <!-- <li class="list-group-item " style="font-weight: bolder; text-align: center;">Rate : Rs.{{veh.RatePerKM}}/=</li> -->
   
-      </ul>
+      <!-- </ul>
       <div class="card-body">
      <table class="table">     
        <tr class="table-hover grab tbl1">
@@ -69,4 +68,52 @@
   </div>
        </div>
 
-       <br>
+       <br> -->
+
+
+
+
+
+
+       <button class="btn btn-primary btn-lg addbtn" mat-raised-button style ="margin-left: 45%;" (click)="AddOrEditEmployees(null)">
+        <mat-icon>add_box</mat-icon>Add new
+      </button>
+      
+      <br>
+      <hr>
+      
+        
+        <br>
+           <div class="row" >  
+              <div class="col-md-4" *ngFor="let emp of service.list ;let i=index;" >
+      <br>
+      <div class="card" style="width: 20rem;" >
+          <img class="card-img-top" src="https://static1.squarespace.com/static/5898e29c725e25e7132d5a5a/58aa11bc9656ca13c4524c68/58aa11e99656ca13c45253e2/1487540713345/600x400-Image-Placeholder.jpg?format=original" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{emp.EmployeeID}}</h5>
+            
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" style="color: crimson; font-weight: bold; text-align: center;">{{emp.FirstName}} {{emp.LastName}}</li>
+            <li class="list-group-item">Address: {{emp.Address}}</li>
+            <li class="list-group-item">Phone Number: {{emp.Contact}}</li>
+            <li class="list-group-item " style="font-weight: bolder; text-align: center;">Email: {{emp.Email}}</li>
+      
+          </ul>
+          <div class="card-body">
+         <table class="table">     
+           <tr class="table-hover grab tbl1">
+           <button (click)="populateForm(emp)" class="card-link btn btn-sm btn-outline -danger ybtn"> <mat-icon>open_in_new</mat-icon></button>
+           <button class="btn btn-sm btn-outline -danger xbtn" (click)="onDelete(emp.EmployeeID)"><mat-icon>delete</mat-icon></button></tr>
+          
+      </table>
+          </div>
+        </div>
+      
+      
+      
+       </div>
+           </div>
+       <div style="margin-left: 45%;">
+          <button style="text-align: center; margin-top: 20px;" *ngIf="isShow" (click)="gotoTop()">SCROLL TOP</button>
+        </div>

@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css'; 
 .form-group>input{
     font-weight: bolder;
 }
@@ -59,3 +61,5 @@ body{
     background-color: rgba(166, 202, 226, 0.979);
     border-radius: 0px;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

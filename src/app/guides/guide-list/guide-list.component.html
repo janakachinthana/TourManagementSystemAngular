@@ -1,1 +1,73 @@
-<p>guide-list works!</p>
+
+<br>
+<!-- <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">FullName</th>
+              <th scope="col">Address</th>
+              <th scope="col">BirthDay</th>
+              <th scope="col">NicNo</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Email</th>
+              <th scope="col">Change/<br>Delete</th>
+            </tr>
+          </thead>
+<tbody>
+<tr *ngFor="let emp of service.list">
+    <td class="text-info">{{emp.FullName}}</td>
+    <td class="text-info">{{emp.Address}}</td>
+    <td class="text-info">{{emp.BirthDay}}</td>
+    <td class="text-info">{{emp.NicNo}}</td>
+    <td class="text-info">{{emp.Contact}}</td>
+    <td class="text-info">{{emp.Email}}</td>
+    <td><button (click)="populateForm(emp)" class="btn btn-sm btn-outline-success">Change</button><br><br><button (click)="onDelete(emp.EmployeeID)" class="btn btn-sm btn-outline-danger">delete</button></td>
+    
+   
+</tr>
+</tbody>
+
+</table>
+
+ -->
+
+
+
+<br>
+<div class="row" > 
+      <div class="col-md-6" *ngFor="let guide of service.list " >
+        
+<br>
+<div class="card" style="width: 18rem;" >
+  <img class="card-img-top" src="/assets/img/guide.jpg">
+  <div class="card-body">
+    <!-- <h5 class="card-title">{{emp.EmployeeID}}</h5> -->
+    
+  </div>
+  <ul class="list-group list-group-flush ">
+    <!-- <li class="list-group-item" style="color: crimson; font-weight: bold; text-align: center;">{{veh.Brand}} {{veh.Model}}</li> -->
+    <li class="btn btn-sm btn-outline-info">{{guide.FirstName}} {{guide.LastName}}</li>
+    <li class="btn btn-sm btn-outline-info">{{guide.Address}}</li>
+    <li class="btn btn-sm btn-outline-info">{{guide.ContactNo}}</li>
+    <li class="btn btn-sm btn-outline-info">{{guide.BirthDay}}</li>
+    <li class="btn btn-sm btn-outline-info">{{guide.NicNo}}</li>
+    <li class="btn btn-sm btn-outline-info">{{guide.Email}}</li>
+    <li class="btn btn-sm btn-outline-info">{{guide.Gender}}</li>
+    <li class="btn btn-sm btn-outline-info">{{guide.Languages}}</li>
+    <li class="btn btn-sm btn-outline-info">{{guide.Price}}</li>
+    <li class="btn btn-sm btn-outline-info">{{guide.Image}}</li>
+    <!-- <li class="list-group-item " style="font-weight: bolder; text-align: center;">Rate : Rs.{{veh.RatePerKM}}/=</li> -->
+
+  </ul>
+  <div class="card-body">
+ <table class="table">     
+   <tr class="table-hover grab tbl1">
+    <td><button (click)="populateForm(guide)" class="btn-sm btn-outline-success">Change</button></td><td><button (click)="onDelete(guide.GuideID)" class=" btn-sm btn-outline-danger">delete</button></td>
+  </tr>
+</table>
+  </div>
+</div>
+<br>
+</div>
+   </div>
+
+   <br>

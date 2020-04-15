@@ -1,13 +1,9 @@
 export class Destination {
-
-    DestinationID: number;
-    DestinationName: string;
-    Time: string;
-    EntranceFee: number;
-    City: string;
-    Rules: string;
-    Description: string;
-    Image: string;
+    DestinationID : number;
+    DestinationName : String;
+    Time : String;
+    EntranceFee : number;
+    CityOfTheDestination : String;
+    RulesAndRegulations : String;
+    DescriptionOfThePlace : String;
 }
-
-

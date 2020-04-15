@@ -7,72 +7,95 @@
     <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text bg-info text-white" id="basic-addon1">Image</span>
-        </div>
-        <img [src]="imageUrl"  style="width:250px;height:200px">
-      
-        <input type="file" name="Image" #Image accept="image/*" (change)="handleFileInput($event.target.files)" #Image="ngModel" [(ngModel)]="service.formData.Image" >  
+          <img [src]="imageUrl"  style="width:200px;height:200px">
+        </div> 
       </div>
+      <input type="file" name="Image" #Image accept="image/*" (change)="handleFileInput($event.target.files)" #Image="ngModel" [(ngModel)]="service.formData.Image" >
+      <br><br>
 
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text bg-info text-white" id="basic-addon1">Full Name</span>
-        </div >
-        <input required  name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control">
-        <div class="validation-error"*ngIf="FirstName.invalid && FirstName.touched" >This field required</div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group-prepend">
+          <span class="input-group-text bg-info text-white" id="basic-addon1">First Name</span>
+        
+        <input required pattern="^[A-Z]+[a-z]+$"  name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control">
+        <div class="validation-error"*ngIf="FirstName.errors &&  FirstName.errors.required && FirstName.touched" >This field required</div>
+        <div class="validation-error"*ngIf="FirstName.invalid && FirstName.touched"  >Invalid Name (Only First Letter shuold be Upercase)</div>
     </div>
+  </div >
 
-
-    <div class="input-group mb-3">
-      <div class="input-group-prepend">
+  <div class="col-md-6">
+    <div class="input-group-prepend">
         <span class="input-group-text bg-info text-white" id="basic-addon1">Last Name</span>
+      
+      <input required pattern="^[A-Z]+[a-z]+$"  name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control">
+      <div class="validation-error"*ngIf="LastName.errors &&  LastName.errors.required && LastName.touched" >This field required</div>
+        <div class="validation-error"*ngIf="LastName.invalid && LastName.touched"  >Invalid Name (Only First Letter shuold be Upercase)</div>
       </div >
-      <input required  name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control">
-      <div class="validation-error"*ngIf="LastName.invalid && LastName.touched" >This field required</div>
   </div>
-
-
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="input-group-prepend">
           <span class="input-group-text bg-info text-white" id="basic-addon1">Address</span>
-        </div>
+        
         <input required name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address" class="form-control">
         <div class="validation-error"*ngIf="Address.invalid && Address.touched" >This field required</div>
-      </div>
+      </div></div>
 
-      <div class="input-group mb-3">
+      <div class="col-md-6">
         <div class="input-group-prepend">
           <span class="input-group-text bg-info text-white" id="basic-addon1">Birth Day</span>
-        </div>
+        
         <input required type="date" name="BirthDay" #BirthDay="ngModel" [(ngModel)]="service.formData.BirthDay" class="form-control">
         <div class="validation-error"*ngIf="BirthDay.invalid && BirthDay.touched" >This field required</div>
       </div>
+    </div>
+  </div>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group-prepend">
+
           <span class="input-group-text bg-info text-white" id="basic-addon1">Nic No</span>
-        </div>
+        
         <input required name="NicNo" #NicNo="ngModel" [(ngModel)]="service.formData.NicNo" class="form-control">
         <div class="validation-error"*ngIf="NicNo.invalid && NicNo.touched" >This field required</div>
-      </div>
+      </div></div>
+      
+    
+    <div class="col-md-6">
+      <div class="input-group-prepend">
+          <span class="input-group-text bg-info text-white" id="basic-addon1">Contact</span>
+        
+        <input required pattern="^[0-9]{9}" type="number" name="Contact" #Contact="ngModel" [(ngModel)]="service.formData.Contact" class="form-control">
+        <div class="validation-error"*ngIf="Contact.errors &&  Contact.errors.required && Contact.touched" >This field required</div>
+        <div class="validation-error"*ngIf="Contact.invalid && Contact.touched" >Invalid Phone number (10 numbers required)</div>
+      </div></div>
+    </div>
 
       <div class="input-group mb-3">
         <div class="input-group-prepend">
           <span class="input-group-text bg-info text-white" id="basic-addon1">Email</span>
         </div>
-        <input required type="email" name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
-        <div class="validation-error"*ngIf="Email.invalid && Email.touched" >This field required</div>
+        <input required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.com+$"  name="Email" type="email" #email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
+        <div class="validation-error"*ngIf="email.errors &&  email.errors.required && email.touched" >This field required</div>
+        <div class="validation-error"*ngIf="email.invalid && email.touched" >Invalid E-mail (example@xxx.com)</div>
       </div>
+    
+     
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group-prepend">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.EmployeeID==null;"> <mat-icon> send</mat-icon></button>
+        <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.EmployeeID!=null;"> save</button>
+      </div></div>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text bg-info text-white" id="basic-addon1">Contact</span>
-        </div>
-        <input required type="number" name="Contact" #Contact="ngModel" [(ngModel)]="service.formData.Contact" class="form-control">
-        <div class="validation-error"*ngIf="Contact.invalid && Contact.touched" >This field required</div>
-      </div>
 
-   <br>
-    <div class="form-group">
-        <button type="submit" class="btn btn-lg btn-block">Submit</button>
-    </div>
+        <div class="col-md-6">
+          <div class="input-group-prepend">
+      
+        <button type="button" class="btn btn-lg btn-block BTNNEW btndiv" [mat-dialog-close]>CLOSE</button>
+</div>
+</div></div>
 </form>

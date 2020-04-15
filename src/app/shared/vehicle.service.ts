@@ -29,5 +29,5 @@ export class VehicleService {
     return this.http.delete(this.rootURL+'/Vehicle/'+id);
   }
 
-
+  
 }

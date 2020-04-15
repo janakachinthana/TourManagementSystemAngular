@@ -1,5 +1,8 @@
+
+
+
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">  
-  
+    <button type="button" class="btn btn-lg btn-block close  " [mat-dialog-close]><mat-icon>cancel</mat-icon></button>
     <input type="hidden" name="VehicleID" #VehicleID="ngModel" [(ngModel)]="service.formData.VehicleID">
         <div class="form-group">
             
@@ -53,13 +56,13 @@
         <div class="col-md-6">
         <div class="form-group">
             <label>Manufactured year</label>
-            <input name="ManuYr" #ManuYr="ngModel" [(ngModel)]="service.formData.ManuYr" class="form-control" required>
+            <input name="ManuYr" type="number"  placeholder="2XXX" #ManuYr="ngModel" min="2000" [(ngModel)]="service.formData.ManuYr" class="form-control" required>
             <div class="validation-error" *ngIf="ManuYr.invalid && ManuYr.touched">Required</div>
        </div></div>
        <div class="col-md-6">
        <div class="form-group">
             <label>Number of seats</label>
-            <input name="NoOfSeats" #NoOfSeats="ngModel" [(ngModel)]="service.formData.NoOfSeats" class="form-control" required>
+            <input name="NoOfSeats" type="number"  min="1"#NoOfSeats="ngModel" [(ngModel)]="service.formData.NoOfSeats" class="form-control" required>
             <div class="validation-error" *ngIf="NoOfSeats.invalid && NoOfSeats.touched">Required</div>
         </div></div>
     </div>
@@ -68,7 +71,8 @@
         <div class="col-md-6">
         <div class="form-group">
             <label>Upload a Picture</label>
-            <input type="file"   >
+            <img [src]="imageUrl"  style="width:150 px; height:100px">
+            <input type="file"  #Image accept="image/*" (change)="handleFileInput($event.target.files)">
        </div></div>
     </div>
     
@@ -92,15 +96,16 @@
         <div class="col-md-6">
         <div class="form-group">
             <label>Owner's ID number</label>
-            <input name="OwneresID" #OwneresID="ngModel" [(ngModel)]="service.formData.OwneresID" class="form-control" required>
+            <input name="OwneresID" #OwneresID="ngModel"  placeholder="ID number with 10 values" minlength="10" [(ngModel)]="service.formData.OwneresID" class="form-control" required>
             <div class="validation-error" *ngIf="OwneresID.invalid && OwneresID.touched">Required</div>
         </div></div>
     
         <div class="col-md-6">
         <div class="form-group">
             <label>Owner's contact number</label>
-            <input name="OwnersContact" #OwnersContact="ngModel" [(ngModel)]="service.formData.OwnersContact" class="form-control" required>
-            <div class="validation-error" *ngIf="OwnersContact.invalid && OwnersContact.touched">Required</div>
+            <input name="OwnersContact" placeholder="0XXXXXXXXX"   #OwnersContact="ngModel"  type="tel" pattern="[0-9]{10}" [(ngModel)]="service.formData.OwnersContact" class="form-control" required>
+            <div class="validation-error" *ngIf="OwnersContact.invalid && OwnersContact.touched ">Required </div>
+          
         </div></div>
     </div>
     
@@ -115,7 +120,7 @@
         <div class="col-md-6">
         <div class="form-group">
             <label>Rate per Kilo meter</label>
-            <input name="RatePerKM" #RatePerKM="ngModel" [(ngModel)]="service.formData.RatePerKM" class="form-control"required>
+            <input name="RatePerKM" #RatePerKM="ngModel"type="number" [(ngModel)]="service.formData.RatePerKM" class="form-control"required>
             <div class="validation-error" *ngIf="RatePerKM.invalid && RatePerKM.touched">Required</div>
         </div></div>
     </div>
@@ -126,8 +131,15 @@
     <div class="form-group btndiv">
         <br>
         <div>
-            <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv ">SUBMIT</button>
-           
+     
+            <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID==null;"> Insert</button>
+            <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID!=null;"> save</button>
+          
+
+                <!-- <button type="button" class="btn btn-lg btn-block close  " [mat-dialog-close]><mat-icon>cancel</mat-icon></button> -->
+    
+
+        
     </div>
     </div>
     </div>

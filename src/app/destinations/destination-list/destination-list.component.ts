@@ -10,28 +10,25 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class DestinationListComponent implements OnInit {
 
-  constructor(public service : DestinationService,
+  constructor(public service : DestinationService, 
     private toastr : ToastrService) { }
-
-    ngOnInit() {
-      this.service.refreshList(); 
-    }
+    
 
 
-    populateForm(dest : Destination){
-      this.service.formData = Object.assign({},dest);
-    }
-  
-    onDelete(id : number){
-      if(confirm('Do you want to Delete this Record...?')){
-      this.service.deleteDestination(id).subscribe(res =>{
-        this.service.refreshList();
-        this.toastr.warning('Deleted successfully', 'Destination');
-      })
-    }
-    }
-  
+  ngOnInit(): void {
+    this.service.refreshList();
+  }
+
+  populateForm(des : Destination){
+    this.service.formData = Object.assign({},des);
+  }
+
+  onDelete(id : number){
+    if(confirm('Are you sure to delete this record?')){
+    this.service.deleteDestination(id).subscribe(res=>{
+       this.service.refreshList();
+       this.toastr.warning('deleted successfully', 'DES.Register');
+    });
+  }
+  }
 }
-
-
- 

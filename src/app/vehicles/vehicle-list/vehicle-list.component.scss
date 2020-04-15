@@ -1,10 +1,8 @@
-.tbl1:hover{
+td:hover{
     background-color: rgba(255, 255, 255, 0.527);
     font-weight: bolder;
 
-    border: 1px solid;
-    padding: 20px;
-    box-shadow: 3px 6px #212e42fa;
+ 
 }
 
 .grab {cursor: -webkit-grab; cursor: grab;}
@@ -41,6 +39,7 @@ td{
     color: rgb(245, 245, 245);
     font-weight: bolder;
     background-color: rgb(71, 78, 107);
+    float:right;
 }
 
 .xbtn:hover{
@@ -48,7 +47,48 @@ td{
     background-color: rgb(230, 27, 27);
 }
 
+
+
+.ybtn{
+    color: rgb(245, 245, 245);
+    font-weight: bolder;
+    background-color: rgb(71, 78, 107);
+}
+
+.ybtn:hover{
+    font-size: larger;
+    background-color: rgb(78, 66, 241);
+}
+
+
+
 .firstrow{
     background-color: rgb(48, 71, 78);
     color: white;
 }
+
+.viewBtn:hover{
+    block-size: auto;
+}
+
+.addbtn{
+    background-color: rgb(46, 78, 255);
+    color:white;
+}
+.addbtn:hover{
+    background-color: rgb(46, 78, 255);
+    color:black;
+}
+
+  
+  .buttonUp {
+    // position: fixed;
+    bottom: 5px;
+    right: 5px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px;
+    outline: nonen;
+  }
+
+ 

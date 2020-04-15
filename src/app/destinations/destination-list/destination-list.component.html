@@ -1,37 +1,26 @@
 
-    <br>
-    <div class="row" > 
-          <div class="col-md-6" *ngFor="let dest of service.list " >
+<table class="table table-hover">
+    <tr style="color: crimson; font-size: smaller;">
+        <td >Place</td>
+        <td >Time for a visit</td>
+    
+        <td >Entrance Fee</td>
+    
+        <td >City</td>
+    
+        <td >Rules</td>
+    
+        <td >Description</td>
+        <td >Delete</td>
+    </tr>
 
-  <br>
-  <div class="card" style="width: 18rem;" >
-      <img class="card-img-top" src="https://static1.squarespace.com/static/5898e29c725e25e7132d5a5a/58aa11bc9656ca13c4524c68/58aa11e99656ca13c45253e2/1487540713345/600x400-Image-Placeholder.jpg?format=original" alt="Card image cap">
-      <div class="card-body">
-        <!-- <h5 class="card-title">{{emp.EmployeeID}}</h5> -->
-        
-      </div>
-      <ul class="list-group list-group-flush ">
-        <!-- <li class="list-group-item" style="color: crimson; font-weight: bold; text-align: center;">{{veh.Brand}} {{veh.Model}}</li> -->
-        <li class="btn btn-sm btn-outline-info">{{dest.DestinationName}}</li>
-        <li class="btn btn-sm btn-outline-info">{{dest.Time}}</li>
-        <li class="btn btn-sm btn-outline-info">{{dest.EntranceFee}}</li>
-        <li class="btn btn-sm btn-outline-info">{{dest.City}}</li>
-        <li class="btn btn-sm btn-outline-info">{{dest.Rules}}</li>
-        <li class="btn btn-sm btn-outline-info">{{dest.Description}}</li>
-        <li class="btn btn-sm btn-outline-info">{{dest.Image}}</li>
-        <!-- <li class="list-group-item " style="font-weight: bolder; text-align: center;">Rate : Rs.{{veh.RatePerKM}}/=</li> -->
-  
-      </ul>
-      <div class="card-body">
-     <table class="table">     
-       <tr class="table-hover grab tbl1">
-        <td><button (click)="populateForm(dest)" class="btn-sm btn-outline-success">Change</button></td><td><button (click)="onDelete(dest.DestinationID)" class=" btn-sm btn-outline-danger">delete</button></td>
-      </tr>
-    </table>
-      </div>
-    </div>
-    <br>
-  </div>
-       </div>
-
-       <br>
+    <tr *ngFor="let des of service.list">
+        <td (click)="populateForm(des)">{{des.DestinationName}}</td>
+        <td (click)="populateForm(des)">{{des.Time}}</td>
+        <td (click)="populateForm(des)">{{des.EntranceFee}}</td>
+        <td (click)="populateForm(des)">{{des.CityOfTheDestination}}</td>
+        <td (click)="populateForm(des)">{{des.RulesAndRegulations}}</td>
+        <td (click)="populateForm(des)">{{des.DescriptionOfThePlace}}</td>
+        <td><button (click)="onDelete(des.DestinationID)" class="btn btn-sm btn-outline-danger">X</button></td>
+    </tr>
+</table>
