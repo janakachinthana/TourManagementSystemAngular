@@ -1,6 +1,6 @@
 import { MatDialogModule, MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CustomerService } from './../../shared/customer.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , HostListener} from '@angular/core';
 import { Customer } from 'src/app/shared/customer.model';
 import { ToastrService } from 'ngx-toastr';
 import { CustomerComponent } from '../customer/customer.component';
@@ -11,6 +11,8 @@ import { CustomerComponent } from '../customer/customer.component';
   styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
+  isShow: boolean;
+  topPosToStartShowing = 100;
 
   constructor(public service: CustomerService,
               private toastr: ToastrService,
@@ -26,6 +28,14 @@ export class CustomerListComponent implements OnInit {
   populateForm(cus: Customer) {
   this.service.formData = Object.assign({}, cus);
   this.AddOrEditCustomer(cus);
+  }
+
+  onClick(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.width="50%";
+ 
+    this.dialog.open(CustomerComponent)
   }
 
   onDelete(id: number) {
