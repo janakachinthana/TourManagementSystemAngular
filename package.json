@@ -11,22 +11,13 @@
   },
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "@angular/animations": "^9.0.7",
     "@angular/cdk": "^9.2.0",
-=======
-    "@angular/animations": "~9.0.0-rc.9",
-    "@angular/cdk": "^9.1.1",
->>>>>>> cd3b6774bf92e5c78276bff8f4dce2c657910378
     "@angular/common": "~9.0.0-rc.9",
     "@angular/compiler": "~9.0.0-rc.9",
     "@angular/core": "~9.0.0-rc.9",
     "@angular/forms": "~9.0.0-rc.9",
-<<<<<<< HEAD
     "@angular/material": "^9.2.0",
-=======
-    "@angular/material": "^9.1.1",
->>>>>>> cd3b6774bf92e5c78276bff8f4dce2c657910378
     "@angular/platform-browser": "~9.0.0-rc.9",
     "@angular/platform-browser-dynamic": "~9.0.0-rc.9",
     "@angular/router": "~9.0.0-rc.9",
@@ -37,13 +28,13 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.900.5",
+    "@angular-devkit/build-angular": "~0.900.0-rc.9",
     "@angular/cli": "~9.0.0-rc.9",
     "@angular/compiler-cli": "~9.0.0-rc.9",
     "@angular/language-service": "~9.0.0-rc.9",
+    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",

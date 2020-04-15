@@ -1,0 +1,26 @@
+
+<table class="table table-hover">
+    <tr style="color: crimson; font-size: smaller;">
+        <td >Place</td>
+        <td >Time for a visit</td>
+    
+        <td >Entrance Fee</td>
+    
+        <td >City</td>
+    
+        <td >Rules</td>
+    
+        <td >Description</td>
+        <td >Delete</td>
+    </tr>
+
+    <tr *ngFor="let des of service.list">
+        <td (click)="populateForm(des)">{{des.DestinationName}}</td>
+        <td (click)="populateForm(des)">{{des.Time}}</td>
+        <td (click)="populateForm(des)">{{des.EntranceFee}}</td>
+        <td (click)="populateForm(des)">{{des.CityOfTheDestination}}</td>
+        <td (click)="populateForm(des)">{{des.RulesAndRegulations}}</td>
+        <td (click)="populateForm(des)">{{des.DescriptionOfThePlace}}</td>
+        <td><button (click)="onDelete(des.DestinationID)" class="btn btn-sm btn-outline-danger">X</button></td>
+    </tr>
+</table>
