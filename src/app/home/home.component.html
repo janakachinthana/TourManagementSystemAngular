@@ -260,10 +260,21 @@
             <form action="">
               <div class="form-group">
                 <label>
-                  Driver's Bata (LKR)
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-info text-white" id="basic-addon1">Driver</span>
+                    </div>
+                    <select  name="Driver"   class="form-control" id="driver" (change)="selectChangeHandlerDriver($event)">
+                        <option>Select Guide</option> 
+                        <option value="{{dri.DriverID}}"  *ngFor="let dri of service4.list" > {{dri.FirstName}}  </option>
+                               
+                    </select></div>
                 </label>
-                <input type="text" class="form-control" id="#" placeholder="Driver's Bata" name="driverFee"  [(ngModel)]="driverFee"/>
+                <input required id="guidePrice2" name="FirstName" value="{{rate}}" class="form-control" placeholder="Price" disabled>
               </div>
+
+
+
               <div class="form-group">
                 <label>
                   <div class="input-group mb-3">
@@ -351,8 +362,13 @@
             </form>
 
           </div>
+          
         </div>
-
+        <div class="row ">
+          <div class="col-md-3" id="div1">
+                janaka
+        </div>
+        </div>
         <hr>
 
         <h3>Accommodation | Meal Plans Costing</h3><br>

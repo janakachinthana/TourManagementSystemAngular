@@ -13,11 +13,13 @@ import { CustomerComponent } from '../customer/customer.component';
 export class CustomerListComponent implements OnInit {
   isShow: boolean;
   topPosToStartShowing = 100;
+  
 
   constructor(public service: CustomerService,
               private toastr: ToastrService,
               private dialog: MatDialog) { }
 
+          
   ngOnInit(): void {
   this.service.refreshList();
   if (this.service.list.length == 0) {
@@ -25,22 +27,11 @@ export class CustomerListComponent implements OnInit {
     }
   }
 
-
+  
   populateForm(cus: Customer) {
   this.service.formData = Object.assign({}, cus);
   this.AddOrEditCustomer(cus);
   }
-
-  onDelete(id: number) {
-    if (confirm('Are you sure you want to delete this record?')) {
-      this.service.deleteCustomer(id).subscribe(res => {
-      this.service.refreshList();
-      this.toastr.warning('Deleted successfully', ' Elephas vacations',{
-        progressBar :true,
-        positionClass:'toast-top-right',
-        easing:'ease-in'
-      });  });
-    }}
 
     onClick(){
       const dialogConfig = new MatDialogConfig();
@@ -49,6 +40,7 @@ export class CustomerListComponent implements OnInit {
       this.dialog.open(CustomerComponent)
     }
 
+   
   AddOrEditCustomer(cus: Customer) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
@@ -59,7 +51,19 @@ export class CustomerListComponent implements OnInit {
     this.dialog.open(CustomerComponent, dialogConfig);
   }
   
+  onDelete(id : number){
+    if (confirm('Are you sure to delete this Employee record?')){
+    this.service.deleteCustomer(id).subscribe(res=>{
+      this.service.refreshList();
+      this.toastr.warning('Deleted successfully', ' Elephas vacations',{
+        progressBar :true,
+        positionClass:'toast-top-right',
+        easing:'ease-in'
+      });    });
+  }}
   
+  
+
   @HostListener('window:scroll')
   checkScroll() {
       
@@ -85,7 +89,6 @@ export class CustomerListComponent implements OnInit {
       behavior: 'smooth' 
     });
   }
-
 
 
 
