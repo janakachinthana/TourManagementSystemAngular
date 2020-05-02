@@ -7,6 +7,7 @@ import { DestinationService } from 'src/app/shared/destination.service';
 import { Destination } from '../shared/destination.model';
 import { CustomerService } from '../shared/customer.service';
 import { VehicleService } from '../shared/vehicle.service';
+import { DriverService } from '../shared/driver.service';
 
 
 
@@ -27,18 +28,22 @@ export class HomeComponent implements OnInit {
   public totalTransportCost : number;
 
   public numberOfSeats : number; 
-
   public driverFee : number;
+  public rate : number; 
 
   constructor(public service: GuideService,
               public service1 : DestinationService,
               public service2: CustomerService,
               public service3: VehicleService,
+              public service4: DriverService,
               private toastr : ToastrService
 ) { }
 
 public GuideX : any;
 public CustomerX : any;
+public DriverX : any;
+public days : number;
+public tableArr : number[];
   checkTransportCost(){
       this.totalTransportCost =  ((this.grossMilage*1)+(this.extraMilage*1))* this.chargePerKm;
   }
@@ -52,7 +57,7 @@ public CustomerX : any;
      {
       this.GuideX = data;
       this.guidePrice =this.GuideX.Price
-      this.TotalDAndGPrice =   this.driverFee*1 + this.guidePrice*1;
+      this.TotalDAndGPrice =   this.rate*1 + this.guidePrice*1;
      });
   }
 
@@ -62,12 +67,27 @@ public CustomerX : any;
     this.service2.GetSingleCustomer(event.target.value).subscribe(data=>
       {
        this.CustomerX = data;
-       this.numberOfPeople = this.CustomerX.NoPeople
+       this.numberOfPeople = this.CustomerX.NoPeople;
+       this.days= this.CustomerX.NoDays
+      //  for (let index = 0; index < this.tableArr.length; index++) {
+      //     this.service2.table[index] = index;
+         
+      //  }
+      
       });
   }
 
+  selectChangeHandlerDriver(event: any){
+    this.service4.GetSingleDriver(event.target.value).subscribe(data=>
+      {
+       this.DriverX= data;
+       this.rate = this.DriverX.Rate
+      });
+  }
+  
+
   selectChangeHandler1(event: any){
-      this.TotalDAndGPrice = event.target.value*1 + this.driverFee*1;
+      this.TotalDAndGPrice = event.target.value*1 + this.rate*1;
   }
 
   
@@ -84,6 +104,7 @@ public CustomerX : any;
       this.service1.refreshList();
       this.service2.refreshList();
       this.service3.refreshList();
+      this.service4.refreshList();
       this.resetForm();
   }
 

@@ -38,12 +38,6 @@ export class GuideService {
     }
 }
 
-// return this.http.get(this.rootURL+'/Guide'+id).map(res=>
-//   {
-//     return res.json()
-//   }
-//   )
-
 
 
  

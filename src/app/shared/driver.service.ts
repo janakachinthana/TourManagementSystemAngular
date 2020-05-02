@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Driver } from './driver.model';
 import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class DriverService {
 
   formData : Driver;
   list : Driver[];
-  readonly rootURL = "https://localhost:44355/api"
+  readonly rootURL = "https://localhost:44398/api"
 
   constructor(public http : HttpClient) { }
 
@@ -28,5 +29,10 @@ export class DriverService {
 
   deleteDriver(id : number){
     return this.http.delete(this.rootURL+'/Driver/'+id);
+  }
+
+  GetSingleDriver(id : number): Observable<any>{
+    return this.http.get(this.rootURL+'/Driver/' + id)
+      
   }
 }
