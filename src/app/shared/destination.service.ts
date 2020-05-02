@@ -9,24 +9,29 @@ export class DestinationService {
 
   formData : Destination;
   list : Destination[];
-  readonly rootURL = "https://localhost:44381/api"
+  readonly rootURL = "https://localhost:44398/api"
 
   constructor(private http : HttpClient) { }
 
   postDestination(formData : Destination){
-    return this.http.post(this.rootURL+'/destination', formData);
+    return this.http.post(this.rootURL+'/Destination', formData);
   }
 
   refreshList(){
-    this.http.get(this.rootURL+'/destination')
+    this.http.get(this.rootURL+'/Destination')
+    .toPromise().then(res => this.list = res as Destination[]);
+  }
+
+  refreshMedel(id : number){
+    this.http.get(this.rootURL+'/Destination'+id)
     .toPromise().then(res => this.list = res as Destination[]);
   }
 
   putDestination(formData : Destination){
-    return this.http.put(this.rootURL+'/destination/'+formData.DestinationID, formData);
+    return this.http.put(this.rootURL+'/Destination/'+formData.DestinationID, formData);
   }
 
   deleteDestination(id : number){
-    return this.http.delete(this.rootURL+'/destination/'+id);
+    return this.http.delete(this.rootURL+'/Destination/'+id);
   }
 }

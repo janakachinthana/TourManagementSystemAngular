@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Guide } from "./guide.model";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,9 @@ export class GuideService {
 
   formData : Guide;
   list : Guide[];
+  guide1 : Guide;
 
-  readonly rootURL = "https://localhost:44352/api"
+  readonly rootURL = "https://localhost:44398/api"
 
   constructor(public http : HttpClient) { }
 
@@ -30,9 +32,17 @@ export class GuideService {
     deleteGuide(id : number){
       return this.http.delete(this.rootURL+'/Guide/'+id);
     }
+    GetSingleGuid(id : number): Observable<any>{
+      return this.http.get(this.rootURL+'/Guide/' + id)
+        
+    }
 }
 
-
+// return this.http.get(this.rootURL+'/Guide'+id).map(res=>
+//   {
+//     return res.json()
+//   }
+//   )
 
 
 

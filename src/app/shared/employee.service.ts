@@ -30,6 +30,10 @@ export class EmployeeService {
    deleteEmployee(id : number){
      return this.http.delete(this.rootURL+'/Employee/'+id);
    }
+
+   GetSingleEmployee(id : number){
+    return this.http.get(this.rootURL+'/Employee'+id)  
+  }
 }
 
 

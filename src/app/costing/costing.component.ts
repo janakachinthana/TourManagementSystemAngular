@@ -5,87 +5,37 @@ import { ToastrService } from 'ngx-toastr';
 import { Guide } from 'src/app/shared/guide.model';
 import { DestinationService } from 'src/app/shared/destination.service';
 import { Destination } from '../shared/destination.model';
-import { CustomerService } from '../shared/customer.service';
-import { VehicleService } from '../shared/vehicle.service';
 
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-costing',
+  templateUrl: './costing.component.html',
+  styleUrls: ['./costing.component.scss']
 })
-export class HomeComponent implements OnInit {
-  public guidePrice : number = null;
-  public TotalDAndGPrice : number = null;
-  public selectedDay2 : number = null;
-  public numberOfPeople : number = null;
+export class CostingComponent implements OnInit {
 
-  public grossMilage : number;
-  public extraMilage : number;
-  public chargePerKm : number;
-  public totalTransportCost : number;
-
-  public numberOfSeats : number; 
-
-  public driverFee : number;
-
+  selectedDay : string = '';
+  selectedDay1 : string = '';
   constructor(public service: GuideService,
-              public service1 : DestinationService,
-              public service2: CustomerService,
-              public service3: VehicleService,
-              private toastr : ToastrService
+    public service1 : DestinationService,
+    private toastr : ToastrService
 ) { }
 
-public GuideX : any;
-public CustomerX : any;
-  checkTransportCost(){
-      this.totalTransportCost =  ((this.grossMilage*1)+(this.extraMilage*1))* this.chargePerKm;
-  }
+selectChangeHandler(event: any){
 
-  populateForm1(guide : Guide){
-      this.service.formData = Object.assign({},guide);
-  }
+  this.selectedDay = event.target.value;
+ 
+}
+selectChangeHandler1(event: any){
+  this.selectedDay1 = event.target.value;
+}
 
-  selectChangeHandler(event: any){
-      this.service.GetSingleGuid(event.target.value).subscribe(data=>
-     {
-      this.GuideX = data;
-      this.guidePrice =this.GuideX.Price
-      this.TotalDAndGPrice =   this.driverFee*1 + this.guidePrice*1;
-     });
-  }
-
-  selectChangeHandlerCustomer(event: any){
-    // this.numberOfPeople = event.target.value;
-
-    this.service2.GetSingleCustomer(event.target.value).subscribe(data=>
-      {
-       this.CustomerX = data;
-       this.numberOfPeople = this.CustomerX.NoPeople
-      });
-  }
-
-  selectChangeHandler1(event: any){
-      this.TotalDAndGPrice = event.target.value*1 + this.driverFee*1;
-  }
-
-  
-
-  selectChangeHandlerVehicle(event: any){
-      this.chargePerKm = event.target.value;
-      this.totalTransportCost = ((this.grossMilage*1)+(this.extraMilage*1))* this.chargePerKm;
-  }
-
-
-
-  ngOnInit(): void {
-      this.service.refreshList(); 
-      this.service1.refreshList();
-      this.service2.refreshList();
-      this.service3.refreshList();
-      this.resetForm();
-  }
+ngOnInit(): void {
+this.service.refreshList(); 
+this.service1.refreshList();
+this.resetForm();
+}
 
 resetForm(form? : NgForm){
 if(form != null)

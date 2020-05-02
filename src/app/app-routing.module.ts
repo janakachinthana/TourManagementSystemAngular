@@ -10,18 +10,17 @@ import { MainComponent } from "./main/main.component";
 import { VehiclesComponent } from "./vehicles/vehicles.component";
 import { ConfirmedTourComponent } from "./confirmed-tour/confirmed-tour.component";
 import { CompletedTourComponent } from "./completed-tour/completed-tour.component";
-import { LoginComponent } from './user/login/login.component';
-import { UsersListComponent } from './User/users-list/users-list.component';
-import { UserComponent } from './user/user.component';
 import { CustomersComponent } from './customers/customers.component';
 import { DriversComponent } from './drivers/drivers.component';
+import { CostingComponent } from './costing/costing.component';
+import { UserComponent } from './user/user.component';
 
 
 
 const routes: Routes = [
 
   
-  { path : '', component : UsersListComponent},
+  { path : '', component : UserComponent},
   { path : 'customer', component : CustomersComponent},
   { path : 'employee', component : EmployeeComponent},
   { path : 'destination', component : DestinationsComponent},
@@ -30,7 +29,7 @@ const routes: Routes = [
   { path : 'main', component : MainComponent},
   { path : 'home', component : HomeComponent},
   { path : 'vehicle', component : VehiclesComponent},
-  { path : 'confirmed', component : ConfirmedTourComponent},
+  { path : 'confirmed', component : CostingComponent},
   { path : 'completed', component : CompletedTourComponent},
   { path : 'employee', component : EmployeeComponent},
   { path : 'destination', component : DestinationsComponent},

@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  import { ToastrModule } from 'ngx-toastr';
-
+ 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -57,9 +57,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { UserComponent } from './user/user.component';
-import { LoginComponent } from './User/login/login.component';
-import { UsersListComponent } from './User/users-list/users-list.component';
 import { CustomersComponent } from "./customers/customers.component";
 import { CustomerComponent } from "./customers/customer/customer.component";
 import { CustomerListComponent } from "./customers/customer-list/customer-list.component";
@@ -68,6 +65,10 @@ import { CustomerService } from './shared/customer.service';
 import { DriverComponent } from './drivers/driver/driver.component';
 import { DriverListComponent } from './drivers/driver-list/driver-list.component';
 import { DriversComponent } from './drivers/drivers.component';
+import { CostingComponent } from './costing/costing.component';
+import { UserComponent } from './user/user.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { LoginComponent } from './user/login/login.component';
 
 
 
@@ -94,17 +95,17 @@ import { DriversComponent } from './drivers/drivers.component';
     MainComponent,
     ConfirmedTourComponent,
     CompletedTourComponent,
-    UserComponent,
-    LoginComponent,
-    UsersListComponent,
     CustomersComponent,
     CustomerComponent,
     CustomerListComponent,
     CustomerReqTableComponent,
     DriverComponent,
     DriverListComponent,
-    DriversComponent
- 
+    DriversComponent,
+    CostingComponent,
+    UserComponent,
+    UserListComponent,
+    LoginComponent,
 
 
 
@@ -113,9 +114,11 @@ import { DriversComponent } from './drivers/drivers.component';
     
   ],
   imports: [
+   
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     // MaterialModule,

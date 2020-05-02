@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Employee } from './employee.model';
 import { Customer } from './customer.model';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class CustomerService {
   formData: Customer;
   list: Customer[];
   // readonly rootURL = 'https://localhost:44300/api';
-  readonly rootURL = 'https://localhost:44392/api';
+  readonly rootURL = "https://localhost:44398/api"
   constructor(private http: HttpClient) { }
 
   postCustomer(formData: Customer) {
@@ -29,5 +30,10 @@ export class CustomerService {
    deleteCustomer(id: number) {
      return this.http.delete(this.rootURL + '/Customer/' + id);
    }
+
+   GetSingleCustomer(id : number): Observable<any>{
+    return this.http.get(this.rootURL+'/Customer/' + id)
+      
+  }
 
 }

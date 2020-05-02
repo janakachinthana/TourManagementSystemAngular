@@ -26,9 +26,9 @@ export class DestinationComponent implements OnInit {
       DestinationName : '',
       Time : '',
       EntranceFee : null,
-      CityOfTheDestination : '',
-      RulesAndRegulations : '',
-      DescriptionOfThePlace : ''
+      City : '',
+      Rules : '',
+      Description : ''
 
     }
   }

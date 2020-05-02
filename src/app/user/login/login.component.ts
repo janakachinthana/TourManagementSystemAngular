@@ -1,10 +1,16 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { EmployeeService } from 'src/app/shared/employee.service';
-import { NgForm } from '@angular/forms';
-import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { Employee } from 'src/app/shared/employee.model';
-import {  MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import { inject } from '@angular/core/testing';
+import { EmployeeService } from 'src/app/shared/employee.service';
+import { ToastrService } from 'ngx-toastr';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
+import { NgForm } from '@angular/forms';
+import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, RouterLink, ActivatedRoute, CanActivate } from '@angular/router';
+import { Observable } from 'rxjs/internal/Observable';
+import { CustomersComponent } from 'src/app/customers/customers.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
+import { AppComponent } from 'src/app/app.component';
+import { Prevelent } from 'src/app/shared/prevelent.model';
 
 @Component({
   selector: 'app-login',
@@ -14,16 +20,20 @@ import { inject } from '@angular/core/testing';
 export class LoginComponent implements OnInit {
   formData: Employee;
   temp: Employee;
-  
+  currentUser : Prevelent;
   imageUrl: string = "/assets/img/img.jpg";
   fileToUpload: File = null;
+  authService: any;
 
 
   constructor(public service : EmployeeService,
+    private router: Router,
       private toastr : ToastrService,
+      private _activateRouter : ActivatedRoute,
       @Inject(MAT_DIALOG_DATA) public data,
        public dialogRef: MatDialogRef<LoginComponent>
     ) { }
+
    
 
  handleFileInput(file: FileList) {
@@ -48,7 +58,7 @@ ngOnInit() :void{
        this.service.formData = {
         EmployeeID : this.temp.EmployeeID,
         FirstName : this.temp.FirstName,
-        LastName : this.temp.LastName,
+        LastName : null,
         Address : this.temp.Address,
         BirthDay : this.temp.BirthDay,
         NicNo : this.temp.NicNo,
@@ -92,8 +102,8 @@ ngOnInit() :void{
       }
         
       else{
-        if(form.value.FillName != null || form.value.LastName != null || form.value.Address || null && form.value.BirthDay != null || form.value.NicNo != null || form.value.Contact != null || form.value.Email != null)
-        this.updateRecord(form);
+        if(form.value.FirstName == this.temp.LastName )
+        this.dialogRef.close();
         else
         this.toastr.warning('Update faild', 'EMP. Eliphase Vacation');
       }
@@ -113,16 +123,20 @@ ngOnInit() :void{
     }
 
     updateRecord(form : NgForm){
-      this.service.putEmployeee(form.value).subscribe(res =>{
-        this.toastr.info('Updated successfully', 'EMP. Register',{
-          progressBar :true,
-          positionClass:'toast-top-right',
-          easing:'ease-in'
-        });
-        this.resetForm(form);
-        this.service.refreshList();
+      if(form.value.LastName == this.temp.LastName )
+      {
+        this.currentUser = Object.assign({}, this.data.emp);
+        this.router.navigateByUrl('main')
+        this.toastr.success('Login Successfully', 'EMP. Eliphase Vacation');
         this.dialogRef.close();
-      });
+      }
+      else
+      {
+      this.toastr.warning('Login Failed ', 'EMP. Eliphase Vacation');
+      }
     }
+
+    
+  
 
 }

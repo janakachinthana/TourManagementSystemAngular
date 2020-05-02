@@ -173,78 +173,128 @@
         <hr>
 
         <!-- Gathering data and analysis section is here - section 3 -->
-        <div class="row">
-          <div class="col-md-3">
+        <div class="row ">
+          <div class="col-md-3" id="div1">
+            <div class="bg-info center">
             <h3>
               Transportation Cost
             </h3>
+            </div>
+            <h2><a href="https://www.distance.to/">Find Distances here</a></h2>
             <form action="" style="margin: auto;">
               <div class="form-group">
                 <label>
                   Gross Mileage (KM)
                 </label>
-                <input type="text" class="form-control" id="#" placeholder="Gross Mileage (Google maps)" />
+                <input type="text" class="form-control" id="#" placeholder="Gross Mileage (Google maps)" name="grossMilage" [(ngModel)]="grossMilage"/>
               </div>
               <div class="form-group">
                 <label>
                   Extra Mileage (KM)
                 </label>
-                <input type="text" class="form-control" id="#" placeholder="Extra Mileage" />
+                <input type="number" class="form-control" id="#" placeholder="Extra Mileage" name="extraMilage" [(ngModel)]="extraMilage"/>
               </div>
-              <div class="form-group">
-                <label>
-                  Total Mileage (KM)
-                </label>
-                <input type="text" class="form-control" id="#" placeholder="No of People" />
-              </div>
-              <div class="form-group">
+              <!-- <div class="form-group">
                 <label>
                   Kilometer charge (LKR)
                 </label>
-                <input type="text" class="form-control" id="#" placeholder="Charge per Kilometer in LKR " />
+               
+              </div> -->
+              
+
+
+              <div class="form-group">
+                <label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-info text-white" id="basic-addon1">Customer</span>
+                    </div>
+                    <select  name="Guide"   class="form-control" id="guide" (click)="selectChangeHandlerCustomer($event)">
+                        <option value="No of People">Select Customer</option> 
+                        <option value="{{cus.ID}}" *ngFor="let cus of service2.list "> {{cus.Name}}  </option>
+                               
+                    </select></div>
+                </label>
+                <input type="text" class="form-control" id="#" value="{{numberOfPeople}}" placeholder="No of People" disabled [(ngModel)]="numberOfPeople"/>
+              </div>
+<!-- hkgkjgjgjkgkjkgjkgjkgkgj -->
+
+              <div class="form-group">
+                <label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-info text-white" id="basic-addon1">Vehicle</span>
+                    </div>
+                    <select  name="Guide"   class="form-control" id="guide" (click)="selectChangeHandlerVehicle($event)">
+                        <option>Select Vehicle</option> 
+                        <option value="{{veh.RatePerKM}}" *ngFor="let veh of service3.list  ">{{veh.Model}},{{veh.OwnersName}} , {{veh.NoOfSeats}} </option>
+                               
+                    </select></div>
+                </label>
+                <input type="number" class="form-control" id="#" placeholder="Charge per Kilometer in LKR "   value="{{chargePerKm}}"  />
               </div>
 
+<!-- hhklhlk -->
+
+
+
+
+              <!-- <Button id="btn" (click) ="checkTransportCost()">Check Transportation Cost</Button> -->
               <div class="form-group">
                 <label>
                   Transportation Cost (USD)
                 </label>
-                <input type="text" class="form-control" id="#" placeholder="Total Transportation Cost Altogether" />
-              </div>
+                <input type="number" class="form-control"  id="total" value="{{totalTransportCost}}"  placeholder="Total Transportation Cost Altogether" />
+              </div>              
+              <br><br>
           </form>
 
 
           </div>
-          <div class="col-md-3">
+          <div id="div1" class="col-md-3"> 
+            <div class="bg-info center">
             <h3>
               Driver &amp; Guide Costs
             </h3>
+            </div>
             <form action="">
               <div class="form-group">
                 <label>
                   Driver's Bata (LKR)
                 </label>
-                <input type="text" class="form-control" id="#" placeholder="Driver's Bata" />
+                <input type="text" class="form-control" id="#" placeholder="Driver's Bata" name="driverFee"  [(ngModel)]="driverFee"/>
               </div>
               <div class="form-group">
                 <label>
-                  Guide Fee (LKR)
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-info text-white" id="basic-addon1">Guide</span>
+                    </div>
+                    <select  name="Guide"   class="form-control" id="guide" (change)="selectChangeHandler($event)">
+                        <option>Select Guide</option> 
+                        <option value="{{guide.GuideID}}"  *ngFor="let guide of service.list "> {{guide.FirstName}}  </option>
+                               
+                    </select></div>
                 </label>
-                <input type="text" class="form-control" id="#" placeholder="Guide Fee" />
+                <input required id="guidePrice2" name="FirstName" value="{{guidePrice}}" class="form-control" placeholder="Price" disabled>
               </div>
+             
               <div class="form-group">
                 <label>
                   Total (LKR)
                 </label>
-                <input type="text" class="form-control" id="#" placeholder="Total Transportation Cost" />
+                <input type="text" class="form-control" id="total" value="{{TotalDAndGPrice}}" placeholder="Guide & Drevers Total" disabled />
               </div>
             </form>
           </div>
 
           <!-- Additional Costs details are shown here -->
-          <div class="col-md-6">
+          <div class="col-md-6" id="div1">
+            <div class="bg-info center">
             <h3>
               Additional Costs
             </h3>
+          </div>
             <table class="table">
               <thead class="thead-light">
                 <tr>

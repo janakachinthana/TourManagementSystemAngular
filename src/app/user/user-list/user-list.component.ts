@@ -1,21 +1,17 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { EmployeeService } from 'src/app/shared/employee.service';
-import { Employee } from 'src/app/shared/employee.model';
 import { ToastrService } from 'ngx-toastr';
-import {  MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import { EmployeeRegisterComponent } from 'src/app/employee/employee-register/employee-register.component';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Employee } from 'src/app/shared/employee.model';
 import { LoginComponent } from '../login/login.component';
 
-
-
 @Component({
-  selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
-  styleUrls: ['./users-list.component.scss']
+  selector: 'app-user-list',
+  templateUrl: './user-list.component.html',
+  styleUrls: ['./user-list.component.scss']
 })
-export class UsersListComponent implements OnInit {
+export class UserListComponent implements OnInit {
 
- 
   isShow: boolean;
   topPosToStartShowing = 100;
   
@@ -32,24 +28,35 @@ export class UsersListComponent implements OnInit {
 
   populateForm(emp : Employee){
     this.service.formData = Object.assign({}, emp);
-    this.AddOrEditVehicles(emp);
+    this.AddOrEditEmployees(emp);
 
    
   }
 
+  onDelete(id : number){
+    if (confirm('Are you sure to delete this Employee record?')){
+    this.service.deleteEmployee(id).subscribe(res=>{
+      this.service.refreshList();
+      this.toastr.warning('Deleted successfully', ' Elephas vacations',{
+        progressBar :true,
+        positionClass:'toast-top-right',
+        easing:'ease-in'
+      });    });
+  }}
 
   onClick(){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.width="50%";
  
-    this.dialog.open(EmployeeRegisterComponent)
+    this.dialog.open(LoginComponent)
   }
-  AddOrEditVehicles(emp: Employee) {
+  AddOrEditEmployees(emp: Employee) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = false;
-    dialogConfig.width = '40%';
+    dialogConfig.width = '25%';
+    dialogConfig.height = '50%';
     dialogConfig.data = {emp};
     this.dialog.open(LoginComponent, dialogConfig);
   }

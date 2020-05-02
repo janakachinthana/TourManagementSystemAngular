@@ -185,11 +185,19 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block" *ngIf="service.formData.ID==null;">SUBMIT</button>
-        <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="btn btn-lg btn-success btn-block" *ngIf="service.formData.ID!=null;">UPDATE</button>
-        <button type="button" (click)="deleteRecord(service.formData.ID)" [disabled]="form.invalid" class="btn btn-lg btn-danger btn-block" *ngIf="service.formData.ID!=null;">DELETE</button>
-        <button type="button" class="btn btn-lg btn-outline-dark btn-block ml-1" [mat-dialog-close]>CLOSE</button>
-      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group-prepend">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.ID==null;"> <mat-icon> send</mat-icon></button>
+        <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.ID!=null;"> save</button>
+      </div></div>
+
+
+        <div class="col-md-6">
+          <div class="input-group-prepend">
+      
+        <button type="button" class="btn btn-lg btn-block BTNNEW btndiv" [mat-dialog-close]>CLOSE</button>
+</div>
+</div></div>
 
 </form>
