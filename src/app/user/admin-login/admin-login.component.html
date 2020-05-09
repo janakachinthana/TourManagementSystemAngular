@@ -1,0 +1,36 @@
+<h1>This Page Can Access Only Admin</h1>
+
+<form #form="ngForm"  autocomplete="off">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="input-group-prepend">
+          <span class="input-group-text bg-info text-white" id="basic-addon1"  >User Name</span>
+        
+        <input required pattern="^[A-Z]+[a-z]+$"   name="FirstName"  [(ngModel)]="form.value.FirstName" class="form-control">
+       
+    </div>
+  </div >
+      </div>
+      <div class="row">
+  <div class="col-md-12">
+    <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1" >Password</span>
+      
+      <input required  type="password" name="LastName"  class="form-control"  [(ngModel)]="form.value.LastName">
+      </div >
+  </div>
+</div>
+
+    
+     <br><br>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="input-group-prepend">
+            <button (click)="cancelAdminLogin()" class="btn btn-lg btn-block BTNNEW btndiv" >Cancel</button>
+      </div></div>
+      <div class="col-md-6">
+        <button type="button" (click)="updateRecord(form)"  class="btn btn-lg btn-block BTNNEW btndiv" > Login</button>
+    </div>
+    </div>
+</form>
+

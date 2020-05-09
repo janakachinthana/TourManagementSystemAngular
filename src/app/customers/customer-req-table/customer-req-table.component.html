@@ -1,0 +1,101 @@
+
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+    <!-- Nationality Column -->
+    <ng-container matColumnDef="nationality">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nationality</th>
+      <td mat-cell *matCellDef="let row">{{row.nationality}}</td>
+    </ng-container>
+
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+      <td mat-cell *matCellDef="let row">{{row.phone}}</td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+      <td mat-cell *matCellDef="let row">{{row.email}}</td>
+    </ng-container>
+
+    <!-- <!-- NoOfDays Column -->
+    <ng-container matColumnDef="nodays">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header># Days</th>
+      <td mat-cell *matCellDef="let row">{{row.nodays}}</td>
+    </ng-container>
+
+    <!-- NoOfPeople Column -->
+    <ng-container matColumnDef="nopeople">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header># People</th>
+      <td mat-cell *matCellDef="let row">{{row.nopeople}}</td>
+    </ng-container>
+
+    <!-- NoOfChildren Column -->
+    <ng-container matColumnDef="nochildren">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header># Children</th>
+      <td mat-cell *matCellDef="let row">{{row.nochildren}}</td>
+    </ng-container>
+
+    <!-- Arrival Date Column -->
+    <ng-container matColumnDef="arrivaldate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Arrival Date</th>
+      <td mat-cell *matCellDef="let row">{{row.arrivaldate}}</td>
+    </ng-container>
+
+    <!-- Departure Date Column -->
+    <ng-container matColumnDef="departuredate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Departure Date</th>
+      <td mat-cell *matCellDef="let row">{{row.departuredate}}</td>
+    </ng-container>
+
+
+    <!-- Star Category Column -->
+    <ng-container matColumnDef="starcategory">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Star Category</th>
+      <td mat-cell *matCellDef="let row">{{row.starcategory}}</td>
+    </ng-container>
+
+
+    <!-- Remark Column -->
+    <ng-container matColumnDef="remark">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Remark</th>
+      <td mat-cell *matCellDef="let row">{{row.remark}}</td>
+    </ng-container>
+
+    <!-- Tour Executive Column -->
+    <ng-container matColumnDef="tourexecutive">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tour Executive</th>
+      <td mat-cell *matCellDef="let row">{{row.tourexecutive}}</td>
+    </ng-container>
+
+    <!-- Exchange Rate Column -->
+    <ng-container matColumnDef="exchangerate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Exchange Rate</th>
+      <td mat-cell *matCellDef="let row">{{row.exchangerate}}</td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data.length"
+      [pageIndex]="0"
+      [pageSize]="50"
+      [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator>
+</div>
+

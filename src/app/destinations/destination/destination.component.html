@@ -1,0 +1,40 @@
+<form #form= "ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <input type="hidden" name="DestinationID" #DestinationID= "ngModel" [(ngModel)]="service.formData.DestinationID">
+ <div class="form-group">
+     <label style="color: black;">DESTINATION NAME</label>
+     <input name="DestinationName" #DestinationName= "ngModel" [(ngModel)]="service.formData.DestinationName" class="form-control" required>
+     <div class="validation-error" *ngIf = "DestinationName.invalid && DestinationName.touched">This feild is required.</div>
+ </div>
+ <div class="form-group">
+    <label style="color: black;">TIME</label>
+    <input name="Time" #Time= "ngModel" [(ngModel)]="service.formData.Time" class="form-control" required>
+    <div class="validation-error" *ngIf = "Time.invalid && Time.touched">This feild is required.</div>
+</div>
+<div class="form-group">
+    <label style="color: black;">ENTRANCE FEE</label>
+    <input name="EntranceFee" #EntranceFee= "ngModel" [(ngModel)]="service.formData.EntranceFee" class="form-control" required>
+    <div class="validation-error" *ngIf = "EntranceFee.invalid && EntranceFee.touched">This feild is required.</div>
+</div>
+<div class="form-group">
+    <label style="color: black;">CITY OF THE DESTINATION</label>
+    <input name="City" #City= "ngModel" [(ngModel)]="service.formData.City" class="form-control" required>
+    <div class="validation-error" *ngIf = "City.invalid && City.touched">This feild is required.</div>
+</div>
+<div class="form-group">
+
+        <label style="color: black;">RULES AND REGULATIONS</label>
+        <input name="Rules" #Rules= "ngModel" [(ngModel)]="service.formData.Rules" class="form-control"required>
+        <div class="validation-error" *ngIf = "Rules.invalid && Rules.touched">This feild is required.</div>
+    </div>
+    <div class="form-group">
+        <label style="color: black;" >DESCRIPTION OF THE PLACE</label>
+        <input name="Description" #Description= "ngModel" [(ngModel)]="service.formData.Description" class="form-control" required>
+        <div class="validation-error" *ngIf = "Description.invalid && Description.touched">This feild is required.</div>
+</div>
+
+   
+
+<div class="form-group">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
+</div>
+</form>

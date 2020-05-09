@@ -1,0 +1,873 @@
+
+<h1>{{UserName}}</h1>
+<button class="btn btn-lg btn-primary addbtn" mat-raised-button style ="margin-left: 45%;" (click)="downloadPDF()">
+  Export to PDF</button><br><br>
+   
+    <br>
+    <div class="jumbotron divmain container ">
+
+      <div class="container-fluid">
+       
+
+  <!-- getting information / SECTION 1 starts here --> <!-- Customer Details section is here -->
+  <h3>Customer & Tour Details Gathering - dhanusha perera </h3>
+  <form action="" style="margin: auto;">
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          Agent Name
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Agent Name" />
+      </div>
+      <div class="col-lg-6 form-group">
+        <label>
+          Client Name
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Client Name" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          Nationality
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Nationality" />
+      </div>
+      <div class="col-lg-6 form-group">
+        <label>
+          No of People
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="No of People" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          Arrival Date
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Arrival Date" />
+      </div>
+      <div class="col-lg-6 form-group">
+        <label>
+          Departure Date
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Departure Date" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          No of Days
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="No of Days" />
+      </div>
+      <div class="col-lg-6 form-group">
+        <label>
+          Star Category
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Star Category" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          Tour Executive
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Tour Executive" />
+      </div>
+      <div class="col-lg-6 form-group">
+        <label>
+          Exchange Rate
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Exchange Rate" />
+        <br>
+        <button type="button" class="btn btn-primary float-right">Done</button> <!--- LOAD button is here ---->
+      </div>
+    </div>
+
+</form>
+<!-- ******************* getting information / first section ends here ******************* -->
+
+  <br>
+  <br>
+  <hr>
+
+  <!-- EXCEL SHEET PART begins here - SECTION 2  --> <!-- Displaying gathered data is happening here -->
+  <h3>
+    Tour Details <span class="small">including customer details</span>
+  </h3>
+
+  <form action="" style="margin: auto;">
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          Agent Name
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Agent Name" />
+      </div>
+      <div class="col-lg-6 form-group">
+        <label>
+          Client Name
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Client Name" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          Nationality
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Nationality" />
+      </div>
+      <div class="col-lg-6 form-group">
+        <label>
+          No of People
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="No of People" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          Arrival Date
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Arrival Date" />
+      </div>
+      <div class="col-lg-6 form-group">
+        <label>
+          Departure Date
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Departure Date" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          No of Days
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="No of Days" />
+      </div>
+      <div class="col-lg-6 form-group">
+        <label>
+          Star Category
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Star Category" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 form-group">
+        <label>
+          Tour Executive
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Tour Executive" />
+      </div>
+      <div class="col-lg-6 form-group">
+        <label>
+          Exchange Rate
+        </label>
+        <input type="text" class="form-control" id="#" placeholder="Exchange Rate" />
+      </div>
+    </div>
+</form>
+
+<hr>
+
+
+
+        <form #form="ngForm" (submit)="onSubmit(form)" style="margin: auto;">
+        <!-- Gathering data and analysis section is here - section 3 -->
+        <div class="row ">
+          <div class="col-md-3" id="div1">
+            <div class="bg-info center">
+            <h3>
+              Transportation Cost
+            </h3>
+            </div>
+            <h2><a href="https://www.distance.to/">Find Distances here</a></h2>
+
+            
+              <input type="hidden" name="" #homeID="ngModel" [(ngModel)]="serviceHome.formData.homeID">
+
+              <div class="form-group">
+                <label>
+                  Gross Mileage (KM)
+                </label>
+                <label>
+                <input type="number" class="form-control" id="#" placeholder="Gross Mileage (Google maps)" name="grossMilage"  [(ngModel)]="grossMilage"/>
+              </label>
+              </div>
+              <div class="form-group">
+                <label>
+                  Extra Mileage (KM)
+                </label>
+                <input type="number" class="form-control" id="#" placeholder="Extra Mileage" name="extraMilage" [(ngModel)]="extraMilage"/>
+              </div>
+              <!-- <div class="form-group">
+                <label>
+                  Kilometer charge (LKR)
+                </label>
+               
+              </div> -->
+              
+
+
+
+              <div class="form-group">
+                <label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-info text-white" id="basic-addon1">Customer</span>
+                    </div>
+                      <select  name="customerID"   class="form-control" id="customerID"  [(ngModel)]="serviceHome.formData.customerID"  (click)="selectChangeHandlerCustomer($event)">  
+                        <option value="No of People">Select Customer</option> 
+                        <option value="{{cus.ID}}" *ngFor="let cus of service2.list "> {{cus.Name}}  </option>                              
+                    </select></div>
+                </label>
+                <label>
+                  Number of People:
+                </label>
+                <input type="text" class="form-control" id="#" value="{{numberOfPeople}}" placeholder="No of People" disabled [(ngModel)]="numberOfPeople"/>
+              </div>
+<!-- hkgkjgjgjkgkjkgjkgjkgkgj -->
+
+              <div class="form-group">
+                <label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-info text-white" id="basic-addon1">Vehicle</span>
+                    </div>
+                    <!-- <select  name="Guide"   class="form-control" id="guide" (click)="selectChangeHandlerVehicle($event)"> -->
+                      <select  name="vehicalID"   class="form-control" id="guide" #vehicalID="ngModel" [(ngModel)]="serviceHome.formData.vehicalID" (click)="selectChangeHandlerVehicle($event)">
+                    
+                      <option>Select Vehicle</option> 
+                        <option value="{{veh.VehicleID}}" *ngFor="let veh of service3.list  ">{{veh.Model}},{{veh.OwnersName}} , {{veh.NoOfSeats}} </option>
+                               
+                    </select></div>
+                </label>
+                <label>
+                 Vehicle Rate: (LKR per KM)
+                </label>
+                <input type="number" class="form-control" id="#" placeholder="Charge per Kilometer in LKR "   value="{{chargePerKm}}"  />
+              </div>
+
+<!-- hhklhlk -->
+
+
+
+
+              <!-- <Button id="btn" (click) ="checkTransportCost()">Check Transportation Cost</Button> -->
+              <div class="form-group">
+                <label>
+                  Transportation Cost (USD)
+                </label>
+                <input type="number" class="form-control"  id="total" value="{{totalTransportCost}}"  placeholder="Total Transportation Cost Altogether" />
+              </div>              
+              <br><br>
+          </div>
+        
+         
+          <div id="div1" class="col-md-3"> 
+            <div class="bg-info center">
+            <h3>
+              Driver &amp; Guide Costs
+            </h3>
+            </div>
+           
+              <div class="form-group">
+                <label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-info text-white" id="basic-addon1">Driver</span>
+                    </div>
+                    <!-- <select  name="Driver"   class="form-control" id="driver" (change)="selectChangeHandlerDriver($event)"> -->
+                      <select  name="driverID"   class="form-control" id="driver"  #driverID="ngModel" [(ngModel)]="serviceHome.formData.driverID" (change)="selectChangeHandlerDriver($event)">
+                   
+                      <option value="1">Select Guide</option> 
+                        <option value="{{dri.DriverID}}"  *ngFor="let dri of service4.list" > {{dri.FirstName}}  </option>
+                               
+                    </select></div>
+                </label>
+                <input required id="guidePrice2" name="FirstName" value="{{rate}}" class="form-control" placeholder="Price" disabled>
+              </div>
+
+
+
+              <div class="form-group">
+                <label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text bg-info text-white" id="basic-addon1">Guide</span>
+                    </div>
+                    <!-- <select  name="Guide"   class="form-control" id="guide" (change)="selectChangeHandler($event)"> -->
+                      <select  name="guideID"   class="form-control" id="guide"  #guideID="ngModel" [(ngModel)]="serviceHome.formData.guideID" (change)="selectChangeHandlerGuide($event)">
+                   
+                      <option>Select Guide</option> 
+                        <option value="{{guide.GuideID}}"  *ngFor="let guide of service.list "> {{guide.FirstName}}  </option>
+                               
+                    </select></div>
+                </label>
+                <input required id="guidePrice2" name="FirstName" value="{{guidePrice}}" class="form-control" placeholder="Price" disabled>
+              </div>
+             
+              <div class="form-group">
+                <label>
+                  Total (LKR)
+                </label>
+                <input type="text" class="form-control" id="total" value="{{TotalDAndGPrice}}" placeholder="Guide & Drevers Total" disabled />
+              </div>
+          </div>
+  </div>
+
+            <hr>
+            <h3>Accommodation | Meal Plans Costing</h3><br>
+    
+            
+    
+    <div class="container" *ngFor="let obj of dataarry; let i=index">
+      
+      <div class="form-row" >
+        <div class="form-group col-md-4">
+
+        <input type="hidden" name="PackageID"  >
+       
+        <div class="form-group">
+          <label for="">Tour Date</label>
+          <input type="date" name="date{{i}}" class="form-control" #date="ngModel" [(ngModel)]="obj.date">
+        </div>
+
+        <div class="form-group">
+
+          <label for="">Hotel / Star Classs</label> 
+
+          <!-- <select  name="hotelID"   class="form-control" id="hotel" #hotelID="ngModel" [(ngModel)]="serviceHome.formData.hotelID" (change)="selectChangeHandlerHotel($event)">                
+              <option value="{{hotel.HotelID}}"  *ngFor="let hotel of service7.list" >{{hotel.HotelName}} || {{hotel.Address}} || {{hotel.StarClass}}</option>
+          </select> -->
+
+          <select  name="hotelID{{i}}"   class="form-control" id="hotel"  #hotelID="ngModel" [(ngModel)]="obj.hotelID" (change)="selectChangeHandlerHotel($event)">
+                   
+            <option value="1">Select Hotel</option> 
+              <option value="{{dri.HotelID}} "  *ngFor="let dri of service7.list" > {{dri.HotelName}}  </option>                   
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="">Hotel Confirmation</label>
+           <select  name="hotelName{{i}}"   class="form-control" #hotelName="ngModel" [(ngModel)]="obj.hotelName" >                
+              <option value="{{HotelNameandAddress}}">{{HotelNameandAddress}}</option>
+           </select>
+        </div>
+
+
+        <div class="form-group">
+          <label for="">Meal Plan</label>
+         <select  name="MealPlan{{i}}"   class="form-control" #mealPlan="ngModel" [(ngModel)]="obj.mealPlan"  (change)="selectChangeHandlerMealPlan($event)">                
+             
+              <option value="{{RoomOnly}}">Room Only</option>
+              <option value="{{BedAndBreakfast}}">Bed And Breackfast</option>
+              <option value="{{FullBoard}}">Full Board</option>
+              <option value="{{HalfBoard}}">Half Board</option>
+           
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Meal Plan Cost Confirmation</label>
+         <select  name="currentMealPlan{{i}}"   class="form-control" #currentMealPlan="ngModel" [(ngModel)]="obj.currentMealPlan">                
+             
+              <option value="{{currentMealPlanName}}">{{MealPlan}}</option>
+           
+          </select>
+        </div>
+
+      </div>
+      <div class="form-group col-md-4">
+
+        <div class="form-group">
+          <label for="">Single Room</label>
+          <input type="number" name="SingleRoomCount{{i}}" class="form-control"  [(ngModel)]="obj.SingleRoomCount">
+        </div>
+
+        <div class="form-group">
+          <label for="">Double Room</label>
+          <input type="number" name="DoubleRoomCount{{i}}" class="form-control" [(ngModel)]="obj.DoubleRoomCount">
+        </div>
+        
+        <div class="form-group">
+          <label for="">Trible Room</label>
+          <input type="number" name="TripleRoomCount{{i}}" class="form-control" [(ngModel)]="obj.TripleRoomCount">
+        </div>
+
+        <div class="form-group">
+          <label for="">Guide Room</label>
+          <input type="number" name="GuidedRoomCount{{i}}" class="form-control" [(ngModel)]="obj.GuidedRoomCount">
+        </div>
+      </div>
+
+      <div class="form-group col-md-4">
+
+        <div class="form-group col-md-6">
+          <label for="">Single room Cost Confirmation</label>
+          <select  name="singleRoomCost{{i}}"   class="form-control" #singleRoomCost="ngModel" [(ngModel)]="obj.singleRoomCost">                
+            <option value="{{Single}}">{{Single}}</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="">Double room Cost Confirmation</label>
+          <select  name="doubleRoomCost{{i}}"   class="form-control" #doubleRoomCost="ngModel" [(ngModel)]="obj.doubleRoomCost">                
+            <option value="{{Double}}">{{Double}}</option>
+          </select>
+        </div>
+        
+        <div class="form-group col-md-6">
+          <label for="">Triple room Cost Confirmation</label>
+          <select  name="tripleRoomCost{{i}}"   class="form-control" #tripleRoomCost="ngModel" [(ngModel)]="obj.tripleRoomCost">                
+            <option value="{{Triple}}">{{Triple}}</option>
+          </select>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="">Guide room Cost Confirmation</label>
+          <select  name="guideRoomCost{{i}}"   class="form-control" #guideRoomCost="ngModel" [(ngModel)]="obj.guideRoomCost">                
+            <option value="{{Single}}">{{Single}}</option>
+          </select>
+        </div>
+      </div>
+      
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="input-group-prepend">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="serviceHome.formData.homeID==null;">Confirm Day Plan <mat-icon> send</mat-icon></button>
+      </div></div>
+    
+    
+        <div class="col-md-6">
+          <div class="input-group-prepend">
+      
+        <button type="button" class="btn btn-lg btn-block BTNNEW btndiv" [mat-dialog-close]>CLOSE</button>
+    </div>
+    </div></div>
+     
+    </div>
+    <button type="button" (click)="calcTot()" >Calculate Accomadation & Meal Plan Cost</button>
+    <div class="form-group col-md-3">
+      <label for="">Total Room Charges</label>
+      <select  name="totalRoomCharges"   class="form-control" [(ngModel)]="totalRoomCharges">                
+        <option value="{{totalRoomCharges}}">{{totalRoomCharges}}</option>
+      </select>
+      <label for="">Total Meal Plan Charges</label>
+      <select  name="totalMealPlanCost"   class="form-control"  [(ngModel)]="totalMealPlanCost">                
+        <option value="{{totalMealPlanCost}}">{{totalMealPlanCost}}</option>
+      </select>
+      <label for="">Sub Total</label>
+      <select  name="totalMealAndRoomChargesValue"   class="form-control"  [(ngModel)]="totalMealAndRoomChargesValue">                
+        <option value="{{totalMealAndRoomChargesValue}}">{{totalMealAndRoomChargesValue}}</option>
+      </select>
+    </div>
+
+    <button type="Button" class="btn btn-lg btn-block BTNNEW btndiv" (click)="testRemove()" *ngIf="serviceHome.formData.homeID==null;">text remove<mat-icon> send</mat-icon></button>
+    
+            </form>
+            <div  #content>
+            <table class="table table-hover">
+
+                <thead class="thead-dark">
+                  <tr >
+                    <th scope="col" class="text-info">Milage Type </th>
+                    <th scope="col" class="text-info">Distance </th>
+                    <th scope="col" class="text-info">Total Milage </th>
+                    <th scope="col" class="text-info">Driver Name</th> 
+                    <th scope="col" class="text-info">Driver Contact Number</th>
+                    <th scope="col" class="text-info">Guide Name</th> 
+                    <th scope="col" class="text-info">Guide Contact Number</th>  
+                  </tr>
+                </thead>
+               
+                <tbody>
+                  <tr >
+                     <td scope="col" class="text-info">Gross Milage</td> 
+                     <td scope="col" class="text-info">{{grossMilage}}</td>
+                     <td scope="col" class="text-info">{{totalMilage}}</td>
+                     <td scope="col" class="text-info">{{driverFirstName}} {{driverLastName}}</td>
+                     <td scope="col" class="text-info">{{driverContact}}</td>
+                     <td scope="col" class="text-info">{{GuideFirstName}} {{GuideLastName}}</td>
+                     <td scope="col" class="text-info">{{GuideContact}}</td>
+                  </tr>
+
+                  <tr >
+                     <td scope="col" class="text-info">Extra Milage</td> 
+                     <td scope="col" class="text-info">{{extraMilage}}</td>
+                     <td scope="col" class="text-info">--------------------</td>
+                     <td scope="col" class="text-info">--------------------</td>
+                     <td scope="col" class="text-info">--------------------</td>
+                     <td scope="col" class="text-info">--------------------</td>
+                     <td scope="col" class="text-info">--------------------</td>
+                 </tr>
+                </tbody>
+            </table>
+            <table class="table table-hover">
+                <br><br>
+                <thead class="thead-dark">
+                  <tr >
+                    <th scope="col" class="text-info">Vehical Type</th> 
+                    <th scope="col" class="text-info">Vehical Number</th> 
+                    <th scope="col" class="text-info">Number of Seats</th> 
+                    <th scope="col" class="text-info">Owner Name</th> 
+                    <th scope="col" class="text-info">Owner Contact Number</th> 
+                  </tr>
+                </thead>
+   
+                <tbody>
+                    <tr>
+                     <td scope="col" class="text-info">{{VehicalModel}}</td>
+                     <td scope="col" class="text-info">{{VehicalNumber}}</td>
+                     <td scope="col" class="text-info">{{numberOfSeats}}</td>
+                     <td scope="col" class="text-info">{{OwnerName}}</td>
+                     <td scope="col" class="text-info">{{OwnerContact}}</td>
+                    </tr> 
+                </tbody>
+            </table>
+            <table class="table table-hover">
+                <br><br>
+                <thead class="thead-dark">
+                  <tr >
+                    <th scope="col" class="text-info">Date</th> 
+                    <th scope="col" class="text-info">Hotel Name and Address</th> 
+                    <th scope="col" class="text-info">Meal Plan</th> 
+                    <th scope="col" class="text-info">Meal Plan Cost</th> 
+                    <th scope="col" class="text-info">Single Room Count</th> 
+                    <th scope="col" class="text-info">Cost</th> 
+                    <th scope="col" class="text-info">Double Room Count</th>
+                    <th scope="col" class="text-info">Cost</th>
+                    <th scope="col" class="text-info">Triple Room Count</th> 
+                    <th scope="col" class="text-info">Cost</th> 
+                    <th scope="col" class="text-info">Guide Room Count</th> 
+                    <th scope="col" class="text-info">Cost</th>
+                  </tr>
+                </thead>
+   
+                <tbody>
+                    <tr *ngFor="let homeHotel of serviceHomeHotel.list ">
+                     <td scope="col" class="text-info">{{homeHotel.Date}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.hotelName}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.currentMealPlan}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.MealPlan}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.SingleRoomCount}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.singleRoomCost}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.DoubleRoomCount}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.doubleRoomCost}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.TripleRoomCount}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.tripleRoomCost}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.GuidedRoomCount}}</td>
+                     <td scope="col" class="text-info">{{homeHotel.guideRoomCost}}</td> 
+                    </tr> 
+                </tbody>
+                
+                
+     
+      
+      </table>
+            </div>
+    
+            <h3>Accommodation | Meal Plans Costing</h3><br>
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>
+                        #
+                      </th>
+                      <th>
+                        Product
+                      </th>
+                      <th>
+                        Payment Taken
+                      </th>
+                      <th>
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let guide of service2.table">
+                      <td>
+                        1
+                      </td>
+                      <td>
+                        TB - Monthly
+                      </td>
+                      <td>
+                        01/04/2012
+                      </td>
+                      <td>
+                        Default
+                      </td>
+                    </tr>
+                    <tr class="table-active">
+                      <td>
+                        1
+                      </td>
+                      <td>
+                        TB - Monthly
+                      </td>
+                      <td>
+                        01/04/2012
+                      </td>
+                      <td>
+                        Approved
+                      </td>
+                    </tr>
+                    <tr class="table-success">
+                      <td>
+                        2
+                      </td>
+                      <td>
+                        TB - Monthly
+                      </td>
+                      <td>
+                        02/04/2012
+                      </td>
+                      <td>
+                        Declined
+                      </td>
+                    </tr>
+                    <tr class="table-warning">
+                      <td>
+                        3
+                      </td>
+                      <td>
+                        TB - Monthly
+                      </td>
+                      <td>
+                        03/04/2012
+                      </td>
+                      <td>
+                        Pending
+                      </td>
+                    </tr>
+                    <tr class="table-danger">
+                      <td>
+                        4
+                      </td>
+                      <td>
+                        TB - Monthly
+                      </td>
+                      <td>
+                        04/04/2012
+                      </td>
+                      <td>
+                        Call in to confirm
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+    
+                <div class="form-group">
+                  <label>
+                    Total Cost for accommodation (USD)
+                  </label>
+                  <input type="text" class="col-md-2 form-control" id="#" placeholder="Total Cost for accommodation in USD" />
+                </div>
+    
+              </div>
+            </div>
+    
+            <hr>
+    
+    
+            <!-- Sight Seeing Costing Part Starts here -->
+            <div class="row">
+              <div class="col-md-7">
+                <h3>
+                  Sight Seeing Cost
+                </h3>
+                <!-- Table for sight seeing cost -->
+                <table class="table">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">Note</th>
+                      <th scope="col">Cost &#36;</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Total &#36;</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Airport Chargers</th>
+                      <td>10</td>
+                      <td>2</td>
+                      <td>20</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Garlends Welcome</th>
+                      <td>2</td>
+                      <td>4</td>
+                      <td>8</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Sigiriya Rock Visit</th>
+                      <td>30</td>
+                      <td>4</td>
+                      <td>120</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- Table for sight seeing cost ends here -->
+    
+                <!-- total -->
+                <div class="form-group">
+                  <label>
+                    Total Cost for Sight Seeing (USD)
+                  </label>
+                  <input type="text" class="col-md-2 form-control" id="#" placeholder="Total Cost for Sight Seeing" />
+                </div>
+    
+              </div>
+             <!-- ++++++++++++++++++++ total cost ++++++++++++++++++++ -->
+              <div class="col-md-5">
+                <h3 class="text-danger">
+                  Total Cost
+                </h3>
+    
+                <form action="">
+                  <div class="form-group">
+                    <label>
+                      Total Cost (USD)
+                    </label>
+                    <input type="text" class="form-control" id="#" placeholder="Total Cost" />
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      Company Profit &#37; (USD)
+                    </label>
+                    <input type="text" class="form-control" id="#" placeholder="Company Profit &#37;" />
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      Company Total Profit (USD)
+                    </label>
+                    <input type="text" class="form-control" id="#" placeholder="Company Profit in USD" />
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      Agent Profit &#37; (USD)
+                    </label>
+                    <input type="text" class="form-control" id="#" placeholder="Agent Profit &#37;" />
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      Agent Total Profit (USD)
+                    </label>
+                    <input type="text" class="form-control" id="#" placeholder="Agent Profit in USD" />
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      Sales Person Profit &#37; (USD)
+                    </label>
+                    <input type="text" class="form-control" id="#" placeholder="Sales Person Profit &#37;" />
+                  </div>
+                  <div class="form-group">
+                    <label>
+                      Sales Person Total Profit (USD)
+                    </label>
+                    <input type="text" class="form-control" id="#" placeholder="Sales Person Total in USD" />
+                  </div>
+                  <div class="form-group">
+                    <label class="text-danger">
+                      Total Package Cost (USD)
+                    </label>
+                    <input type="text" class="form-control text-danger" id="#" placeholder="Total Package Cost in USD" />
+                  </div>
+                  <div class="form-group">
+                    <label class="text-danger">
+                      Per Person Cost (USD)
+                    </label>
+                    <input type="text" class="form-control text-danger" id="#" placeholder="Per Person Cost in USD" />
+                  </div>
+    
+                </form>
+    
+              </div>
+              <!-- ++++++++++++++++++++ total cost ends here ++++++++++++++++++++ -->
+    
+            </div>
+            <!-- ********************* Sight Seeing Costing Part SECTION Ends here ********************* -->
+    
+    
+    
+            <div class="row">
+              <div class="col-md-6">
+                <dl>
+                  <dt>
+                    Description lists
+                  </dt>
+                  <dd>
+                    A description list is perfect for defining terms.
+                  </dd>
+                  <dt>
+                    Euismod
+                  </dt>
+                  <dd>
+                    Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                  </dd>
+                  <dd>
+                    Donec id elit non mi porta gravida at eget metus.
+                  </dd>
+                  <dt>
+                    Malesuada porta
+                  </dt>
+                  <dd>
+                    Etiam porta sem malesuada magna mollis euismod.
+                  </dd>
+                  <dt>
+                    Felis euismod semper eget lacinia
+                  </dt>
+                  <dd>
+                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                  </dd>
+                </dl>
+              </div>
+              <div class="col-md-6">
+                <dl>
+                  <dt>
+                    Description lists
+                  </dt>
+                  <dd>
+                    A description list is perfect for defining terms.
+                  </dd>
+                  <dt>
+                    Euismod
+                  </dt>
+                  <dd>
+                    Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+                  </dd>
+                  <dd>
+                    Donec id elit non mi porta gravida at eget metus.
+                  </dd>
+                  <dt>
+                    Malesuada porta
+                  </dt>
+                  <dd>
+                    Etiam porta sem malesuada magna mollis euismod.
+                  </dd>
+                  <dt>
+                    Felis euismod semper eget lacinia
+                  </dt>
+                  <dd>
+                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                  </dd>
+                </dl>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+  
