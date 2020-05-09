@@ -67,6 +67,7 @@ export class HomeComponent implements OnInit {
   public GuideLastName : String;
   public GuideContact : String;
 
+  public HomeHotelID:any;
   public RoomOnly: any;
   public BedAndBreakfast: number;
   public FullBoard: number;
@@ -253,8 +254,11 @@ removeForm(index){
     this.service7.GetSingleHotel(event.target.value).subscribe(data=>
       {
        this.HotelX = data;
-       this.RoomOnly =  this.HotelX.RoomOnly;
-       this.HotelNameandAddress = this.HotelX.HotelName;
+          
+          
+
+          this.HotelNameandAddress = this.HotelX.HotelName;
+          this.RoomOnly =  this.HotelX.RoomOnly;
           this.BedAndBreakfast = this.HotelX.BedAndBreackfast;
           this.FullBoard = this.HotelX.FullBoard;
           this.HalfBoard = this.HotelX.HalfBoard;
@@ -264,6 +268,25 @@ removeForm(index){
           this.Quard = this.HotelX.Quard;
           this.King = this.HotelX.King;
           this.Queen = this.HotelX.Queen;
+
+
+
+          this.serviceHomeHotel.formData ={ 
+            HomeHotelID: this.HomeHotelID,
+            date: this.serviceHomeHotel.formData.date,
+            hotelName: this.HotelNameandAddress,
+            MealPlan: this.MealPlan,
+            currentMealPlan: this.currentMealPlanName,
+
+            SingleRoomCount: this.serviceHomeHotel.formData.SingleRoomCount,
+            DoubleRoomCount: this.serviceHomeHotel.formData.DoubleRoomCount,
+            TripleRoomCount: this.serviceHomeHotel.formData.TripleRoomCount,
+            GuidedRoomCount: this.serviceHomeHotel.formData.GuidedRoomCount,
+            singleRoomCost: this.Single,
+            doubleRoomCost: this.Double,
+            tripleRoomCost: this.Triple,
+            guideRoomCost: this.Single,
+          }
       
       
       });
@@ -383,6 +406,24 @@ this.serviceHomeDestination.formData ={
 
 } 
 
+
+this.serviceHomeHotel.formData ={ 
+  HomeHotelID: null,
+  date: null,
+  hotelName: null,
+  MealPlan: null,
+  currentMealPlan: null,
+  SingleRoomCount: null,
+  DoubleRoomCount: null,
+  TripleRoomCount: null,
+  GuidedRoomCount: null,
+  singleRoomCost: null,
+  doubleRoomCost: null,
+  tripleRoomCost: null,
+  guideRoomCost: null,
+} 
+
+
 } 
 
 
@@ -464,6 +505,15 @@ this.resetForm();
 this.serviceHomeDestination.refreshList();
 });
 
+}
+
+addHotel(form : NgForm){
+  this.serviceHomeHotel.postHomeHotel(form.value).subscribe(res =>{
+    this.toastr.success('Insert successfully', 'Eliphase');
+    this.resetForm();
+    // this.serviceHome.refreshList();
+    this.serviceHomeHotel.refreshList();
+    });
 }
 
 

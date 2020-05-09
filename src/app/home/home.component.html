@@ -284,18 +284,18 @@
                 </div>
             <br>
     
-            
+            <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
     
-    <div class="container" *ngFor="let obj of dataarry; let i=index">
-      
+    <div class="container">
+      <form #formHotel="ngForm" (submit)="addHotel(formHotel)">
       <div class="form-row" >
         <div class="form-group col-md-4">
 
-        <input type="hidden" name="PackageID"  >
+        <input type="hidden" name="HomeHotelID"  #HomeHotelID="ngModel" [(ngModel)]="serviceHomeHotel.formData.HomeHotelID" >
        
         <div class="form-group">
           <label for="">Tour Date</label>
-          <input type="date" name="date{{i}}" class="form-control" #date="ngModel" [(ngModel)]="obj.date">
+          <input type="date" name="date" class="form-control" #date="ngModel" [(ngModel)]="serviceHomeHotel.formData.date">
         </div>
 
         <div class="form-group">
@@ -306,7 +306,7 @@
               <option value="{{hotel.HotelID}}"  *ngFor="let hotel of service7.list" >{{hotel.HotelName}} || {{hotel.Address}} || {{hotel.StarClass}}</option>
           </select> -->
 
-          <select  name="hotelID{{i}}"   class="form-control" id="hotel"  #hotelID="ngModel" [(ngModel)]="obj.hotelID" (change)="selectChangeHandlerHotel($event)">
+          <select  name="hotelID"   class="form-control" id="hotel"  (change)="selectChangeHandlerHotel($event)">
                    
             <option value="1">Select Hotel</option> 
               <option value="{{dri.HotelID}} "  *ngFor="let dri of service7.list" > {{dri.HotelName}}  </option>                   
@@ -315,7 +315,7 @@
 
         <div class="form-group">
           <label for="">Hotel Confirmation</label>
-           <select  name="hotelName{{i}}"   class="form-control" #hotelName="ngModel" [(ngModel)]="obj.hotelName" >                
+           <select  name="hotelName"   class="form-control" #hotelName="ngModel" [(ngModel)]="serviceHomeHotel.formData.hotelName" >                
               <option value="{{HotelNameandAddress}}">{{HotelNameandAddress}}</option>
            </select>
         </div>
@@ -323,7 +323,7 @@
 
         <div class="form-group">
           <label for="">Meal Plan</label>
-         <select  name="MealPlan{{i}}"   class="form-control" #mealPlan="ngModel" [(ngModel)]="obj.mealPlan"  (change)="selectChangeHandlerMealPlan($event)">                
+         <select  name="MealPlan"   class="form-control" #MealPlan="ngModel" [(ngModel)]="serviceHomeHotel.formData.MealPlan"  (change)="selectChangeHandlerMealPlan($event)">                
              
               <option value="{{RoomOnly}}">Room Only</option>
               <option value="{{BedAndBreakfast}}">Bed And Breackfast</option>
@@ -331,10 +331,11 @@
               <option value="{{HalfBoard}}">Half Board</option>
            
           </select>
+          <input type="hidden"   name="currentMealPlan"  #currentMealPlan="ngModel" [(ngModel)]="serviceHomeHotel.formData.currentMealPlan">
         </div>
         <div class="form-group">
           <label for="">Meal Plan Cost Confirmation</label>
-         <select  name="currentMealPlan{{i}}"   class="form-control" #currentMealPlan="ngModel" [(ngModel)]="obj.currentMealPlan">                
+         <select  name="MealPlan"   class="form-control" [(ngModel)]="serviceHomeHotel.formData.MealPlan">                
              
               <option value="{{currentMealPlanName}}">{{MealPlan}}</option>
            
@@ -346,22 +347,22 @@
 
         <div class="form-group">
           <label for="">Single Room</label>
-          <input type="number" name="SingleRoomCount{{i}}" class="form-control"  [(ngModel)]="obj.SingleRoomCount">
+          <input type="number" name="SingleRoomCount" class="form-control"  #SingleRoomCount="ngModel" [(ngModel)]="serviceHomeHotel.formData.SingleRoomCount">
         </div>
 
         <div class="form-group">
           <label for="">Double Room</label>
-          <input type="number" name="DoubleRoomCount{{i}}" class="form-control" [(ngModel)]="obj.DoubleRoomCount">
+          <input type="number" name="DoubleRoomCount" class="form-control" #DoubleRoomCount="ngModel"  [(ngModel)]="serviceHomeHotel.formData.DoubleRoomCount">
         </div>
         
         <div class="form-group">
           <label for="">Trible Room</label>
-          <input type="number" name="TripleRoomCount{{i}}" class="form-control" [(ngModel)]="obj.TripleRoomCount">
+          <input type="number" name="TripleRoomCount" class="form-control" #TripleRoomCount="ngModel"  [(ngModel)]="serviceHomeHotel.formData.TripleRoomCount">
         </div>
 
         <div class="form-group">
           <label for="">Guide Room</label>
-          <input type="number" name="GuidedRoomCount{{i}}" class="form-control" [(ngModel)]="obj.GuidedRoomCount">
+          <input type="number" name="GuidedRoomCount" class="form-control" #GuidedRoomCount="ngModel"  [(ngModel)]="serviceHomeHotel.formData.GuidedRoomCount">
         </div>
       </div>
 
@@ -369,28 +370,28 @@
 
         <div class="form-group col-md-6">
           <label for="">Single room Cost Confirmation</label>
-          <select  name="singleRoomCost{{i}}"   class="form-control" #singleRoomCost="ngModel" [(ngModel)]="obj.singleRoomCost">                
+          <select  name="singleRoomCost"   class="form-control" #singleRoomCost="ngModel"  [(ngModel)]="serviceHomeHotel.formData.singleRoomCost">                
             <option value="{{Single}}">{{Single}}</option>
           </select>
         </div>
 
         <div class="form-group col-md-6">
           <label for="">Double room Cost Confirmation</label>
-          <select  name="doubleRoomCost{{i}}"   class="form-control" #doubleRoomCost="ngModel" [(ngModel)]="obj.doubleRoomCost">                
+          <select  name="doubleRoomCost"   class="form-control" #doubleRoomCost="ngModel"  [(ngModel)]="serviceHomeHotel.formData.doubleRoomCost">                
             <option value="{{Double}}">{{Double}}</option>
           </select>
         </div>
         
         <div class="form-group col-md-6">
           <label for="">Triple room Cost Confirmation</label>
-          <select  name="tripleRoomCost{{i}}"   class="form-control" #tripleRoomCost="ngModel" [(ngModel)]="obj.tripleRoomCost">                
+          <select  name="tripleRoomCost"   class="form-control" #tripleRoomCost="ngModel"  [(ngModel)]="serviceHomeHotel.formData.tripleRoomCost">                
             <option value="{{Triple}}">{{Triple}}</option>
           </select>
         </div>
 
         <div class="form-group col-md-6">
           <label for="">Guide room Cost Confirmation</label>
-          <select  name="guideRoomCost{{i}}"   class="form-control" #guideRoomCost="ngModel" [(ngModel)]="obj.guideRoomCost">                
+          <select  name="guideRoomCost"   class="form-control" #guideRoomCost="ngModel"  [(ngModel)]="serviceHomeHotel.formData.guideRoomCost">                
             <option value="{{Single}}">{{Single}}</option>
           </select>
         </div>
@@ -411,6 +412,7 @@
         <button type="button" class="btn btn-lg btn-block BTNNEW btndiv" [mat-dialog-close]>CLOSE</button>
     </div>
     </div></div>
+  </form>
      
     </div>
   </div>

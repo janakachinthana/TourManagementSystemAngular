@@ -1,10 +1,9 @@
 export class HomeHotel {
 
     HomeHotelID : number;
-    Date : any;
-    HotelID : any;
+    date : any;
+    hotelName : any;
     MealPlan: any;
-    hotelName: any;
     currentMealPlan: any;
     SingleRoomCount:any;
     DoubleRoomCount:any;
