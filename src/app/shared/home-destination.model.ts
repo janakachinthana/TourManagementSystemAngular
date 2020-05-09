@@ -5,6 +5,7 @@ export class HomeDestination {
     numberOfAudult: number;
     childPrice: number;
     numberOfChild: number;
+    TotalSightSeenCost: number;
     Description: String;
     DestinationDuration: String;
     Rules: String;

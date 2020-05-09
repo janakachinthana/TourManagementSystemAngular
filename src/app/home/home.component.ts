@@ -108,6 +108,7 @@ export class HomeComponent implements OnInit {
   public HomeDestinationID: number;
   public adultPrice: number = 0;
   public childPrice: number = 0;
+  public TotalSightSeenCost: number = 0;
 
 
   constructor(public service: GuideService,
@@ -180,6 +181,7 @@ removeForm(index){
        this.Rules = this.DestinationX.RulesAndRegulations;
        this.Description = this.DestinationX.DescriptionOfThePlace;
        
+       this.TotalSightSeenCost = ((this.childPrice * 1) * this.numberOfChild * 1) + ((this.adultPrice * 1) * this.numberOfAudult * 1);
 
       this.serviceHomeDestination.formData ={ 
         HomeDestinationID: this.HomeDestinationID,
@@ -191,9 +193,11 @@ removeForm(index){
         Rules: this.Rules,
         numberOfAudult: this.numberOfAudult,
         numberOfChild: this.numberOfChild,
-       
+        TotalSightSeenCost: this.TotalSightSeenCost
     
     } 
+    
+    
 
       });
       
@@ -374,6 +378,7 @@ this.serviceHomeDestination.formData ={
     Description: null,
     DestinationDuration: null,
     Rules: null,
+    TotalSightSeenCost: null,
     
 
 } 

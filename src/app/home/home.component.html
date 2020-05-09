@@ -11,168 +11,8 @@
 
   <!-- getting information / SECTION 1 starts here --> <!-- Customer Details section is here -->
   <h3>Customer & Tour Details Gathering - dhanusha perera </h3>
-  <form action="" style="margin: auto;">
-    <div class="row">
-      <div class="col-lg-6 form-group">
-        <label>
-          Agent Name
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Agent Name" />
-      </div>
-      <div class="col-lg-6 form-group">
-        <label>
-          Client Name
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Client Name" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 form-group">
-        <label>
-          Nationality
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Nationality" />
-      </div>
-      <div class="col-lg-6 form-group">
-        <label>
-          No of People
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="No of People" />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-6 form-group">
-        <label>
-          Arrival Date
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Arrival Date" />
-      </div>
-      <div class="col-lg-6 form-group">
-        <label>
-          Departure Date
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Departure Date" />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-6 form-group">
-        <label>
-          No of Days
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="No of Days" />
-      </div>
-      <div class="col-lg-6 form-group">
-        <label>
-          Star Category
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Star Category" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 form-group">
-        <label>
-          Tour Executive
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Tour Executive" />
-      </div>
-      <div class="col-lg-6 form-group">
-        <label>
-          Exchange Rate
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Exchange Rate" />
-        <br>
-        <button type="button" class="btn btn-primary float-right">Done</button> <!--- LOAD button is here ---->
-      </div>
-    </div>
-
-</form>
+  
 <!-- ******************* getting information / first section ends here ******************* -->
-
-  <br>
-  <br>
-  <hr>
-
-  <!-- EXCEL SHEET PART begins here - SECTION 2  --> <!-- Displaying gathered data is happening here -->
-  <h3>
-    Tour Details <span class="small">including customer details</span>
-  </h3>
-
-  <form action="" style="margin: auto;">
-    <div class="row">
-      <div class="col-lg-6 form-group">
-        <label>
-          Agent Name
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Agent Name" />
-      </div>
-      <div class="col-lg-6 form-group">
-        <label>
-          Client Name
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Client Name" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 form-group">
-        <label>
-          Nationality
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Nationality" />
-      </div>
-      <div class="col-lg-6 form-group">
-        <label>
-          No of People
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="No of People" />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-6 form-group">
-        <label>
-          Arrival Date
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Arrival Date" />
-      </div>
-      <div class="col-lg-6 form-group">
-        <label>
-          Departure Date
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Departure Date" />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-6 form-group">
-        <label>
-          No of Days
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="No of Days" />
-      </div>
-      <div class="col-lg-6 form-group">
-        <label>
-          Star Category
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Star Category" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 form-group">
-        <label>
-          Tour Executive
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Tour Executive" />
-      </div>
-      <div class="col-lg-6 form-group">
-        <label>
-          Exchange Rate
-        </label>
-        <input type="text" class="form-control" id="#" placeholder="Exchange Rate" />
-      </div>
-    </div>
-</form>
 
 <hr>
 
@@ -407,6 +247,21 @@
                     </div>
                   </label>
                       </div>
+
+                      <div class="form-row" >
+                          <div class="form-group col-md-9">
+
+                            <div class="form-group">
+                              <label>
+                                Total (LKR)
+                              </label>
+                              <input type="text" class="form-control" id="total" placeholder="Sight Seen Cost"  name="TotalSightSeenCost"  #TotalSightSeenCost="ngModel" [(ngModel)]="serviceHomeDestination.formData.TotalSightSeenCost" />
+                            </div>
+
+
+                          </div>
+
+                      </div>
             </div>
             <div class="col-md-4">
               <div class="input-group-prepend">
@@ -583,35 +438,31 @@
 
                 <thead class="thead-dark">
                   <tr >
-                    <th scope="col" class="text-info">Milage Type </th>
-                    <th scope="col" class="text-info">Distance </th>
-                    <th scope="col" class="text-info">Total Milage </th>
-                    <th scope="col" class="text-info">Driver Name</th> 
-                    <th scope="col" class="text-info">Driver Contact Number</th>
-                    <th scope="col" class="text-info">Guide Name</th> 
-                    <th scope="col" class="text-info">Guide Contact Number</th>  
+                    <th scope="col" class="text-success">Milage Type </th>
+                    <th scope="col" class="text-success">Distance </th>
+                    <th scope="col" class="text-success">Total Milage </th>
+                    <th scope="col" class="text-success">Driver Name</th> 
+                    <th scope="col" class="text-success">Driver Contact Number</th>
+                    <th scope="col" class="text-success">Guide Name</th> 
+                    <th scope="col" class="text-success">Guide Contact Number</th>  
                   </tr>
                 </thead>
                
                 <tbody>
                   <tr >
-                     <td scope="col" class="text-info">Gross Milage</td> 
-                     <td scope="col" class="text-info">{{grossMilage}}</td>
-                     <td scope="col" class="text-info">{{totalMilage}}</td>
-                     <td scope="col" class="text-info">{{driverFirstName}} {{driverLastName}}</td>
-                     <td scope="col" class="text-info">{{driverContact}}</td>
-                     <td scope="col" class="text-info">{{GuideFirstName}} {{GuideLastName}}</td>
-                     <td scope="col" class="text-info">{{GuideContact}}</td>
+                     <td scope="col" class="text-info bg-white">Gross Milage</td> 
+                     <td scope="col" class="text-info bg-white">{{grossMilage}}</td>
+                     <td scope="col" class="text-info bg-white">{{totalMilage}}</td>
+                     <td scope="col" class="text-info bg-white">{{driverFirstName}} {{driverLastName}}</td>
+                     <td scope="col" class="text-info bg-white">{{driverContact}}</td>
+                     <td scope="col" class="text-info bg-white">{{GuideFirstName}} {{GuideLastName}}</td>
+                     <td scope="col" class="text-info bg-white">{{GuideContact}}</td>
                   </tr>
 
                   <tr >
-                     <td scope="col" class="text-info">Extra Milage</td> 
-                     <td scope="col" class="text-info">{{extraMilage}}</td>
-                     <td scope="col" class="text-info">--------------------</td>
-                     <td scope="col" class="text-info">--------------------</td>
-                     <td scope="col" class="text-info">--------------------</td>
-                     <td scope="col" class="text-info">--------------------</td>
-                     <td scope="col" class="text-info">--------------------</td>
+                     <td scope="col" class="text-info bg-white">Extra Milage</td> 
+                     <td scope="col" class="text-info bg-white">{{extraMilage}}</td>
+                   
                  </tr>
                 </tbody>
             </table>
@@ -619,21 +470,21 @@
                 <br><br>
                 <thead class="thead-dark">
                   <tr >
-                    <th scope="col" class="text-info">Vehical Type</th> 
-                    <th scope="col" class="text-info">Vehical Number</th> 
-                    <th scope="col" class="text-info">Number of Seats</th> 
-                    <th scope="col" class="text-info">Owner Name</th> 
-                    <th scope="col" class="text-info">Owner Contact Number</th> 
+                    <th scope="col" class="text-success">Vehical Type</th> 
+                    <th scope="col" class="text-success">Vehical Number</th> 
+                    <th scope="col" class="text-success">Number of Seats</th> 
+                    <th scope="col" class="text-success">Owner Name</th> 
+                    <th scope="col" class="text-success">Owner Contact Number</th> 
                   </tr>
                 </thead>
    
                 <tbody>
                     <tr>
-                     <td scope="col" class="text-info">{{VehicalModel}}</td>
-                     <td scope="col" class="text-info">{{VehicalNumber}}</td>
-                     <td scope="col" class="text-info">{{numberOfSeats}}</td>
-                     <td scope="col" class="text-info">{{OwnerName}}</td>
-                     <td scope="col" class="text-info">{{OwnerContact}}</td>
+                     <td scope="col" class="text-info bg-white">{{VehicalModel}}</td>
+                     <td scope="col" class="text-info bg-white">{{VehicalNumber}}</td>
+                     <td scope="col" class="text-info bg-white">{{numberOfSeats}}</td>
+                     <td scope="col" class="text-info bg-white">{{OwnerName}}</td>
+                     <td scope="col" class="text-info bg-white">{{OwnerContact}}</td>
                     </tr> 
                 </tbody>
             </table>
@@ -641,35 +492,35 @@
                 <br><br>
                 <thead class="thead-dark">
                   <tr >
-                    <th scope="col" class="text-info">Date</th> 
-                    <th scope="col" class="text-info">Hotel Name and Address</th> 
-                    <th scope="col" class="text-info">Meal Plan</th> 
-                    <th scope="col" class="text-info">Meal Plan Cost</th> 
-                    <th scope="col" class="text-info">Single Room Count</th> 
-                    <th scope="col" class="text-info">Cost</th> 
-                    <th scope="col" class="text-info">Double Room Count</th>
-                    <th scope="col" class="text-info">Cost</th>
-                    <th scope="col" class="text-info">Triple Room Count</th> 
-                    <th scope="col" class="text-info">Cost</th> 
-                    <th scope="col" class="text-info">Guide Room Count</th> 
-                    <th scope="col" class="text-info">Cost</th>
+                    <th scope="col" class="text-success">Date</th> 
+                    <th scope="col" class="text-success">Hotel Name and Address</th> 
+                    <th scope="col" class="text-success">Meal Plan</th> 
+                    <th scope="col" class="text-success">Meal Plan Cost</th> 
+                    <th scope="col" class="text-success">Single Room Count</th> 
+                    <th scope="col" class="text-success">Cost</th> 
+                    <th scope="col" class="text-success">Double Room Count</th>
+                    <th scope="col" class="text-success">Cost</th>
+                    <th scope="col" class="text-success">Triple Room Count</th> 
+                    <th scope="col" class="text-success">Cost</th> 
+                    <th scope="col" class="text-success">Guide Room Count</th> 
+                    <th scope="col" class="text-success">Cost</th>
                   </tr>
                 </thead>
    
                 <tbody>
                     <tr *ngFor="let homeHotel of serviceHomeHotel.list ">
-                     <td scope="col" class="text-info">{{homeHotel.Date}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.hotelName}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.currentMealPlan}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.MealPlan}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.SingleRoomCount}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.singleRoomCost}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.DoubleRoomCount}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.doubleRoomCost}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.TripleRoomCount}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.tripleRoomCost}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.GuidedRoomCount}}</td>
-                     <td scope="col" class="text-info">{{homeHotel.guideRoomCost}}</td> 
+                     <td scope="col" class="text-info bg-white">{{homeHotel.Date}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.hotelName}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.currentMealPlan}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.MealPlan}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.SingleRoomCount}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.singleRoomCost}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.DoubleRoomCount}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.doubleRoomCost}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.TripleRoomCount}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.tripleRoomCost}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.GuidedRoomCount}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.guideRoomCost}}</td> 
                     </tr> 
                 </tbody>   
             </table>
@@ -678,25 +529,25 @@
               <br><br>
               <thead class="thead-dark">
                 <tr >
-                  <th scope="col" class="text-info">Destination Name</th> 
-                  <th scope="col" class="text-info">Duration</th> 
-                  <th scope="col" class="text-info">Adult Count</th> 
-                  <th scope="col" class="text-info">Adult Fee</th>
-                  <th scope="col" class="text-info">Child Count</th>
-                  <th scope="col" class="text-info">Child Fee</th> 
-                  <th scope="col" class="text-info">Total Fee</th>
+                  <th scope="col" class="text-success">Destination Name</th> 
+                  <th scope="col" class="text-success">Duration</th> 
+                  <th scope="col" class="text-success">Adult Count</th> 
+                  <th scope="col" class="text-success">Adult Fee</th>
+                  <th scope="col" class="text-success">Child Count</th>
+                  <th scope="col" class="text-success">Child Fee</th> 
+                  <th scope="col" class="text-success">Total Fee</th>
                 </tr>
               </thead>
  
               <tbody>
                   <tr *ngFor="let homeDesti of serviceHomeDestination.list ">
-                   <td scope="col" class="text-info">{{homeDesti.NameDestination}}</td>
-                   <td scope="col" class="text-info">{{homeDesti.DestinationDuration}}</td>
-                   <td scope="col" class="text-info">{{homeDesti.numberOfAudult}}</td>
-                   <td scope="col" class="text-info">{{homeDesti.adultPrice}}</td>
-                   <td scope="col" class="text-info">{{homeDesti.numberOfChild}}</td>
-                   <td scope="col" class="text-info">{{homeDesti.childPrice}}</td>
-                   <td scope="col" class="text-info"></td>
+                   <td scope="col" class="text-info bg-white">{{homeDesti.NameDestination}}</td>
+                   <td scope="col" class="text-info bg-white">{{homeDesti.DestinationDuration}}</td>
+                   <td scope="col" class="text-info bg-white">{{homeDesti.numberOfAudult}}</td>
+                   <td scope="col" class="text-info bg-white">{{homeDesti.adultPrice}}</td>
+                   <td scope="col" class="text-info bg-white">{{homeDesti.numberOfChild}}</td>
+                   <td scope="col" class="text-info bg-white">{{homeDesti.childPrice}}</td>
+                   <td scope="col" class="text-info bg-white">{{homeDesti.TotalSightSeenCost}}</td>
                   </tr> 
               </tbody>
             </table>
