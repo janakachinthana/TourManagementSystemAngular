@@ -182,8 +182,8 @@
         <!-- Gathering data and analysis section is here - section 3 -->
         <div class="row ">
           <div class="col-md-3" id="div1">
-            <div class="bg-info center">
-            <h3>
+            <div class="bg-dark center" >
+            <h3 style="color: aliceblue; text-align: center;">
               Transportation Cost
             </h3>
             </div>
@@ -271,9 +271,9 @@
         
          
           <div id="div1" class="col-md-3"> 
-            <div class="bg-info center">
-            <h3>
-              Driver &amp; Guide Costs
+            <div class="bg-dark center" >
+            <h3 style="color: aliceblue; text-align: center;">
+              Driver & Guide Costs
             </h3>
             </div>
            
@@ -320,10 +320,32 @@
                 <input type="text" class="form-control" id="total" value="{{TotalDAndGPrice}}" placeholder="Guide & Drevers Total" disabled />
               </div>
           </div>
+
+
+
+
+          <div id="div1" class="col-md-6"> 
+            <div class="bg-dark center">
+            <h3 style="color: aliceblue; text-align: center;">
+              Destination Costing
+            </h3>
+            </div>
+           
+             
+          </div>
+
+
+
   </div>
 
             <hr>
-            <h3>Accommodation | Meal Plans Costing</h3><br>
+            <div id="div1">
+              <div class="bg-dark center" >
+                <h3 style="color: aliceblue; text-align: center;">
+                  Accommodation | Meal Plans Costing
+                </h3>
+                </div>
+            <br>
     
             
     
@@ -454,6 +476,7 @@
     </div></div>
      
     </div>
+  </div>
     <button type="button" (click)="calcTot()" >Calculate Accomadation & Meal Plan Cost</button>
     <div class="form-group col-md-3">
       <label for="">Total Room Charges</label>
