@@ -16,6 +16,7 @@ import { HomeHotelService } from '../shared/home-hotel.service';
 import { HotelService } from '../shared/hotel.service';
 import * as jsPDF from 'jspdf';
 import { HomeHotel } from '../shared/home-hotel.model';
+import { HomeDestinationService } from '../shared/home-destination.service';
 
 
 
@@ -46,9 +47,13 @@ export class HomeComponent implements OnInit {
   public VehicalNumber : String;
   public VehicalModel : string; 
   public numberOfSeats : number; 
-  public numberOfPeople : number = null;
   public OwnerName : String;
   public OwnerContact : String;
+
+  public numberOfPeople : number = null;
+  public numberOfAudult : number = null;
+  public numberOfChild : number = null;
+
 
   public driverFirstName : number;
   public driverLastName : number;
@@ -96,6 +101,15 @@ export class HomeComponent implements OnInit {
   public Total3: number;
   public SubTotal: number;
 
+  public NameDestination: String;
+  public DestinationDuration: String;
+  public Rules: String;
+  public Description: String;
+  public HomeDestinationID: number;
+  public adultPrice: number = 0;
+  public childPrice: number = 0;
+
+
   constructor(public service: GuideService,
               public service1 : DestinationService,
               public service2: CustomerService,
@@ -106,10 +120,12 @@ export class HomeComponent implements OnInit {
               public service7: HotelService,
               public serviceHome: HomeServiceService,
               public serviceHomeHotel: HomeHotelService,
+              public serviceHomeDestination: HomeDestinationService,
               private toastr : ToastrService
 ) { }
 
 public GuideX : any;
+public DestinationX : any;
 public CustomerX : any;
 public DriverX : any;
 public days : number;
@@ -150,6 +166,38 @@ removeForm(index){
 
   populateForm1(guide : Guide){
       this.service.formData = Object.assign({},guide);
+  }
+
+  selectChangeHandlerDestination(event: any){
+    this.service1.GetSingleHomeDestination(event.target.value).subscribe(data=>
+      {
+       this.DestinationX = data;
+       this.NameDestination = this.DestinationX.DestinationName;
+       this.adultPrice = this.DestinationX.EntranceFee;
+       this.childPrice = this.DestinationX.EntranceFeeChild;
+       this.HomeDestinationID = this.DestinationX.DestinationID;
+       this.DestinationDuration = this.DestinationX.Time;
+       this.Rules = this.DestinationX.RulesAndRegulations;
+       this.Description = this.DestinationX.DescriptionOfThePlace;
+       
+
+      this.serviceHomeDestination.formData ={ 
+        HomeDestinationID: this.HomeDestinationID,
+        NameDestination: this.NameDestination,
+        adultPrice: this.adultPrice,
+        childPrice: this.childPrice,
+        Description: this.Description,
+        DestinationDuration: this.DestinationDuration,
+        Rules: this.Rules,
+        numberOfAudult: this.numberOfAudult,
+        numberOfChild: this.numberOfChild,
+       
+    
+    } 
+
+      });
+      
+
   }
 
   selectChangeHandlerGuide(event: any){
@@ -242,8 +290,10 @@ removeForm(index){
     this.service2.GetSingleCustomer(event.target.value).subscribe(data=>
       {
        this.CustomerX = data;
-       this.numberOfPeople = this.CustomerX.NoPeople;
        this.days= this.CustomerX.NoDays;
+       this.numberOfAudult = this.CustomerX.NoPeople;
+       this.numberOfChild = this.CustomerX.NoChildren;
+        this.numberOfPeople = (this.numberOfAudult * 1) + (this.numberOfChild * 1);
       });
   }
 
@@ -312,7 +362,21 @@ this.serviceHome.formData ={
     vehicalID: null,
     driverID: null,
     guideID: null,
-}    
+}   
+
+this.serviceHomeDestination.formData ={ 
+    HomeDestinationID: null,
+    NameDestination: null,
+    adultPrice: null,
+    numberOfAudult: null,
+    childPrice: null,
+    numberOfChild: null,
+    Description: null,
+    DestinationDuration: null,
+    Rules: null,
+    
+
+} 
 
 } 
 
@@ -382,6 +446,19 @@ for (let index = 0; index < this.dataarry.length; index++) {
 this.totalRoomCharges = 0;
 this.totalMealPlanCost = 0;
 this.totalMealAndRoomChargesValue = 0;
+}
+
+
+addDestination(form : NgForm){
+
+  
+this.serviceHomeDestination.postDestination(form.value).subscribe(res =>{
+this.toastr.success('Insert successfully', 'Eliphase');
+this.resetForm();
+// this.serviceHome.refreshList();
+this.serviceHomeDestination.refreshList();
+});
+
 }
 
 

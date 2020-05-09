@@ -284,9 +284,7 @@
                       <span class="input-group-text bg-info text-white" id="basic-addon1">Driver</span>
                     </div>
                     <!-- <select  name="Driver"   class="form-control" id="driver" (change)="selectChangeHandlerDriver($event)"> -->
-                      <select  name="driverID"   class="form-control" id="driver"  #driverID="ngModel" [(ngModel)]="serviceHome.formData.driverID" (change)="selectChangeHandlerDriver($event)">
-                   
-                      <option value="1">Select Guide</option> 
+                      <select  name="driverID"   class="form-control" id="driver"  #driverID="ngModel" [(ngModel)]="serviceHome.formData.driverID" (change)="selectChangeHandlerDriver($event)"> 
                         <option value="{{dri.DriverID}}"  *ngFor="let dri of service4.list" > {{dri.FirstName}}  </option>
                                
                     </select></div>
@@ -325,13 +323,97 @@
 
 
           <div id="div1" class="col-md-6"> 
+    
             <div class="bg-dark center">
             <h3 style="color: aliceblue; text-align: center;">
-              Destination Costing
+              Sight-Seeing Costing
             </h3>
             </div>
-           
+           <form #formDes="ngForm" (submit)="addDestination(formDes)">
+            <div class="form-row" >
+              <div class="form-group col-md-8">
+            <input type="hidden" name="HomeDestinationID" #HomeDestinationID="ngModel" [(ngModel)]="serviceHomeDestination.formData.HomeDestinationID" >
+
+            <label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-info text-white" id="basic-addon1">Destination</span>
+                </div>
+                  <select  name="NameDestination"    class="form-control" id="driver"  (change)="selectChangeHandlerDestination($event)"> 
+                    <option>Select Destination</option> 
+                    <option value="{{des.DestinationID}}"  *ngFor="let des of service1.list" >{{des.DestinationName}}</option>
+                           
+                </select></div>
+            </label>
+
+            
              
+              
+                <input type="hidden" class="form-control" name="NameDestination" id="" #NameDestination="ngModel" [(ngModel)]="serviceHomeDestination.formData.NameDestination" >
+
+                <input type="hidden" class="form-control" name="DestinationDuration" id="" #DestinationDuration="ngModel" [(ngModel)]="serviceHomeDestination.formData.DestinationDuration">
+
+                <input type="hidden" class="form-control" name="Rules" id="" #Rules="ngModel" [(ngModel)]="serviceHomeDestination.formData.Rules">
+
+                <input type="hidden" class="form-control" name="Description" id="" #Description="ngModel" [(ngModel)]="serviceHomeDestination.formData.Description">
+            </div>
+            <!-- <div class="form-group col-md-6">
+
+            </div> -->
+            </div>
+
+
+
+
+
+            <div class="form-row" >
+                <div class="form-group col-md-7">
+
+            <label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-info text-white" id="basic-addon1">Adult Count</span>
+                </div>
+                <input type="text" class="form-control" name="numberOfAudult" [(ngModel)]="serviceHomeDestination.formData.numberOfAudult" id=""  >
+              </div>
+            </label>
+
+            <label>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-info text-white" id="basic-addon1">Children Count</span>
+                </div>
+                <input type="text" class="form-control" name="numberOfChild" id="" #numberOfChild="ngModel" [(ngModel)]="serviceHomeDestination.formData.numberOfChild" >
+              </div>
+            </label>
+                </div>
+                <div class="form-group col-md-5">
+
+                  <label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-info text-white" id="basic-addon1">Adult Price</span>
+                      </div>
+                      <input type="text" class="form-control" name="adultPrice" id=""  #adultPrice="ngModel" [(ngModel)]="serviceHomeDestination.formData.adultPrice" >
+                    </div>
+                  </label>
+      
+                  <label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text bg-info text-white" id="basic-addon1">Children Price</span>
+                      </div>
+                      <input type="text" class="form-control" name="childPrice" id=""  #childPrice="ngModel" [(ngModel)]="serviceHomeDestination.formData.childPrice" >
+                    </div>
+                  </label>
+                      </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group-prepend">
+            <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv"> <mat-icon> send</mat-icon></button>
+          </div></div>
+
+          </form>
           </div>
 
 
@@ -589,12 +671,36 @@
                      <td scope="col" class="text-info">{{homeHotel.GuidedRoomCount}}</td>
                      <td scope="col" class="text-info">{{homeHotel.guideRoomCost}}</td> 
                     </tr> 
-                </tbody>
-                
-                
-     
-      
-      </table>
+                </tbody>   
+            </table>
+
+            <table class="table table-hover">
+              <br><br>
+              <thead class="thead-dark">
+                <tr >
+                  <th scope="col" class="text-info">Destination Name</th> 
+                  <th scope="col" class="text-info">Duration</th> 
+                  <th scope="col" class="text-info">Adult Count</th> 
+                  <th scope="col" class="text-info">Adult Fee</th>
+                  <th scope="col" class="text-info">Child Count</th>
+                  <th scope="col" class="text-info">Child Fee</th> 
+                  <th scope="col" class="text-info">Total Fee</th>
+                </tr>
+              </thead>
+ 
+              <tbody>
+                  <tr *ngFor="let homeDesti of serviceHomeDestination.list ">
+                   <td scope="col" class="text-info">{{homeDesti.NameDestination}}</td>
+                   <td scope="col" class="text-info">{{homeDesti.DestinationDuration}}</td>
+                   <td scope="col" class="text-info">{{homeDesti.numberOfAudult}}</td>
+                   <td scope="col" class="text-info">{{homeDesti.adultPrice}}</td>
+                   <td scope="col" class="text-info">{{homeDesti.numberOfChild}}</td>
+                   <td scope="col" class="text-info">{{homeDesti.childPrice}}</td>
+                   <td scope="col" class="text-info"></td>
+                  </tr> 
+              </tbody>
+            </table>
+
             </div>
     
             <h3>Accommodation | Meal Plans Costing</h3><br>

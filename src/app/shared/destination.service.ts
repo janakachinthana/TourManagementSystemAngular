@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Destination } from './destination.model';
 import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,9 @@ export class DestinationService {
 
   deleteDestination(id : number){
     return this.http.delete(this.rootURL+'/Destination/'+id);
+  }
+  GetSingleHomeDestination(id : number): Observable<any>{
+    return this.http.get(this.rootURL+'/Destination/' + id)
+      
   }
 }
