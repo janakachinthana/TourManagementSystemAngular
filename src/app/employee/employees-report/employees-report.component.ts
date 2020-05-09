@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import {  MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { EmployeeRegisterComponent } from '../employee-register/employee-register.component';
 import * as jsPDF from 'jspdf';
+import * as html2pdf from 'html2pdf.js'
 
 @Component({
   selector: 'app-employees-report',
@@ -26,31 +27,50 @@ export class EmployeesReportComponent implements OnInit {
         this.service.list = [];}
   }
 
-  @ViewChild('content')content: ElementRef;
+  // @ViewChild('content')content: ElementRef;
   
-  public downloadPDF(){
+  // public downloadPDF(){
 
-    let doc =new jsPDF('landscape', 'px', 'ledger') ;
+  //   let doc =new jsPDF('landscape', 'px', 'ledger') ;
 
-    let specialElimentHandlers = {
+  //   let specialElimentHandlers = {
 
-      '#editor': function(element: any, renderer: any){
-        return true;
-      }
+  //     '#editor': function(element: any, renderer: any){
+  //       return true;
+  //     }
 
+  //   };
+
+  //   let content = this.content.nativeElement;
+
+  //   doc.fromHTML(content.innerHTML, 100,15,{
+
+  //     'width': 590,
+  //     'elementHandlers': specialElimentHandlers
+
+  //   });
+
+  //   doc.save('Employee Details (Eliphase Vacation).pdf');
+
+  // }
+
+
+
+  downloadPDF() {
+    const options = {
+      filename : 'Employee Report',
+      image: {type: 'jpeg', quality: 1 },
+      html2canvas:  { scale : 5},
+      margin : 10,
+      jsPDF:{ format: 'letter', orientation: 'landscape',putOnlyUsedFonts:true}
     };
+    const content: Element = document.getElementById('container');
 
-    let content = this.content.nativeElement;
-
-    doc.fromHTML(content.innerHTML, 100,15,{
-
-      'width': 590,
-      'elementHandlers': specialElimentHandlers
-
-    });
-
-    doc.save('Employee Details (Eliphase Vacation).pdf');
-
+    html2pdf()
+      .from(content)
+      .set(options)
+      .save();
+  
   }
 
   populateForm(){

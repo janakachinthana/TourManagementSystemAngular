@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  import { ToastrModule } from 'ngx-toastr';
+ import { GoogleChartsModule } from 'angular-google-charts';
  
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -73,6 +74,9 @@ import { EmployeesReportComponent } from './employee/employees-report/employees-
 import { AdminLoginComponent } from './user/admin-login/admin-login.component';
 import { WellcomPageComponent } from './home/wellcom-page/wellcom-page.component';
 import { HomeReportComponent } from './home/home-report/home-report.component';
+import { VehiclePrintComponent } from './vehicles/vehicle-print/vehicle-print.component';
+import { PrintguidesComponent } from './guides/printguides/printguides.component';
+
 
 
 
@@ -114,6 +118,9 @@ import { HomeReportComponent } from './home/home-report/home-report.component';
     AdminLoginComponent,
     WellcomPageComponent,
     HomeReportComponent,
+    VehiclePrintComponent,
+    PrintguidesComponent,
+  
 
 
 
@@ -122,7 +129,8 @@ import { HomeReportComponent } from './home/home-report/home-report.component';
     
   ],
   imports: [
-   
+    
+    GoogleChartsModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

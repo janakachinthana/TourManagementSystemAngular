@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GuideService } from 'src/app/shared/guide.service';
 import { Guide } from 'src/app/shared/guide.model';
 import { ToastrService } from 'ngx-toastr';
+import {  MatDialog, MatDialogConfig} from "@angular/material/dialog";
+import { PrintguidesComponent } from '../printguides/printguides.component';
 
 @Component({
   selector: 'app-guide-list',
@@ -11,7 +13,8 @@ import { ToastrService } from 'ngx-toastr';
 export class GuideListComponent implements OnInit {
 
   constructor(public service : GuideService,
-    private toastr : ToastrService) { }
+    private toastr : ToastrService,
+    public dialog:MatDialog ) { }
 
 
   ngOnInit(): void {
@@ -30,6 +33,18 @@ export class GuideListComponent implements OnInit {
     })
   }
   }
+
+  report(){
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.autoFocus = true;
+    dialogConfig.disableClose = false;
+    // dialogConfig.width = '70%';
+    dialogConfig.maxHeight = '100%'
+    dialogConfig.scrollStrategy ;
+    this.dialog.open(PrintguidesComponent, dialogConfig);
+  }
+  
+
 
 }
   

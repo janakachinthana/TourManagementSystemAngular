@@ -3,7 +3,11 @@ export class Destination {
     DestinationName : String;
     Time : String;
     EntranceFee : number;
-    City : String;
-    Rules : String;
-    Description : String;
+    CityOfTheDestination : String;
+    RulesAndRegulations : String;
+    DescriptionOfThePlace : String;
+    EntranceFeeChild: number;
+    Village: String;
+    Attraction: String;
+    Activities :String;
 }

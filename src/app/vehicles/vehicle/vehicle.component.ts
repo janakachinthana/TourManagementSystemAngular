@@ -47,6 +47,7 @@ fileToUpload: File = null;
         OwnersContact : this.temp.OwnersContact,
         VehicleInsuaranceNo : this.temp.VehicleInsuaranceNo,
         RatePerKM : this.temp.RatePerKM,
+        category : this.temp.category,
         };
       }
   }
@@ -68,7 +69,8 @@ fileToUpload: File = null;
       OwneresID :'',
       OwnersContact :'',
       VehicleInsuaranceNo :'',
-      RatePerKM :null
+      RatePerKM :null,
+      category : ''
     };
   }
 
@@ -116,6 +118,22 @@ handleFileInput(file: FileList) {
   reader.readAsDataURL(this.fileToUpload);
 }
 
-
+fillForm(){
+  this.service.formData= {
+    VehicleID : null,
+    VehicleNo :"cp KR 1298",
+    Brand :"Toyota",
+    Model :"Prius",
+    RegistrationNo :"CAR45645",
+    ManuYr :2015,
+    NoOfSeats: 4,
+    OwnersName :"A. Appuhami",
+    OwneresID :"786545128v",
+    OwnersContact :"0771532456",
+    VehicleInsuaranceNo :"INS3216551",
+    RatePerKM :70,
+    category : "car"
+  };
+}
 
 }

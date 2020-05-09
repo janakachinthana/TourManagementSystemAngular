@@ -74,6 +74,9 @@ td{
 .addbtn{
     background-color: rgb(46, 78, 255);
     color:white;
+    width: 200px;
+    left: 40%;
+    
 }
 .addbtn:hover{
     background-color: rgb(46, 78, 255);
@@ -91,4 +94,12 @@ td{
     outline: nonen;
   }
 
+ .btn{
+    left: 50%; 
  
+ }
+
+ .bottombtn{
+     width: 130px;
+     left: 20%;
+ }

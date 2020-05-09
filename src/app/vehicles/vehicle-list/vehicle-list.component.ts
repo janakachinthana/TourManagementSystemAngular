@@ -1,10 +1,16 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { VehicleService } from 'src/app/shared/vehicle.service';
 import { Vehicle } from 'src/app/shared/vehicle.model';
 import { ToastrService } from 'ngx-toastr';
 import {  MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import { VehiclesComponent } from '../vehicles.component';
 import { VehicleComponent } from '../vehicle/vehicle.component';
+import * as html2pdf from 'html2pdf.js'
+import * as jsPDF from 'jspdf';
+import { VehiclePrintComponent } from '../vehicle-print/vehicle-print.component';
+
+
+
 
 @Component({
   selector: 'app-vehicle-list',
@@ -14,7 +20,10 @@ import { VehicleComponent } from '../vehicle/vehicle.component';
 export class VehicleListComponent implements OnInit {
   isShow: boolean;
   topPosToStartShowing = 100;
-  
+  // type : '';
+  selected: string = 'All';
+
+
   constructor(
     public service : VehicleService,
     private toastr : ToastrService,
@@ -59,9 +68,8 @@ export class VehicleListComponent implements OnInit {
   AddOrEditVehicles(veh: Vehicle) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-    dialogConfig.disableClose = false;
+    dialogConfig.disableClose = true;
     dialogConfig.width = '70%';
-    dialogConfig.height = '94%';
     dialogConfig.data = {veh};
     this.dialog.open(VehicleComponent, dialogConfig);
   }
@@ -90,5 +98,73 @@ export class VehicleListComponent implements OnInit {
       behavior: 'smooth' 
     });
   }
+
+  onExportClick() {
+    const options = {
+      filename : 'Our_awsesome_file_pdf',
+      image: {type: 'jpeg'},
+      html2canvas: {},
+      jsPDF: { orientation : 'Landscape' }
+    };
+    const content: Element = document.body;
+
+    html2pdf()
+      .from(content)
+      .set(options)
+      .save();
+  
+  }
+
+  @ViewChild('containervehicles') content : ElementRef
+  public downloadPDF(){
+      let doc= new jsPDF();
+      let specialElementHandlers={
+        '#Editor' : function(element,renderer){
+          return true;
+        }
+      };
+
+      let content = this.content.nativeElement;
+      doc.fromHTML(content.innerHTML,15,15,{
+        'width' : 190,
+        'elementHandleres' : specialElementHandlers
+      });
+
+      doc.save('test.pdf');
+  }
+
+  getList(){
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.autoFocus = true;
+      dialogConfig.disableClose = false;
+      // dialogConfig.width = '70%';
+      dialogConfig.maxHeight = '100%'
+      dialogConfig.scrollStrategy ;
+      dialogConfig.height= '100%'
+
+  
+    
+      this.dialog.open(VehiclePrintComponent, dialogConfig);
+    }
+  
+
+
+    filterItemsOfType(type){
+      if(type== 'All'){
+          return this.service.list;
+      }
+      else{
+        return this.service.list.filter(x => x.category== type);
+      }
+  }
+
+
+
+    showSelectValue(event : any){
+      this.selected = event.target.value;
+      
+     }
+
+    
 
 }

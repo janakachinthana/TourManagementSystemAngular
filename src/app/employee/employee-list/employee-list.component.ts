@@ -60,7 +60,7 @@ export class EmployeeListComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = false;
-    dialogConfig.width = '65%';
+    dialogConfig.width = '80%';
     dialogConfig.height = '90%';
     this.dialog.open(EmployeesReportComponent, dialogConfig);
   }

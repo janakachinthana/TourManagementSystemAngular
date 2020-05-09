@@ -12,6 +12,9 @@ export class Vehicle {
     OwnersContact :string
     VehicleInsuaranceNo :string
     RatePerKM :number;
+    category : String 
+
+
 
 
 }

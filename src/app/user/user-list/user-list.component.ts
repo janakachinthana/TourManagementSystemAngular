@@ -65,7 +65,7 @@ export class UserListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width = '30%';
-    dialogConfig.height = '50%';
+    dialogConfig.height = '40%';
     dialogConfig.data = {emp};
     this.dialog.open(LoginComponent, dialogConfig);
   }

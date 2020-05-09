@@ -23,12 +23,36 @@
     
         <div class="col-md-6">
         <div class="form-group ">
-            <label>Brand</label>
-            <input name="Brand" #Brand="ngModel" [(ngModel)]="service.formData.Brand" class="form-control" required>
+            <!-- <label>Brand</label>
+            <input name="Brand" #Brand="ngModel" [(ngModel)]="service.formData.Brand" class="form-control" required> -->
+            
+            <label>Select Vehicle Brand</label>
+            <select name="Brand" #Brand="ngModel" [(ngModel)]="service.formData.Brand" class="form-control" required>
+                <option value="Toyota" >Toyota</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Mercedeze">Mercedeze</option>
+                <option value="Land rover">Land rover</option>
+                <option value="BMW">BMW</option>
+                <option value="Tata">Tata</option>
+                <option value="Leyland">Leyland</option>
+                <option value="Daihatsu">Daihatsu</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Honda">Honda</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Isuzu">Isuzu</option>
+
+            </select>
             <div class="validation-error" *ngIf="Brand.invalid && Brand.touched">Required</div>
+    
+            
+         
         </div>
     
-        </div>
+    </div>
+   
+
+
+
     </div>
     
         
@@ -68,14 +92,17 @@
     </div>
    
     <div class="row"> 
-        <div class="col-md-6">
-        <div class="form-group">
-            <label>Upload a Picture</label>
-            <img [src]="imageUrl"  style="width:150 px; height:100px">
-            <input type="file"  #Image accept="image/*" (change)="handleFileInput($event.target.files)">
-       </div></div>
+
+       <div class="col-md-6">
+        <label>Select Vehicle cataegory</label>
+        <select name="category" #category="ngModel" min="2000" [(ngModel)]="service.formData.category" class="form-control">
+            <option value="car" >car</option>
+            <option value="van">van</option>
+            <option value="suv">SUV</option>
+            <option value="bus">bus</option>
+        </select>
+       </div>
     </div>
-    
     </div>
     
     
@@ -133,8 +160,9 @@
         <div>
      
             <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID==null;"> Insert</button>
+            <button type="button" (click)="fillForm()" class="btn btn-lg btn-block BTNNEW btndiv" > demo</button>
             <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID!=null;"> save</button>
-          
+           
 
                 <!-- <button type="button" class="btn btn-lg btn-block close  " [mat-dialog-close]><mat-icon>cancel</mat-icon></button> -->
     

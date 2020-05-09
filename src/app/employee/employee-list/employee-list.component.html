@@ -57,12 +57,14 @@
   <div class="card bg-dark" style="width: 20rem;" >
       <img class="card-img-top" src="/assets/img/img.jpg">
       <div class="card-body">
-        <h1 class="card-title">Employee Id : {{emp.EmployeeID}}</h1>
+        <h5 id="h5list" class="card-title">Employee Id : {{emp.EmployeeID}}</h5>
         
       </div>
       <ul class="list-group list-group-flush ">
-        
-        <li class="btn-sm btn-outline-success"><h3>Full Name: <h1> {{emp.FirstName}} {{emp.LastName}}</h1></h3> </li>
+
+        <li class="bg-success" style=" text-align: center;"><h1>{{emp.FirstName}}</h1></li>
+        <li class="bg-success" style=" text-align: center;"><h1>{{emp.LastName}}</h1></li>
+        <!-- <li class="btn-sm btn-outline-success"><h3>Full Name: <h1> {{emp.FirstName}} {{emp.LastName}}</h1></h3> </li> -->
         <li class="btn-sm btn-outline-info">Address: {{emp.Address}}</li>
         <li class="btn-sm btn-outline-info">Contact: {{emp.Contact}}</li>
         <li class="btn-sm btn-outline-info">Birth Day: {{emp.BirthDay}}</li>

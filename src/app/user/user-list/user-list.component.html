@@ -71,7 +71,7 @@
        <br> -->
 
 
-
+<div class="jumbotron divmain container" style=" padding: 20px;">
 
 
 
@@ -87,10 +87,11 @@
             
           </div>
           <ul class="list-group list-group-flush">
-            <li class="btn-sm btn-outline-success"><h1>{{emp.FirstName}} {{emp.LastName}}</h1></li>
-            <li class="btn-sm btn-outline-info"><h4>Address: {{emp.Address}}</h4></li>
-            <li class="btn-sm btn-outline-info"><h4>Phone Number: {{emp.Contact}}</h4></li>
-            <li class="list-group-item " style="font-weight: bolder; text-align: center;">Email: {{emp.Email}}</li>
+            <li class="bg-success" style=" text-align: center;"><h1>{{emp.FirstName}}</h1></li>
+            <li class="bg-success" style=" text-align: center;"><h1>{{emp.LastName}}</h1></li>
+            <li class="list-group-item bg-dark" style="font-weight: lighter ;color: rgb(14, 212, 247);">Address: {{emp.Address}}</li>
+            <li class="list-group-item bg-dark" style="font-weight: lighter ;color: rgb(14, 212, 247);">Phone Number: +94 - {{emp.Contact}}</li>
+            <li class="list-group-item bg-dark" style="font-weight: lighter ;color: rgb(14, 212, 247);">Email: {{emp.Email}}</li>
       
           </ul>
           <div class="card-body">
@@ -111,3 +112,4 @@
        <div style="margin-left: 45%;">
           <button style="text-align: center; margin-top: 20px;" *ngIf="isShow" (click)="gotoTop()">SCROLL TOP</button>
         </div>
+      </div>

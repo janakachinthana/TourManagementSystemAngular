@@ -48,7 +48,7 @@
 
     <div class="input-group mb-3">
       <div class="input-group-prepend">
-        <span class="input-group-text bg-info text-white" id="basic-addon1">Nic No</span>
+        <span class="input-group-text bg-info text-white" id="basic-addon1">NIC Number</span>
       </div>
       <input required name="NicNo" #NicNo="ngModel" [(ngModel)]="service.formData.NicNo" class="form-control">
       <div class="validation-error"*ngIf="NicNo.invalid && NicNo.touched" >This field required</div>
@@ -59,7 +59,7 @@
         <span class="input-group-text bg-info text-white" id="basic-addon1">Email</span>
       </div>
       <input required type="email" name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
-     
+      <div class="validation-error"*ngIf="Email.invalid && Email.touched" >This field required</div>
     </div>
 
     <div class="input-group mb-3">
