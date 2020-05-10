@@ -1,5 +1,5 @@
 
-<h1>{{UserName}}</h1>
+<h1 style="color: black;">{{UserName}}</h1>
 <button class="btn btn-lg btn-primary addbtn" mat-raised-button style ="margin-left: 45%;" (click)="downloadPDF()">
   Export to PDF</button><br><br>
    
@@ -323,7 +323,7 @@
 
         <div class="form-group">
           <label for="">Meal Plan</label>
-         <select  name="MealPlan"   class="form-control" #MealPlan="ngModel" [(ngModel)]="serviceHomeHotel.formData.MealPlan"  (change)="selectChangeHandlerMealPlan($event)">                
+         <select class="form-control"   (change)="selectChangeHandlerMealPlan($event)">                
              
               <option value="{{RoomOnly}}">Room Only</option>
               <option value="{{BedAndBreakfast}}">Bed And Breackfast</option>
@@ -335,9 +335,9 @@
         </div>
         <div class="form-group">
           <label for="">Meal Plan Cost Confirmation</label>
-         <select  name="MealPlan"   class="form-control" [(ngModel)]="serviceHomeHotel.formData.MealPlan">                
+         <select  name="MealPlan"   class="form-control" #MealPlan="ngModel" [(ngModel)]="serviceHomeHotel.formData.MealPlan">                
              
-              <option value="{{currentMealPlanName}}">{{MealPlan}}</option>
+              <option value="{{MealPlan}}">{{MealPlan}}</option>
            
           </select>
         </div>
@@ -401,12 +401,17 @@
 
       <div class="row">
         <div class="col-md-4">
+         
+            <input type="number" name="Tot" class="form-control" #Tot="ngModel"  [(ngModel)]="serviceHomeHotel.formData.Tot">
+        </div>
+
+        <div class="col-md-4">
           <div class="input-group-prepend">
         <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="serviceHome.formData.homeID==null;">Confirm Day Plan <mat-icon> send</mat-icon></button>
       </div></div>
     
     
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="input-group-prepend">
       
         <button type="button" class="btn btn-lg btn-block BTNNEW btndiv" [mat-dialog-close]>CLOSE</button>
@@ -422,6 +427,8 @@
       <select  name="totalRoomCharges"   class="form-control" [(ngModel)]="totalRoomCharges">                
         <option value="{{totalRoomCharges}}">{{totalRoomCharges}}</option>
       </select>
+
+
       <label for="">Total Meal Plan Charges</label>
       <select  name="totalMealPlanCost"   class="form-control"  [(ngModel)]="totalMealPlanCost">                
         <option value="{{totalMealPlanCost}}">{{totalMealPlanCost}}</option>

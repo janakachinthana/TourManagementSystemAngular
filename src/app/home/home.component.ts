@@ -96,8 +96,7 @@ export class HomeComponent implements OnInit {
   public DoubleRoomTotalCost: any= 0;
   public TribleRoomTotalCost: any= 0;
   public GuideRoomTotalCost: any= 0;
-
-  public MealPlan: number ;
+  public MealPlan: any ;
 
   public Total3: number;
   public SubTotal: number;
@@ -226,25 +225,27 @@ removeForm(index){
   selectChangeHandlerMealPlan(event : any){
 
     this.MealPlan = event.target.value;
-
+    this.serviceHomeHotel.formData.MealPlan = this.MealPlan; 
+    
     if (event.target.value == this.RoomOnly) {
 
       this.currentMealPlanName = "Room Only";
-      
+      this.serviceHomeHotel.formData.currentMealPlan = this.currentMealPlanName;
     } else if (event.target.value == this.BedAndBreakfast) {
      
       this.currentMealPlanName = "Bed And Breakfast";
-
+      this.serviceHomeHotel.formData.currentMealPlan = this.currentMealPlanName;
     } else if (event.target.value == this.FullBoard) {
 
       this.currentMealPlanName = "Full Board";
-      
+      this.serviceHomeHotel.formData.currentMealPlan = this.currentMealPlanName;
     } else if (event.target.value == this.HalfBoard) {
       
       this.currentMealPlanName = "Half Board";
-
+      this.serviceHomeHotel.formData.currentMealPlan = this.currentMealPlanName;
     }else{
       this.currentMealPlanName = "Not Specified";
+      this.serviceHomeHotel.formData.currentMealPlan = this.currentMealPlanName;
     }
   }
 
@@ -286,6 +287,7 @@ removeForm(index){
             doubleRoomCost: this.Double,
             tripleRoomCost: this.Triple,
             guideRoomCost: this.Single,
+            Tot:this.Tot
           }
       
       
@@ -421,6 +423,7 @@ this.serviceHomeHotel.formData ={
   doubleRoomCost: null,
   tripleRoomCost: null,
   guideRoomCost: null,
+  Tot:null,
 } 
 
 
