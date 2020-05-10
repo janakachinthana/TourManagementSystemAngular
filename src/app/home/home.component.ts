@@ -98,6 +98,7 @@ export class HomeComponent implements OnInit {
   public GuideRoomTotalCost: any= 0;
   public MealPlan: any ;
 
+  public TotalMealAnddRooms:any =0;
   public Total3: number;
   public SubTotal: number;
 
@@ -287,7 +288,8 @@ removeForm(index){
             doubleRoomCost: this.Double,
             tripleRoomCost: this.Triple,
             guideRoomCost: this.Single,
-            Tot:this.Tot
+            TotalMealAnddRooms:this.TotalMealAnddRooms
+      
           }
       
       
@@ -423,7 +425,8 @@ this.serviceHomeHotel.formData ={
   doubleRoomCost: null,
   tripleRoomCost: null,
   guideRoomCost: null,
-  Tot:null,
+  TotalMealAnddRooms:null,
+ 
 } 
 
 
@@ -500,23 +503,70 @@ this.totalMealAndRoomChargesValue = 0;
 
 addDestination(form : NgForm){
 
-  
-this.serviceHomeDestination.postDestination(form.value).subscribe(res =>{
-this.toastr.success('Insert successfully', 'Eliphase');
-this.resetForm();
-// this.serviceHome.refreshList();
-this.serviceHomeDestination.refreshList();
-});
+   if(this.serviceHomeDestination.formData.adultPrice == null || this.serviceHomeDestination.formData.childPrice == null){
+      this.toastr.warning('Please Select a Destination', 'Eliphase');
 
+    }else if(this.serviceHomeDestination.formData.numberOfAudult == null || this.serviceHomeDestination.formData.numberOfChild == null) {
+      this.toastr.warning('Please Select a Customer', 'Eliphase');
+
+    }else{
+      this.serviceHomeDestination.postDestination(form.value).subscribe(res =>{
+      this.toastr.success('Insert successfully', 'Eliphase');
+      this.resetForm();
+      // this.serviceHome.refreshList();
+      this.serviceHomeDestination.refreshList();
+      });
+    }
 }
 
 addHotel(form : NgForm){
-  this.serviceHomeHotel.postHomeHotel(form.value).subscribe(res =>{
-    this.toastr.success('Insert successfully', 'Eliphase');
-    this.resetForm();
-    // this.serviceHome.refreshList();
-    this.serviceHomeHotel.refreshList();
-    });
+  if (this.serviceHomeHotel.formData.date == null) {
+    this.toastr.warning('Please Select a Date', 'Eliphase');
+  
+  }else if(this.serviceHomeHotel.formData.hotelName == null){
+    this.toastr.warning('Please Select a Hotel', 'Eliphase');
+
+  }else if(this.serviceHomeHotel.formData.MealPlan == null){
+    this.toastr.warning('Please Select a Meal Plan', 'Eliphase');
+
+  }else if(this.serviceHomeHotel.formData.SingleRoomCount == null){
+    this.toastr.warning('Single Room count should be 0 or more...!', 'Eliphase');
+
+  }else if (this.serviceHomeHotel.formData.DoubleRoomCount == null) {
+    this.toastr.warning('Double Room count should be 0 or more...!', 'Eliphase');
+
+  }else if (this.serviceHomeHotel.formData.TripleRoomCount == null) {
+    this.toastr.warning('Trible Room count should be 0 or more...!', 'Eliphase');
+
+  }else if (this.serviceHomeHotel.formData.GuidedRoomCount == null) {
+    this.toastr.warning('Guide Room count should be 0 or more...!', 'Eliphase');
+
+  }else if (this.serviceHomeHotel.formData.TotalMealAnddRooms <= 0) {
+    this.toastr.warning('Please check the total...!', 'Eliphase');
+
+  }else{
+      this.serviceHomeHotel.postHomeHotel(form.value).subscribe(res =>{
+      this.toastr.success('Insert successfully', 'Eliphase');
+      this.resetForm();
+      // this.serviceHome.refreshList();
+      this.serviceHomeHotel.refreshList();
+      this.TotalMealAnddRooms = 0;
+      this.MealPlan = 0;
+      });
+
+  }
+  
+}
+
+calcTotMEalAndRoom(){
+
+    this.TotalMealAnddRooms =  (this.serviceHomeHotel.formData.MealPlan * 1) 
+            + ((this.serviceHomeHotel.formData.SingleRoomCount * 1) * (this.serviceHomeHotel.formData.singleRoomCost * 1)) 
+            + ((this.serviceHomeHotel.formData.DoubleRoomCount * 1) * (this.serviceHomeHotel.formData.doubleRoomCost * 1))
+            + ((this.serviceHomeHotel.formData.TripleRoomCount * 1) * (this.serviceHomeHotel.formData.tripleRoomCost * 1))
+            + ((this.serviceHomeHotel.formData.GuidedRoomCount * 1) * (this.serviceHomeHotel.formData.guideRoomCost * 1));
+
+    this.serviceHomeHotel.formData.TotalMealAnddRooms = this.TotalMealAnddRooms;
 }
 
 

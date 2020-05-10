@@ -10,8 +10,9 @@
        
 
   <!-- getting information / SECTION 1 starts here --> <!-- Customer Details section is here -->
-  <h3>Customer & Tour Details Gathering - dhanusha perera </h3>
-  
+  <div style="margin-left: -50px; margin-right: -50px; margin-top: -40px; height: 45px;" class="bg-dark center" >
+  <h3 style="color: aliceblue; text-align: center;">Tour Planing and Costing</h3>
+  </div>
 <!-- ******************* getting information / first section ends here ******************* -->
 
 <hr>
@@ -20,7 +21,7 @@
 
         <form #form="ngForm" (submit)="onSubmit(form)" style="margin: auto;">
         <!-- Gathering data and analysis section is here - section 3 -->
-        <div class="row ">
+        <div class="row " id="div2">
           <div class="col-md-3" id="div1">
             <div class="bg-dark center" >
             <h3 style="color: aliceblue; text-align: center;">
@@ -275,8 +276,8 @@
 
   </div>
 
-            <hr>
-            <div id="div1">
+          
+            <div id="div2">
               <div class="bg-dark center" >
                 <h3 style="color: aliceblue; text-align: center;">
                   Accommodation | Meal Plans Costing
@@ -314,17 +315,15 @@
         </div>
 
         <div class="form-group">
-          <label for="">Hotel Confirmation</label>
-           <select  name="hotelName"   class="form-control" #hotelName="ngModel" [(ngModel)]="serviceHomeHotel.formData.hotelName" >                
-              <option value="{{HotelNameandAddress}}">{{HotelNameandAddress}}</option>
-           </select>
+         <input type="hidden" name="hotelName" class="form-control" #hotelName="ngModel" [(ngModel)]="serviceHomeHotel.formData.hotelName" >  
         </div>
 
 
         <div class="form-group">
           <label for="">Meal Plan</label>
-         <select class="form-control"   (change)="selectChangeHandlerMealPlan($event)">                
-             
+         <select class="form-control" name="MealPlan" (change)="selectChangeHandlerMealPlan($event)" >                
+              
+              <option>Select Meal Plan</option>
               <option value="{{RoomOnly}}">Room Only</option>
               <option value="{{BedAndBreakfast}}">Bed And Breackfast</option>
               <option value="{{FullBoard}}">Full Board</option>
@@ -333,13 +332,9 @@
           </select>
           <input type="hidden"   name="currentMealPlan"  #currentMealPlan="ngModel" [(ngModel)]="serviceHomeHotel.formData.currentMealPlan">
         </div>
-        <div class="form-group">
-          <label for="">Meal Plan Cost Confirmation</label>
-         <select  name="MealPlan"   class="form-control" #MealPlan="ngModel" [(ngModel)]="serviceHomeHotel.formData.MealPlan">                
-             
-              <option value="{{MealPlan}}">{{MealPlan}}</option>
-           
-          </select>
+        <div class="form-group ">
+          <label for="">Meal Plan Cost</label>  <br>            
+          <input type="number"   name="MealPlan"  #MealPlan="ngModel" [(ngModel)]="serviceHomeHotel.formData.MealPlan"> 
         </div>
 
       </div>
@@ -369,28 +364,28 @@
       <div class="form-group col-md-4">
 
         <div class="form-group col-md-6">
-          <label for="">Single room Cost Confirmation</label>
+          <label for="">Single room Cost</label>
           <select  name="singleRoomCost"   class="form-control" #singleRoomCost="ngModel"  [(ngModel)]="serviceHomeHotel.formData.singleRoomCost">                
             <option value="{{Single}}">{{Single}}</option>
           </select>
         </div>
 
         <div class="form-group col-md-6">
-          <label for="">Double room Cost Confirmation</label>
+          <label for="">Double room Cost</label>
           <select  name="doubleRoomCost"   class="form-control" #doubleRoomCost="ngModel"  [(ngModel)]="serviceHomeHotel.formData.doubleRoomCost">                
             <option value="{{Double}}">{{Double}}</option>
           </select>
         </div>
         
         <div class="form-group col-md-6">
-          <label for="">Triple room Cost Confirmation</label>
+          <label for="">Triple room Cost</label>
           <select  name="tripleRoomCost"   class="form-control" #tripleRoomCost="ngModel"  [(ngModel)]="serviceHomeHotel.formData.tripleRoomCost">                
             <option value="{{Triple}}">{{Triple}}</option>
           </select>
         </div>
 
         <div class="form-group col-md-6">
-          <label for="">Guide room Cost Confirmation</label>
+          <label for="">Guide room Cost</label>
           <select  name="guideRoomCost"   class="form-control" #guideRoomCost="ngModel"  [(ngModel)]="serviceHomeHotel.formData.guideRoomCost">                
             <option value="{{Single}}">{{Single}}</option>
           </select>
@@ -401,8 +396,10 @@
 
       <div class="row">
         <div class="col-md-4">
-         
-            <input type="number" name="Tot" class="form-control" #Tot="ngModel"  [(ngModel)]="serviceHomeHotel.formData.Tot">
+          <button type="button" (click)="calcTotMEalAndRoom()" >Check Total</button>
+            <!-- <input type="number" name="Tot" class="form-control" value="{{Tot}}"> -->
+
+            <input type="number" name="TotalMealAnddRooms" class="form-control"  #TotalMealAnddRooms="ngModel" [(ngModel)]="serviceHomeHotel.formData.TotalMealAnddRooms">
         </div>
 
         <div class="col-md-4">
@@ -421,23 +418,7 @@
      
     </div>
   </div>
-    <button type="button" (click)="calcTot()" >Calculate Accomadation & Meal Plan Cost</button>
-    <div class="form-group col-md-3">
-      <label for="">Total Room Charges</label>
-      <select  name="totalRoomCharges"   class="form-control" [(ngModel)]="totalRoomCharges">                
-        <option value="{{totalRoomCharges}}">{{totalRoomCharges}}</option>
-      </select>
-
-
-      <label for="">Total Meal Plan Charges</label>
-      <select  name="totalMealPlanCost"   class="form-control"  [(ngModel)]="totalMealPlanCost">                
-        <option value="{{totalMealPlanCost}}">{{totalMealPlanCost}}</option>
-      </select>
-      <label for="">Sub Total</label>
-      <select  name="totalMealAndRoomChargesValue"   class="form-control"  [(ngModel)]="totalMealAndRoomChargesValue">                
-        <option value="{{totalMealAndRoomChargesValue}}">{{totalMealAndRoomChargesValue}}</option>
-      </select>
-    </div>
+    
 
     <button type="Button" class="btn btn-lg btn-block BTNNEW btndiv" (click)="testRemove()" *ngIf="serviceHome.formData.homeID==null;">text remove<mat-icon> send</mat-icon></button>
     
@@ -513,6 +494,7 @@
                     <th scope="col" class="text-success">Cost</th> 
                     <th scope="col" class="text-success">Guide Room Count</th> 
                     <th scope="col" class="text-success">Cost</th>
+                    <th scope="col" class="text-success">Total</th>
                   </tr>
                 </thead>
    
@@ -529,7 +511,8 @@
                      <td scope="col" class="text-info bg-white">{{homeHotel.TripleRoomCount}}</td>
                      <td scope="col" class="text-info bg-white">{{homeHotel.tripleRoomCost}}</td>
                      <td scope="col" class="text-info bg-white">{{homeHotel.GuidedRoomCount}}</td>
-                     <td scope="col" class="text-info bg-white">{{homeHotel.guideRoomCost}}</td> 
+                     <td scope="col" class="text-info bg-white">{{homeHotel.guideRoomCost}}</td>
+                     <td scope="col" class="text-info bg-white">{{homeHotel.TotalMealAnddRooms}}</td> 
                     </tr> 
                 </tbody>   
             </table>
@@ -562,162 +545,29 @@
             </table>
 
             </div>
-    
-            <h3>Accommodation | Meal Plans Costing</h3><br>
-            <div class="row">
-              <div class="col-md-12">
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>
-                        #
-                      </th>
-                      <th>
-                        Product
-                      </th>
-                      <th>
-                        Payment Taken
-                      </th>
-                      <th>
-                        Status
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let guide of service2.table">
-                      <td>
-                        1
-                      </td>
-                      <td>
-                        TB - Monthly
-                      </td>
-                      <td>
-                        01/04/2012
-                      </td>
-                      <td>
-                        Default
-                      </td>
-                    </tr>
-                    <tr class="table-active">
-                      <td>
-                        1
-                      </td>
-                      <td>
-                        TB - Monthly
-                      </td>
-                      <td>
-                        01/04/2012
-                      </td>
-                      <td>
-                        Approved
-                      </td>
-                    </tr>
-                    <tr class="table-success">
-                      <td>
-                        2
-                      </td>
-                      <td>
-                        TB - Monthly
-                      </td>
-                      <td>
-                        02/04/2012
-                      </td>
-                      <td>
-                        Declined
-                      </td>
-                    </tr>
-                    <tr class="table-warning">
-                      <td>
-                        3
-                      </td>
-                      <td>
-                        TB - Monthly
-                      </td>
-                      <td>
-                        03/04/2012
-                      </td>
-                      <td>
-                        Pending
-                      </td>
-                    </tr>
-                    <tr class="table-danger">
-                      <td>
-                        4
-                      </td>
-                      <td>
-                        TB - Monthly
-                      </td>
-                      <td>
-                        04/04/2012
-                      </td>
-                      <td>
-                        Call in to confirm
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-    
-                <div class="form-group">
-                  <label>
-                    Total Cost for accommodation (USD)
-                  </label>
-                  <input type="text" class="col-md-2 form-control" id="#" placeholder="Total Cost for accommodation in USD" />
-                </div>
-    
-              </div>
-            </div>
-    
+
+            <button type="button" (click)="calcTot()" >Calculate Accomadation & Meal Plan Cost</button>
+    <div class="form-group col-md-3">
+      <label for="">Total Room Charges</label>
+      <select  name="totalRoomCharges"   class="form-control" [(ngModel)]="totalRoomCharges">                
+        <option value="{{totalRoomCharges}}">{{totalRoomCharges}}</option>
+      </select>
+
+
+      <label for="">Total Meal Plan Charges</label>
+      <select  name="totalMealPlanCost"   class="form-control"  [(ngModel)]="totalMealPlanCost">                
+        <option value="{{totalMealPlanCost}}">{{totalMealPlanCost}}</option>
+      </select>
+      <label for="">Sub Total</label>
+      <select  name="totalMealAndRoomChargesValue"   class="form-control"  [(ngModel)]="totalMealAndRoomChargesValue">                
+        <option value="{{totalMealAndRoomChargesValue}}">{{totalMealAndRoomChargesValue}}</option>
+      </select>
+    </div>
             <hr>
-    
-    
+
             <!-- Sight Seeing Costing Part Starts here -->
             <div class="row">
-              <div class="col-md-7">
-                <h3>
-                  Sight Seeing Cost
-                </h3>
-                <!-- Table for sight seeing cost -->
-                <table class="table">
-                  <thead class="thead-light">
-                    <tr>
-                      <th scope="col">Note</th>
-                      <th scope="col">Cost &#36;</th>
-                      <th scope="col">Quantity</th>
-                      <th scope="col">Total &#36;</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">Airport Chargers</th>
-                      <td>10</td>
-                      <td>2</td>
-                      <td>20</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Garlends Welcome</th>
-                      <td>2</td>
-                      <td>4</td>
-                      <td>8</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">Sigiriya Rock Visit</th>
-                      <td>30</td>
-                      <td>4</td>
-                      <td>120</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <!-- Table for sight seeing cost ends here -->
-    
-                <!-- total -->
-                <div class="form-group">
-                  <label>
-                    Total Cost for Sight Seeing (USD)
-                  </label>
-                  <input type="text" class="col-md-2 form-control" id="#" placeholder="Total Cost for Sight Seeing" />
-                </div>
-    
-              </div>
+             
              <!-- ++++++++++++++++++++ total cost ++++++++++++++++++++ -->
               <div class="col-md-5">
                 <h3 class="text-danger">

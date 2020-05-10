@@ -13,4 +13,5 @@ export class HomeHotel {
     doubleRoomCost: any;
     tripleRoomCost: any;
     guideRoomCost: any;
+    TotalMealAnddRooms:any;
 }
