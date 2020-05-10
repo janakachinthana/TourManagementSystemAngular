@@ -156,7 +156,7 @@
                 <label>
                   Total (LKR)
                 </label>
-                <input type="text" class="form-control" id="total" value="{{TotalDAndGPrice}}" placeholder="Guide & Drevers Total" disabled />
+                <input type="text" class="form-control" id="total" value="{{TotalDAndGPrice}}" placeholder="Guide & Drivers Total" disabled />
               </div>
           </div>
 
@@ -546,8 +546,21 @@
 
             </div>
 
-            <button type="button" (click)="calcTot()" >Calculate Accomadation & Meal Plan Cost</button>
-    <div class="form-group col-md-3">
+            
+    
+            <div class="row">
+            <div class="form-group col-md-3" id="div2">
+
+        <label for="">Total Transportation Cost</label>
+      <select  name="totalTransportationCost"   class="form-control" [(ngModel)]="totalTransportationCost">                
+        <option value="{{totalTransportationCost}}">{{totalTransportationCost}}</option>
+      </select>
+
+      <label for="">Guide & Driver Total</label>
+      <select  name="GuideAndDriverTotal"   class="form-control" [(ngModel)]="GuideAndDriverTotal">                
+        <option value="{{GuideAndDriverTotal}}">{{GuideAndDriverTotal}}</option>
+      </select>
+
       <label for="">Total Room Charges</label>
       <select  name="totalRoomCharges"   class="form-control" [(ngModel)]="totalRoomCharges">                
         <option value="{{totalRoomCharges}}">{{totalRoomCharges}}</option>
@@ -558,11 +571,19 @@
       <select  name="totalMealPlanCost"   class="form-control"  [(ngModel)]="totalMealPlanCost">                
         <option value="{{totalMealPlanCost}}">{{totalMealPlanCost}}</option>
       </select>
-      <label for="">Sub Total</label>
+      <label for="">Total (Meal Plan + Room Charges) </label>
       <select  name="totalMealAndRoomChargesValue"   class="form-control"  [(ngModel)]="totalMealAndRoomChargesValue">                
         <option value="{{totalMealAndRoomChargesValue}}">{{totalMealAndRoomChargesValue}}</option>
       </select>
+
+      <label for="">Total Sight-Seeing Charges</label>
+      <select  name="totalSightSeeingCharges"   class="form-control" [(ngModel)]="totalSightSeeingCharges">                
+        <option value="{{totalSightSeeingCharges}}">{{totalSightSeeingCharges}}</option>
+      </select>
+      <br>
+      <button type="button" (click)="calcTot()" >Calculate Sub Totals</button>
     </div>
+  </div>
             <hr>
 
             <!-- Sight Seeing Costing Part Starts here -->

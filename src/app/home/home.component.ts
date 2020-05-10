@@ -101,6 +101,7 @@ export class HomeComponent implements OnInit {
   public TotalMealAnddRooms:any =0;
   public Total3: number;
   public SubTotal: number;
+  public totalSightSeeingCharges: number = 0;
 
   public NameDestination: String;
   public DestinationDuration: String;
@@ -111,6 +112,17 @@ export class HomeComponent implements OnInit {
   public childPrice: number = 0;
   public TotalSightSeenCost: number = 0;
 
+  public totalTransportationCost: number = 0;
+  public GuideAndDriverTotal: number = 0;
+
+  public GuideX : any;
+  public DestinationX : any;
+  public CustomerX : any;
+  public DriverX : any;
+  public days : number;
+  public tableArr : number[];
+  public VehicleX : any;
+  public HotelX: any;
 
   constructor(public service: GuideService,
               public service1 : DestinationService,
@@ -125,15 +137,6 @@ export class HomeComponent implements OnInit {
               public serviceHomeDestination: HomeDestinationService,
               private toastr : ToastrService
 ) { }
-
-public GuideX : any;
-public DestinationX : any;
-public CustomerX : any;
-public DriverX : any;
-public days : number;
-public tableArr : number[];
-public VehicleX : any;
-public HotelX: any;
 
 addForm(){
   this.hotelCosting = new HotelCosting()
@@ -253,12 +256,8 @@ removeForm(index){
   selectChangeHandlerHotel(event: any){
 
 
-    this.service7.GetSingleHotel(event.target.value).subscribe(data=>
-      {
+    this.service7.GetSingleHotel(event.target.value).subscribe(data=>{
        this.HotelX = data;
-          
-          
-
           this.HotelNameandAddress = this.HotelX.HotelName;
           this.RoomOnly =  this.HotelX.RoomOnly;
           this.BedAndBreakfast = this.HotelX.BedAndBreackfast;
@@ -575,6 +574,10 @@ calcTot(){
   this.totalRoomCharges = 0;
   this.totalMealPlanCost = 0;
   this.totalMealAndRoomChargesValue = 0;
+  this.totalTransportationCost = 0;
+  this.GuideAndDriverTotal = 0;
+
+  
   for (let index = 0; index <= this.serviceHomeHotel.list.length; index++) {
   
     this.totalRoomCharges =  this.totalRoomCharges + ((this.serviceHomeHotel.list[index].SingleRoomCount * 1) * (this.serviceHomeHotel.list[index].singleRoomCost * 1))+
@@ -584,10 +587,25 @@ calcTot(){
    
     this.totalMealPlanCost =  this.totalMealPlanCost + (this.serviceHomeHotel.list[index].MealPlan * 1) ;
     this.totalMealAndRoomChargesValue = ((this.totalMealPlanCost * 1) + (this.totalRoomCharges * 1));
+    this.totalTransportationCost = this.totalTransportCost;
+    this.GuideAndDriverTotal = this.TotalDAndGPrice;
+    this.calcSightSeeing();
+   
+  }
+    
+}
+
+calcSightSeeing(){
+  this.totalSightSeeingCharges = 0;
+  this.serviceHomeDestination.refreshList;
+  for (let index = 0; index <= this.serviceHomeDestination.list.length; index++) {
+  
+    this.totalSightSeeingCharges = ( this.totalSightSeeingCharges * 1)
+    + (this.serviceHomeDestination.list[index].TotalSightSeenCost * 1) ;  
+   
   }
 
- 
-}
+};
 
 updateRecord(form : NgForm){
 this.serviceHome.putHome(form.value).subscribe(res =>{
