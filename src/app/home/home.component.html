@@ -10,7 +10,7 @@
        
 
   <!-- getting information / SECTION 1 starts here --> <!-- Customer Details section is here -->
-  <div style="margin-left: -50px; margin-right: -50px; margin-top: -40px; height: 45px;" class="bg-dark center" >
+  <div style="margin-left: -48px; margin-right: -48px; margin-top: -40px; height: 45px;" class="bg-dark center" >
   <h3 style="color: aliceblue; text-align: center;">Tour Planing and Costing</h3>
   </div>
 <!-- ******************* getting information / first section ends here ******************* -->
@@ -23,6 +23,7 @@
         <!-- Gathering data and analysis section is here - section 3 -->
         <div class="row " id="div2">
           <div class="col-md-3" id="div1">
+            <br>
             <div class="bg-dark center" >
             <h3 style="color: aliceblue; text-align: center;">
               Transportation Cost
@@ -112,6 +113,7 @@
         
          
           <div id="div1" class="col-md-3"> 
+            <br>
             <div class="bg-dark center" >
             <h3 style="color: aliceblue; text-align: center;">
               Driver & Guide Costs
@@ -164,7 +166,7 @@
 
 
           <div id="div1" class="col-md-6"> 
-    
+            <br>
             <div class="bg-dark center">
             <h3 style="color: aliceblue; text-align: center;">
               Sight-Seeing Costing
@@ -278,7 +280,8 @@
 
           
             <div id="div2">
-              <div class="bg-dark center" >
+              <br>
+              <div class="bg-dark center" style="margin-left: 10px; margin-right: 10px;" >
                 <h3 style="color: aliceblue; text-align: center;">
                   Accommodation | Meal Plans Costing
                 </h3>
@@ -334,9 +337,9 @@
         </div>
         <div class="form-group ">
           <label for="">Meal Plan Cost</label>  <br>            
-          <input type="number"   name="MealPlan"  #MealPlan="ngModel" [(ngModel)]="serviceHomeHotel.formData.MealPlan"> 
+          <input type="number"   name="MealSingle"   [(ngModel)]="MealSingle" disabled> 
         </div>
-
+        <input type="hidden"   name="MealPlan"  #MealPlan="ngModel" [(ngModel)]="serviceHomeHotel.formData.MealPlan">
       </div>
       <div class="form-group col-md-4">
 
@@ -549,8 +552,13 @@
             
     
             <div class="row">
+              <div class="form-group col-md-1"></div>
             <div class="form-group col-md-3" id="div2">
-
+              <br>
+              <h3 class="text-danger">
+                Total Expenses Costing
+              </h3>
+              <br>
         <label for="">Total Transportation Cost</label>
       <select  name="totalTransportationCost"   class="form-control" [(ngModel)]="totalTransportationCost">                
         <option value="{{totalTransportationCost}}">{{totalTransportationCost}}</option>
@@ -580,154 +588,79 @@
       <select  name="totalSightSeeingCharges"   class="form-control" [(ngModel)]="totalSightSeeingCharges">                
         <option value="{{totalSightSeeingCharges}}">{{totalSightSeeingCharges}}</option>
       </select>
+      <div class="form-group">
+        <label>
+          Total Expenses (LKR)
+        </label>
+        <input type="number" class="form-control"  id="total" value="{{TotalExpenses}}"  placeholder="TotalExpenses" />
+      </div> 
       <br>
-      <button type="button" (click)="calcTot()" >Calculate Sub Totals</button>
+      <button type="button" (click)="calcTot()" >Calculate Total Expenses</button>
+      <br>
+      <br>
+    </div>
+
+
+    <div class="form-group col-md-2"></div>
+
+
+    <div class="form-group col-md-5"  id="div2">
+      <br>
+      <h3 class="text-danger">
+        Total Packege Costing
+      </h3>
+      <br>
+      <form action="">
+        <div class="form-group">
+          <label>
+            Total Cost (LKR)
+          </label>
+          <input type="text" name="TotalExpenses" class="form-control" id="#" [(ngModel)]="TotalExpenses" placeholder="Total Cost" />
+        </div>
+        <div class="form-group">
+          <label>
+            Company Profit &#37; (LKR)
+          </label>
+          <input type="text" class="form-control" id="#" name="CompanyProfitPrasentage"  [(ngModel)]="CompanyProfitPrasentage" placeholder="Company Profit &#37;" />
+        </div>
+        
+        <div class="form-group">
+          <label>
+            Agent Profit &#37; (LKR)
+          </label>
+          <input type="text" class="form-control" id="#" name="AgentProfitPrasentage"  [(ngModel)]="AgentProfitPrasentage" placeholder="Agent Profit &#37;" />
+        </div>
+        <br>
+        <button type="button" (click)="calOverOll()" >Calculate Total Expenses</button>
+        <br>
+        <br>
+        <div class="form-group">
+          <label>
+            Company Total Profit (LKR)
+          </label>
+          <input type="text" class="form-control" id="#" name="comanyProfit"  [(ngModel)]="comanyProfit" placeholder="Company Profit in USD" />
+        </div>
+        <div class="form-group">
+          <label>
+            Agent Total Profit (LKR)
+          </label>
+          <input type="text" class="form-control" id="#" name="AgentProfit"  [(ngModel)]="AgentProfit"  placeholder="Agent Profit in USD" />
+        </div>
+        <div class="form-group">
+          <label class="text-danger">
+            Total Package Cost (LKR)
+          </label>
+          <input type="text" class="form-control text-danger" name="OverollCost"  [(ngModel)]="OverollCost"  id="#" placeholder="Total Package Cost in USD" />
+        </div>
+        
+      </form>
+
     </div>
   </div>
             <hr>
 
-            <!-- Sight Seeing Costing Part Starts here -->
-            <div class="row">
-             
-             <!-- ++++++++++++++++++++ total cost ++++++++++++++++++++ -->
-              <div class="col-md-5">
-                <h3 class="text-danger">
-                  Total Cost
-                </h3>
-    
-                <form action="">
-                  <div class="form-group">
-                    <label>
-                      Total Cost (USD)
-                    </label>
-                    <input type="text" class="form-control" id="#" placeholder="Total Cost" />
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      Company Profit &#37; (USD)
-                    </label>
-                    <input type="text" class="form-control" id="#" placeholder="Company Profit &#37;" />
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      Company Total Profit (USD)
-                    </label>
-                    <input type="text" class="form-control" id="#" placeholder="Company Profit in USD" />
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      Agent Profit &#37; (USD)
-                    </label>
-                    <input type="text" class="form-control" id="#" placeholder="Agent Profit &#37;" />
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      Agent Total Profit (USD)
-                    </label>
-                    <input type="text" class="form-control" id="#" placeholder="Agent Profit in USD" />
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      Sales Person Profit &#37; (USD)
-                    </label>
-                    <input type="text" class="form-control" id="#" placeholder="Sales Person Profit &#37;" />
-                  </div>
-                  <div class="form-group">
-                    <label>
-                      Sales Person Total Profit (USD)
-                    </label>
-                    <input type="text" class="form-control" id="#" placeholder="Sales Person Total in USD" />
-                  </div>
-                  <div class="form-group">
-                    <label class="text-danger">
-                      Total Package Cost (USD)
-                    </label>
-                    <input type="text" class="form-control text-danger" id="#" placeholder="Total Package Cost in USD" />
-                  </div>
-                  <div class="form-group">
-                    <label class="text-danger">
-                      Per Person Cost (USD)
-                    </label>
-                    <input type="text" class="form-control text-danger" id="#" placeholder="Per Person Cost in USD" />
-                  </div>
-    
-                </form>
-    
-              </div>
-              <!-- ++++++++++++++++++++ total cost ends here ++++++++++++++++++++ -->
-    
+            <div style="margin-left: -48px; margin-right: -48px; margin-top: 100px; height: 45px;" class="bg-dark center" >
             </div>
-            <!-- ********************* Sight Seeing Costing Part SECTION Ends here ********************* -->
-    
-    
-    
-            <div class="row">
-              <div class="col-md-6">
-                <dl>
-                  <dt>
-                    Description lists
-                  </dt>
-                  <dd>
-                    A description list is perfect for defining terms.
-                  </dd>
-                  <dt>
-                    Euismod
-                  </dt>
-                  <dd>
-                    Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
-                  </dd>
-                  <dd>
-                    Donec id elit non mi porta gravida at eget metus.
-                  </dd>
-                  <dt>
-                    Malesuada porta
-                  </dt>
-                  <dd>
-                    Etiam porta sem malesuada magna mollis euismod.
-                  </dd>
-                  <dt>
-                    Felis euismod semper eget lacinia
-                  </dt>
-                  <dd>
-                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                  </dd>
-                </dl>
-              </div>
-              <div class="col-md-6">
-                <dl>
-                  <dt>
-                    Description lists
-                  </dt>
-                  <dd>
-                    A description list is perfect for defining terms.
-                  </dd>
-                  <dt>
-                    Euismod
-                  </dt>
-                  <dd>
-                    Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
-                  </dd>
-                  <dd>
-                    Donec id elit non mi porta gravida at eget metus.
-                  </dd>
-                  <dt>
-                    Malesuada porta
-                  </dt>
-                  <dd>
-                    Etiam porta sem malesuada magna mollis euismod.
-                  </dd>
-                  <dt>
-                    Felis euismod semper eget lacinia
-                  </dt>
-                  <dd>
-                    Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                  </dd>
-                </dl>
-              </div>
-            </div>
-
-
-
           </div>
         </div>
   

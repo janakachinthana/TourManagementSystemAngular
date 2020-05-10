@@ -97,6 +97,7 @@ export class HomeComponent implements OnInit {
   public TribleRoomTotalCost: any= 0;
   public GuideRoomTotalCost: any= 0;
   public MealPlan: any ;
+  public MealSingle: any ;
 
   public TotalMealAnddRooms:any =0;
   public Total3: number;
@@ -114,7 +115,14 @@ export class HomeComponent implements OnInit {
 
   public totalTransportationCost: number = 0;
   public GuideAndDriverTotal: number = 0;
+  public TotalExpenses: number = 0;
 
+  public CompanyProfitPrasentage: number = 0; 
+  public AgentProfitPrasentage: number = 0; 
+  public comanyProfit: number = 0;
+  public AgentProfit: number = 0;
+  public OverollCost: number = 0.00;
+  
   public GuideX : any;
   public DestinationX : any;
   public CustomerX : any;
@@ -228,7 +236,8 @@ removeForm(index){
 
   selectChangeHandlerMealPlan(event : any){
 
-    this.MealPlan = event.target.value;
+    this.MealSingle = event.target.value;
+    this.MealPlan = event.target.value * this.numberOfPeople;
     this.serviceHomeHotel.formData.MealPlan = this.MealPlan; 
     
     if (event.target.value == this.RoomOnly) {
@@ -559,7 +568,7 @@ addHotel(form : NgForm){
 
 calcTotMEalAndRoom(){
 
-    this.TotalMealAnddRooms =  (this.serviceHomeHotel.formData.MealPlan * 1) 
+    this.TotalMealAnddRooms =  (this.MealPlan * 1) 
             + ((this.serviceHomeHotel.formData.SingleRoomCount * 1) * (this.serviceHomeHotel.formData.singleRoomCost * 1)) 
             + ((this.serviceHomeHotel.formData.DoubleRoomCount * 1) * (this.serviceHomeHotel.formData.doubleRoomCost * 1))
             + ((this.serviceHomeHotel.formData.TripleRoomCount * 1) * (this.serviceHomeHotel.formData.tripleRoomCost * 1))
@@ -601,11 +610,29 @@ calcSightSeeing(){
   for (let index = 0; index <= this.serviceHomeDestination.list.length; index++) {
   
     this.totalSightSeeingCharges = ( this.totalSightSeeingCharges * 1)
-    + (this.serviceHomeDestination.list[index].TotalSightSeenCost * 1) ;  
+    + (this.serviceHomeDestination.list[index].TotalSightSeenCost * 1) ; 
+    
+    this.TotalExpenses = this.totalTransportationCost
+                           + this.GuideAndDriverTotal 
+                           + this.totalMealAndRoomChargesValue
+                           + this.totalSightSeeingCharges;
    
   }
 
 };
+
+calOverOll(){
+  this.OverollCost = (this.TotalExpenses * 1)
+                     + ((this.TotalExpenses * 1) * ((this.CompanyProfitPrasentage * 1) / 100)) 
+                     + ((this.TotalExpenses * 1) * ((this.AgentProfitPrasentage * 1) / 100));
+                  
+  this.comanyProfit = ((this.TotalExpenses * 1) * ((this.CompanyProfitPrasentage * 1) / 100));
+ 
+  this.AgentProfit =  ((this.TotalExpenses * 1) * ((this.AgentProfitPrasentage * 1) / 100));                 
+ 
+  
+  
+}
 
 updateRecord(form : NgForm){
 this.serviceHome.putHome(form.value).subscribe(res =>{
