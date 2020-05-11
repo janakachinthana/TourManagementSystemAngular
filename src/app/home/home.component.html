@@ -19,7 +19,7 @@
 
 
 
-        <form #form="ngForm" (submit)="onSubmit(form)" style="margin: auto;">
+        <form #form="ngForm" style="margin: auto;">
         <!-- Gathering data and analysis section is here - section 3 -->
         <div class="row " id="div2">
           <div class="col-md-3" id="div1">
@@ -64,10 +64,11 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text bg-info text-white" id="basic-addon1">Customer</span>
                     </div>
-                      <select  name="customerID"   class="form-control" id="customerID"  [(ngModel)]="serviceHome.formData.customerID"  (click)="selectChangeHandlerCustomer($event)">  
+                      <select  name="customerID"   class="form-control" id="customerID"  (click)="selectChangeHandlerCustomer($event)">  
                         <option value="No of People">Select Customer</option> 
                         <option value="{{cus.ID}}" *ngFor="let cus of service2.list "> {{cus.Name}}  </option>                              
                     </select></div>
+                    <input type="hidden" name="customerName" id="" #customerName="ngModel" value="{{customerName}}" [(ngModel)]="serviceHome.formData.customerName">
                 </label>
                 <label>
                   Number of People:
@@ -83,10 +84,8 @@
                       <span class="input-group-text bg-info text-white" id="basic-addon1">Vehicle</span>
                     </div>
                     <!-- <select  name="Guide"   class="form-control" id="guide" (click)="selectChangeHandlerVehicle($event)"> -->
-                      <select  name="vehicalID"   class="form-control" id="guide" #vehicalID="ngModel" [(ngModel)]="serviceHome.formData.vehicalID" (click)="selectChangeHandlerVehicle($event)">
-                    
-                      <option>Select Vehicle</option> 
-                        <option value="{{veh.VehicleID}}" *ngFor="let veh of service3.list  ">{{veh.Model}},{{veh.OwnersName}} , {{veh.NoOfSeats}} </option>
+                      <select  name="vehicalID"   class="form-control" id="guide" (click)="selectChangeHandlerVehicle($event)"> 
+                        <option value="{{veh.VehicleID}}" *ngFor="let veh of service3.list  ">{{veh.Model}}, {{veh.OwnersName}} , {{veh.NoOfSeats}} </option>
                                
                     </select></div>
                 </label>
@@ -127,7 +126,8 @@
                       <span class="input-group-text bg-info text-white" id="basic-addon1">Driver</span>
                     </div>
                     <!-- <select  name="Driver"   class="form-control" id="driver" (change)="selectChangeHandlerDriver($event)"> -->
-                      <select  name="driverID"   class="form-control" id="driver"  #driverID="ngModel" [(ngModel)]="serviceHome.formData.driverID" (change)="selectChangeHandlerDriver($event)"> 
+                      <select  name="driverID"   class="form-control" id="driver"  (click)="selectChangeHandlerDriver($event)"> 
+                        <option>Select Driver</option>
                         <option value="{{dri.DriverID}}"  *ngFor="let dri of service4.list" > {{dri.FirstName}}  </option>
                                
                     </select></div>
@@ -144,7 +144,7 @@
                       <span class="input-group-text bg-info text-white" id="basic-addon1">Guide</span>
                     </div>
                     <!-- <select  name="Guide"   class="form-control" id="guide" (change)="selectChangeHandler($event)"> -->
-                      <select  name="guideID"   class="form-control" id="guide"  #guideID="ngModel" [(ngModel)]="serviceHome.formData.guideID" (change)="selectChangeHandlerGuide($event)">
+                      <select  name="guideID"   class="form-control" id="guide" (change)="selectChangeHandlerGuide($event)">
                    
                       <option>Select Guide</option> 
                         <option value="{{guide.GuideID}}"  *ngFor="let guide of service.list "> {{guide.FirstName}}  </option>
@@ -425,7 +425,7 @@
 
     <button type="Button" class="btn btn-lg btn-block BTNNEW btndiv" (click)="testRemove()" *ngIf="serviceHome.formData.homeID==null;">text remove<mat-icon> send</mat-icon></button>
     
-            </form>
+            
             <div  #content>
             <table class="table table-hover">
 
@@ -592,7 +592,7 @@
         <label>
           Total Expenses (LKR)
         </label>
-        <input type="number" class="form-control"  id="total" value="{{TotalExpenses}}"  placeholder="TotalExpenses" />
+        <input type="number" class="form-control" id="total" name="TotalExpenses"  #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"  placeholder="TotalExpenses" />
       </div> 
       <br>
       <button type="button" (click)="calcTot()" >Calculate Total Expenses</button>
@@ -613,22 +613,26 @@
       <form action="">
         <div class="form-group">
           <label>
-            Total Cost (LKR)
+            Total Expenses (LKR)
           </label>
-          <input type="text" name="TotalExpenses" class="form-control" id="#" [(ngModel)]="TotalExpenses" placeholder="Total Cost" />
+          <input type="text" class="form-control" id="#" name="TotalExpenses"  #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"  placeholder="Total Cost" />
+          <!-- <input type="hidden" name="TotalExpenses" id="" #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"> -->
         </div>
         <div class="form-group">
           <label>
-            Company Profit &#37; (LKR)
+            Company Profit  (LKR)
           </label>
-          <input type="text" class="form-control" id="#" name="CompanyProfitPrasentage"  [(ngModel)]="CompanyProfitPrasentage" placeholder="Company Profit &#37;" />
+          <input type="text" class="form-control"  name="CompanyPres"  #CompanyPres="ngModel" [(ngModel)]="serviceHome.formData.CompanyPres"  placeholder="Total Cost" />
+          <!-- <input type="text" class="form-control" name="CompanyPres"  #CompanyPres="ngModel" [(ngModel)]="serviceHome.formData.CompanyPres" placeholder="Company Profit" /> -->
+          <!-- <input type="hidden" name="CompanyProfitPrasentage" id="" #CompanyProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.CompanyProfitPrasentage"> -->
         </div>
         
         <div class="form-group">
           <label>
             Agent Profit &#37; (LKR)
           </label>
-          <input type="text" class="form-control" id="#" name="AgentProfitPrasentage"  [(ngModel)]="AgentProfitPrasentage" placeholder="Agent Profit &#37;" />
+          <input type="text" class="form-control" id="#" name="AgentProfitPrasentage"  #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage" placeholder="Agent Profit &#37;" />
+          <!-- <input type="hidden" name="AgentProfitPrasentage" id="" #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage"> -->
         </div>
         <br>
         <button type="button" (click)="calOverOll()" >Calculate Total Expenses</button>
@@ -652,12 +656,13 @@
           </label>
           <input type="text" class="form-control text-danger" name="OverollCost"  [(ngModel)]="OverollCost"  id="#" placeholder="Total Package Cost in USD" />
         </div>
-        
+        <button type="button"  (click)="onSubmit(form)">finish</button>
       </form>
 
     </div>
   </div>
-            <hr>
+</form>          
+  <hr>
 
             <div style="margin-left: -48px; margin-right: -48px; margin-top: 100px; height: 45px;" class="bg-dark center" >
             </div>

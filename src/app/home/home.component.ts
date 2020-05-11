@@ -53,6 +53,7 @@ export class HomeComponent implements OnInit {
   public numberOfPeople : number = null;
   public numberOfAudult : number = null;
   public numberOfChild : number = null;
+  public customerName : String = null;
 
 
   public driverFirstName : number;
@@ -332,7 +333,10 @@ removeForm(index){
        this.days= this.CustomerX.NoDays;
        this.numberOfAudult = this.CustomerX.NoPeople;
        this.numberOfChild = this.CustomerX.NoChildren;
+       this.serviceHome.formData.customerName  = this.CustomerX.Name;
         this.numberOfPeople = (this.numberOfAudult * 1) + (this.numberOfChild * 1);
+        
+
       });
   }
 
@@ -393,32 +397,26 @@ resetForm(form? : NgForm){
 if(form != null)
 form.resetForm();
 this.serviceHome.formData ={ 
-    homeID: null,
-    hotelID:null,
-    grossMilage: null,
-    extraMilage: null,
-    customerID: null,
-    vehicalID: null,
-    driverID: null,
-    guideID: null,
+    homeID: null, 
+    customerName: null,
+    TotalExpenses: null,
+    CompanyPres: null,
+    AgentProfitPrasentage: null,
 }   
-
 this.serviceHomeDestination.formData ={ 
-    HomeDestinationID: null,
-    NameDestination: null,
-    adultPrice: null,
-    numberOfAudult: null,
-    childPrice: null,
-    numberOfChild: null,
-    Description: null,
-    DestinationDuration: null,
-    Rules: null,
-    TotalSightSeenCost: null,
-    
+  HomeDestinationID: null,
+  NameDestination: null,
+  adultPrice: null,
+  numberOfAudult: null,
+  childPrice: null,
+  numberOfChild: null,
+  Description: null,
+  DestinationDuration: null,
+  Rules: null,
+  TotalSightSeenCost: null,
+  
 
-} 
-
-
+}
 this.serviceHomeHotel.formData ={ 
   HomeHotelID: null,
   date: null,
@@ -446,13 +444,14 @@ onSubmit(form : NgForm){
 if(form.value.homeID == null )
 {
 
-if(form.value.customerID == '')
+if(form.value.customerName == null || form.value.CompanyPres == null)
 {
-this.toastr.warning('Insert faild', 'Eliphase');
+this.toastr.warning('Select a Customer', 'Eliphase');
 }
 else
 {
 this.insertRecord(form);
+
 }
 }
 
@@ -487,25 +486,24 @@ this.toastr.warning('Update faild', 'Eliphase');
 }
 
 insertRecord(form : NgForm){
-
+this.serviceHome.formData.CompanyPres = this.serviceHome.formData.CompanyPres;
   
-// this.serviceHome.postHome(form.value).subscribe(res =>{
-// this.toastr.success('Insert successfully', 'Eliphase');
-// this.resetForm(form);
-// this.serviceHome.refreshList();
-// });
+this.serviceHome.postHome(form.value).subscribe(res =>{
+this.toastr.success('Insert successfully', 'Eliphase');
 
-for (let index = 0; index < this.dataarry.length; index++) {
-  this.serviceHomeHotel.postHomeHotel(this.dataarry[index]).subscribe(res =>{
-    this.toastr.success('Insert successfully', 'Eliphase');
-    this.serviceHomeHotel.refreshList();
-  });
+});
 
-}
+// for (let index = 0; index < this.dataarry.length; index++) {
+//   this.serviceHomeHotel.postHomeHotel(this.dataarry[index]).subscribe(res =>{
+//     this.toastr.success('Insert successfully', 'Eliphase');
+//     this.serviceHomeHotel.refreshList();
+//   });
 
-this.totalRoomCharges = 0;
-this.totalMealPlanCost = 0;
-this.totalMealAndRoomChargesValue = 0;
+// }
+
+// this.totalRoomCharges = 0;
+// this.totalMealPlanCost = 0;
+// this.totalMealAndRoomChargesValue = 0;
 }
 
 
@@ -520,7 +518,21 @@ addDestination(form : NgForm){
     }else{
       this.serviceHomeDestination.postDestination(form.value).subscribe(res =>{
       this.toastr.success('Insert successfully', 'Eliphase');
-      this.resetForm();
+      // this.resetForm();
+      this.serviceHomeDestination.formData ={ 
+        HomeDestinationID: null,
+        NameDestination: null,
+        adultPrice: null,
+        numberOfAudult: null,
+        childPrice: null,
+        numberOfChild: null,
+        Description: null,
+        DestinationDuration: null,
+        Rules: null,
+        TotalSightSeenCost: null,
+        
+    
+    } 
       // this.serviceHome.refreshList();
       this.serviceHomeDestination.refreshList();
       });
@@ -555,7 +567,24 @@ addHotel(form : NgForm){
   }else{
       this.serviceHomeHotel.postHomeHotel(form.value).subscribe(res =>{
       this.toastr.success('Insert successfully', 'Eliphase');
-      this.resetForm();
+      // this.resetForm();
+      this.serviceHomeHotel.formData ={ 
+        HomeHotelID: null,
+        date: null,
+        hotelName: null,
+        MealPlan: null,
+        currentMealPlan: null,
+        SingleRoomCount: null,
+        DoubleRoomCount: null,
+        TripleRoomCount: null,
+        GuidedRoomCount: null,
+        singleRoomCost: null,
+        doubleRoomCost: null,
+        tripleRoomCost: null,
+        guideRoomCost: null,
+        TotalMealAnddRooms:null,
+       
+      } 
       // this.serviceHome.refreshList();
       this.serviceHomeHotel.refreshList();
       this.TotalMealAnddRooms = 0;
@@ -616,6 +645,7 @@ calcSightSeeing(){
                            + this.GuideAndDriverTotal 
                            + this.totalMealAndRoomChargesValue
                            + this.totalSightSeeingCharges;
+     this.serviceHome.formData.TotalExpenses = this.TotalExpenses;
    
   }
 
@@ -623,13 +653,17 @@ calcSightSeeing(){
 
 calOverOll(){
   this.OverollCost = (this.TotalExpenses * 1)
-                     + ((this.TotalExpenses * 1) * ((this.CompanyProfitPrasentage * 1) / 100)) 
+                     + ((this.TotalExpenses * 1) * ((this.serviceHome.formData.CompanyPres * 1) / 100)) 
                      + ((this.TotalExpenses * 1) * ((this.AgentProfitPrasentage * 1) / 100));
                   
-  this.comanyProfit = ((this.TotalExpenses * 1) * ((this.CompanyProfitPrasentage * 1) / 100));
+  this.comanyProfit = ((this.TotalExpenses * 1) * ((this.serviceHome.formData.CompanyPres* 1) / 100));
  
   this.AgentProfit =  ((this.TotalExpenses * 1) * ((this.AgentProfitPrasentage * 1) / 100));                 
  
+  
+  // this.serviceHome.formData.CompanyProfitPrasentage = this.CompanyProfitPrasentage;
+  // this.serviceHome.formData.AgentProfitPrasentage = this.AgentProfitPrasentage;
+  
   
   
 }

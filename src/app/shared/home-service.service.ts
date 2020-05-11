@@ -14,20 +14,20 @@ export class HomeServiceService {
 
 
   postHome(formData : Home){
-    return this.http.post(this.rootURL+'/Costing',formData)
+    return this.http.post(this.rootURL+'/Home2',formData)
    }
  
    refreshList(){
-     this.http.get(this.rootURL+'/Costing')
+     this.http.get(this.rootURL+'/Home2')
      .toPromise().then(res => this.list = res as Home[])
    }
  
    putHome(formData : Home){
-     return this.http.put(this.rootURL+'/Costing/'+formData.homeID,formData)
+     return this.http.put(this.rootURL+'/Home2/'+formData.homeID,formData)
     }
  
     deleteHome(id : number){
-      return this.http.delete(this.rootURL+'/Costing/'+id);
+      return this.http.delete(this.rootURL+'/Home2/'+id);
     }
  }
  
