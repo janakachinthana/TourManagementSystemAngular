@@ -17,7 +17,8 @@ import { HotelService } from '../shared/hotel.service';
 import * as jsPDF from 'jspdf';
 import { HomeHotel } from '../shared/home-hotel.model';
 import { HomeDestinationService } from '../shared/home-destination.service';
-
+import { Router } from '@angular/router';
+import * as html2pdf from 'html2pdf.js'
 
 
 @Component({
@@ -54,6 +55,10 @@ export class HomeComponent implements OnInit {
   public numberOfAudult : number = null;
   public numberOfChild : number = null;
   public customerName : String = null;
+  public Nationality : String = null;
+  public Email : String = null;
+  public Contact : String = null;
+  public CustomerName : String = null;
 
 
   public driverFirstName : number;
@@ -145,7 +150,8 @@ export class HomeComponent implements OnInit {
               public serviceHome: HomeServiceService,
               public serviceHomeHotel: HomeHotelService,
               public serviceHomeDestination: HomeDestinationService,
-              private toastr : ToastrService
+              private toastr : ToastrService,
+              private router: Router
 ) { }
 
 addForm(){
@@ -334,7 +340,13 @@ removeForm(index){
        this.days= this.CustomerX.NoDays;
        this.numberOfAudult = this.CustomerX.NoPeople;
        this.numberOfChild = this.CustomerX.NoChildren;
+       this.CustomerName = this.CustomerX.Name;
+       this.Nationality = this.CustomerX.Nationality;
+       this.Email = this.CustomerX.Email;
+       this.Contact = this.CustomerX.Phone;
        this.serviceHome.formData.customerName  = this.CustomerX.Name;
+       this.serviceHome.formData.numberOfAdult  = this.CustomerX.NoPeople;
+       this.serviceHome.formData.numberOfChild  = this.CustomerX.NoChildren;
         this.numberOfPeople = (this.numberOfAudult * 1) + (this.numberOfChild * 1);
         
 
@@ -392,6 +404,8 @@ removeForm(index){
       this.hotelCosting=new HotelCosting();
       this.dataarry.push(this.hotelCosting);
       this.UserName = this.service5.UserName.FirstName;
+      this.serviceHomeHotel.refreshList();
+      this.serviceHomeDestination.refreshList();
   }
 
 resetForm(form? : NgForm){
@@ -405,6 +419,9 @@ this.serviceHome.formData ={
     AgentProfitPrasentage: null,
     comanyProfit: null,
     AgentProfit: null,
+    numberOfAdult: null,
+    numberOfChild: null,
+    OverollCost: null,
 }   
 this.serviceHomeDestination.formData ={ 
   HomeDestinationID: null,
@@ -454,6 +471,9 @@ this.toastr.warning('Select a Customer', 'Eliphase');
 else
 {
 this.insertRecord(form);
+  this.downloadPDF();
+  this.testRemove();
+  this.router.navigateByUrl('main');
 
 }
 }
@@ -662,6 +682,8 @@ calOverOll(form : NgForm){
   this.serviceHome.formData.comanyProfit = ((this.TotalExpenses * 1) * ((form.value.CompanyPresentage* 1) / 100));
  
   this.serviceHome.formData.AgentProfit =  ((this.TotalExpenses * 1) * ((form.value.AgentProfitPrasentage * 1) / 100));                 
+ 
+  this.serviceHome.formData.OverollCost =  this.OverollCost;
   // this.serviceHome.formData.CompanyPresentage = (this.CompanyPres * 1);
   
   // this.serviceHome.formData.CompanyProfitPrasentage = this.CompanyProfitPrasentage;
@@ -696,40 +718,43 @@ testRemove(){
   for (let index = 0; index < this.serviceHomeHotel.list.length; index++) {
     this.serviceHomeHotel.deleteHomeHotel(this.serviceHomeHotel.list[index].HomeHotelID).subscribe(res=>{
     this.service.refreshList();
-    this.toastr.warning('Deleted successfully', ' Elephas vacations',{
+    this.toastr.warning('Hotel Deleted successfully', ' Elephas vacations',{
       progressBar :true,
       positionClass:'toast-top-right',
       easing:'ease-in'
     });    });
 }
+
+
+for (let index = 0; index < this.serviceHomeDestination.list.length; index++) {
+  this.serviceHomeDestination.deleteDestination(this.serviceHomeDestination.list[index].HomeDestinationID).subscribe(res=>{
+  this.service.refreshList();
+  this.toastr.warning('Destination Deleted successfully', ' Elephas vacations',{
+    progressBar :true,
+    positionClass:'toast-top-right',
+    easing:'ease-in'
+  });    });
+}
+
 }
 
 
 @ViewChild('content')content: ElementRef;
   
 public downloadPDF(){
-
-  let doc =new jsPDF('landscape', 'px', 'a2') ;
-
-  let specialElimentHandlers = {
-
-    '#editor': function(element: any, renderer: any){
-      return true;
-    }
-
+  const options = {
+    filename : 'Employee Report',
+    image: {type: 'jpeg', quality: 1 },
+    html2canvas:  { scale : 5},
+    margin : 10,
+    jsPDF:{ format: 'letter', orientation: 'landscape',putOnlyUsedFonts:true}
   };
+  const content: Element = document.getElementById('container');
 
-  let content = this.content.nativeElement;
-
-  doc.fromHTML(content.innerHTML, 100,15,{
-
-    'width': 590,
-    'elementHandlers': specialElimentHandlers
-
-  });
-
-  doc.save('janaka'+'Employee Details (Eliphase Vacation).pdf');
-
+  html2pdf()
+    .from(content)
+    .set(options)
+    .save();
 }
 
 }

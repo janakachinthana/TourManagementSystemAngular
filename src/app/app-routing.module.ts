@@ -16,6 +16,7 @@ import { CostingComponent } from './costing/costing.component';
 import { UserComponent } from './user/user.component';
 import { EmployeeService } from './shared/employee.service';
 import { LoginComponent } from './user/login/login.component';
+import { EstimatedToursComponent } from './estimated-tours/estimated-tours.component';
 
 
 
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path : 'destination', component : DestinationsComponent,},
   { path : 'hotel', component : HotelsComponent, },
   { path : 'driver', component : DriversComponent, },
+  { path : 'estimatedTours', component : EstimatedToursComponent, },
 ];
 
 @NgModule({

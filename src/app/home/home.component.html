@@ -1,7 +1,6 @@
 
 <h1 style="color: black;">{{UserName}}</h1>
-<button class="btn btn-lg btn-primary addbtn" mat-raised-button style ="margin-left: 45%;" (click)="downloadPDF()">
-  Export to PDF</button><br><br>
+
    
     <br>
     <div class="jumbotron divmain container ">
@@ -69,6 +68,8 @@
                         <option value="{{cus.ID}}" *ngFor="let cus of service2.list "> {{cus.Name}}  </option>                              
                     </select></div>
                     <input type="hidden" name="customerName" id="" #customerName="ngModel" value="{{customerName}}" [(ngModel)]="serviceHome.formData.customerName">
+                    <input type="hidden" name="numberOfAdult" id="" #numberOfAdult="ngModel" value="{{numberOfAdult}}" [(ngModel)]="serviceHome.formData.numberOfAdult">
+                    <input type="hidden" name="numberOfChild" id="" #numberOfChild="ngModel" value="{{numberOfChild}}" [(ngModel)]="serviceHome.formData.numberOfChild">
                 </label>
                 <label>
                   Number of People:
@@ -420,13 +421,31 @@
   </form>
      
     </div>
-  </div>
-    
-
-    <button type="Button" class="btn btn-lg btn-block BTNNEW btndiv" (click)="testRemove()" *ngIf="serviceHome.formData.homeID==null;">text remove<mat-icon> send</mat-icon></button>
-    
-            
-            <div  #content>
+  </div>       
+            <div  id="container">
+              <table class="table table-hover">
+                <thead class="thead-dark">
+                  <tr >
+                    <th scope="col" class="text-success">Customer Name</th> 
+                    <th scope="col" class="text-success">Nationality</th> 
+                    <th scope="col" class="text-success">Email</th> 
+                    <th scope="col" class="text-success">Contact No</th> 
+                    <th scope="col" class="text-success">Number of Adult</th>
+                    <th scope="col" class="text-success">Number Of Children</th>
+                  </tr>
+                </thead>
+   
+                <tbody>
+                    <tr>
+                     <td scope="col" class="text-info bg-white">{{serviceHome.formData.customerName}}</td>
+                     <td scope="col" class="text-info bg-white">{{Nationality}}</td>
+                     <td scope="col" class="text-info bg-white">{{Email}}</td>
+                     <td scope="col" class="text-info bg-white">{{Contact}}</td>
+                     <td scope="col" class="text-info bg-white">{{serviceHome.formData.numberOfAdult}}</td>
+                     <td scope="col" class="text-info bg-white">{{serviceHome.formData.numberOfChild}}</td>
+                    </tr> 
+                </tbody>
+              </table>
             <table class="table table-hover">
 
                 <thead class="thead-dark">
@@ -460,7 +479,6 @@
                 </tbody>
             </table>
             <table class="table table-hover">
-                <br><br>
                 <thead class="thead-dark">
                   <tr >
                     <th scope="col" class="text-success">Vehical Type</th> 
@@ -482,22 +500,21 @@
                 </tbody>
             </table>
             <table class="table table-hover">
-                <br><br>
                 <thead class="thead-dark">
                   <tr >
-                    <th scope="col" class="text-success">Date</th> 
-                    <th scope="col" class="text-success">Hotel Name and Address</th> 
+                    <th scope="col" class="text-success">Tour Plan Date</th> 
+                    <th scope="col" class="text-success">Hotel Name</th> 
                     <th scope="col" class="text-success">Meal Plan</th> 
                     <th scope="col" class="text-success">Meal Plan Cost</th> 
                     <th scope="col" class="text-success">Single Room Count</th> 
-                    <th scope="col" class="text-success">Cost</th> 
+                    <!-- <th scope="col" class="text-success">Cost</th>  -->
                     <th scope="col" class="text-success">Double Room Count</th>
-                    <th scope="col" class="text-success">Cost</th>
+                    <!-- <th scope="col" class="text-success">Cost</th> -->
                     <th scope="col" class="text-success">Triple Room Count</th> 
-                    <th scope="col" class="text-success">Cost</th> 
+                    <!-- <th scope="col" class="text-success">Cost</th>  -->
                     <th scope="col" class="text-success">Guide Room Count</th> 
-                    <th scope="col" class="text-success">Cost</th>
-                    <th scope="col" class="text-success">Total</th>
+                    <!-- <th scope="col" class="text-success">Cost</th> -->
+                    <th scope="col" class="text-success">Total Fee</th>
                   </tr>
                 </thead>
    
@@ -508,20 +525,19 @@
                      <td scope="col" class="text-info bg-white">{{homeHotel.currentMealPlan}}</td>
                      <td scope="col" class="text-info bg-white">{{homeHotel.MealPlan}}</td>
                      <td scope="col" class="text-info bg-white">{{homeHotel.SingleRoomCount}}</td>
-                     <td scope="col" class="text-info bg-white">{{homeHotel.singleRoomCost}}</td>
+                     <!-- <td scope="col" class="text-info bg-white">{{homeHotel.singleRoomCost}}</td> -->
                      <td scope="col" class="text-info bg-white">{{homeHotel.DoubleRoomCount}}</td>
-                     <td scope="col" class="text-info bg-white">{{homeHotel.doubleRoomCost}}</td>
+                     <!-- <td scope="col" class="text-info bg-white">{{homeHotel.doubleRoomCost}}</td> -->
                      <td scope="col" class="text-info bg-white">{{homeHotel.TripleRoomCount}}</td>
-                     <td scope="col" class="text-info bg-white">{{homeHotel.tripleRoomCost}}</td>
+                     <!-- <td scope="col" class="text-info bg-white">{{homeHotel.tripleRoomCost}}</td> -->
                      <td scope="col" class="text-info bg-white">{{homeHotel.GuidedRoomCount}}</td>
-                     <td scope="col" class="text-info bg-white">{{homeHotel.guideRoomCost}}</td>
+                     <!-- <td scope="col" class="text-info bg-white">{{homeHotel.guideRoomCost}}</td> -->
                      <td scope="col" class="text-info bg-white">{{homeHotel.TotalMealAnddRooms}}</td> 
                     </tr> 
                 </tbody>   
             </table>
 
             <table class="table table-hover">
-              <br><br>
               <thead class="thead-dark">
                 <tr >
                   <th scope="col" class="text-success">Destination Name</th> 
@@ -543,6 +559,21 @@
                    <td scope="col" class="text-info bg-white">{{homeDesti.numberOfChild}}</td>
                    <td scope="col" class="text-info bg-white">{{homeDesti.childPrice}}</td>
                    <td scope="col" class="text-info bg-white">{{homeDesti.TotalSightSeenCost}}</td>
+                  </tr> 
+              </tbody>
+            </table>
+
+
+            <table class="table table-hover">
+              <thead class="thead-dark">
+                <tr >
+                  <th scope="col" class="text-success">Package Cost (including Service charges)</th> 
+                </tr>
+              </thead>
+ 
+              <tbody>
+                  <tr>
+                   <td scope="col" class="text-info bg-white">{{serviceHome.formData.OverollCost}}</td>
                   </tr> 
               </tbody>
             </table>
@@ -633,7 +664,7 @@
           <!-- <input type="hidden" name="AgentProfitPrasentage" id="" #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage"> -->
         </div>
         <br>
-        <button type="button" (click)="calOverOll(form)" >Calculate Total Expenses</button>
+        <button type="button" (click)="calOverOll(form)" >Calculate Profit</button>
         <br>
         <br>
         <div class="form-group">
@@ -652,7 +683,7 @@
           <label class="text-danger">
             Total Package Cost (LKR)
           </label>
-          <input type="text" class="form-control text-danger" name="OverollCost"  [(ngModel)]="OverollCost"  id="#" placeholder="Total Package Cost in USD" />
+          <input type="text" class="form-control text-danger" name="OverollCost"  #OverollCost="ngModel" [(ngModel)]="serviceHome.formData.OverollCost"  id="#" placeholder="Total Package Cost in USD" />
         </div>
         <button type="button"  (click)="onSubmit(form)">finish</button>
      

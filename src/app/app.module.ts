@@ -76,7 +76,9 @@ import { WellcomPageComponent } from './home/wellcom-page/wellcom-page.component
 import { HomeReportComponent } from './home/home-report/home-report.component';
 import { VehiclePrintComponent } from './vehicles/vehicle-print/vehicle-print.component';
 import { PrintguidesComponent } from './guides/printguides/printguides.component';
-
+import { EstimatedToursComponent } from './estimated-tours/estimated-tours.component';
+import { EstimatedToursListComponent } from './estimated-tours/estimated-tours-list/estimated-tours-list.component';
+import { EstimatedToursFormComponent } from './estimated-tours/estimated-tours-form/estimated-tours-form.component';
 
 
 
@@ -120,6 +122,10 @@ import { PrintguidesComponent } from './guides/printguides/printguides.component
     HomeReportComponent,
     VehiclePrintComponent,
     PrintguidesComponent,
+    EstimatedToursComponent,
+    EstimatedToursListComponent,
+    EstimatedToursFormComponent,
+   
   
 
 

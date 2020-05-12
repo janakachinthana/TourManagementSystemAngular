@@ -6,4 +6,7 @@ export class Home {
     AgentProfitPrasentage:number;
     comanyProfit: number;
     AgentProfit: number;
+    numberOfAdult: Number;
+    numberOfChild: Number;
+    OverollCost: number;
 }
