@@ -123,6 +123,7 @@ export class HomeComponent implements OnInit {
   public comanyProfit: number = 0;
   public AgentProfit: number = 0;
   public OverollCost: number = 0.00;
+  public CompanyPres: number = 0;
   
   public GuideX : any;
   public DestinationX : any;
@@ -400,8 +401,10 @@ this.serviceHome.formData ={
     homeID: null, 
     customerName: null,
     TotalExpenses: null,
-    CompanyPres: null,
+    CompanyPresentage: null,
     AgentProfitPrasentage: null,
+    comanyProfit: null,
+    AgentProfit: null,
 }   
 this.serviceHomeDestination.formData ={ 
   HomeDestinationID: null,
@@ -444,7 +447,7 @@ onSubmit(form : NgForm){
 if(form.value.homeID == null )
 {
 
-if(form.value.customerName == null || form.value.CompanyPres == null)
+if(form.value.customerName == null || this.CompanyPres == null)
 {
 this.toastr.warning('Select a Customer', 'Eliphase');
 }
@@ -486,7 +489,7 @@ this.toastr.warning('Update faild', 'Eliphase');
 }
 
 insertRecord(form : NgForm){
-this.serviceHome.formData.CompanyPres = this.serviceHome.formData.CompanyPres;
+// this.serviceHome.formData.CompanyPresentage = this.serviceHome.formData.CompanyPresentage;
   
 this.serviceHome.postHome(form.value).subscribe(res =>{
 this.toastr.success('Insert successfully', 'Eliphase');
@@ -651,15 +654,15 @@ calcSightSeeing(){
 
 };
 
-calOverOll(){
+calOverOll(form : NgForm){
   this.OverollCost = (this.TotalExpenses * 1)
-                     + ((this.TotalExpenses * 1) * ((this.serviceHome.formData.CompanyPres * 1) / 100)) 
-                     + ((this.TotalExpenses * 1) * ((this.AgentProfitPrasentage * 1) / 100));
+                     + ((this.TotalExpenses * 1) * ((form.value.CompanyPresentage* 1) / 100)) 
+                     + ((this.TotalExpenses * 1) * ((form.value.AgentProfitPrasentage * 1) / 100));
                   
-  this.comanyProfit = ((this.TotalExpenses * 1) * ((this.serviceHome.formData.CompanyPres* 1) / 100));
+  this.serviceHome.formData.comanyProfit = ((this.TotalExpenses * 1) * ((form.value.CompanyPresentage* 1) / 100));
  
-  this.AgentProfit =  ((this.TotalExpenses * 1) * ((this.AgentProfitPrasentage * 1) / 100));                 
- 
+  this.serviceHome.formData.AgentProfit =  ((this.TotalExpenses * 1) * ((form.value.AgentProfitPrasentage * 1) / 100));                 
+  // this.serviceHome.formData.CompanyPresentage = (this.CompanyPres * 1);
   
   // this.serviceHome.formData.CompanyProfitPrasentage = this.CompanyProfitPrasentage;
   // this.serviceHome.formData.AgentProfitPrasentage = this.AgentProfitPrasentage;

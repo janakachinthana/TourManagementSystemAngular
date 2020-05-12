@@ -610,7 +610,6 @@
         Total Packege Costing
       </h3>
       <br>
-      <form action="">
         <div class="form-group">
           <label>
             Total Expenses (LKR)
@@ -622,9 +621,8 @@
           <label>
             Company Profit  (LKR)
           </label>
-          <input type="text" class="form-control"  name="CompanyPres"  #CompanyPres="ngModel" [(ngModel)]="serviceHome.formData.CompanyPres"  placeholder="Total Cost" />
-          <!-- <input type="text" class="form-control" name="CompanyPres"  #CompanyPres="ngModel" [(ngModel)]="serviceHome.formData.CompanyPres" placeholder="Company Profit" /> -->
-          <!-- <input type="hidden" name="CompanyProfitPrasentage" id="" #CompanyProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.CompanyProfitPrasentage"> -->
+          <!-- <input type="text" class="form-control"  name="CompanyPres" value="{{CompanyPres}}"  [(ngModel)]="CompanyPres" /> -->
+          <input type="text" class="form-control"  name="CompanyPresentage"  #CompanyPresentage="ngModel" [(ngModel)]="serviceHome.formData.CompanyPresentage"  placeholder="Total Cost" />
         </div>
         
         <div class="form-group">
@@ -635,20 +633,20 @@
           <!-- <input type="hidden" name="AgentProfitPrasentage" id="" #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage"> -->
         </div>
         <br>
-        <button type="button" (click)="calOverOll()" >Calculate Total Expenses</button>
+        <button type="button" (click)="calOverOll(form)" >Calculate Total Expenses</button>
         <br>
         <br>
         <div class="form-group">
           <label>
             Company Total Profit (LKR)
           </label>
-          <input type="text" class="form-control" id="#" name="comanyProfit"  [(ngModel)]="comanyProfit" placeholder="Company Profit in USD" />
+          <input type="text" class="form-control" id="#" name="comanyProfit"  #comanyProfit="ngModel" [(ngModel)]="serviceHome.formData.comanyProfit" placeholder="Company Profit in USD" />
         </div>
         <div class="form-group">
           <label>
             Agent Total Profit (LKR)
           </label>
-          <input type="text" class="form-control" id="#" name="AgentProfit"  [(ngModel)]="AgentProfit"  placeholder="Agent Profit in USD" />
+          <input type="text" class="form-control" id="#" name="AgentProfit"  #AgentProfit="ngModel" [(ngModel)]="serviceHome.formData.AgentProfit" placeholder="Agent Profit in USD" />
         </div>
         <div class="form-group">
           <label class="text-danger">
@@ -657,7 +655,7 @@
           <input type="text" class="form-control text-danger" name="OverollCost"  [(ngModel)]="OverollCost"  id="#" placeholder="Total Package Cost in USD" />
         </div>
         <button type="button"  (click)="onSubmit(form)">finish</button>
-      </form>
+     
 
     </div>
   </div>
