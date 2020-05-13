@@ -104,7 +104,7 @@
               <!-- <Button id="btn" (click) ="checkTransportCost()">Check Transportation Cost</Button> -->
               <div class="form-group">
                 <label>
-                  Transportation Cost (USD)
+                  Transportation Cost (LKR)
                 </label>
                 <input type="number" class="form-control"  id="total" value="{{totalTransportCost}}"  placeholder="Total Transportation Cost Altogether" />
               </div>              
@@ -161,6 +161,10 @@
                 </label>
                 <input type="text" class="form-control" id="total" value="{{TotalDAndGPrice}}" placeholder="Guide & Drivers Total" disabled />
               </div>
+
+              <div style="width: 210px; height: 345px; border-radius: 5px; border-color: black; border-style: solid; border-width: 3;">
+                <img class="card-img-top" src="/assets/img/driverguide.jpg">
+              </div>
           </div>
 
 
@@ -173,6 +177,10 @@
               Sight-Seeing Costing
             </h3>
             </div>
+            <div style="width: 480px; height: 275px; border-radius: 5px; border-color: black; border-style: solid; border-width: 3;">
+              <img class="card-img-top" src="/assets/img/tour.jpg">
+            </div>
+            <br>
            <form #formDes="ngForm" (submit)="addDestination(formDes)">
             <div class="form-row" >
               <div class="form-group col-md-8">
@@ -267,12 +275,13 @@
 
                       </div>
             </div>
-            <div class="col-md-4">
-              <div class="input-group-prepend">
-            <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv"> <mat-icon> send</mat-icon></button>
-          </div></div>
-
+          
+              
+            <button type="submit" [disabled]="form.invalid" style="margin-left: 260px;" class="card-link btn btn-sm btn-outline-success ybtn"><mat-icon> send</mat-icon>Add to Package</button>
           </form>
+          <br>
+          <br>
+         
           </div>
 
 
@@ -400,24 +409,27 @@
 
       <div class="row">
         <div class="col-md-4">
-          <button type="button" (click)="calcTotMEalAndRoom()" >Check Total</button>
+          <button type="button" (click)="calcTotMEalAndRoom()" class="card-link btn btn-sm btn-outline-success ybtn">Check Total</button>
             <!-- <input type="number" name="Tot" class="form-control" value="{{Tot}}"> -->
 
             <input type="number" name="TotalMealAnddRooms" class="form-control"  #TotalMealAnddRooms="ngModel" [(ngModel)]="serviceHomeHotel.formData.TotalMealAnddRooms">
         </div>
+        
 
         <div class="col-md-4">
           <div class="input-group-prepend">
-        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="serviceHome.formData.homeID==null;">Confirm Day Plan <mat-icon> send</mat-icon></button>
+        <button type="submit" [disabled]="form.invalid" style="margin-left: 100px;" class="card-link btn btn-sm btn-outline-success ybtn"><mat-icon>send</mat-icon>Confirm Day Plan</button>
       </div></div>
     
     
-        <div class="col-md-4">
-          <div class="input-group-prepend">
+        <!-- <div class="col-md-4">
+          <div class="input-group-prepend"> -->
       
-        <button type="button" class="btn btn-lg btn-block BTNNEW btndiv" [mat-dialog-close]>CLOSE</button>
-    </div>
-    </div></div>
+        <!-- <button type="button" class="card-link btn btn-sm btn-outline-success ybtn" [mat-dialog-close]>CLOSE</button> -->
+    <!-- </div>
+    </div> -->
+  </div>
+  <br>
   </form>
      
     </div>
@@ -645,22 +657,22 @@
           <label>
             Total Expenses (LKR)
           </label>
-          <input type="text" class="form-control" id="#" name="TotalExpenses"  #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"  placeholder="Total Cost" />
+          <input type="text" class="form-control" id="#" name="TotalExpenses"  #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"  placeholder="Total Expenses (LKR)" />
           <!-- <input type="hidden" name="TotalExpenses" id="" #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"> -->
         </div>
         <div class="form-group">
           <label>
-            Company Profit  (LKR)
+            Company Profit %
           </label>
           <!-- <input type="text" class="form-control"  name="CompanyPres" value="{{CompanyPres}}"  [(ngModel)]="CompanyPres" /> -->
-          <input type="text" class="form-control"  name="CompanyPresentage"  #CompanyPresentage="ngModel" [(ngModel)]="serviceHome.formData.CompanyPresentage"  placeholder="Total Cost" />
+          <input type="text" class="form-control"  name="CompanyPresentage"  #CompanyPresentage="ngModel" [(ngModel)]="serviceHome.formData.CompanyPresentage"  placeholder="Company Profit %" />
         </div>
         
         <div class="form-group">
           <label>
-            Agent Profit &#37; (LKR)
+            Agent Profit %
           </label>
-          <input type="text" class="form-control" id="#" name="AgentProfitPrasentage"  #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage" placeholder="Agent Profit &#37;" />
+          <input type="text" class="form-control" id="#" name="AgentProfitPrasentage"  #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage" placeholder="Agent Profit %" />
           <!-- <input type="hidden" name="AgentProfitPrasentage" id="" #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage"> -->
         </div>
         <br>
@@ -671,19 +683,19 @@
           <label>
             Company Total Profit (LKR)
           </label>
-          <input type="text" class="form-control" id="#" name="comanyProfit"  #comanyProfit="ngModel" [(ngModel)]="serviceHome.formData.comanyProfit" placeholder="Company Profit in USD" />
+          <input type="text" class="form-control" id="#" name="comanyProfit"  #comanyProfit="ngModel" [(ngModel)]="serviceHome.formData.comanyProfit" placeholder="Company Profit (LKR)" />
         </div>
         <div class="form-group">
           <label>
             Agent Total Profit (LKR)
           </label>
-          <input type="text" class="form-control" id="#" name="AgentProfit"  #AgentProfit="ngModel" [(ngModel)]="serviceHome.formData.AgentProfit" placeholder="Agent Profit in USD" />
+          <input type="text" class="form-control" id="#" name="AgentProfit"  #AgentProfit="ngModel" [(ngModel)]="serviceHome.formData.AgentProfit" placeholder="Agent Profit (LKR)" />
         </div>
         <div class="form-group">
           <label class="text-danger">
             Total Package Cost (LKR)
           </label>
-          <input type="text" class="form-control text-danger" name="OverollCost"  #OverollCost="ngModel" [(ngModel)]="serviceHome.formData.OverollCost"  id="#" placeholder="Total Package Cost in USD" />
+          <input type="text" class="form-control text-danger" name="OverollCost"  #OverollCost="ngModel" [(ngModel)]="serviceHome.formData.OverollCost"  id="#" placeholder="Total Package Cost (LKR)" />
         </div>
         <button type="button"  (click)="onSubmit(form)">finish</button>
      

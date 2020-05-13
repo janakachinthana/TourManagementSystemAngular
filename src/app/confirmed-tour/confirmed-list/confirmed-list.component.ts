@@ -6,24 +6,24 @@ import {  MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import * as jsPDF from 'jspdf';
 import { HomeServiceService } from 'src/app/shared/home-service.service';
 import { Home } from 'src/app/shared/home.model';
-import { EstimatedToursFormComponent } from '../estimated-tours-form/estimated-tours-form.component';
 import { ConfirmService } from 'src/app/shared/confirm.service';
-
+import { ConfirmedFormComponent } from '../confirmed-form/confirmed-form.component';
+import { CompletedService } from 'src/app/shared/completed.service';
 
 @Component({
-  selector: 'app-estimated-tours-list',
-  templateUrl: './estimated-tours-list.component.html',
-  styleUrls: ['./estimated-tours-list.component.scss']
+  selector: 'app-confirmed-list',
+  templateUrl: './confirmed-list.component.html',
+  styleUrls: ['./confirmed-list.component.scss']
 })
-export class EstimatedToursListComponent implements OnInit {
+export class ConfirmedListComponent implements OnInit {
   UserName : String ;
   
   isShow: boolean;
   topPosToStartShowing = 100;
   
   constructor(
-    public service : HomeServiceService,
-    public ConfirmService: ConfirmService,
+    public service : ConfirmService,
+    public CompletedService: CompletedService,
     private toastr : ToastrService,
     private dialog:MatDialog ) { }
 
@@ -70,7 +70,7 @@ export class EstimatedToursListComponent implements OnInit {
   // }
 
   populateForm(home : Home){
-    this.ConfirmService.formData = Object.assign({}, home);
+    this.CompletedService.formData = Object.assign({}, home);
     this.service.formData = Object.assign({}, home);
     this.AddOrEditEmployees(home);
 
@@ -102,8 +102,8 @@ export class EstimatedToursListComponent implements OnInit {
     dialogConfig.disableClose = false;
     dialogConfig.width = '25%';
     dialogConfig.height = '94%';
-    // dialogConfig.data = {home};
-    this.dialog.open(EstimatedToursFormComponent, dialogConfig);
+    dialogConfig.data = {home};
+    this.dialog.open(ConfirmedFormComponent, dialogConfig);
   }
   
   @HostListener('window:scroll')

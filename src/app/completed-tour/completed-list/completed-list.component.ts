@@ -6,24 +6,24 @@ import {  MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import * as jsPDF from 'jspdf';
 import { HomeServiceService } from 'src/app/shared/home-service.service';
 import { Home } from 'src/app/shared/home.model';
-import { EstimatedToursFormComponent } from '../estimated-tours-form/estimated-tours-form.component';
 import { ConfirmService } from 'src/app/shared/confirm.service';
-
+import { CompletedService } from 'src/app/shared/completed.service';
+import { CompletedFormComponent } from '../completed-form/completed-form.component';
 
 @Component({
-  selector: 'app-estimated-tours-list',
-  templateUrl: './estimated-tours-list.component.html',
-  styleUrls: ['./estimated-tours-list.component.scss']
+  selector: 'app-completed-list',
+  templateUrl: './completed-list.component.html',
+  styleUrls: ['./completed-list.component.scss']
 })
-export class EstimatedToursListComponent implements OnInit {
+export class CompletedListComponent implements OnInit {
   UserName : String ;
   
   isShow: boolean;
   topPosToStartShowing = 100;
   
   constructor(
-    public service : HomeServiceService,
-    public ConfirmService: ConfirmService,
+    public service : CompletedService,
+    // public CompletedService: CompletedService,
     private toastr : ToastrService,
     private dialog:MatDialog ) { }
 
@@ -70,8 +70,8 @@ export class EstimatedToursListComponent implements OnInit {
   // }
 
   populateForm(home : Home){
-    this.ConfirmService.formData = Object.assign({}, home);
     this.service.formData = Object.assign({}, home);
+    // this.service.formData = Object.assign({}, home);
     this.AddOrEditEmployees(home);
 
    
@@ -103,7 +103,7 @@ export class EstimatedToursListComponent implements OnInit {
     dialogConfig.width = '25%';
     dialogConfig.height = '94%';
     // dialogConfig.data = {home};
-    this.dialog.open(EstimatedToursFormComponent, dialogConfig);
+    this.dialog.open(CompletedFormComponent, dialogConfig);
   }
   
   @HostListener('window:scroll')

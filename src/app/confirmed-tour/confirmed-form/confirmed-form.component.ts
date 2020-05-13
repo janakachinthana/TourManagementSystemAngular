@@ -10,25 +10,26 @@ import { Home } from 'src/app/shared/home.model';
 import { ConfirmService } from 'src/app/shared/confirm.service';
 import { Router } from '@angular/router';
 import { ConfirmedService } from 'src/app/shared/confirmed.service';
+import { CompletedService } from 'src/app/shared/completed.service';
 
 @Component({
-  selector: 'app-estimated-tours-form',
-  templateUrl: './estimated-tours-form.component.html',
-  styleUrls: ['./estimated-tours-form.component.scss']
+  selector: 'app-confirmed-form',
+  templateUrl: './confirmed-form.component.html',
+  styleUrls: ['./confirmed-form.component.scss']
 })
-export class EstimatedToursFormComponent implements OnInit {
+export class ConfirmedFormComponent implements OnInit {
   formData: Home;
   temp: Home;
   imageUrl: string = "/assets/img/img.jpg";
   fileToUpload: File = null;
 
 
-  constructor(public service : HomeServiceService,
+  constructor(public service : ConfirmService,
     private router: Router,
-      public ConfirmService : ConfirmService,
+      public CompletedService : CompletedService,
       private toastr : ToastrService,
       @Inject(MAT_DIALOG_DATA) public data,
-       public dialogRef: MatDialogRef<EstimatedToursFormComponent>
+       public dialogRef: MatDialogRef<ConfirmedFormComponent>
     ) { }
    
 
@@ -97,7 +98,7 @@ ngOnInit() :void{
                 easing:'ease-in'
               });    });
 
-              
+              this.router.navigateByUrl('confirmed');
       
         
       // else{
@@ -106,17 +107,16 @@ ngOnInit() :void{
     }
 
     insertRecord(form : NgForm){
-          this.ConfirmService.postHome(form.value).subscribe(res =>{
+          this.CompletedService.postHome(form.value).subscribe(res =>{
             this.dialogRef.close();
           this.toastr.success('Employee Added successfully', 'Elaphase Vacation',{
           progressBar :true,
       positionClass:'toast-top-right'
           });
           this.resetForm(form);
-          this.ConfirmService.refreshList();
+          this.CompletedService.refreshList();
           });
 
-          this.router.navigateByUrl('confirmed');
     }
     onDelete(id : number){
       if (confirm('Are you sure to delete this Employee record?')){

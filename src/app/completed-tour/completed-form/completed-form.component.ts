@@ -10,25 +10,26 @@ import { Home } from 'src/app/shared/home.model';
 import { ConfirmService } from 'src/app/shared/confirm.service';
 import { Router } from '@angular/router';
 import { ConfirmedService } from 'src/app/shared/confirmed.service';
+import { CompletedService } from 'src/app/shared/completed.service';
 
 @Component({
-  selector: 'app-estimated-tours-form',
-  templateUrl: './estimated-tours-form.component.html',
-  styleUrls: ['./estimated-tours-form.component.scss']
+  selector: 'app-completed-form',
+  templateUrl: './completed-form.component.html',
+  styleUrls: ['./completed-form.component.scss']
 })
-export class EstimatedToursFormComponent implements OnInit {
+export class CompletedFormComponent implements OnInit {
   formData: Home;
   temp: Home;
   imageUrl: string = "/assets/img/img.jpg";
   fileToUpload: File = null;
 
 
-  constructor(public service : HomeServiceService,
+  constructor(public service : CompletedService,
     private router: Router,
       public ConfirmService : ConfirmService,
       private toastr : ToastrService,
       @Inject(MAT_DIALOG_DATA) public data,
-       public dialogRef: MatDialogRef<EstimatedToursFormComponent>
+       public dialogRef: MatDialogRef<CompletedFormComponent>
     ) { }
    
 

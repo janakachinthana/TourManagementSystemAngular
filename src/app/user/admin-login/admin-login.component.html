@@ -1,4 +1,4 @@
-<h1 style="color: blue; text-align: center;">This Function Can Access Only Admin</h1>
+<h1 style="color: blue; text-align: center;" >This Function Can Access Only Admin</h1>
 <br>
 <br>
 
@@ -8,7 +8,7 @@
           <div class="input-group-prepend">
           <span class="input-group-text bg-info text-white" id="basic-addon1"  >User Name</span>
         
-        <input required pattern="^[A-Z]+[a-z]+$"   name="FirstName"  [(ngModel)]="form.value.FirstName" class="form-control">
+        <input name="FirstName"  [(ngModel)]="form.value.FirstName" class="form-control">
        
     </div>
   </div >
@@ -19,7 +19,7 @@
     <div class="input-group-prepend">
         <span class="input-group-text bg-info text-white" id="basic-addon1" >Password</span>
       
-      <input required  type="password" name="LastName"  class="form-control"  [(ngModel)]="form.value.LastName">
+      <input   type="password" name="LastName"  class="form-control"  [(ngModel)]="form.value.LastName">
       </div >
   </div>
 </div>
@@ -29,10 +29,10 @@
       <div class="row">
         <div class="col-md-6">
           <div class="input-group-prepend">
-            <button (click)="cancelAdminLogin()" class="btn-primary footertext1 " >Cancel</button>
+            <button (click)="cancelAdminLogin()" style="margin-left: 30px;" class="card-link btn btn-sm btn-outline-danger ybtn" ><mat-icon>cancel</mat-icon> Cancel</button>
       </div></div>
       <div class="col-md-6">
-        <button type="button" (click)="updateRecord(form)"  class="btn-primary footertext2 "  > Login</button>
+        <button type="button" (click)="updateRecord(form)" style="margin-left: 30px;"  class="card-link btn btn-sm btn-outline-info ybtn" ><mat-icon> person_pin</mat-icon>Login</button>
     </div>
     </div>
 </form>

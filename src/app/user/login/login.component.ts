@@ -130,7 +130,7 @@ ngOnInit() :void{
       {
         this.currentUser = Object.assign({}, form.value);
         this.service.UserName = Object.assign({},form.value);
-        this.router.navigateByUrl('home');
+        this.router.navigateByUrl('main');
         this.toastr.success('Login Successfully', 'EMP. Eliphase Vacation');
         this.dialogRef.close();
       }

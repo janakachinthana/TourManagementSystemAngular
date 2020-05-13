@@ -470,10 +470,10 @@ this.toastr.warning('Select a Customer', 'Eliphase');
 }
 else
 {
-this.insertRecord(form);
+  this.insertRecord(form);
   this.downloadPDF();
   this.testRemove();
-  this.router.navigateByUrl('main');
+  this.router.navigateByUrl('estimatedTours');
 
 }
 }

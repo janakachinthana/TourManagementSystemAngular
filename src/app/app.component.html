@@ -5,8 +5,8 @@
       <h3 class="display-5 text-center text-info">A product by SLIIT</h3>  
     </div>
   </div>
- <h1>{{UserName}}</h1> 
-<hr class="bg-info">
+  <button style=" margin-left: 1200px ;" class="btn btn-lg txtColor btndiv" (click)="logout()">LogOut</button>
+
   <nav  class="navbar navbar-expand-lg navbar-dark bg-dark">
 
     <a class="navbar-brand" routerLink="main">Eliphase News</a>
@@ -14,44 +14,44 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div style="margin-top: -15px; margin-bottom: -15px;" class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item txtColor txtColor btndiv ">
           <a class="nav-link"  routerLink="home"><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item txtColor txtColor btndiv">
-          <a class="nav-link" routerLink="customer">Customers</a>
+          <a class="nav-link" routerLink="customer"><mat-icon>phone_in_talk</mat-icon> Customer Management</a>
         </li>
         <li class="nav-item txtColor txtColor btndiv">
-          <a class="nav-link" routerLink="hotel">Hotels</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="driver">Drivers</a>
+          <a class="nav-link" routerLink="hotel"><mat-icon> hotel</mat-icon> Hotel Management</a>
         </li>
         <li class="nav-item txtColor txtColor btndiv">
-          <a class="nav-link" routerLink="vehicle">Vehicles</a>
+          <a class="nav-link" routerLink="driver"><mat-icon>airline_seat_recline_normal</mat-icon> Driver Management</a>
         </li>
         <li class="nav-item txtColor txtColor btndiv">
-          <a class="nav-link" routerLink="guide">Guides</a>
+          <a class="nav-link" routerLink="vehicle"><mat-icon> directions_car</mat-icon> Vehicle Management</a>
         </li>
         <li class="nav-item txtColor txtColor btndiv">
-          <a class="nav-link" routerLink="destination">Famous Destination</a>
+          <a class="nav-link" routerLink="guide"><mat-icon>person_outline</mat-icon> Guide Management</a>
         </li>
         <li class="nav-item txtColor txtColor btndiv">
-          <a class="nav-link" routerLink="estimatedTours">Estimated Packages</a>
+          <a class="nav-link" routerLink="destination"><mat-icon>mms</mat-icon> Destination Management</a>
         </li>
         <li class="nav-item txtColor txtColor btndiv">
-          <a class="nav-link" routerLink="confirmed">Confirmed Tour</a>
+          <a class="nav-link" routerLink="estimatedTours"><mat-icon>style</mat-icon>Estimated Tour</a>
         </li>
         <li class="nav-item txtColor txtColor btndiv">
-          <a class="nav-link" routerLink="completed">Completed Tour</a>
+          <a class="nav-link" routerLink="confirmed"><mat-icon>style</mat-icon>Confirmed Tour</a>
         </li>
         <li class="nav-item txtColor txtColor btndiv">
-          <a class="nav-link" routerLink="employee">Employees</a>
+          <a class="nav-link" routerLink="completed"><mat-icon>style</mat-icon>Completed Tour</a>
+        </li>
+        <li class="nav-item txtColor txtColor btndiv">
+          <a class="nav-link" routerLink="employee"><mat-icon>group</mat-icon> Employee Management (Restricted)</a>
         </li>
        
       </ul>
-      <button class="btn btn-lg txtColor btndiv" (click)="logout()">LogOut</button>
+      
       
     </div>
    

@@ -1,7 +1,7 @@
 
 <!-- <br> -->
-<button class="btn btn-primary btn-lg addbtn" mat-raised-button style ="margin-left: 45%;" (click)="downloadPDFBtn()">
-      Generate Report</button><br><br>
+<button class="card-link btn btn-sm btn-outline-danger ybtn"  style ="margin-left: 45%;" (click)="downloadPDFBtn()">
+      Generate Report <mat-icon>save_alt</mat-icon></button><br><br>
     <!-- <table class="table table-hover" #content>
             <thead class="thead-dark">
                 <tr>
@@ -46,8 +46,8 @@
   </div> -->
 
     
-  <button class="btn btn-primary btn-lg addbtn" mat-raised-button style ="margin-left: 45%;" (click)="AddOrEditEmployees(null)">
-    <mat-icon>add_box</mat-icon>Add new
+  <button class="card-link btn btn-sm btn-outline-success ybtn" mat-raised-button style ="margin-left: 45%;" (click)="AddOrEditEmployees(null)">
+    <mat-icon>add_to_photos</mat-icon> Add new
   </button>
     <br>
     <div class="row" #content> 
@@ -73,18 +73,8 @@
        
       </ul>
       <div class="card-body">
-     <table class="table">     
-       <tr class="table-hover grab tbl1">
-        <div class="card-body">
-          <table class="table">     
-            <tr class="table-hover grab tbl1">
-            <button (click)="populateForm(emp)" class="card-link btn btn-sm btn-outline -danger ybtn"> <mat-icon>open_in_new</mat-icon></button>
-            <button class="btn btn-sm btn-outline -danger xbtn" (click)="onDelete(emp.EmployeeID)"><mat-icon>delete</mat-icon></button></tr>
-           
-       </table>
-           </div>
-      </tr>
-  </table>
+            <button style="margin-left: 30px;" (click)="populateForm(emp)" class="card-link btn btn-sm btn-outline-success ybtn"> <mat-icon>open_in_new</mat-icon></button>
+            <button style="margin-left: 100px;" class="btn btn-sm btn-outline-danger xbtn" (click)="onDelete(emp.EmployeeID)"><mat-icon>delete</mat-icon></button>   
       </div>
     </div>
     <br>

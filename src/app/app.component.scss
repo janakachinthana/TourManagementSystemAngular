@@ -11,9 +11,18 @@
 .txtColor:hover{
     cursor: pointer;
     color: white;
-    background-color:black;
+    background-color:blue;
+   
 }
 
 .txtColor{
+    color: rgb(238, 18, 18);
+   
+   
+}
+.txtColor:active{
+    cursor: pointer;
     color: white;
+    background-color:green;
+   
 }

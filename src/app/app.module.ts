@@ -79,6 +79,11 @@ import { PrintguidesComponent } from './guides/printguides/printguides.component
 import { EstimatedToursComponent } from './estimated-tours/estimated-tours.component';
 import { EstimatedToursListComponent } from './estimated-tours/estimated-tours-list/estimated-tours-list.component';
 import { EstimatedToursFormComponent } from './estimated-tours/estimated-tours-form/estimated-tours-form.component';
+import { ConfirmedListComponent } from './confirmed-tour/confirmed-list/confirmed-list.component';
+import { ConfirmedFormComponent } from './confirmed-tour/confirmed-form/confirmed-form.component';
+import { CompletedListComponent } from './completed-tour/completed-list/completed-list.component';
+import { CompletedFormComponent } from './completed-tour/completed-form/completed-form.component';
+
 
 
 
@@ -125,6 +130,11 @@ import { EstimatedToursFormComponent } from './estimated-tours/estimated-tours-f
     EstimatedToursComponent,
     EstimatedToursListComponent,
     EstimatedToursFormComponent,
+    ConfirmedListComponent,
+    ConfirmedFormComponent,
+    CompletedListComponent,
+    CompletedFormComponent,
+    
    
   
 

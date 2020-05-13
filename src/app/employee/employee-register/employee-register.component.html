@@ -17,7 +17,7 @@
 
       <div class="col-md-6">
 
-        <button type="button" class="btn btn-lg btn-block BTNNEW btndiv" (click)="demo()" *ngIf="service.formData.EmployeeID==null;">Demo</button>
+        <button type="button" class="card-link btn btn-sm btn-outline-success ybtn" (click)="demo()" *ngIf="service.formData.EmployeeID==null;">Demo</button>
       </div>
     </div>
      
@@ -111,15 +111,16 @@
       <div class="row">
         <div class="col-md-6">
           <div class="input-group-prepend">
-        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.EmployeeID==null;"> <mat-icon> send</mat-icon></button>
-        <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.EmployeeID!=null;"> save</button>
+            <button type="button" class="card-link btn btn-sm btn-outline-danger ybtn" [mat-dialog-close]>CLOSE</button>
+       
       </div></div>
 
 
         <div class="col-md-6">
           <div class="input-group-prepend">
-      
-        <button type="button" class="btn btn-lg btn-block BTNNEW btndiv" [mat-dialog-close]>CLOSE</button>
+            <button type="submit" [disabled]="form.invalid" class="card-link btn btn-sm btn-outline-info ybtn" *ngIf="service.formData.EmployeeID==null;"> <mat-icon> send</mat-icon></button>
+            <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="card-link btn btn-sm btn-outline-info ybtn" *ngIf="service.formData.EmployeeID!=null;"> save</button>
+        
 </div>
 </div></div>
 </form>

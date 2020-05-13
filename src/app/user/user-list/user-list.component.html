@@ -75,7 +75,7 @@
 
 
 
-       <button (click)="adminLogin()" class="btn-sm btn-outline-success" [mat-dialog-close]>Admin Login</button>
+       <button (click)="adminLogin()" class="btn-sm btn-outline-success" [mat-dialog-close]><mat-icon> vpn_key</mat-icon> Admin Login</button>
         <br>
            <div class="row" >  
               <div class="col-md-4" *ngFor="let emp of service.list ;let i=index;" >
@@ -98,7 +98,7 @@
          <table class="table">     
            <tr class="table-hover grab tbl1">
              <td>
-           <button (click)="populateForm(emp)" class="btn-sm btn-outline-success" [mat-dialog-close]> Select to Login</button>
+           <button (click)="populateForm(emp)" class="btn-sm btn-outline-success" [mat-dialog-close]><mat-icon>person</mat-icon> Select to Login</button>
             </td> 
           </tr>
       </table>
