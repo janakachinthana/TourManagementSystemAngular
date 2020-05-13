@@ -45,7 +45,7 @@ ngOnInit() :void{
     } else {
 
       // fill all the field with related data in the pop-up
-       this.temp = Object.assign({}, this.data.emp);
+       this.temp = Object.assign({}, this.data.Home);
        this.service.formData ={ 
         homeID: null, 
         customerName: null,
@@ -113,6 +113,8 @@ ngOnInit() :void{
         });    });
     }
   }
+
+
 
     updateRecord(form : NgForm){
       if (confirm('Are you sure want to Update this Employee record?')){

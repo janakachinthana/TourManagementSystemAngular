@@ -7,7 +7,7 @@
       </h3>
       <br>
 
-
+      <input type="hidden" name="homeID" #homeID="ngModel" [(ngModel)]="service.formData.homeID">
 
       <div class="form-group">
         <label class="text-info">
@@ -45,7 +45,7 @@
         </div>
         <div class="form-group">
           <label>
-            Company Profit  (LKR)
+            Company Profit %
           </label>
           <!-- <input type="text" class="form-control"  name="CompanyPres" value="{{CompanyPres}}"  [(ngModel)]="CompanyPres" /> -->
           <input type="text" class="form-control"  name="CompanyPresentage" disabled #CompanyPresentage="ngModel" [(ngModel)]="service.formData.CompanyPresentage"  placeholder="Total Cost" />
@@ -53,7 +53,7 @@
         
         <div class="form-group">
           <label>
-            Agent Profit &#37; (LKR)
+            Agent Profit %
           </label>
           <input type="text" class="form-control" id="#" name="AgentProfitPrasentage" disabled #AgentProfitPrasentage="ngModel" [(ngModel)]="service.formData.AgentProfitPrasentage" placeholder="Agent Profit &#37;" />
           <!-- <input type="hidden" name="AgentProfitPrasentage" id="" #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage"> -->
@@ -80,14 +80,15 @@
         <div class="col-md-6">
           <div class="input-group-prepend">
         <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.homeID==null;"> <mat-icon> send</mat-icon></button>
-        <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="btn btn-lg btn-block btndiv" *ngIf="service.formData.homeID!=null;"> Confirm Tour</button>
+        <button type="button" name="update" [disabled]="form.invalid" class="btn btn-lg btn-block btndiv" *ngIf="service.formData.homeID!=null;"> Confirm Tour</button>
       </div></div>
 
 
         <div class="col-md-6">
           <div class="input-group-prepend">
-      
-        <button type="button" class="btn btn-lg btn-block  btndiv" [mat-dialog-close]>CLOSE</button>
+            <button class="btn btn-sm btn-outline-danger xbtn" type="button"(click)="onDelete(service.formData.homeID)" [mat-dialog-close]><mat-icon>delete</mat-icon></button>
+        <button type="button" name="delete" class="btn btn-lg btn-block  btndiv" [mat-dialog-close]>CLOSE</button>
 </div>
 </div></div>
+
 </form>
