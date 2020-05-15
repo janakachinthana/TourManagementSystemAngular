@@ -9,7 +9,7 @@ export class CompletedService {
   formData : Home;
   list : Home[];
 
-  readonly rootURL = "https://localhost:44398//api"
+  readonly rootURL = "https://localhost:44392/api"
   constructor(private http : HttpClient) { }
 
 

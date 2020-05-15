@@ -1,30 +1,79 @@
-<!-- <p>driver-list works!</p> -->
+<br>
+<div class="search-div">
+    <div class="row">
+        <button  mat-raised-button
+            class="btn-success text-white"
+            matTooltip="Add new driver to the database by clicking this button"
+            aria-label="Button that displays a tooltip when focused or hovered over"
+            (click)="AddOrEditDriver(null)"
+            matTooltipPosition="right">
+            <i class="fa fa-plus"></i>
+            Add Driver
+        </button>
+        
+        <div class="search-form-field" style="width: 925px;">
+                <input matInput type="search" name="search" [(ngModel)]="searchText" autocomplete="off"   class="form-control" placeholder="Start searching">
+        </div> 
+    </div>
+</div>
 
-<table class="table table-hover">
-    <thead class="thead-dark"> 
-        <tr>
-            <th>Driver ID First Name</th>
-            <th>Last Name</th>
-            <th>NIC</th>
-            <th>Gender</th>
-            <th>Rate</th>
-            <th>Date of Birth</th>
-            <th>Phone Number</th>
-            <th>License Number</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let d of service.list">
-            <td (click)="populateForm(d)">[{{d.DriverID}}] - {{d.FirstName}}</td>
-            <td (click)="populateForm(d)">{{d.LastName}}</td>
-            <td (click)="populateForm(d)">{{d.NIC}}</td>
-            <td (click)="populateForm(d)">{{d.Gender}}</td>
-            <td (click)="populateForm(d)">{{d.Rate}}</td>
-            <td (click)="populateForm(d)">{{d.DateOfBirth}}</td>
-            <td (click)="populateForm(d)">{{d.PhoneNumber}}</td>
-            <td (click)="populateForm(d)">{{d.LicenseNumber}}</td>
-            <td><button (click)="onDelete(d.DriverID)" class="btn btn-sm btn-outline-danger">X</button></td>
-        </tr>
-    </tbody>
-</table>
+<br>
+<hr>
+<h1 class="display-4 text-center">Driver List</h1>
+<hr>
+
+<div class="row">
+    <div class="col-md-4" *ngFor="let d of service.list | filter:searchText | paginate: {itemsPerPage:6, currentPage: pageActual}; let i=index">
+        <div class="card" style="width: 20rem;" >
+            <div class="card-body">
+                <h5 class="card-title center">Driver: {{i+1}}</h5>
+            </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Name : </strong>{{d.FirstName}}</li>
+                    <li class="list-group-item"><strong>Last Name : </strong>{{d.LastName}}</li>
+                    <li class="list-group-item"><strong>NIC : </strong>{{d.NIC}}</li>
+                    <li class="list-group-item"><strong>Gender : </strong>{{d.Gender}}</li>
+                    <li class="list-group-item"><strong>Rate : $</strong>{{d.Rate}}</li>
+                    <li class="list-group-item"><strong>Date of Birth : </strong>{{d.DateOfBirth}}</li>
+                    <li class="list-group-item"><strong>Phone number : </strong>{{d.PhoneNumber}}</li>
+                    <li class="list-group-item"><strong>License number : </strong>{{d.LicenseNumber}}</li>
+                </ul>
+            <div class="card-body">
+                <table class="table">     
+                    <tr class="table-hover grab tbl1 center">
+                        <div class="button-row">
+                            <button mat-raised-button matTooltip="click to edit this dirver's details"
+                                    aria-label="Button that displays a tooltip when focused or hovered over"
+                                    (click)="populateForm(d)" color="primary" >
+                                    <mat-icon>open_in_new</mat-icon>
+                            </button>
+                            <button  mat-raised-button matTooltip="click to delete this driver"
+                                    aria-label="Button that displays a tooltip when focused or hovered over"
+                                    color="warn"(click)="onDelete(d.DriverID)">
+                                    <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<div style="text-align: center;">
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+</div>
+<hr>
+
+<br>
+<div style="text-align: center;">
+    <button mat-raised-button
+        class="btn-success text-white"
+        matTooltip="Generate driver list report"
+        aria-label="Button that displays a tooltip when focused or hovered over"
+        (click)="generateDriverReport(null)"
+        matTooltipPosition="right">
+        Generate report
+    </button>
+</div>

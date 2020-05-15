@@ -129,10 +129,25 @@
     
     
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
     
-    </div>
-    <button type="button"  (click)="AutoFill()" class="btn btn-lg btn-block">DEMO</button>
+    </div> -->
+    <div class="row">
+        <div class="col-md-6">
+          <div class="input-group-prepend">
+            <button type="button" class="card-link btn btn-sm btn-outline-danger ybtn" [mat-dialog-close]>CLOSE</button>
+       
+      </div></div>
+
+
+        <div class="col-md-6">
+          <div class="input-group-prepend">
+            <button type="submit" [disabled]="form.invalid" class="card-link btn btn-sm btn-outline-info ybtn" *ngIf="service.formData.DestinationID==null;"> <mat-icon> send</mat-icon></button>
+            <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="card-link btn btn-sm btn-outline-info ybtn" *ngIf="service.formData.DestinationID!=null;"> save</button>
+        
+</div>
+</div></div>
+    <button type="button"  (click)="AutoFill()" *ngIf="service.formData.DestinationID == null" class="btn btn-lg btn-block">DEMO</button>
     </form>
     

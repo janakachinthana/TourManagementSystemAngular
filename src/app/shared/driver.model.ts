@@ -9,5 +9,5 @@ export class Driver {
     DateOfBirth : string;
     PhoneNumber : string;
     LicenseNumber : string;
-    
+    Image : string;
 }

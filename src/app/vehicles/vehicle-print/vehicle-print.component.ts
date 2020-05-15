@@ -39,9 +39,9 @@ export class VehiclePrintComponent implements OnInit {
 
 
 
-  title = 'Number of vehicles Registered in Elephas';
+  title = 'Number of vehicle types Registered in Elephas';
   title2 = 'Percentages of vehicle tpyes Registered in Elephas';
-  title3 = 'Percentages of vehicle Brands Registered in Elephas';
+  title3 = 'Number of vehicle Brands Registered in Elephas';
 
    type = 'PieChart';
    type2 = 'ColumnChart';

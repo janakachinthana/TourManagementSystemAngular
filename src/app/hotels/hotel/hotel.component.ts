@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HotelService } from 'src/app/shared/hotel.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+
+
+
 @Component({
   selector: 'app-hotel',
   templateUrl: './hotel.component.html',
@@ -97,5 +100,8 @@ export class hotelComponent implements OnInit {
         this.service.refreshList();
       });
     }
+
+
+
 
 }

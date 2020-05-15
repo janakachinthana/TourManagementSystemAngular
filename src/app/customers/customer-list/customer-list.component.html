@@ -1,6 +1,15 @@
 
+<!-- A report can be generated regarding table records using this button -->
+<!--
+  first parameter = id      second paramenter = section         third parameter = type
+-->
+<button type="button" (click)="downloadRequest(0,1,1)" [disabled] = "service.list.length == 0" class="btn btn-lg btn-info btn-block">Download Table Report as PDF</button>
+
+<!-- using this button I tried to generate a PDF report but this procedure is not suitable for my requirement -->
+<!-- <input type="button" id="btnExport" value="Export" onclick="Export()"/> -->
+
 <div class="table-responsive">
-<table class="table table-sm table-striped table-bordered">
+<table class="table table-sm table-striped table-bordered" id="tblCustomers">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Name</th>
@@ -57,3 +66,22 @@
   </tbody>
 </table>
 </div>
+
+
+<!-- this JS script is used by that above button -  using that button I tried to generate a PDF report but this procedure is not suitable for my requirement -->
+<script type="text/javascript">
+  function Export() {
+      html2canvas(document.getElementById('tblCustomers'), {
+          onrendered: function (canvas) {
+              var data = canvas.toDataURL();
+              var docDefinition = {
+                  content: [{
+                      image: data,
+                      width: 500
+                  }]
+              };
+              pdfMake.createPdf(docDefinition).download("Table.pdf");
+          }
+      });
+  }
+</script>

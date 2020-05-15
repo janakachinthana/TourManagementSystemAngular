@@ -43,7 +43,6 @@ export class GuideListComponent implements OnInit {
     dialogConfig.scrollStrategy ;
     this.dialog.open(PrintguidesComponent, dialogConfig);
   }
-  
 
 
 }

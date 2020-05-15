@@ -83,6 +83,14 @@ import { ConfirmedListComponent } from './confirmed-tour/confirmed-list/confirme
 import { ConfirmedFormComponent } from './confirmed-tour/confirmed-form/confirmed-form.component';
 import { CompletedListComponent } from './completed-tour/completed-list/completed-list.component';
 import { CompletedFormComponent } from './completed-tour/completed-form/completed-form.component';
+import { DriverReportComponent } from './drivers/driver-report/driver-report.component';
+import { MatButtonModule } from '@angular/material/button';
+import { DriverService } from './shared/driver.service';
+import { MatNativeDateModule } from '@angular/material/core';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ChartsModule } from 'ng2-charts';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 
 
@@ -134,6 +142,10 @@ import { CompletedFormComponent } from './completed-tour/completed-form/complete
     ConfirmedFormComponent,
     CompletedListComponent,
     CompletedFormComponent,
+    DriverReportComponent,
+    
+    
+  
     
    
   
@@ -183,12 +195,48 @@ import { CompletedFormComponent } from './completed-tour/completed-form/complete
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatStepperModule,
+    MatTabsModule,
+    MatExpansionModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    NgxPaginationModule,
+    ChartsModule,
+    Ng2SearchPipeModule
+    // MaterialModule,
+  
 
 
   ],
  
-  providers: [EmployeeService , VehicleService, CustomerService , LoginComponent],
+  providers: [EmployeeService , VehicleService, CustomerService , LoginComponent, DriverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

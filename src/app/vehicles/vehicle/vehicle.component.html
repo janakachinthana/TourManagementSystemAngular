@@ -40,6 +40,7 @@
                 <option value="Honda">Honda</option>
                 <option value="Fiat">Fiat</option>
                 <option value="Isuzu">Isuzu</option>
+                <option value="Other">Other</option>
 
             </select>
             <div class="validation-error" *ngIf="Brand.invalid && Brand.touched">Required</div>
@@ -123,14 +124,14 @@
         <div class="col-md-6">
         <div class="form-group">
             <label>Owner's ID number</label>
-            <input name="OwneresID" #OwneresID="ngModel"  placeholder="ID number with 10 values" minlength="10" [(ngModel)]="service.formData.OwneresID" class="form-control" required>
+            <input name="OwneresID" #OwneresID="ngModel"  placeholder="ID number with 10 values" minlength="10" maxlength="10" [(ngModel)]="service.formData.OwneresID" class="form-control" required>
             <div class="validation-error" *ngIf="OwneresID.invalid && OwneresID.touched">Required</div>
         </div></div>
     
         <div class="col-md-6">
         <div class="form-group">
             <label>Owner's contact number</label>
-            <input name="OwnersContact" placeholder="0XXXXXXXXX"   #OwnersContact="ngModel"  type="tel" pattern="[0-9]{10}" [(ngModel)]="service.formData.OwnersContact" class="form-control" required>
+            <input name="OwnersContact" placeholder="0XXXXXXXXX"   #OwnersContact="ngModel"  type="tel" maxlength="10" minlength="10" pattern="[0-9]{10}" [(ngModel)]="service.formData.OwnersContact" class="form-control" required>
             <div class="validation-error" *ngIf="OwnersContact.invalid && OwnersContact.touched ">Required </div>
           
         </div></div>
@@ -160,7 +161,7 @@
         <div>
      
             <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID==null;"> Insert</button>
-            <button type="button" (click)="fillForm()" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID==null;"> demo</button>
+            <button type="button" (click)="fillForm()" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID==null;" > demo</button>
             <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID!=null;"> save</button>
            
 

@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import {MatDialog,MatDialogConfig} from '@angular/material/dialog';
 import { DestinationComponent } from '../destination/destination.component';
 import { DesPrintComponent } from '../des-print/des-print.component';
+import { VehicleComponent } from 'src/app/vehicles/vehicle/vehicle.component';
 
 
 @Component({

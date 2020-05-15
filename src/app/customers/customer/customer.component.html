@@ -110,7 +110,7 @@
   </div>
   <div class="form-group col-md-4">
     <div class="form-group">
-      <label>Number Of People</label>
+      <label>Number Of People (Adults)</label>
       <input name="NoPeople" #NoPeople="ngModel" [(ngModel)]="service.formData.NoPeople" class="form-control" maxlength="2" placeholder="Ex: 4" pattern="[0-9]{1,2}" required>
       <div class="validation-error" *ngIf="NoPeople.invalid && NoPeople.touched">This field is required. Only two numbers allowed Ex: 4, 5, 6</div>
   </div>
@@ -135,6 +135,7 @@
         <!--I want to display the date input which given by the user-->
         <input type="datetime-local" name="ArrivalDate" #ArrivalDate="ngModel" [(ngModel)]="service.formData.ArrivalDate" class="form-control" max="2020-01-01" required>
         <div class="validation-error" *ngIf="ArrivalDate.invalid && ArrivalDate.touched">This field is required.</div>
+        <div class="validation-error" *ngIf="(ArrivalDate.value>DepartureDate.value)">Arrival Date < Departure Date</div>
     </div>
   </div>
   <div class="form-group col-md-4">
@@ -144,6 +145,8 @@
         <!--I want to display the date input which given by the user-->
         <input type="datetime-local" name="DepartureDate" #DepartureDate="ngModel" [(ngModel)]="service.formData.DepartureDate" class="form-control" required>
         <div class="validation-error" *ngIf="DepartureDate.invalid && DepartureDate.touched">This field is required.</div>
+        <!-- <div class="validation-error" *ngIf="(ArrivalDate.valid && ArrivalDate.untouched) && isDateValid == false && service.formData.ID == null">Date invalid</div> -->
+        <div class="validation-error" *ngIf="(ArrivalDate.value>DepartureDate.value)">Arrival Date < Departure Date</div>
     </div>
   </div>
   <div class="form-group col-md-4">
@@ -179,25 +182,19 @@
         <div class="form-group col-md-6">
           <div class="form-group">
             <label>Tour Status</label>
-            <input name="Status" #Status="ngModel" [(ngModel)]="service.formData.Status" class="form-control"required>
+            <input name="Status" #Status="ngModel" [(ngModel)]="service.formData.Status" class="form-control" required>
             <div class="validation-error" *ngIf="Status.invalid && Status.touched">This field is required Ex: Not Confirmed, Confirmed</div>
           </div>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-6">
-          <div class="input-group-prepend">
-        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.ID==null;"> <mat-icon> send</mat-icon></button>
-        <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.ID!=null;"> save</button>
-      </div></div>
-
-
-        <div class="col-md-6">
-          <div class="input-group-prepend">
-      
-        <button type="button" class="btn btn-lg btn-block BTNNEW btndiv" [mat-dialog-close]>CLOSE</button>
-</div>
-</div></div>
+      <div class="form-group">
+        <button type="submit" [disabled]="form.invalid || (ArrivalDate.value>DepartureDate.value)" class="btn btn-lg btn-block" *ngIf="service.formData.ID==null;">SUBMIT</button>
+        <button type="button" (click)="downloadRequest(service.formData.ID,1,1)" [disabled]="form.invalid || (ArrivalDate.value>DepartureDate.value)" class="btn btn-lg btn-info btn-block" *ngIf="service.formData.ID!=null;">Download Report as PDF</button>
+        <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid || (ArrivalDate.value>DepartureDate.value)" class="btn btn-lg btn-success btn-block" *ngIf="service.formData.ID!=null;">UPDATE</button>
+        <button type="button" (click)="deleteRecord(service.formData.ID)" [disabled]="form.invalid || (ArrivalDate.value>DepartureDate.value)" class="btn btn-lg btn-danger btn-block" *ngIf="service.formData.ID!=null;">DELETE</button>
+        <button type="button" (click)="insertDummyData()" [disabled]="(ArrivalDate.value>DepartureDate.value)" class="btn btn-lg btn-danger btn-block" *ngIf="service.formData.ID==null;">Insert Dummy Data</button>
+        <button type="button" class="btn btn-lg btn-outline-dark btn-block ml-1" [mat-dialog-close]>CLOSE</button>
+      </div>
 
 </form>

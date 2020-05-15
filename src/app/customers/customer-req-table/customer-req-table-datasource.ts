@@ -1,10 +1,10 @@
+import { Customer } from './../../shared/customer.model';
 import { DataSource } from '@angular/cdk/collections';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
-import { Customer } from 'src/app/shared/customer.model';
-
+import { CustomerService } from 'src/app/shared/customer.service';
 
 // TODO: Replace this with your own data model type
 

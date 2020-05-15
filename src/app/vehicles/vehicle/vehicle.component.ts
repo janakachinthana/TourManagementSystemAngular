@@ -7,7 +7,6 @@ import { NgForm } from '@angular/forms';
 import { inject } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-
 @Component({
   selector: 'app-vehicle',
   templateUrl: './vehicle.component.html',

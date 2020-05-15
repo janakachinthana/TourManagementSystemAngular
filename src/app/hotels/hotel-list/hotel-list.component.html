@@ -1,4 +1,4 @@
-<p>hotel-list works!</p>
+
 <br>
     <!-- <table class="table table-hover">
             <thead class="thead-dark">
@@ -31,14 +31,18 @@
     </table>
     
      -->
+     <button class="btn btn-primary btn-lg addbtn" mat-raised-button style ="margin-left: 45%;" (click)="downloadPDFBtn()">
+      Generate Report</button><br><br>
 
-
+     <button class="btn btn-primary btn-lg addbtn" mat-raised-button style ="margin-left: 45%;" (click)="AddOrEditHotels(null)">
+      Add new
+    </button>
      <br>
     <div class="row" > 
-          <div class="col-md-6" *ngFor="let htl of service.list " >
+          <div class="col-md-12" *ngFor="let htl of service.list " >
             
   <br>
-  <div class="card" style="width: 18rem;" >
+  <div class="card" style="width: 40rem;" >
       <img class="card-img-top" src="https://static1.squarespace.com/static/5898e29c725e25e7132d5a5a/58aa11bc9656ca13c4524c68/58aa11e99656ca13c45253e2/1487540713345/600x400-Image-Placeholder.jpg?format=original" alt="Card image cap">
       <div class="card-body">
         <!-- <h5 class="card-title">{{emp.EmployeeID}}</h5> -->
@@ -78,3 +82,8 @@
        </div>
 
        <br>
+       <div style="margin-left: 45%;">
+        <button style="text-align: center; margin-top: 20px;" *ngIf="isShow" (click)="gotoTop()">SCROLL TOP</button>
+      </div>
+
+    <!-- <button (click)="genarateReport()">Genarate report</button> -->

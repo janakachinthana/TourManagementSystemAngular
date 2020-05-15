@@ -71,6 +71,7 @@ export class VehicleListComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width = '70%';
     dialogConfig.data = {veh};
+    dialogConfig.hasBackdrop;
     this.dialog.open(VehicleComponent, dialogConfig);
   }
   @HostListener('window:scroll')

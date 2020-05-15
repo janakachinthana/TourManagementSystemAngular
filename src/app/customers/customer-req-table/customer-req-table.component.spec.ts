@@ -1,34 +1,33 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
-import { MatTableModule } from '@angular/material/table';
+import { CustomerService } from './../../shared/customer.service';
+import { Customer } from './../../shared/customer.model';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTable } from '@angular/material/table';
+import { CustomerReqTableDataSource } from './customer-req-table-datasource';
 
-import { CustomerReqTableComponent } from './customer-req-table.component';
+@Component({
+  selector: 'app-customer-req-table',
+  templateUrl: './customer-req-table.component.html',
+  styleUrls: ['./customer-req-table.component.scss']
+})
+export class CustomerReqTableComponent implements AfterViewInit, OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatTable) table: MatTable<Customer>;
+  dataSource: CustomerReqTableDataSource;
+  constructor(private service: CustomerService) {}
 
-describe('CustomerReqTableComponent', () => {
-  let component: CustomerReqTableComponent;
-  let fixture: ComponentFixture<CustomerReqTableComponent>;
+  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
+  displayedColumns = ['id', 'name', 'nationality', 'phone', 'email', 'nopeople', 'nochildren', 'arrivaldate', 'departuredate', 'starcategory', 'remark', 'tourexecutive', 'exchangerate'];
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CustomerReqTableComponent ],
-      imports: [
-        NoopAnimationsModule,
-        MatPaginatorModule,
-        MatSortModule,
-        MatTableModule,
-      ]
-    }).compileComponents();
-  }));
+  ngOnInit() {
+    this.dataSource = new CustomerReqTableDataSource(this.service.list);
+  }
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CustomerReqTableComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should compile', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.table.dataSource = this.dataSource;
+  }
+}
