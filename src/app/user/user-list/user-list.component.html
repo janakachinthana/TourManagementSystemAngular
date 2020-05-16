@@ -6,7 +6,10 @@
     <h2>Select your account here!</h2>
   </div>
   <hr>
-  <button (click)="adminLogin()" class="btn alignmnt btn-lg btn-info btn-block" style="width: 200px; margin-right: 300px;"> Admin Login</button>
+  
+  <div class="center">
+    <button (click)="adminLogin()" class="btn alignmnt btn-lg btn-info btn-block" style="width: 200px; margin-right: 300px; background-color:darkblue"> Admin Login</button>
+  </div>  
     <br>
     <div class="row" >  
       <div class="col-md-4" *ngFor="let emp of service.list ;let i=index;" >
