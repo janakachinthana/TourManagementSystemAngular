@@ -72,12 +72,18 @@
 <hr>
 
 <br>
-<div style="text-align: center;">
-    <button mat-raised-button
-        matTooltip="Generate driver list report"
-        aria-label="Button that displays a tooltip when focused or hovered over"
-        (click)="generateDriverReport(null)"
-        matTooltipPosition="right">
-        Generate report
-    </button>
+<div class="row">
+    <div style="text-align: center;">
+        <button mat-raised-button
+            matTooltip="Generate driver list report"
+            aria-label="Button that displays a tooltip when focused or hovered over"
+            (click)="generateDriverReport(null)"
+            matTooltipPosition="right">
+            Generate report
+        </button>
+    </div>
+
+    <div style="text-align: right;">
+        <button style="margin-top: 20px;" *ngIf="isShow" (click)="gotoTop()">SCROLL TOP</button>
+    </div>
 </div>
