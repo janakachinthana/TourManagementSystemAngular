@@ -2,37 +2,53 @@
 <div >
   <h1 style="text-align: center;">Enter credintials</h1>
   <hr>
-<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
-    <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
-    
-      <div class="row">
-        <div class="col-md-12">
-          <div class="input-group-prepend">
-          <span class="input-group-text bg-info text-white" id="basic-addon1">User Name</span>
+
+  <div style="text-align: center;">
+    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+        <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
         
-        <input   name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" disabled>
-        <div class="validation-error"*ngIf="FirstName.errors &&  FirstName.errors.required && FirstName.touched" >This field required</div>
-    </div>
-  </div >
-      </div>
-      <br>
-      <div class="row">
-  <div class="col-md-12">
-    <div class="input-group-prepend">
-        <span class="input-group-text bg-info text-white" id="basic-addon1">Password</span>
-      <input  type="password" name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" class="form-control">
-      </div >
-  </div>
-</div>
+          <div class="row">
+            <div class="col-md-12">
 
-    
-     <br><br>
+              <mat-form-field appearance="outline">
+                <mat-label><strong>User Name</strong></mat-label>
+                <input matInput name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName"  disabled>
+                <mat-error *ngIf="FirstName.errors &&  FirstName.errors.required && FirstName.touched">This field required</mat-error>
+              </mat-form-field>
+              
+              <!-- class="form-control" -->
+              <!-- <div class="input-group-prepend">
+              <span class="input-group-text bg-info text-white" id="basic-addon1">User Name</span> -->
+            
+                <!-- <input   name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" disabled>
+                <div class="validation-error"*ngIf="FirstName.errors &&  FirstName.errors.required && FirstName.touched" >This field required</div>
+                  </div> -->
+              <!-- </div > -->
+            </div>
+          </div>
+
+          <br>
+
+          <div class="row">
+            <div class="col-md-12">
+
+                <mat-form-field appearance="outline">
+                  <mat-label><strong>Password</strong></mat-label>
+                  <input matInput type="password" name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password">
+                </mat-form-field>
+
+                <!-- <div class="input-group-prepend">
+                    <span class="input-group-text bg-info text-white" id="basic-addon1">Password</span>
+                  <input  type="password" name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" class="form-control">
+                </div > -->
+            </div>
+          </div>
+
+        <br>
+            <button (click)="backToUserList()" class="btn btn-lg btn-info btn-block"  style="font-size: small;"   [mat-dialog-close]>Back</button>
+            <button type="button" (click)="updateRecord(form)" class="btn btn-lg btn-info btn-block" >Login</button>
 
 
-        <button (click)="backToUserList()" class="btn btn-lg btn-info btn-block"  style="font-size: small;"   [mat-dialog-close]>Back</button>
- 
-        <button type="button" (click)="updateRecord(form)" class="btn btn-lg btn-info btn-block" >Login</button>
-
-
-</form>
+    </form>
+  </div>  
 </div>
