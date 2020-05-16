@@ -1,8 +1,8 @@
 <div>
 
-  <h2 style="color: blue; text-align: center;" >This Function Can Access Only Admin</h2>
+  <h4 style="color: blue; text-align: center;" >This Function Can Access Only Admin</h4>
+  <hr>
   <br>
-
 
   <div style="text-align: center;">
     <form #form="ngForm"  autocomplete="off">
@@ -39,9 +39,8 @@
           </div>
 
       
-
+          <button type="button" (click)="updateRecord(form)"  class="btn btn-lg btn-info btn-block" >Login</button>
             <button (click)="cancelAdminLogin()"  class="btn btn-lg btn-info btn-block" style="font-size: smaller;" > Cancel</button>
-            <button type="button" (click)="updateRecord(form)"  class="btn btn-lg btn-info btn-block" >Login</button>
     </form>
   </div>
 
