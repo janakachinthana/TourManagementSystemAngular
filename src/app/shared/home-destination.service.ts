@@ -11,15 +11,11 @@ export class HomeDestinationService {
   formData : HomeDestination;
   list : HomeDestination[];
 
-<<<<<<< HEAD
 
   // readonly rootURL = "https://localhost:44392//api"
   //readonly rootURL = "http://localhost:62083/api"
   readonly rootURL = "https://localhost:44357/api"
 
-=======
-  readonly rootURL = "https://localhost:44392//api"
->>>>>>> 571d02ff66c4f3b62bac3c131230483c53ee9adc
   constructor(private http : HttpClient) { }
 
 
