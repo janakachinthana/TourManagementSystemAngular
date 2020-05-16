@@ -10,8 +10,12 @@ export class DriverService {
 
   formData : Driver;
   list : Driver[];
+<<<<<<< HEAD
   
   
+=======
+  readonly rootURL = "https://localhost:44392/api"
+>>>>>>> 571d02ff66c4f3b62bac3c131230483c53ee9adc
 
   // readonly rootURL = "https://localhost:44392/api"
   //readonly rootURL = "http://localhost:62083/api"
