@@ -1,9 +1,10 @@
 <script src="html2pdf.bundle.min.js"></script>
 
-
-<button class="btn-primary btn-lg addbtn" style="background-color: darkcyan;" mat-raised-button  (click)="AddOrEditVehicles(null)">
-  <mat-icon>add_box</mat-icon>  Add a Vehicle
+<div style="text-align: center;">
+<button class=" btn btn-lg btn-info " (click)="AddOrEditVehicles(null)">
+   Add a Vehicle
 </button>
+</div>
 
 <br>
 <hr>
@@ -23,6 +24,7 @@
 <div class="row" style="background-color: rgb(22, 146, 146);">    
 <br>  
 <div class="col-md-2" style="margin-right:10px" >
+  <br>
 <label for="type">Filter by</label><br>
 <select (change)="showSelectValue($event)" id="vehType" class="form-control">
   <option type="submit" value="All">All</option>
@@ -68,8 +70,11 @@
     <br>
       <hr> 
  <div >
-  
-    <button style="font-size: xx-large; background-color: darkcyan;" class=" btn btn-lg btn-info btn-block" *ngIf="isShow"  (click)=" getList()">Genarate Report</button>
-    <button class=" btn btn-lg btn-info btn-block" *ngIf="isShow" (click)="gotoTop()">SCROLL TOP</button>
-
+  <div style="text-align: center;">
+    <button style="font-size: larger; background-color: darkcyan;" class=" btn btn-lg btn-info " *ngIf="isShow"  (click)=" getList()">Genarate Report</button>
+  </div>    
+  <br>
+  <div style="text-align: center;">
+    <button class=" btn btn-lg btn-info" style="font-size: small;" *ngIf="isShow" (click)="gotoTop()">SCROLL TOP</button>
+  </div>    
   </div>
