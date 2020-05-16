@@ -81,8 +81,8 @@ export class DriverComponent implements OnInit {
         this.dialogRef.close();
       });
     }
-    
-     insertDemo(){
+
+    insertDemo(){
       this.service.formData = {
         DriverID : null,
         FirstName : 'John',
