@@ -14,13 +14,9 @@ export class CustomerService {
   table: number[];
 
   // readonly rootURL = 'https://localhost:44300/api';
-<<<<<<< HEAD
   // readonly rootURL = "https://localhost:44392/api"
   //readonly rootURL = "http://localhost:62083/api"
   readonly rootURL = "https://localhost:44357/api"
-=======
-  readonly rootURL = "https://localhost:44392/api"
->>>>>>> 5290cfde8c428d15adffb4a5daa34e510a6e6338
   constructor(private http: HttpClient) { }
 
   postCustomer(formData: Customer) {

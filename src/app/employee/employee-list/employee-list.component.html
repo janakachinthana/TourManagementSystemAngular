@@ -3,12 +3,25 @@
 <button class="card-link btn btn-sm btn-outline-danger ybtn"  style ="margin-left: 45%;" (click)="downloadPDFBtn()">
       Generate Report <mat-icon>save_alt</mat-icon></button><br><br>
 
-  <button class="card-link btn btn-sm btn-outline-success ybtn" mat-raised-button style ="margin-left: 45%;" (click)="AddOrEditEmployees(null)">
-    <mat-icon>add_to_photos</mat-icon> Add new
-  </button>
+<div class="search-div">
+  <div class="row">
+    <!-- <button class="card-link btn btn-sm btn-outline-success ybtn" mat-raised-button style ="margin-left: 45%;" (click)="AddOrEditEmployees(null)">
+      <mat-icon>add_to_photos</mat-icon> Add new
+    </button> -->
+
+    <button class="card-link btn btn-sm btn-outline-success ybtn" mat-raised-button (click)="AddOrEditEmployees(null)">
+      <mat-icon>add_to_photos</mat-icon> Add new
+    </button>
+
+    <div class="search-form-field" style="width: 925px;">
+      <input matInput type="search" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching">
+    </div>
+  </div>
+</div>
+
     <br>
     <div class="row" #content> 
-          <div class="col-md-4" *ngFor="let emp of service.list " >
+          <div class="col-md-4" *ngFor="let emp of service.list | filter:searchText | paginate: {itemsPerPage:6, currentPage: pageActual}; let i=index" >
             
   <br>
   <div class="card bg-dark" style="width: 20rem;" >
@@ -38,6 +51,11 @@
   </div>
        </div>
 
+       <hr>
+      <div style="text-align: center;">
+        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+      </div>
+      <hr>
        <br>
 
        <div style="margin-left: 45%;">
