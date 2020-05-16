@@ -181,6 +181,8 @@
               <img class="card-img-top" src="/assets/img/tour.jpg">
             </div>
             <br>
+
+
            <form #formDes="ngForm" (submit)="addDestination(formDes)">
             <div class="form-row" >
               <div class="form-group col-md-8">
@@ -276,8 +278,9 @@
                       </div>
             </div>
           
-              
-            <button type="submit" [disabled]="form.invalid" style="margin-left: 260px;" class="card-link btn btn-sm btn-outline-success ybtn"><mat-icon> send</mat-icon>Add to Package</button>
+            <div style="text-align: center;"> 
+            <button type="submit" [disabled]="form.invalid"  class="btn btn-lg btn-info btn-block">Add to Package</button>
+          </div>
           </form>
           <br>
           <br>
@@ -417,9 +420,11 @@
         
 
         <div class="col-md-4">
-          <div class="input-group-prepend">
-        <button type="submit" [disabled]="form.invalid" style="margin-left: 100px;" class="card-link btn btn-sm btn-outline-success ybtn"><mat-icon>send</mat-icon>Confirm Day Plan</button>
-      </div></div>
+     <div style="text-align: center;">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-info btn-block">Confirm Day Plan</button>
+      </div>
+      </div>
+      
     
     
         <!-- <div class="col-md-4">

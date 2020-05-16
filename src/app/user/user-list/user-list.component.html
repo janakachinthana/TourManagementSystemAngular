@@ -6,20 +6,20 @@
     <h2>Select your account here!</h2>
   </div>
   <hr>
-  <button (click)="adminLogin()" class="btn-sm " style="margin-right: 50%;" [mat-dialog-close]> Admin Login</button>
+  <button (click)="adminLogin()" class="btn alignmnt btn-lg btn-info btn-block" style="width: 200px; margin-right: 300px;"> Admin Login</button>
     <br>
     <div class="row" >  
       <div class="col-md-4" *ngFor="let emp of service.list ;let i=index;" >
         <br>
-        <div class="card " style="background-color: rgb(172, 146, 184);" >
+        <div class="card " class="btn btn-lg btn-info btn-block" >
         <div class="card-body">        
-            <div style="text-align: center; font-weight: bolder ; font-size: x-large;">
+            <div style="text-align: center;font-size: x-large;">
               {{emp.FirstName}} {{emp.LastName}}
             </div>
          
             </div>
           
-             <button (click)="populateForm(emp)"[mat-dialog-close] style="text-align: center;" > Select to Login</button>
+             <button (click)="populateForm(emp)"[mat-dialog-close] style="text-align: center; color: teal;" class="btn btn-lg btn-info btn-block"> Click here to Login</button>
       
             
           </div>
