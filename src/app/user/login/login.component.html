@@ -1,5 +1,7 @@
 
 <div >
+  <h1 style="text-align: center;">Enter credintials</h1>
+  <hr>
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
     <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
     
@@ -25,14 +27,12 @@
 
     
      <br><br>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="input-group-prepend">
-            <button (click)="backToUserList()" style="margin-left: 30px;" class="card-link btn btn-sm btn-outline-success ybtn" [mat-dialog-close]><mat-icon>chevron_left</mat-icon> Back</button>
-      </div></div>
-      <div class="col-md-6">
-        <button type="button" (click)="updateRecord(form)" style="margin-left: 30px;" class="card-link btn btn-sm btn-outline-info ybtn" ><mat-icon> person_pin</mat-icon>Login</button>
-    </div>
-    </div>
+
+
+        <button (click)="backToUserList()" class="btn btn-lg btn-info btn-block"  style="font-size: small;"   [mat-dialog-close]>Back</button>
+ 
+        <button type="button" (click)="updateRecord(form)" class="btn btn-lg btn-info btn-block" >Login</button>
+
+
 </form>
 </div>
