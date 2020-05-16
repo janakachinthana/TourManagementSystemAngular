@@ -59,15 +59,15 @@ export class HotelListComponent implements OnInit {
   
 
 
-  populateForm( htl : Hotel){
-    this.service.formData = Object.assign({},htl);
+  populateForm( hotel : Hotel){
+    // this.service.formData = Object.assign({},htl);
+    this.AddOrEditHotels(hotel);
   }
 
   onDelete(id : number){
     if(confirm('Do you want to Delete this Record...?')){
     this.service.deleteHotel(id).subscribe(res =>{
       this.service.refreshList();
-      this.toastr.warning('Deleted successfully', 'HTL. Register');
       this.toastr.warning('Deleted successfully', ' Elephas vacations',{
         progressBar :true,
         positionClass:'toast-top-right',

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { HotelService } from 'src/app/shared/hotel.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Hotel } from 'src/app/shared/hotel.model';
 
 
 
@@ -12,11 +14,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 
 export class hotelComponent implements OnInit {
-  
+  formData: Hotel;
+  temp: Hotel;
+
   imageUrl: string = "/assets/img/img.jpg";
   fileToUpload: File = null;
   
-  constructor(public service: HotelService,private toastr : ToastrService) { }
+  constructor(public service: HotelService,
+    private toastr : ToastrService,
+    @Inject(MAT_DIALOG_DATA) public data,) { }
 
 
  
@@ -32,8 +38,33 @@ export class hotelComponent implements OnInit {
 }
  
  ngOnInit() {
-  this.resetForm();
+  if (this.data.hotel == null) {
+    this.resetForm();
+   } else {
 
+     // fill all the field with related data in the pop-up
+    this.temp = Object.assign({}, this.data.hotel);
+    this.service.formData = {
+      
+      HotelID : this.temp.HotelID,
+      HotelName : this.temp.HotelName,
+      Address : this.temp.Address,
+      PhoneNumber: this.temp.PhoneNumber,
+      Email : this.temp.Email,
+      StarClass : this.temp.StarClass,
+      Single: this.temp.Single,
+      Double: this.temp.Double,
+      Triple: this.temp.Triple,
+      Quard: this.temp.Quard,
+      King: this.temp.King,
+      Queen: this.temp.Queen,
+      RoomOnly : this.temp.RoomOnly,
+      BedAndBreackfast: this.temp.BedAndBreackfast,
+      FullBoard : this.temp.FullBoard, 
+      HalfBoard : this.temp.HalfBoard,
+      Image : this.temp.Image,
+     };
+   }
 }
 
   resetForm(form? : NgForm){
@@ -77,7 +108,7 @@ export class hotelComponent implements OnInit {
       }
         
       else{
-        if(form.value.HotelName != null &&  form.value.Address != null && form.value.PhoneNumber != null && form.value.Email != null && form.value.StarClass != null && form.value.Single != null && form.value.Double != null  && form.value.Triple != null && form.value.Quard != null && form.value.King != null && form.value.Queen != null && form.value.RoomOnly != null && form.value.BedAndBreackfast != null && form.value.FullBoard != null && form.value.HalfBoard != null)
+        if(form.value.HotelID != null  && form.value.HotelName != null &&  form.value.Address != null && form.value.PhoneNumber != null && form.value.Email != null && form.value.StarClass != null && form.value.Single != null && form.value.Double != null  && form.value.Triple != null && form.value.Quard != null && form.value.King != null && form.value.Queen != null && form.value.RoomOnly != null && form.value.BedAndBreackfast != null && form.value.FullBoard != null && form.value.HalfBoard != null)
         this.updateRecord(form);
         else
         this.toastr.warning('Update faild', 'HTL. Register');
