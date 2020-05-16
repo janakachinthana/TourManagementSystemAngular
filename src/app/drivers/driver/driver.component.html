@@ -24,9 +24,10 @@
 
     <div class="form-row">
         <div class="form-group col-md-4">
+            <!-- class="form-control" -->
             <mat-form-field appearance="outline">
                 <mat-label>First Name</mat-label>
-                <input matInput pattern="^[A-Z]+[a-z]+$" name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" required>
+                <input matInput pattern="^[A-Z]+[a-z]+$" name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" required>
                 <mat-error *ngIf="FirstName.errors && FirstName.errors.required && FirstName.touched">This field is required</mat-error>
                 <mat-error *ngIf="FirstName.invalid && FirstName.touched">Invalid Name fist letter shoud be capital</mat-error>
             </mat-form-field>
@@ -35,7 +36,7 @@
         <div class="form-group col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>Last Name</mat-label>
-                <input matInput pattern="^[A-Z]+[a-z]+$" name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control" required>
+                <input matInput pattern="^[A-Z]+[a-z]+$" name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" required>
                 <mat-error *ngIf="LastName.errors && LastName.errors.required && LastName.touched">This field is required</mat-error>
                 <mat-error *ngIf="LastName.invalid && LastName.touched">Invalid Name (Only First Letter shuold be Upercase)</mat-error>
             </mat-form-field>
@@ -44,7 +45,7 @@
         <div class="form-group col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>NIC</mat-label>
-                <input matInput pattern="^[0-9]+[A-Z]" maxlength="10" name="NIC" #NIC="ngModel" [(ngModel)]="service.formData.NIC" class="form-control" required>
+                <input matInput pattern="^[0-9]+[A-Z]" maxlength="10" name="NIC" #NIC="ngModel" [(ngModel)]="service.formData.NIC" required>
                 <mat-hint>Max 10 characters {{NIC.value?.length || 0}}/10</mat-hint>
                 <mat-hint><div class="validation-error" *ngIf="NIC.errors && NIC.errors.required && NIC.touched">This field is required</div></mat-hint>
                 <mat-hint><div class="validation-error" *ngIf="NIC.invalid && NIC.touched">Invalid NIC</div></mat-hint>
@@ -67,7 +68,7 @@
         <div class="form-group col-md-4">
             <mat-form-field appearance="outline">
                     <mat-label>Rate</mat-label>
-                    <input matInput type="number" class="example-right-align" name="Rate" #Rate="ngModel" [(ngModel)]="service.formData.Rate" class="form-control" required>
+                    <input matInput type="number" class="example-right-align" name="Rate" #Rate="ngModel" [(ngModel)]="service.formData.Rate" required>
                     <span matPrefix>$&nbsp;</span>
                     <span matSuffix>.00</span>
                     <mat-error *ngIf="Rate.invalid && Rate.touched">This field is required</mat-error>
@@ -77,7 +78,7 @@
         <div class="form-group col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>Date of Birth</mat-label>
-                <input matInput type="date" name="DateOfBirth" #DateOfBirth="ngModel" [(ngModel)]="service.formData.DateOfBirth" class="form-control" required>
+                <input matInput type="date" name="DateOfBirth" #DateOfBirth="ngModel" [(ngModel)]="service.formData.DateOfBirth" required>
                 <mat-error *ngIf="DateOfBirth.invalid && DateOfBirth.touched">This field is required</mat-error>
             </mat-form-field>
         </div>
@@ -87,7 +88,7 @@
         <div class="form-group col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>Phone Number</mat-label>
-                <input matInput #input maxlength="10" pattern="^[0-9]{10}" name="PhoneNumber" #PhoneNumber="ngModel" [(ngModel)]="service.formData.PhoneNumber" class="form-control" required>
+                <input matInput #input maxlength="10" pattern="^[0-9]{10}" name="PhoneNumber" #PhoneNumber="ngModel" [(ngModel)]="service.formData.PhoneNumber" required>
                 <mat-hint>Max 10 characters {{PhoneNumber.value?.length || 0}}/10</mat-hint>
                 <mat-hint><div class="validation-error" *ngIf="PhoneNumber.errors && PhoneNumber.errors.required && PhoneNumber.touched">This field is required</div></mat-hint>
                 <mat-hint><div class="validation-error" *ngIf="PhoneNumber.invalid && PhoneNumber.touched">Invalid phone number</div></mat-hint>
@@ -97,7 +98,7 @@
         <div class="form-group col-md-6">
             <mat-form-field appearance="outline">
                 <mat-label>License Number</mat-label>
-                <input matInput pattern="^[A-Z]+[0-9]+[A-Z]" maxlength="9" name="LicenseNumber" #LicenseNumber="ngModel" [(ngModel)]="service.formData.LicenseNumber" class="form-control" required>
+                <input matInput pattern="^[A-Z]+[0-9]+[A-Z]" maxlength="9" name="LicenseNumber" #LicenseNumber="ngModel" [(ngModel)]="service.formData.LicenseNumber" required>
                 <mat-hint>Max 9 characters {{LicenseNumber.value?.length || 0}}/9</mat-hint>
                 <mat-hint><div class="validation-error" *ngIf="LicenseNumber.errors && LicenseNumber.errors.required && LicenseNumber.touched">This field is required</div></mat-hint>
                 <mat-hint><div class="validation-error" *ngIf="LicenseNumber.invalid && LicenseNumber.touched">Invalid license number</div></mat-hint>
