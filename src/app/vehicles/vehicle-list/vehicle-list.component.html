@@ -7,6 +7,7 @@
 </div>
 
 <br>
+
 <hr>
 <div class="row">
   <div class="column">
@@ -23,9 +24,9 @@
 
 <div class="row" style="background-color: rgb(22, 146, 146);">    
 <br>  
-<div class="col-md-2" style="margin-right:10px" >
+<div class="col-md-4" >
   <br>
-<label for="type">Filter by</label><br>
+
 <select (change)="showSelectValue($event)" id="vehType" class="form-control">
   <option type="submit" value="All">All</option>
   <option type="submit" value="van">van</option>
@@ -35,12 +36,20 @@
 </select>
 <br>
 </div>
+<div class="col-md-6">
+  <br>
+<div  style="margin-right: 10px;">   
+  <div class="search-form-field" >
+    <input matInput type="search" name="search" [(ngModel)]="searchText" autocomplete="off"   class="form-control" placeholder="Search for a vehicle here .. ">
+  </div> 
+  </div>
+</div>
 </div>
 
 
 
 <div class="row" style="background-color: darkcyan;">  
-<div class="col-md-4" *ngFor="let veh of filterItemsOfType(selected) ;let i=index;" >
+<div class="col-md-4" *ngFor="let veh of filterItemsOfType(selected) |  filter:searchText | paginate: {itemsPerPage:9, currentPage: ActualPage};let i=index;" >
 <br>
 <div class="card" style="width: 20rem;" id="element_to_export">
     <div class="card-body">
@@ -49,10 +58,10 @@
     <ul class="list-group list-group-flush">
       <li class="list-group-item" style="color: crimson; font-weight: bold; text-align: center; font-size: x-large;">{{veh.Brand}} {{veh.Model}}</li>
       <!-- <li class="list-group-item">Manufactured :{{veh.ManuYr}}</li> -->
-      <li class="list-group-item">No of seats: {{veh.NoOfSeats}}</li>
-      <li class="list-group-item">Owner: {{veh.OwnersName}}</li>
-      <li class="list-group-item" style="color: rgb(25, 0, 247); font-weight: bold;;">Contact: {{veh.OwnersContact}}</li>
-      <li class="list-group-item " style="font-weight: bolder; text-align: center;">Rate per KM: Rs.{{veh.RatePerKM}}/=</li>
+      <li class="list-group-item"><strong>of seats: </strong> {{veh.NoOfSeats}}</li>
+      <li class="list-group-item"><strong> Owner:</strong>   {{veh.OwnersName}}</li>
+      <li class="list-group-item" style="color: rgb(25, 0, 247); font-weight: bold;;"><strong> Contact:</strong>  {{veh.OwnersContact}}</li>
+      <li class="list-group-item " style="font-weight: bolder; text-align: center;"><strong> Rate per KM:</strong>  Rs.{{veh.RatePerKM}}/=</li>
     </ul>
     <div class="card-body">
    <table class="table">     
@@ -64,8 +73,12 @@
   </div>
   <br>
   </div>
+<hr>
 </div>
-
+<br>
+<div style="margin-left: 310px;">
+  <pagination-controls (pageChange)="ActualPage = $event"></pagination-controls>
+</div>
 
     <br>
       <hr> 

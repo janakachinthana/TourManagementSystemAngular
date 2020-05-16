@@ -22,13 +22,15 @@ export class VehicleListComponent implements OnInit {
   topPosToStartShowing = 100;
   // type : '';
   selected: string = 'All';
+  searchText: string;
 
 
   constructor(
     public service : VehicleService,
     private toastr : ToastrService,
     private dialog:MatDialog ) { }
-
+    ActualPage: number = 1;
+    
   ngOnInit() : void {
     this.service.refreshList();
     if (this.service.list.length == 0) {

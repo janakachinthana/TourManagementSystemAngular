@@ -229,3 +229,16 @@ td{
     clear: both;
     display: table;
   }
+
+
+  
+/////search
+.search-div{
+  margin: 10px;
+  width: 100%;
+    }
+  
+
+input[type=search]::-webkit-search-cancel-button {
+          -webkit-appearance: searchfield-cancel-button;
+}
