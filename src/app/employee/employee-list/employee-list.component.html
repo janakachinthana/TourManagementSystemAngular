@@ -73,8 +73,8 @@
        
       </ul>
       <div class="card-body">
-            <button style="margin-left: 30px;" (click)="populateForm(emp)" class="card-link btn btn-sm btn-outline-success ybtn"> <mat-icon>open_in_new</mat-icon></button>
-            <button style="margin-left: 100px;" class="btn btn-sm btn-outline-danger xbtn" (click)="onDelete(emp.EmployeeID)"><mat-icon>delete</mat-icon></button>   
+            <button style="margin-left: 30px;" (click)="populateForm(emp)" class="card-link btn btn-sm btn-outline-success ybtn" matTooltip="click to edit this employee's details"> <mat-icon>open_in_new</mat-icon></button>
+            <button style="margin-left: 100px;" class="btn btn-sm btn-outline-danger xbtn" (click)="onDelete(emp.EmployeeID)" matTooltip="click to delete this employee"><mat-icon>delete</mat-icon></button>   
       </div>
     </div>
     <br>
