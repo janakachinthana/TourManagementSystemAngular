@@ -1,0 +1,157 @@
+
+
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  <input type="hidden" name="HotelID" #HotelID="ngModel" [(ngModel)]="service.formData.HotelID">
+  
+
+  <div class="input-group mb-3 ">
+     
+      <img [src]="imageUrl"  style="width:1000px;height:300px  class=center">
+    
+      <input type="file" name="Image" #Image accept="image/*" (change)="handleFileInput($event.target.files)" #Image="ngModel" [(ngModel)]="service.formData.Image" >  
+    </div>
+
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Hotel Name</span>
+      </div >
+      <input required name="HotelName" #HotelName="ngModel" [(ngModel)]="service.formData.HotelName" class="form-control">
+      <div class="validation-error"*ngIf="HotelName.invalid && HotelName.touched" >This field required</div>
+      
+  </div>
+
+
+  
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Address</span>
+      </div>
+      <input required name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address" class="form-control">
+      <div class="validation-error"*ngIf="Address.invalid && Address.touched" >This field required</div>
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Phone Number</span>
+      </div>
+      <input required type="number" name="PhoneNumber" #PhoneNumber="ngModel" [(ngModel)]="service.formData.PhoneNumber" class="form-control">
+      <div class="validation-error"*ngIf="PhoneNumber.invalid && PhoneNumber.touched" >This field required</div>
+    </div>
+
+   
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Email</span>
+      </div>
+      <input required type="email" email name="Email" #email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
+      <div class="validation-error"*ngIf="email.invalid && email.touched" >This field required</div>
+    </div>
+
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Star Class</span>
+      </div>
+      <input required type="number" name="StarClass" #StarClass="ngModel" [(ngModel)]="service.formData.StarClass" class="form-control">
+    </div>
+
+
+    <hr>
+    <h1 class="display-4 text-left">
+       RoomCategories
+    </h1>
+  <hr>
+
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Single</span>
+      </div>
+      <input required  name="Single" #Single="ngModel" [(ngModel)]="service.formData.Single" class="form-control">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text bg-info text-white" id="basic-addon1">Double</span>
+    </div>
+    <input required  name="Double" #Double="ngModel" [(ngModel)]="service.formData.Double" class="form-control">
+</div>
+
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text bg-info text-white" id="basic-addon1">Triple</span>
+  </div>
+  <input required  name="Triple" #Triple="ngModel" [(ngModel)]="service.formData.Triple" class="form-control">
+</div>
+
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+  <span class="input-group-text bg-info text-white" id="basic-addon1">Quard</span>
+</div>
+<input required  name="Quard" #Quard="ngModel" [(ngModel)]="service.formData.Quard" class="form-control">
+</div>
+
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+  <span class="input-group-text bg-info text-white" id="basic-addon1">King</span>
+</div>
+<input required  name="King" #King="ngModel" [(ngModel)]="service.formData.King" class="form-control">
+</div>
+
+<div class="input-group mb-3">
+<div class="input-group-prepend">
+  <span class="input-group-text bg-info text-white" id="basic-addon1">Queen</span>
+</div>
+<input required  name="Queen" #Quard="ngModel" [(ngModel)]="service.formData.Queen" class="form-control">
+</div>
+
+
+
+  <hr>
+  <h1 class="display-4 text-left">
+    MealPlan
+  </h1>
+<hr>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Room Only</span>
+      </div>
+      <input required  name="RoomOnly" #RoomOnly="ngModel" [(ngModel)]="service.formData.RoomOnly" class="form-control">     
+    </div>
+
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Bed And Breackfast</span>
+      </div>
+      <input required  name="BedAndBreackfast" #BedandBreackfast="ngModel" [(ngModel)]="service.formData.BedAndBreackfast" class="form-control">     
+    </div>
+    
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Full Board</span>
+      </div>
+      <input required  name="FullBoard" #FullBoard="ngModel" [(ngModel)]="service.formData.FullBoard" class="form-control">     
+    </div>
+
+    
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Half Board</span>
+      </div>
+      <input required  name="HalfBoard" #HalfBoard="ngModel" [(ngModel)]="service.formData.HalfBoard" class="form-control">     
+    </div>
+
+
+    
+ <br>
+
+  <div class="form-group">
+      <button type="submit" class="btn btn-lg btn-block">Submit</button>
+  </div>
+
+  
+  
+
+</form>

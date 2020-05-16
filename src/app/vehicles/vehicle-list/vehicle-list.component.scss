@@ -1,0 +1,115 @@
+td:hover{
+    background-color: rgba(255, 255, 255, 0.527);
+    font-weight: bolder;
+
+ 
+}
+
+.grab {cursor: -webkit-grab; cursor: grab;}
+
+
+noHover:hover{
+    border: 1px;
+    padding: 10px;
+    
+
+}
+
+.topMrgin{
+    margin-top: 50px;
+}
+
+
+.no-drop {
+    cursor: no-drop;
+    font-weight: bold;
+    color: white;
+}
+
+td{
+    text-align: center;
+}
+
+.tdclr{
+    color: mediumblue;
+}
+
+
+.xbtn{
+    color: rgb(245, 245, 245);
+    font-weight: bolder;
+    background-color: rgb(71, 78, 107);
+    float:right;
+}
+
+.xbtn:hover{
+    font-size: larger;
+    background-color: rgb(230, 27, 27);
+}
+
+
+
+.ybtn{
+    color: rgb(245, 245, 245);
+    font-weight: bolder;
+    background-color: rgb(71, 78, 107);
+}
+
+.ybtn:hover{
+    font-size: larger;
+    background-color: rgb(78, 66, 241);
+}
+
+
+
+.firstrow{
+    background-color: rgb(48, 71, 78);
+    color: white;
+}
+
+.viewBtn:hover{
+    block-size: auto;
+}
+
+.addbtn{
+    background-color: rgb(46, 78, 255);
+    color:white;
+    width: 200px;
+    left: 40%;
+    
+}
+.addbtn:hover{
+    background-color: rgb(46, 78, 255);
+    color:black;
+}
+
+  
+  .buttonUp {
+    // position: fixed;
+    bottom: 5px;
+    right: 5px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 5px;
+    outline: nonen;
+  }
+
+ .btn{
+    left: 50%; 
+ 
+ }
+
+ .bottombtn{
+     width: 130px;
+     left: 20%;
+ }
+
+ .backdrop{
+    box-shadow: 0px 0px 20px 20px rgba(255,255,255,1);
+    text-shadow: 0px 0px 10px rgba(51, 51, 51, 0.9);
+    transform: scale(0.9);
+    opacity: 0.6;
+    backdrop-filter: blur(50px);
+    background-color: #01223770;
+    opacity: 1 !important;
+ }

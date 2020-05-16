@@ -1,0 +1,78 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css'; 
+.form-group>input{
+    font-weight: bolder;
+}
+.form-group>label{
+
+    font-weight: bold;
+}
+
+button[type="submit"]{
+    background-color: dodgerblue;
+    color: #fff;
+    
+
+}
+.jumbotron{
+    background-color: rgb(255, 255, 255);
+
+    padding-top: 32px;
+}
+
+table tr:hover{
+    cursor: pointer;
+}
+
+input.ng-touched.ng-invalid{
+    border-color: #dc3545;
+}
+div.validation-error{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.h1main{
+    color: #000408;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;;
+}
+
+label{
+    font-weight: bold;
+}
+.BTNNEW{
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+body{
+    background-color: rgb(230, 222, 229);
+}
+
+.footertext{
+    font-size: smaller;
+}
+
+.footertext1{
+    font-size: 20px;
+    background-color:orange;
+    border-radius: 6px;
+}
+.footertext2{
+    font-size: 20px;
+    background-color: blue;
+    border-radius: 6px;
+    margin-left: 100px;
+}
+
+.divmain{
+    background-color: rgba(166, 202, 226, 0.979);
+    border-radius: 0px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

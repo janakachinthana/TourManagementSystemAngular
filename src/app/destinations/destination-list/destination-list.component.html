@@ -1,0 +1,36 @@
+<button class="btn" style="margin-left: 39%;" (click)="AddOrEditDestinations(null)">add a destination</button>
+
+<hr>
+
+
+
+<div class="row" >  
+    <div class="col-md-6" *ngFor="let des of service.list ;let i=index;" >
+    <br>
+    <div class="card" style="width: 25rem;" id="element_to_export">
+        <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRarOdsxTEa9Z_PG6n61YfdBqb9OS3yAj0IvkeiCm0_mZ19T46z&usqp=CAU" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{des.DestinationName}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" style="color: hsl(348, 83%, 47%); font-weight: bold; text-align: center;">{{des.Village}}</li>
+          <li class="list-group-item">Entrance fee - Adult: {{des.EntranceFee}}</li>
+         <li class="list-group-item">Entrance fee  - Children :{{des.EntranceFeeChild}}</li>
+          <li class="list-group-item">Estimated Time for a visit : {{des.Time}}</li>
+          <li class="list-group-item" style="color: rgb(25, 0, 247); font-weight: bold;;">{{des.DescriptionOfThePlace}}</li>
+
+        </ul>
+        <div class="card-body"> 
+       <table class="table">     
+         <tr class="table-hover grab tbl1">
+         <button (click)="populateForm(des)" class="card-link btn btn-sm btn-outline -danger ybtn"> edit</button>
+         <button class="btn btn-sm btn-outline -danger xbtn" (click)="onDelete(des.DestinationID)">delete</button></tr>  
+        </table>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+
+    <button class="btn" style="margin-left: 39%;" (click)="genReport()">Genarate report</button>
+
