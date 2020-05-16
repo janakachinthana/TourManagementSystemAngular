@@ -7,6 +7,10 @@
   
   <div class="row">
     <hr>
+    <div class="col-md-6">
+
+      <button matTooltip="fill the form with sample data" type="button" class="card-link btn btn-sm btn-outline-success ybtn" (click)="demo()" *ngIf="service.formData.HotelID==null;">Demo</button>
+    </div>
     <h3 class="text-left">
       <strong>Add New Hotel</strong>
     </h3>
@@ -250,6 +254,7 @@
 
   <div class="form-group">
       <button type="submit" class="btn btn-lg btn-block">Submit</button>
+      <button type="button" class="card-link btn btn-sm btn-outline-danger ybtn" [mat-dialog-close]>CLOSE</button>
   </div>
 
   

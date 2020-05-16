@@ -85,7 +85,8 @@
                       <span class="input-group-text bg-info text-white" id="basic-addon1">Vehicle</span>
                     </div>
                     <!-- <select  name="Guide"   class="form-control" id="guide" (click)="selectChangeHandlerVehicle($event)"> -->
-                      <select  name="vehicalID"   class="form-control" id="guide" (click)="selectChangeHandlerVehicle($event)"> 
+                      <select  name="vehicalID"   class="form-control" id="guide" (change)="selectChangeHandlerVehicle($event)"> 
+                       <option value="">Select Vehivle</option>
                         <option value="{{veh.VehicleID}}" *ngFor="let veh of service3.list  ">{{veh.Model}}, {{veh.OwnersName}} , {{veh.NoOfSeats}} </option>
                                
                     </select></div>
@@ -127,8 +128,8 @@
                       <span class="input-group-text bg-info text-white" id="basic-addon1">Driver</span>
                     </div>
                     <!-- <select  name="Driver"   class="form-control" id="driver" (change)="selectChangeHandlerDriver($event)"> -->
-                      <select  name="driverID"   class="form-control" id="driver"  (click)="selectChangeHandlerDriver($event)"> 
-                        <option>Select Driver</option>
+                      <select  name="driverID"   class="form-control" id="driver"  (change)="selectChangeHandlerDriver($event)"> 
+                        <option value="">Select Driver</option>
                         <option value="{{dri.DriverID}}"  *ngFor="let dri of service4.list" > {{dri.FirstName}}  </option>
                                
                     </select></div>
@@ -147,7 +148,7 @@
                     <!-- <select  name="Guide"   class="form-control" id="guide" (change)="selectChangeHandler($event)"> -->
                       <select  name="guideID"   class="form-control" id="guide" (change)="selectChangeHandlerGuide($event)">
                    
-                      <option>Select Guide</option> 
+                      <option value ="null">Select Guide</option> 
                         <option value="{{guide.GuideID}}"  *ngFor="let guide of service.list "> {{guide.FirstName}}  </option>
                                
                     </select></div>
@@ -326,7 +327,7 @@
           <select  name="hotelID"   class="form-control" id="hotel"  (change)="selectChangeHandlerHotel($event)">
                    
             <option value="1">Select Hotel</option> 
-              <option value="{{dri.HotelID}} "  *ngFor="let dri of service7.list" > {{dri.HotelName}}  </option>                   
+              <option value="{{dri.HotelID}} "  *ngFor="let dri of service7.list" > {{dri.HotelName}} || {{dri.StarClass}} Star  </option>                   
           </select>
         </div>
 

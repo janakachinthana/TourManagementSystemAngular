@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { HotelService } from 'src/app/shared/hotel.service';
 import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Hotel } from 'src/app/shared/hotel.model';
 
 
@@ -22,7 +22,8 @@ export class hotelComponent implements OnInit {
   
   constructor(public service: HotelService,
     private toastr : ToastrService,
-    @Inject(MAT_DIALOG_DATA) public data,) { }
+    @Inject(MAT_DIALOG_DATA) public data,
+    public dialogRef: MatDialogRef<hotelComponent>) { }
 
 
  
@@ -120,6 +121,7 @@ export class hotelComponent implements OnInit {
           this.toastr.success('Insert successfully', 'HTL. Register');
           this.resetForm(form);
           this.service.refreshList();
+          this.dialogRef.close();
           });
 
     }
@@ -129,10 +131,28 @@ export class hotelComponent implements OnInit {
         this.toastr.info('Updated successfully', 'HTL. Register');
         this.resetForm(form);
         this.service.refreshList();
+        this.dialogRef.close();
       });
     }
 
 
-
+    demo(){
+      this.service.formData.HotelName = "Deshani";
+      this.service.formData.Address = "Balapitiya, Mathara";
+      this.service.formData.PhoneNumber = 779882552;
+      this.service.formData.Email = "deshanihotel@gmail.com";
+      this.service.formData.StarClass = 2;
+      this.service.formData.Single = 2500;
+      this.service.formData.Double = 3000;
+      this.service.formData.Triple = 3500; 
+      this.service.formData.Quard = 4000;
+      this.service.formData.King = 4500;
+      this.service.formData.Queen = 5000;
+      this.service.formData.RoomOnly = 100;
+      this.service.formData.BedAndBreackfast = 1000;
+      this.service.formData.FullBoard = 3000; 
+      this.service.formData.HalfBoard = 2000;
+      
+    }
 
 }
