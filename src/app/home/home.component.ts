@@ -513,7 +513,7 @@ insertRecord(form : NgForm){
 // this.serviceHome.formData.CompanyPresentage = this.serviceHome.formData.CompanyPresentage;
 
 this.serviceHome.postHome(form.value).subscribe(res =>{
-this.toastr.success('Insert successfully', 'Eliphase');
+
 
 });
 
