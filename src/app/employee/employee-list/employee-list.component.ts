@@ -14,7 +14,7 @@ import { EmployeesReportComponent } from '../employees-report/employees-report.c
 })
 export class EmployeeListComponent implements OnInit {
   UserName : String ;
-  
+  searchText: string;
   isShow: boolean;
   topPosToStartShowing = 100;
   
@@ -22,6 +22,8 @@ export class EmployeeListComponent implements OnInit {
     public service : EmployeeService,
     private toastr : ToastrService,
     private dialog:MatDialog ) { }
+
+    pageActual: number = 1;
 
   ngOnInit() : void {
     this.service.refreshList();
