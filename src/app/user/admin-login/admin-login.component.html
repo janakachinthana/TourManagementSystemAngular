@@ -1,3 +1,5 @@
+<div>
+
 <h1 style="color: blue; text-align: center;" >This Function Can Access Only Admin</h1>
 <br>
 <br>
@@ -26,14 +28,18 @@
 
     
      <br><br>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="input-group-prepend">
-            <button (click)="cancelAdminLogin()" style="margin-left: 30px;" class="card-link btn btn-sm btn-outline-danger ybtn" ><mat-icon>cancel</mat-icon> Cancel</button>
-      </div></div>
-      <div class="col-md-6">
-        <button type="button" (click)="updateRecord(form)" style="margin-left: 30px;"  class="card-link btn btn-sm btn-outline-info ybtn" ><mat-icon> person_pin</mat-icon>Login</button>
-    </div>
-    </div>
+
+    
+    
+            <button (click)="cancelAdminLogin()"  class="btn btn-lg btn-info btn-block" style="font-size: smaller;" > Cancel</button>
+ 
+  
+        <button type="button" (click)="updateRecord(form)"  class="btn btn-lg btn-info btn-block" >Login</button>
+
+
+
+
+
 </form>
 
+</div>

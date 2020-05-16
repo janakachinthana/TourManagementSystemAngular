@@ -11,19 +11,24 @@
 
 #btn
 {
-    background-color: green
+    background-color: rgb(0, 113, 128)
 }
 
 #total
 {
-    color:red;
-    background-color: green;
+    color:rgb(11, 239, 255);
+    background-color: rgb(0, 113, 128);
     text-align: center;
     
 }
 #total1
 {
-    color:red;
-    background-color: green;
+    color:rgb(11, 239, 255);
+    background-color: rgb(0, 113, 128);
     text-align: center;
 }
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(245, 241, 241);
+    font-weight: lighter;; /* Firefox */
+  }

@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "EliphaseVacation"
+  "defaultProject": "EliphaseVacation",
+  "cli": {
+    "analytics": "704fbfff-3cc2-43c9-be68-1a2f85ff8314"
+  }
 }

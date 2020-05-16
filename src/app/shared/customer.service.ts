@@ -13,8 +13,18 @@ export class CustomerService {
   list: Customer[];
   table: number[];
   // readonly rootURL = 'https://localhost:44300/api';
+<<<<<<< HEAD
   readonly rootURL = "https://localhost:44392/api"
   // readonly rootURL = "http://localhost:62083/api"
+=======
+<<<<<<< HEAD
+  readonly rootURL = "https://localhost:44392/api";
+
+=======
+  // readonly rootURL = "https://localhost:44392/api"
+  readonly rootURL = "http://localhost:62083/api"
+>>>>>>> b705e94a3884c9914305dda14ced14e8094666a4
+>>>>>>> 5e35cbbd083a66797195246c269a05831080a59c
   constructor(private http: HttpClient) { }
 
   postCustomer(formData: Customer) {
@@ -35,7 +45,7 @@ export class CustomerService {
 
    GetSingleCustomer(id : number): Observable<any>{
     return this.http.get(this.rootURL+'/Customer/' + id)
-      
+
   }
 
 }
