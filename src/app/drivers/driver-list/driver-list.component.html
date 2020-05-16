@@ -1,7 +1,7 @@
 <br>
 <div class="search-div">
     <div class="row">
-        <button  mat-raised-button
+        <button  mat-raised-button color="success"
             matTooltip="Add new driver to the database by clicking this button"
             aria-label="Button that displays a tooltip when focused or hovered over"
             (click)="AddOrEditDriver(null)"
@@ -65,6 +65,13 @@
     </div>
 </div>
 
+<br>
+<div style="text-align: center;">
+    <button mat-fab color="white" aria-label="scroll up" matTooltip="click to go up in this page" matTooltipPosition="right" *ngIf="isShow" (click)="gotoTop()">
+        <mat-icon>arrow_upward</mat-icon>
+    </button>
+</div>
+
 <hr>
 <div style="text-align: center;">
     <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
@@ -81,9 +88,5 @@
             matTooltipPosition="right">
             Generate report
         </button>
-    </div>
-
-    <div style="text-align: right;">
-        <button style="margin-top: 20px;" *ngIf="isShow" (click)="gotoTop()">SCROLL TOP</button>
     </div>
 </div>
