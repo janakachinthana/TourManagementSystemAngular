@@ -25,7 +25,7 @@ UserName : String = "Admin";
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width = '35%';
-    dialogConfig.height = '60%';
+    dialogConfig.height = '70%';
     this.dialog.open(AdminLoginComponent, dialogConfig);
     }
   }
