@@ -81,6 +81,21 @@ export class DriverComponent implements OnInit {
         this.dialogRef.close();
       });
     }
+    
+     insertDemo(){
+      this.service.formData = {
+        DriverID : null,
+        FirstName : 'John',
+        LastName : 'Walker',
+        NIC : '975555555V',
+        Gender : 'Male',
+        Rate : '100',
+        DateOfBirth : '1997-12-12',
+        PhoneNumber : '0770322305',
+        LicenseNumber : 'A1111111A',
+        Image : ''
+      }
+    }
 }
 
 
