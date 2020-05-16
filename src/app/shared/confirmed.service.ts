@@ -8,9 +8,13 @@ export class ConfirmedService {
   formData : Home;
   list : Home[];
 
+<<<<<<< HEAD
   // readonly rootURL = "https://localhost:44392/api"
   //readonly rootURL = "http://localhost:62083/api"
   readonly rootURL = "https://localhost:44357/api"
+=======
+  readonly rootURL = "https://localhost:44392/api"
+>>>>>>> f71bb62e030abcf750ff7be89d15fe92803fdea2
   constructor(private http : HttpClient) { }
 
 
