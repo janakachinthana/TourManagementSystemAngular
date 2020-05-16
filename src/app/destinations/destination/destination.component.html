@@ -2,9 +2,9 @@
 <form #form= "ngForm" (submit)="onSubmit(form)" autocomplete="off">
 
     <div class="row">
-    
-    <div class="col-md-6"> 
-    
+
+    <div class="col-md-6">
+
     <input type="hidden" name="DestinationID" #DestinationID= "ngModel" [(ngModel)]="service.formData.DestinationID">
      <div class="form-group">
          <label style="color: black;">DESTINATION NAME</label>
@@ -16,35 +16,35 @@
         <input name="Time" #Time= "ngModel" [(ngModel)]="service.formData.Time" class="form-control" required>
         <div class="validation-error" *ngIf = "Time.invalid && Time.touched">This feild is required.</div>
     </div>
-    
-    
+
+
     <div class="row">
-    
-    <div class="col-md-6"> 
-    
+
+    <div class="col-md-6">
+
     <div class="form-group">
         <label style="color: black;">ENTRANCE FEE Adult</label>
         <input name="EntranceFee" #EntranceFee= "ngModel" [(ngModel)]="service.formData.EntranceFee" class="form-control" required>
         <div class="validation-error" *ngIf = "EntranceFee.invalid && EntranceFee.touched">This feild is required.</div>
     </div>
-    
+
     </div>
-    
-    <div class="col-md-6"> 
-    
+
+    <div class="col-md-6">
+
     <div class="form-group">
         <label style="color: black;">ENTRANCE FEE child</label>
         <input name="EntranceFeeChild" #EntranceFeeChild= "ngModel" [(ngModel)]="service.formData.EntranceFeeChild" class="form-control" required>
         <div class="validation-error" *ngIf = "EntranceFeeChild.invalid && EntranceFeeChild.touched">This feild is required.</div>
     </div>
-    
+
     </div>
-    
+
     </div>
-    
+
     <div class="row">
-    
-    <div class="col-md-12"> 
+
+    <div class="col-md-12">
             <div class="form-group">
             <label style="color: black;">ACTIVITIES</label>
             <input name="Activities" #Activities= "ngModel" [(ngModel)]="service.formData.Activities" class="form-control" required>
@@ -55,13 +55,13 @@
         <input name="Attraction" #Attraction= "ngModel" [(ngModel)]="service.formData.Attraction" class="form-control" required>
         <div class="validation-error" *ngIf = "Attraction.invalid && Attraction.touched">This feild is required.</div>
     </div>
-    
-    
+
+
     </div>
     </div>
     </div>
-    
-    
+
+
     <div class="col-md-6">
     <!-- <div class="form-group">
             <label style="color: black;">CITY OF THE DESTINATION</label>
@@ -69,8 +69,8 @@
             <div class="validation-error" *ngIf = "CityOfTheDestination.invalid && CityOfTheDestination.touched">This feild is required.</div>
     </div> -->
     <div class="row">
-    <div class="col-md-12"> 
-    
+    <div class="col-md-12">
+
     <div class="form-group">
     <label style="color: black;">DISTRICT WHICH DESTINATION BELONGS</label>
     <select name="CityOfTheDestination" #CityOfTheDestination="ngModel" min="2000" [(ngModel)]="service.formData.CityOfTheDestination" class="form-control">
@@ -103,15 +103,15 @@
     </div>
     </div>
     </div>
-    
+
     <div class="form-group">
         <label style="color: black;">CITY OF THE DESTINATION</label>
         <input name="Village" #Village= "ngModel" [(ngModel)]="service.formData.Village" class="form-control" required>
         <div class="validation-error" *ngIf = "Village.invalid && Village.touched">This feild is required.</div>
     </div>
-    
-    
-    
+
+
+
     <div class="form-group">
             <label style="color: black;">RULES AND REGULATIONS</label>
             <input name="RulesAndRegulations" #RulesAndRegulations= "ngModel" [(ngModel)]="service.formData.RulesAndRegulations" class="form-control"required>
@@ -123,31 +123,30 @@
             <div class="validation-error" *ngIf = "DescriptionOfThePlace.invalid && DescriptionOfThePlace.touched">This feild is required.</div>
     </div>
     </div>
-    
-    
-    
-    
-    
+
+
+
+
+
     </div>
     <!-- <div class="form-group">
         <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">SUBMIT</button>
-    
+
     </div> -->
     <div class="row">
         <div class="col-md-6">
           <div class="input-group-prepend">
             <button type="button" class="card-link btn btn-sm btn-outline-danger ybtn" [mat-dialog-close]>CLOSE</button>
-       
+
       </div></div>
 
 
         <div class="col-md-6">
           <div class="input-group-prepend">
             <button type="submit" [disabled]="form.invalid" class="card-link btn btn-sm btn-outline-info ybtn" *ngIf="service.formData.DestinationID==null;"> <mat-icon> send</mat-icon></button>
-            <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="card-link btn btn-sm btn-outline-info ybtn" *ngIf="service.formData.DestinationID!=null;"> save</button>
-        
+            <button type="button" (click)="updateRecode(form)" [disabled]="form.invalid" class="card-link btn btn-sm btn-outline-info" *ngIf="service.formData.DestinationID!=null;"> save</button>
+
 </div>
 </div></div>
     <button type="button"  (click)="AutoFill()" *ngIf="service.formData.DestinationID == null" class="btn btn-lg btn-block">DEMO</button>
     </form>
-    
