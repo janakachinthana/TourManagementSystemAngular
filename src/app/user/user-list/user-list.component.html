@@ -11,7 +11,7 @@
     <div class="row" >  
       <div class="col-md-4" *ngFor="let emp of service.list ;let i=index;" >
         <br>
-        <div class="card " class="btn btn-lg btn-info btn-block" >
+        <div class="card " class="btn btn-lg btn-info btn-block"  style="background-color: rgb(2, 41, 41);">
         <div class="card-body">        
             <div style="text-align: center;font-size: x-large;">
               {{emp.FirstName}} {{emp.LastName}}
@@ -19,7 +19,7 @@
          
             </div>
           
-             <button (click)="populateForm(emp)"[mat-dialog-close] style="text-align: center; color: teal;" class="btn btn-lg btn-info btn-block"> Click here to Login</button>
+             <button (click)="populateForm(emp)"[mat-dialog-close] style="text-align: center; color: rgb(24, 180, 228);" class="btn btn-lg btn-info btn-block"> Click here to Login</button>
       
             
           </div>
