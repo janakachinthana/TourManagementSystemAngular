@@ -1,7 +1,7 @@
 <br>
 <div class="search-div">
     <div class="row">
-        <button  mat-raised-button
+        <button  mat-raised-button color="success"
             matTooltip="Add new driver to the database by clicking this button"
             aria-label="Button that displays a tooltip when focused or hovered over"
             (click)="AddOrEditDriver(null)"
@@ -11,7 +11,7 @@
         </button>
         
         <div class="search-form-field" style="width: 925px;">
-                <input matInput type="search" name="search" [(ngModel)]="searchText" autocomplete="off"   class="form-control" placeholder="Start searching">
+                <input matInput type="search" name="search" [(ngModel)]="searchText" autocomplete="off"  placeholder="Start searching">
         </div> 
     </div>
 </div>
@@ -27,7 +27,8 @@
         <div class="card" style="width: 20rem;" >
             <div class="card-body">
                 <div style="text-align: center;">
-                    <h5 class="card-title center">Driver: {{i+1}}</h5>
+                    <!-- <h5 class="card-title center">Driver: {{i+1}}</h5> -->
+                    <h5 class="card-title center">Driver: {{d.DriverID}}</h5>
                 </div>
             </div>
                 <ul class="list-group list-group-flush">
@@ -64,6 +65,13 @@
     </div>
 </div>
 
+<br>
+<div style="text-align: center;">
+    <button mat-fab color="white" aria-label="scroll up" matTooltip="click to go up in this page" matTooltipPosition="right" *ngIf="isShow" (click)="gotoTop()">
+        <mat-icon>arrow_upward</mat-icon>
+    </button>
+</div>
+
 <hr>
 <div style="text-align: center;">
     <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
@@ -71,12 +79,14 @@
 <hr>
 
 <br>
-<div style="text-align: center;">
-    <button mat-raised-button
-        matTooltip="Generate driver list report"
-        aria-label="Button that displays a tooltip when focused or hovered over"
-        (click)="generateDriverReport(null)"
-        matTooltipPosition="right">
-        Generate report
-    </button>
+<div class="row">
+    <div style="text-align: center;">
+        <button mat-raised-button
+            matTooltip="Generate driver list report"
+            aria-label="Button that displays a tooltip when focused or hovered over"
+            (click)="generateDriverReport(null)"
+            matTooltipPosition="right">
+            Generate report
+        </button>
+    </div>
 </div>
