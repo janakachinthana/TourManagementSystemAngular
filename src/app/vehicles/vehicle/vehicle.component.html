@@ -1,10 +1,23 @@
 
 
-
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">  
    
     <button type="button" class="btn btn-lg btn-block close  " [mat-dialog-close]><mat-icon>cancel</mat-icon></button>
     
+    <br>
+
+  <div id="container">
+
+
+    <h1 style="text-align: center;" *ngIf="service.formData.VehicleID!=null;">
+        Vehicle details
+    </h1>
+    <h1 style="text-align: center;" *ngIf="service.formData.VehicleID==null;">
+        Insert the vehicle details here!
+    </h1>
+
+
+
     <input type="hidden" name="VehicleID" #VehicleID="ngModel" [(ngModel)]="service.formData.VehicleID">
     <div class="form-group">
             
@@ -228,7 +241,7 @@
     </div>
 
 </div>
-    
+</div>   
     
     <div class="form-group btndiv">
         <br>
@@ -237,7 +250,7 @@
             <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID==null;"> Insert</button>
             <button type="button" (click)="fillForm()" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID==null;" > demo</button>
             <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="btn btn-lg btn-block BTNNEW btndiv" *ngIf="service.formData.VehicleID!=null;"> save</button>
-           
+
 
                 <!-- <button type="button" class="btn btn-lg btn-block close  " [mat-dialog-close]><mat-icon>cancel</mat-icon></button> -->
     
@@ -245,6 +258,8 @@
         
     </div>
     </div>
-    </div>
-    </form>
+    
+</div>
+   
+</form>
    

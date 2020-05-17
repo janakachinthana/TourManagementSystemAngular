@@ -15,6 +15,8 @@ export class DesPrintComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.refreshList();
+    if(this.service.list.length == 0)
+    this.service.list = [];
   }
 
 

@@ -20,7 +20,7 @@
 
         <form #form="ngForm" style="margin: auto;">
         <!-- Gathering data and analysis section is here - section 3 -->
-        <div class="row " id="div2">
+        <div class="row "   id="div2">
           <div class="col-md-3" id="div1">
             <br>
             <div class="bg-dark center" >
@@ -87,7 +87,7 @@
                     <!-- <select  name="Guide"   class="form-control" id="guide" (click)="selectChangeHandlerVehicle($event)"> -->
                       <select  name="vehicalID"   class="form-control" id="guide" (change)="selectChangeHandlerVehicle($event)"> 
                        <option value="">Select Vehivle</option>
-                        <option value="{{veh.VehicleID}}" *ngFor="let veh of service3.list  ">{{veh.Model}}, {{veh.OwnersName}} , {{veh.NoOfSeats}} </option>
+                        <option value="{{veh.VehicleID}}" *ngFor="let veh of service3.list ">{{veh.Model}}, {{veh.OwnersName}} , {{veh.NoOfSeats}} </option>
                                
                     </select></div>
                 </label>
@@ -644,7 +644,7 @@
         <input type="number" class="form-control" id="total" name="TotalExpenses"  #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"  placeholder="TotalExpenses" />
       </div> 
       <br>
-      <button type="button" (click)="calcTot()" >Calculate Total Expenses</button>
+      <button type="button"  class="btn btn-lg btn-info btn-block" (click)="calcTot()" >Calculate Total Expenses</button>
       <br>
       <br>
     </div>
@@ -682,7 +682,7 @@
           <!-- <input type="hidden" name="AgentProfitPrasentage" id="" #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage"> -->
         </div>
         <br>
-        <button type="button" (click)="calOverOll(form)" >Calculate Profit</button>
+        <button type="button" class="btn btn-lg btn-info btn-block" (click)="calOverOll(form)" >Calculate Profit</button>
         <br>
         <br>
         <div class="form-group">
@@ -703,8 +703,8 @@
           </label>
           <input type="text" class="form-control text-danger" name="OverollCost"  #OverollCost="ngModel" [(ngModel)]="serviceHome.formData.OverollCost"  id="#" placeholder="Total Package Cost (LKR)" />
         </div>
-        <button type="button"  (click)="onSubmit(form)">finish</button>
-     
+        <button type="button" class="btn btn-lg btn-info btn-block" style="background-color: teal;" (click)="onSubmit(form)">F I N I S H</button>
+        <br>
 
     </div>
   </div>
