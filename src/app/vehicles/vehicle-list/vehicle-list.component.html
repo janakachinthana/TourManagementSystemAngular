@@ -24,7 +24,7 @@
 
 <div class="row" style="background-color: rgb(22, 146, 146);">    
 <br>  
-<div class="col-md-4" >
+<div class="col-md-3" style="width: 150px;" >
   <br>
 
 <select (change)="showSelectValue($event)" id="vehType" class="form-control">
@@ -36,13 +36,19 @@
 </select>
 <br>
 </div>
-<div class="col-md-6">
+<div class="col-md-5">
   <br>
 <div  style="margin-right: 10px;">   
   <div class="search-form-field"  >
-    <input matInput type="search" name="search" [(ngModel)]="searchText" autocomplete="off"   class="form-control" placeholder="Search for a vehicle here .. ">
+    <input matInput type="search" name="search" [(ngModel)]="searchText" autocomplete="off"   class="form-control" placeholder="  Search for a vehicle here .. ">
   </div> 
   </div>
+</div>
+<div class="col-md-4">
+  <br>
+  <div style="text-align: center;">
+    <button style="font-size: larger; background-color: darkcyan;" class=" btn btn-lg btn-info " *ngIf="isShow"  (click)=" getList()">Genarate Report</button>
+  </div>  
 </div>
 </div>
 
@@ -83,10 +89,7 @@
     <br>
       <hr> 
  <div >
-  <div style="text-align: center;">
-    <button style="font-size: larger; background-color: darkcyan;" class=" btn btn-lg btn-info " *ngIf="isShow"  (click)=" getList()">Genarate Report</button>
-  </div>    
-  <br>
+
   <div style="text-align: center;">
     <button class=" btn btn-lg btn-info" style="font-size: small;" *ngIf="isShow" (click)="gotoTop()">SCROLL TOP</button>
   </div>    

@@ -37,10 +37,13 @@
 
             </div>
           </div>
-
-      
-          <button type="button" (click)="updateRecord(form)"  class="btn btn-lg btn-info btn-block" >Login</button>
-            <button (click)="cancelAdminLogin()"  class="btn btn-lg btn-info btn-block" style="font-size: smaller;" > Cancel</button>
+          <button type="button" (click)="updateRecord(form)" class="btn btn-lg btn-info" style="width: 200px;">Login</button>
+          <br>
+          <br>
+          <div style="text-align: center;">
+            <button (click)="cancelAdminLogin()" class="btn btn-lg btn-info "  style="font-size: small; width: 200px;"   [mat-dialog-close]>Cancel</button>
+          </div>
+          <br>
     </form>
   </div>
 

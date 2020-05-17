@@ -16,7 +16,10 @@ export class VehicleComponent implements OnInit {
   formData: Vehicle;
   temp: Vehicle;
   imageUrl:string = "/assets/img/download.png"
-fileToUpload: File = null;
+  fileToUpload: File = null;
+
+  currentYear=new Date("YYYY");
+  
 
 
   constructor(public service : VehicleService,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DestinationService } from 'src/app/shared/destination.service';
 import * as html2pdf from 'html2pdf.js'
+import { CommonModule, NgIf } from "@angular/common";
 
 
 @Component({
