@@ -13,7 +13,9 @@ export class HomeHotelService {
   guide1 : HomeHotel;
 
   // readonly rootURL = "https://localhost:44392/api"
-  readonly rootURL = "http://localhost:62083/api"
+  // readonly rootURL = "http://localhost:62083/api"
+  readonly rootURL = "https://localhost:44364/api"
+
 
   constructor(public http : HttpClient) { }
 
