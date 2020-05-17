@@ -16,7 +16,7 @@ export class CompletedTourComponent implements OnInit {
     private dialog:MatDialog ) { }
 
   ngOnInit(): void {
-    this.UserName = this.serviceEmployee.UserName.FirstName;
+    this.UserName = this.serviceEmployee.formData.FirstName;
   }
 
   logout(){

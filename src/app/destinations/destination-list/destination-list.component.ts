@@ -63,9 +63,6 @@ export class DestinationListComponent implements OnInit {
     dialogConfig.maxHeight = '100%'
     dialogConfig.scrollStrategy ;
     dialogConfig.height= '100%'
-
-
-  
     this.dialog.open(DesPrintComponent, dialogConfig);
   }
 

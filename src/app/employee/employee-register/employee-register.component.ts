@@ -36,6 +36,7 @@ export class EmployeeRegisterComponent implements OnInit {
 }
  
 ngOnInit() :void{  
+  
   if (this.data.emp == null) {
      this.resetForm();
   } else {
@@ -75,7 +76,9 @@ resetForm(form? : NgForm){
 
   
 onSubmit(form : NgForm){
-  if(form.value.EmployeeID == null ){  
+  if(form.value.EmployeeID == null ){
+    
+    
     if(form.value.FirstName == '' || form.value.LastName == '' ||form.value.Address == '' || form.value.BirthDay == '' || form.value.NicNo == '' || form.value.Contact == '' || form.value.Email == ''|| form.value.Image == '') {
         this.toastr.warning('Insert faild', 'EMP. Eliphase Vacation');
     }else{
@@ -118,9 +121,13 @@ updateRecord(form : NgForm){
       this.dialogRef.close();
     });
   }
+  else{
+    this.dialogRef.close();
+  }
 }
 
 demo(){
+ 
   this.service.formData.FirstName = "Kusal"; 
   this.service.formData.LastName = "Perea"; 
   this.service.formData.Address = "No87, Colombo 7"; 

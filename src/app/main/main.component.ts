@@ -7,11 +7,11 @@ import { EmployeeService } from '../shared/employee.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  UserName : String;
+  UserName : String = "xxx";
   constructor(public serviceEmployee: EmployeeService) { }
   
   ngOnInit(): void {
-    this.UserName = this.serviceEmployee.UserName.FirstName;
+    this.UserName = this.serviceEmployee.formData.FirstName;
   }
   
 

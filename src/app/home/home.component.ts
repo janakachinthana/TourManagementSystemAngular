@@ -27,7 +27,7 @@ import * as html2pdf from 'html2pdf.js'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  UserName : String;
+  UserName : String ;
   hotelCosting=new HotelCosting()
   dataarry=[];
   HomeHotelArray : HomeHotel[];
@@ -432,6 +432,7 @@ removeForm(index){
   };
 
   ngOnInit(): void {
+  
     this.ID = Math.floor(100 + Math.random() * 900).toString;
       this.service.refreshList();
       this.service1.refreshList();
@@ -447,6 +448,7 @@ removeForm(index){
       this.UserName = this.service5.UserName.FirstName;
       this.serviceHomeHotel.refreshList();
       this.serviceHomeDestination.refreshList();
+      this.UserName = this.service5.formData.FirstName;
   }
 
 resetForm(form? : NgForm){

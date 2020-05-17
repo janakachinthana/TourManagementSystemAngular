@@ -39,6 +39,7 @@ export class UserListComponent implements OnInit {
   populateForm(emp : Employee){
     this.service.formData = Object.assign({}, emp);
     this.AddOrEditEmployees(emp);
+    this.service.AdminUserName = this.service.formData.FirstName;
 
    
   }

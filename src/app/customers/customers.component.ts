@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from '../shared/employee.service';
 
 @Component({
   selector: 'app-customers',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class CustomersComponent implements OnInit {
-
-  constructor() { }
+  UserName : string;
+  constructor(public serviceEmployee : EmployeeService) { }
 
   ngOnInit(): void {
+    this.UserName = this.serviceEmployee.formData.FirstName;
   }
 
 

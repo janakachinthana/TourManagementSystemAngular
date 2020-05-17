@@ -11,7 +11,7 @@ export class ConfirmedTourComponent implements OnInit {
   constructor(public serviceEmployee: EmployeeService) { }
 
   ngOnInit(): void {
-    this.UserName = this.serviceEmployee.UserName.FirstName;
+    this.UserName = this.serviceEmployee.formData.FirstName;
   }
   
 

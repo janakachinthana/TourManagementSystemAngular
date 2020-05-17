@@ -144,7 +144,7 @@ ngOnInit() :void{
     }
 
     cancelAdminLogin(){
-      if (this.service.AdminUserName == null &&this.service.UserName == null) {
+      if (this.service.AdminUserName == null && this.service.UserName == null) {
         this.dialogRef.close();
       this.router.navigateByUrl('main');
         const dialogConfig = new MatDialogConfig();
