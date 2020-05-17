@@ -34,7 +34,7 @@ export class HotelReportComponent implements OnInit {
 
   downloadPDF() {
     const options = {
-      filename : 'Employee Report',
+      filename : 'Hotel Details Report',
       image: {type: 'jpeg', quality: 1 },
       html2canvas:  { scale : 5},
       margin : 10,
