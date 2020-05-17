@@ -68,6 +68,13 @@
 </table>
 </div>
 
+<br>
+
+<div style="text-align: center;">
+    <button mat-fab color="white" aria-label="scroll up" matTooltip="click to go up in this page" matTooltipPosition="right" *ngIf="isShow" (click)="gotoTop()">
+        <mat-icon>arrow_upward</mat-icon>
+    </button>
+</div>
 
 <!-- this JS script is used by that above button -  using that button I tried to generate a PDF report but this procedure is not suitable for my requirement -->
 <script type="text/javascript">
