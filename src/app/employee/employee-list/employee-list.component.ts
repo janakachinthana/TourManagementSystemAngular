@@ -17,43 +17,34 @@ export class EmployeeListComponent implements OnInit {
   searchText: string;
   isShow: boolean;
   topPosToStartShowing = 100;
-  
+  pageActual: number = 1;
+
   constructor(
     public service : EmployeeService,
     private toastr : ToastrService,
     private dialog:MatDialog ) { }
 
-    pageActual: number = 1;
-
   ngOnInit() : void {
     this.service.refreshList();
-    if (this.service.list.length == 0) {
-        this.service.list = [];}
+      if (this.service.list.length == 0) {
+          this.service.list = [];}
   }
 
   @ViewChild('content')content: ElementRef;
   
   public downloadPDF(){
-
     let doc =new jsPDF();
-
     let specialElimentHandlers = {
-
       '#editor': function(element: any, renderer: any){
         return true;
       }
-
     };
-
     let content = this.content.nativeElement;
-
     doc.fromHTML(content.innerHTML, 15,15, {
-
       'width': 190,
       'elementHandlers': specialElimentHandlers
 
     });
-
     doc.save('test.pdf');
 
   }
@@ -69,30 +60,29 @@ export class EmployeeListComponent implements OnInit {
 
   populateForm(emp : Employee){
     this.service.formData = Object.assign({}, emp);
-    this.AddOrEditEmployees(emp);
-
-   
+    this.AddOrEditEmployees(emp); 
   }
 
   onDelete(id : number){
     if (confirm('Are you sure to delete this Employee record?')){
-    this.service.deleteEmployee(id).subscribe(res=>{
-      this.service.refreshList();
-      this.toastr.warning('Deleted successfully', ' Elephas vacations',{
-        progressBar :true,
-        positionClass:'toast-top-right',
-        easing:'ease-in'
-      });    });
+      this.service.deleteEmployee(id).subscribe(res=>{
+        this.service.refreshList();
+        this.toastr.warning('Deleted successfully', ' Elephas vacations',{
+          progressBar :true,
+          positionClass:'toast-top-right',
+          easing:'ease-in'
+        });  
+      });
+    }
   }
-}
 
   onClick(){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.width="50%";
- 
     this.dialog.open(EmployeeRegisterComponent)
   }
+
   AddOrEditEmployees(emp: Employee) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
@@ -104,17 +94,11 @@ export class EmployeeListComponent implements OnInit {
   }
   
   @HostListener('window:scroll')
-  checkScroll() {
-      
-    // window의 scroll top
-    // Both window.pageYOffset and document.documentElement.scrollTop returns the same result in all the cases. window.pageYOffset is not supported below IE 9.
-
+  checkScroll() { 
     const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-
-    console.log('[scroll]', scrollPosition);
-    
+    console.log('[scroll]', scrollPosition);  
     if (scrollPosition >= this.topPosToStartShowing) {
-      this.isShow = true;
+       this.isShow = true;
     } else {
       this.isShow = false;
     }
