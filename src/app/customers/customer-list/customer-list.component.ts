@@ -13,8 +13,6 @@ import { ReportingService } from 'src/app/shared/reporting.service';
 })
 export class CustomerListComponent implements OnInit {
 
-  // selection: number;
-
   constructor(public service: CustomerService,
               private toastr: ToastrService,
               private dialog: MatDialog,

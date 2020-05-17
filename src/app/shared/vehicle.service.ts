@@ -10,9 +10,29 @@ export class VehicleService {
 
   formData : Vehicle;
   list: Vehicle[];
+<<<<<<< HEAD
   // readonly rootURL = "https://localhost:44392/api"
   readonly rootURL = "http://localhost:62083/api"
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  // readonly rootURL = "https://localhost:44392/api"
+<<<<<<< HEAD
+  readonly rootURL = "https://localhost:44352/api"
+=======
+  // readonly rootURL = "http://localhost:62083/api"
+  readonly rootURL = "https://localhost:44364/api"
+=======
+  readonly rootURL = "https://localhost:44392/api"
+>>>>>>> 8698b74a41e04679644a160624966768eb6f6584
+>>>>>>> 5386ca679714ee0a1a0d91279d361fb8cce41fa5
+>>>>>>> b1454485ae4db31f32d1d16ce5c1d5ac655bc344
+>>>>>>> dd5afd772284e20301a2be13b7626df9f51045c1
 
+  // readonly rootURL = "https://localhost:44392/api"
+  //readonly rootURL = "http://localhost:62083/api"
+  readonly rootURL = "https://localhost:44357/api"
   constructor(private http : HttpClient) { }
 
   postVehicle (formData: Vehicle){
