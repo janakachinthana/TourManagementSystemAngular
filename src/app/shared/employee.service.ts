@@ -10,10 +10,9 @@ export class EmployeeService {
   AdminData : Employee;
   formData : Employee;
   list : Employee[];
-  AdminUserName : String = "XXX"; 
+  AdminUserName : String = null; 
   UserName : Employee = null;
-  // readonly rootURL = "https://localhost:44392/api"
-  readonly rootURL = "http://localhost:62083/api"
+  readonly rootURL = "https://localhost:44392/api"
   constructor(private http : HttpClient) { }
 
   postEmployeee(formData : Employee){
