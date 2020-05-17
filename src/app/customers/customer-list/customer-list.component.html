@@ -59,8 +59,8 @@
       <td>{{cus.ExchangeRate}}</td>
       <td>{{cus.Status}}</td>
       <td>
-        <button (click)="populateForm(cus)" class="btn btn-sm btn-outline-info"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-        <button (click)="onDelete(cus.ID)" class="btn btn-sm btn-outline-danger ml-2"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        <button (click)="populateForm(cus)" class="btn btn-sm btn-outline-info" matTooltip="click to edit this customer's details"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+        <button (click)="onDelete(cus.ID)" class="btn btn-sm btn-outline-danger ml-2" matTooltip="click to delete this customer"><i class="fa fa-trash" aria-hidden="true"></i></button>
       </td>
     </tr>
 
