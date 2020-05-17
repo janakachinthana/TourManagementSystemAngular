@@ -795,7 +795,7 @@ for (let index = 0; index < this.serviceHomeDestination.list.length; index++) {
 
 public downloadPDF(){
   const options = {
-    filename : 'Employee Report',
+    filename : '( '+this.CustomerName +' ) Tour Plan Report',
     image: {type: 'jpeg', quality: 1 },
     html2canvas:  { scale : 5},
     margin : 10,
