@@ -91,6 +91,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { ChartsModule } from 'ng2-charts';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DesPrintComponent } from './destinations/des-print/des-print.component';
+import { HotelReportComponent } from './hotels/hotel-report/hotel-report.component';
 
 
 
@@ -144,7 +145,8 @@ import { DesPrintComponent } from './destinations/des-print/des-print.component'
     CompletedListComponent,
     CompletedFormComponent,
     DriverReportComponent,
-    DesPrintComponent
+    DesPrintComponent,
+    HotelReportComponent
     
     
   
