@@ -110,14 +110,14 @@ ngOnInit() :void{
         if(form.value.FirstName == this.temp.LastName )
         this.dialogRef.close();
         else
-        this.toastr.warning('Update faild', 'EMP. Eliphase Vacation');
+        this.toastr.warning('Update faild', 'EMP. Elephas Vacation');
       }
     }
 
     insertRecord(form : NgForm){
           this.service.postEmployeee(form.value).subscribe(res =>{
             this.dialogRef.close();
-          this.toastr.success('Insert successfully', 'EMP. Elaphase Vacation',{
+          this.toastr.success('Insert successfully', 'EMP. Elephas Vacation',{
           progressBar :true,
       positionClass:'toast-top-right'
           });
@@ -130,15 +130,15 @@ ngOnInit() :void{
     updateRecord(form : NgForm){
       if(form.value.FirstName == "Admin" && form.value.LastName == "Admin"){
         this.service.AdminUserName = "Admin"
-        this.toastr.success('Admin Login Successfully', 'Eliphase Vacation');
+        this.toastr.success('Admin Login Successfully', 'Elephas Vacation');
         this.dialogRef.close();
       }
       else{
         if (form.value.FirstName != "Admin") {
-          this.toastr.warning('User Name Invalied...! ', 'EMP. Eliphase Vacation');
+          this.toastr.warning('User Name Invalied...! ', 'EMP. Elephas Vacation');
         }
         else{
-      this.toastr.warning('Password Invalied...! ', 'EMP. Eliphase Vacation');
+      this.toastr.warning('Password Invalied...! ', 'EMP. Elephas Vacation');
         }
       }
     }

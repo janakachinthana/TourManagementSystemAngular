@@ -40,7 +40,7 @@ export class DriverListComponent implements OnInit {
     if(confirm('Are you sure to delete this record?')){
       this.service.deleteDriver(id).subscribe(res => {
         this.service.refreshList();
-        this.toastr.warning('Deleted Successfully','Driver Register');
+        this.toastr.warning('Deleted Successfully','Elephas Vacations');
       });
     }
   }

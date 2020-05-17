@@ -8,6 +8,7 @@
 <!-- using this button I tried to generate a PDF report but this procedure is not suitable for my requirement -->
 <!-- <input type="button" id="btnExport" value="Export" onclick="Export()"/> -->
 
+
 <div class="table-responsive">
 <table class="table table-sm table-striped table-bordered" id="tblCustomers">
   <thead class="thead-dark">
@@ -58,8 +59,8 @@
       <td>{{cus.ExchangeRate}}</td>
       <td>{{cus.Status}}</td>
       <td>
-        <button (click)="populateForm(cus)" class="btn btn-sm btn-outline-info"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-        <button (click)="onDelete(cus.ID)" class="btn btn-sm btn-outline-danger ml-2"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        <button (click)="populateForm(cus)" class="btn btn-sm btn-outline-info" matTooltip="click to edit this customer's details"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+        <button (click)="onDelete(cus.ID)" class="btn btn-sm btn-outline-danger ml-2" matTooltip="click to delete this customer"><i class="fa fa-trash" aria-hidden="true"></i></button>
       </td>
     </tr>
 
@@ -67,6 +68,13 @@
 </table>
 </div>
 
+<br>
+
+<div style="text-align: center;">
+    <button mat-fab color="white" aria-label="scroll up" matTooltip="click to go up in this page" matTooltipPosition="right" *ngIf="isShow" (click)="gotoTop()">
+        <mat-icon>arrow_upward</mat-icon>
+    </button>
+</div>
 
 <!-- this JS script is used by that above button -  using that button I tried to generate a PDF report but this procedure is not suitable for my requirement -->
 <script type="text/javascript">

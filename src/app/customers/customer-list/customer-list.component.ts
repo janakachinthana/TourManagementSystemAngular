@@ -1,6 +1,6 @@
 import { MatDialogModule, MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CustomerService } from './../../shared/customer.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Customer } from 'src/app/shared/customer.model';
 import { ToastrService } from 'ngx-toastr';
 import { CustomerComponent } from '../customer/customer.component';
@@ -12,9 +12,8 @@ import { ReportingService } from 'src/app/shared/reporting.service';
   styleUrls: ['./customer-list.component.scss']
 })
 export class CustomerListComponent implements OnInit {
-
-  // selection: number;
-
+  isShow: boolean;
+  topPosToStartShowing = 100;
   constructor(public service: CustomerService,
               private toastr: ToastrService,
               private dialog: MatDialog,
@@ -79,5 +78,31 @@ export class CustomerListComponent implements OnInit {
       }, 100);
     });
     }
+
+    @HostListener('window:scroll')
+  checkScroll() {
+      
+    // window의 scroll top
+    // Both window.pageYOffset and document.documentElement.scrollTop returns the same result in all the cases. window.pageYOffset is not supported below IE 9.
+
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+    console.log('[scroll]', scrollPosition);
+    
+    if (scrollPosition >= this.topPosToStartShowing) {
+      this.isShow = true;
+    } else {
+      this.isShow = false;
+    }
+  }
+
+  // TODO: Cross browsing
+  gotoTop() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
+  }
 
 }

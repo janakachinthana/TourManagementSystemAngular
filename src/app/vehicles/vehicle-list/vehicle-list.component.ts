@@ -20,7 +20,6 @@ import { VehiclePrintComponent } from '../vehicle-print/vehicle-print.component'
 export class VehicleListComponent implements OnInit {
   isShow: boolean;
   topPosToStartShowing = 100;
-  // type : '';
   selected: string = 'All';
   searchText: string;
 
@@ -40,11 +39,6 @@ export class VehicleListComponent implements OnInit {
   populateForm(veh : Vehicle){
     this.service.formData = Object.assign({}, veh);
     this.AddOrEditVehicles(veh);
-
-    //  const dialogConfig = new MatDialogConfig();
-    //  dialogConfig.data={veh};
-
-    //  this.dialog.open(VehicleComponent,dialogConfig);
    
   }
 
@@ -67,15 +61,22 @@ export class VehicleListComponent implements OnInit {
  
     this.dialog.open(VehicleComponent)
   }
+
   AddOrEditVehicles(veh: Vehicle) {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width = '70%';
+    dialogConfig.maxHeight = '100%';
+    dialogConfig.height = '100%';
     dialogConfig.data = {veh};
+    dialogConfig.scrollStrategy ;
+
     // dialogConfig.hasBackdrop;
     this.dialog.open(VehicleComponent, dialogConfig);
   }
+
+  
   @HostListener('window:scroll')
   checkScroll() {
       
@@ -102,39 +103,39 @@ export class VehicleListComponent implements OnInit {
     });
   }
 
-  onExportClick() {
-    const options = {
-      filename : 'Our_awsesome_file_pdf',
-      image: {type: 'jpeg'},
-      html2canvas: {},
-      jsPDF: { orientation : 'Landscape' }
-    };
-    const content: Element = document.body;
+  // onExportClick() {
+  //   const options = {
+  //     filename : 'Our_awsesome_file_pdf',
+  //     image: {type: 'jpeg'},
+  //     html2canvas: {},
+  //     jsPDF: { orientation : 'Landscape' }
+  //   };
+  //   const content: Element = document.body;
 
-    html2pdf()
-      .from(content)
-      .set(options)
-      .save();
+  //   html2pdf()
+  //     .from(content)
+  //     .set(options)
+  //     .save();
   
-  }
+  // }
 
-  @ViewChild('containervehicles') content : ElementRef
-  public downloadPDF(){
-      let doc= new jsPDF();
-      let specialElementHandlers={
-        '#Editor' : function(element,renderer){
-          return true;
-        }
-      };
+  // @ViewChild('containervehicles') content : ElementRef
+  // public downloadPDF(){
+  //     let doc= new jsPDF();
+  //     let specialElementHandlers={
+  //       '#Editor' : function(element,renderer){
+  //         return true;
+  //       }
+  //     };
 
-      let content = this.content.nativeElement;
-      doc.fromHTML(content.innerHTML,15,15,{
-        'width' : 190,
-        'elementHandleres' : specialElementHandlers
-      });
+  //     let content = this.content.nativeElement;
+  //     doc.fromHTML(content.innerHTML,15,15,{
+  //       'width' : 190,
+  //       'elementHandleres' : specialElementHandlers
+  //     });
 
-      doc.save('test.pdf');
-  }
+  //     doc.save('test.pdf');
+  // }
 
   getList(){
       const dialogConfig = new MatDialogConfig();
@@ -144,9 +145,7 @@ export class VehicleListComponent implements OnInit {
       dialogConfig.maxHeight = '100%'
       dialogConfig.scrollStrategy ;
       dialogConfig.height= '100%'
-
-  
-    
+            
       this.dialog.open(VehiclePrintComponent, dialogConfig);
     }
   

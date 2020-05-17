@@ -67,7 +67,7 @@ export class DriverComponent implements OnInit {
     insertRecord(form : NgForm){
       this.service.postDriver(form.value).subscribe(res => {
         this.dialogRef.close();
-        this.toastr.success('Inserted Successfully','Driver Register');
+        this.toastr.success('Inserted Successfully','Elephas Vacations');
         this.resetForm(form);
         this.service.refreshList();
       });
@@ -75,7 +75,7 @@ export class DriverComponent implements OnInit {
   
     updateRecord(form : NgForm){
       this.service.putDriver(form.value).subscribe(res => {
-        this.toastr.info('Updated Successfully','Driver Register');
+        this.toastr.info('Updated Successfully','Elephas Vacations');
         this.resetForm(form);
         this.service.refreshList();
         this.dialogRef.close();
