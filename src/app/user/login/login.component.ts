@@ -96,7 +96,7 @@ ngOnInit() :void{
         
         if(form.value.FirstName == '' || form.value.LastName == '' ||form.value.Address == '' || form.value.BirthDay == '' || form.value.NicNo == '' || form.value.Contact == '' || form.value.Email == ''|| form.value.Image == '')
         {
-        this.toastr.warning('Insert faild', 'EMP. Eliphase Vacation');
+        this.toastr.warning('Insert faild', 'EMP. Elephas Vacation');
         }
         else
         {
@@ -108,14 +108,14 @@ ngOnInit() :void{
         if(form.value.FirstName == this.temp.LastName )
         this.dialogRef.close();
         else
-        this.toastr.warning('Update faild', 'EMP. Eliphase Vacation');
+        this.toastr.warning('Update faild', 'EMP. Elephas Vacation');
       }
     }
 
     insertRecord(form : NgForm){
           this.service.postEmployeee(form.value).subscribe(res =>{
             this.dialogRef.close();
-          this.toastr.success('Insert successfully', 'EMP. Elaphase Vacation',{
+          this.toastr.success('Insert successfully', 'EMP. Elephas Vacation',{
           progressBar :true,
       positionClass:'toast-top-right'
           });
@@ -131,12 +131,12 @@ ngOnInit() :void{
         this.currentUser = Object.assign({}, form.value);
         this.service.UserName = Object.assign({},form.value);
         this.router.navigateByUrl('main');
-        this.toastr.success('Login Successfully', 'EMP. Eliphase Vacation');
+        this.toastr.success('Login Successfully', 'EMP. Elephas Vacation');
         this.dialogRef.close();
       }
       else
       {
-      this.toastr.warning('Login Failed ', 'EMP. Eliphase Vacation');
+      this.toastr.warning('Login Failed ', 'EMP. Elephas Vacation');
       }
     }
 

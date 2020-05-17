@@ -10,8 +10,11 @@ export class VehicleService {
 
   formData : Vehicle;
   list: Vehicle[];
+<<<<<<< HEAD
   // readonly rootURL = "https://localhost:44392/api"
   readonly rootURL = "http://localhost:62083/api"
+=======
+>>>>>>> 5007815334fb20da6ca971284294d8efde851b74
 
   constructor(private http : HttpClient) { }
 
