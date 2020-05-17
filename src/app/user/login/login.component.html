@@ -1,8 +1,8 @@
 
 <div >
-  <h4 style="text-align: center;">Enter credintials</h4>
+  <h4 style="color: blue; text-align: center;">Enter credintials</h4>
   <hr>
-
+  <br>
   <div style="text-align: center;">
     <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
         <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
@@ -12,7 +12,7 @@
 
               <mat-form-field appearance="outline">
                 <mat-label><strong>User Name</strong></mat-label>
-                <input matInput name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName"  disabled>
+                <strong><input matInput name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName"  disabled></strong>
                 <mat-error *ngIf="FirstName.errors &&  FirstName.errors.required && FirstName.touched">This field required</mat-error>
               </mat-form-field>
               
@@ -26,9 +26,7 @@
               <!-- </div > -->
             </div>
           </div>
-
-          <br>
-
+          
           <div class="row">
             <div class="col-md-12">
 
@@ -45,11 +43,15 @@
           </div>
 
         <br>
-        <div style="text-align: center;">
+
+          <button type="button" (click)="updateRecord(form)" class="btn btn-lg btn-info" style="width: 200px;">Login</button>
+          <br>
+          <br>
+          <div style="text-align: center;">
             <button (click)="backToUserList()" class="btn btn-lg btn-info "  style="font-size: small; width: 200px;"   [mat-dialog-close]>Back</button>
           </div>
           <br>
-            <button type="button" (click)="updateRecord(form)" class="btn btn-lg btn-info" style="width: 200px;">Login</button>
+            <!-- <button type="button" (click)="updateRecord(form)" class="btn btn-lg btn-info" style="width: 200px;">Login</button> -->
 
 
     </form>

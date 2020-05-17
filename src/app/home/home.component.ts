@@ -190,6 +190,10 @@ removeForm(index){
   }
 
   selectChangeHandlerDestination(event: any){
+    if (this.rate == null) {
+      this.toastr.warning('Please Select a Driver', 'Elephas Vacation');
+    }
+    else{
     this.service1.GetSingleHomeDestination(event.target.value).subscribe(data=>
       {
        this.DestinationX = data;
@@ -220,11 +224,20 @@ removeForm(index){
 
 
       });
+    }
 
 
   }
 
   selectChangeHandlerGuide(event: any){
+
+    if (this.chargePerKm == null) {
+      this.toastr.warning('Please Select a Vehicle', 'Elephas Vacation');
+    }
+    else if (this.rate == null) {
+      this.toastr.warning('Please Select a Driver', 'Elephas Vacation');
+    }else{
+
       this.service.GetSingleGuid(event.target.value).subscribe(data=>
      {
       this.GuideX = data;
@@ -238,8 +251,10 @@ removeForm(index){
       }
       else if (this.rate == 0){
         this.TotalDAndGPrice =   this.guidePrice*1;
+
       }
      });
+    }
   }
 
   selectChangeHandlerMealPlan(event : any){
@@ -354,15 +369,31 @@ removeForm(index){
   }
 
   selectChangeHandlerDriver(event: any){
+
+    if (this.chargePerKm == null) {
+      this.toastr.warning('Please Select a Vehicle', 'Elephas Vacation');
+    }
+    else{
+
     this.service4.GetSingleDriver(event.target.value).subscribe(data=>
       {
        this.DriverX= data;
        this.rate = this.DriverX.Rate;
        this.driverFirstName = this.DriverX.FirstName;
        this.driverLastName = this.DriverX.LastName;
-       this.driverContact = this.DriverX.PhoneNumber
+       this.driverContact = this.DriverX.PhoneNumber;
+
+       if (this.rate > 0) {
+        this.TotalDAndGPrice =   this.rate*1 ;
+      }else{
+        this.toastr.warning('Please Select a Driver', 'Elephas Vacation');
+        this.TotalDAndGPrice =  0;
+      }
 
       });
+
+    }
+    
   }
 
 
@@ -374,6 +405,14 @@ removeForm(index){
 
   selectChangeHandlerVehicle(event: any){
 
+    if(this.grossMilage == null){
+      this.toastr.warning('Please Enter Your Gross Milage', 'Elephas Vacation');
+    }else if (this.extraMilage == null) {
+      this.toastr.warning('Extra milage should be Zero or more', 'Elephas Vacation');
+    }else if(this.numberOfPeople == null){
+      this.toastr.warning('Please Select a Customer', 'Elephas Vacation');
+    } else{
+
     this.service3.GetSingleVehicle(event.target.value).subscribe(data=>
       {
         this.VehicleX= data;
@@ -384,9 +423,11 @@ removeForm(index){
         this.numberOfSeats = this.VehicleX.NoOfSeats;
         this.OwnerName = this.VehicleX.OwnersName;
         this.OwnerContact = this.VehicleX.OwnersContact;
-        this.totalTransportCost = (this.totalMilage*1)* this.DriverRate;
         this.totalMilage = this.grossMilage*1 + this.extraMilage*1;
+        this.totalTransportCost = (this.totalMilage*1)* this.DriverRate;
+        
       });
+    }
 
   };
 
@@ -564,33 +605,38 @@ addDestination(form : NgForm){
 }
 
 addHotel(form : NgForm){
-  if (this.serviceHomeHotel.formData.date == null) {
-    this.toastr.warning('Please Select a Date', 'Eliphase');
+  if (this.rate == null) {
+    this.toastr.warning('Please Select a Driver', 'Elephas Vacation');
+  }
+  else{
 
-  }else if(this.serviceHomeHotel.formData.hotelName == null){
-    this.toastr.warning('Please Select a Hotel', 'Eliphase');
+    if (this.serviceHomeHotel.formData.date == null) {
+     this.toastr.warning('Please Select a Date', 'Elephas Vacation');
 
-  }else if(this.serviceHomeHotel.formData.MealPlan == null){
-    this.toastr.warning('Please Select a Meal Plan', 'Eliphase');
+    }else if(this.serviceHomeHotel.formData.hotelName == null){
+     this.toastr.warning('Please Select a Hotel', 'Elephas Vacation');
 
-  }else if(this.serviceHomeHotel.formData.SingleRoomCount == null){
-    this.toastr.warning('Single Room count should be 0 or more...!', 'Eliphase');
+    }else if(this.serviceHomeHotel.formData.MealPlan == null){
+     this.toastr.warning('Please Select a Meal Plan', 'Elephas Vacation');
 
-  }else if (this.serviceHomeHotel.formData.DoubleRoomCount == null) {
-    this.toastr.warning('Double Room count should be 0 or more...!', 'Eliphase');
+    }else if(this.serviceHomeHotel.formData.SingleRoomCount == null){
+     this.toastr.warning('Single Room count should be 0 or more...!', 'Elephas Vacation');
 
-  }else if (this.serviceHomeHotel.formData.TripleRoomCount == null) {
-    this.toastr.warning('Trible Room count should be 0 or more...!', 'Eliphase');
+    }else if (this.serviceHomeHotel.formData.DoubleRoomCount == null) {
+     this.toastr.warning('Double Room count should be 0 or more...!', 'Elephas Vacation');
 
-  }else if (this.serviceHomeHotel.formData.GuidedRoomCount == null) {
-    this.toastr.warning('Guide Room count should be 0 or more...!', 'Eliphase');
+    }else if (this.serviceHomeHotel.formData.TripleRoomCount == null) {
+     this.toastr.warning('Trible Room count should be 0 or more...!', 'Elephas Vacation');
 
-  }else if (this.serviceHomeHotel.formData.TotalMealAnddRooms <= 0) {
-    this.toastr.warning('Please check the total...!', 'Eliphase');
+    }else if (this.serviceHomeHotel.formData.GuidedRoomCount == null) {
+      this.toastr.warning('Guide Room count should be 0 or more...!', 'Elephas Vacation');
 
-  }else{
+   }else if (this.serviceHomeHotel.formData.TotalMealAnddRooms <= 0) {
+      this.toastr.warning('Please check the total...!', 'Elephas Vacation');
+
+   }else{
       this.serviceHomeHotel.postHomeHotel(form.value).subscribe(res =>{
-      this.toastr.success('Insert successfully', 'Eliphase');
+      this.toastr.success('Insert successfully', 'Elephas Vacation');
       // this.resetForm();
       this.serviceHomeHotel.formData ={
         HomeHotelID: null,
@@ -609,12 +655,15 @@ addHotel(form : NgForm){
         TotalMealAnddRooms:null,
 
       }
+      this.MealSingle = null;
       // this.serviceHome.refreshList();
       this.serviceHomeHotel.refreshList();
+      this.service7.refreshList();
       this.TotalMealAnddRooms = 0;
       this.MealPlan = 0;
       });
 
+  }
   }
 
 }

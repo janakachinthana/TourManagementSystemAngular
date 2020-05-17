@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { DriverService } from 'src/app/shared/driver.service';
 import { Driver } from 'src/app/shared/driver.model';
 import { ToastrService } from 'ngx-toastr';
@@ -15,6 +15,8 @@ import * as jsPDF from 'jspdf';
 export class DriverListComponent implements OnInit {
   title = 'ng-pdf';
   searchText: string;
+  isShow: boolean;
+  topPosToStartShowing = 100;
   @ViewChild('content')content: ElementRef;
 
   constructor(public service : DriverService,
@@ -66,5 +68,31 @@ export class DriverListComponent implements OnInit {
     dialogConfig.width = "50%";
     dialogConfig.data = {d}
     this.dialog.open(DriverReportComponent);
+  }
+
+  @HostListener('window:scroll')
+  checkScroll() {
+      
+    // window의 scroll top
+    // Both window.pageYOffset and document.documentElement.scrollTop returns the same result in all the cases. window.pageYOffset is not supported below IE 9.
+
+    const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+    console.log('[scroll]', scrollPosition);
+    
+    if (scrollPosition >= this.topPosToStartShowing) {
+      this.isShow = true;
+    } else {
+      this.isShow = false;
+    }
+  }
+
+  // TODO: Cross browsing
+  gotoTop() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
   }
 }
