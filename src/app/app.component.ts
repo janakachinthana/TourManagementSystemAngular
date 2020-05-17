@@ -50,5 +50,6 @@ export class AppComponent {
     dialogConfig.width = '100%';
     dialogConfig.height = '100%';
     this.dialog.open(WellcomPageComponent, dialogConfig);
+    this.service.formData.FirstName = null;
   }
 }
