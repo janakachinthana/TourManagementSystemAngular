@@ -644,7 +644,10 @@
         <input type="number" class="form-control" id="total" name="TotalExpenses"  #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"  placeholder="TotalExpenses" />
       </div> 
       <br>
-      <button type="button" (click)="calcTot()" >Calculate Total Expenses</button>
+      <!-- <button type="button" (click)="calcTot()" >Calculate Total Expenses</button> -->
+      <div style="text-align: center;">
+        <button mat-raised-button color="primary"  (click)="calcTot()">Calculate Total Expenses</button>
+      </div>
       <br>
       <br>
     </div>
@@ -682,7 +685,8 @@
           <!-- <input type="hidden" name="AgentProfitPrasentage" id="" #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage"> -->
         </div>
         <br>
-        <button type="button" (click)="calOverOll(form)" >Calculate Profit</button>
+        <!-- <button type="button" (click)="calOverOll(form)" >Calculate Profit</button> -->
+        <button mat-stroked-button color="primary" (click)="calOverOll(form)">Calculate Profit</button>
         <br>
         <br>
         <div class="form-group">
@@ -703,8 +707,10 @@
           </label>
           <input type="text" class="form-control text-danger" name="OverollCost"  #OverollCost="ngModel" [(ngModel)]="serviceHome.formData.OverollCost"  id="#" placeholder="Total Package Cost (LKR)" />
         </div>
-        <button type="button"  (click)="onSubmit(form)">finish</button>
-     
+        <!-- <button type="button"  (click)="onSubmit(form)">finish</button> -->
+        <div style="text-align: center;">
+          <button mat-raised-button color="primary" (click)="onSubmit(form)">Finish</button>
+        </div>
 
     </div>
   </div>
