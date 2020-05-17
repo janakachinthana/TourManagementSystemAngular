@@ -11,7 +11,7 @@ export class DriverService {
   formData : Driver;
   list : Driver[];
   // readonly rootURL = "https://localhost:44392/api"
-  readonly rootURL = "http://localhost:62083/api"
+  readonly rootURL = "https://localhost:44352/api"
 
   constructor(public http : HttpClient) { }
 
