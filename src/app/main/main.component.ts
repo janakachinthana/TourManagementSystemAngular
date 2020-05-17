@@ -7,7 +7,7 @@ import { EmployeeService } from '../shared/employee.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  UserName : String = "xxx";
+  UserName : String;
   constructor(public serviceEmployee: EmployeeService) { }
   
   ngOnInit(): void {
