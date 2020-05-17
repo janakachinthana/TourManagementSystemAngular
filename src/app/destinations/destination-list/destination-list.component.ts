@@ -54,6 +54,7 @@ export class DestinationListComponent implements OnInit {
   }
 
 
+  
 
   genReport(){
     const dialogConfig = new MatDialogConfig();

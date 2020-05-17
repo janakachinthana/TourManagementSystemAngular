@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { EmployeeService } from 'src/app/shared/employee.service';
 import { ToastrService } from 'ngx-toastr';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { Employee } from 'src/app/shared/employee.model';
 import { LoginComponent } from '../login/login.component';
 import { AppComponent } from 'src/app/app.component';
@@ -22,7 +22,8 @@ export class UserListComponent implements OnInit {
     private router: Router,
     public service : EmployeeService,
     private toastr : ToastrService,
-    private dialog:MatDialog ) { }
+    private dialog:MatDialog,
+    public dialogRef: MatDialogRef<UserListComponent> ) { }
 
   ngOnInit() : void {
     this.service.refreshList();
@@ -32,7 +33,7 @@ export class UserListComponent implements OnInit {
 
   adminLogin(){
     this.router.navigateByUrl('employee');
-
+    this.dialogRef.close();
   }
 
   populateForm(emp : Employee){
@@ -65,7 +66,7 @@ export class UserListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width = '30%';
-    dialogConfig.height = '60%';
+    dialogConfig.height = '70%';
     dialogConfig.data = {emp};
     this.dialog.open(LoginComponent, dialogConfig);
   }

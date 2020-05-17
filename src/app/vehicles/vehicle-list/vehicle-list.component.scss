@@ -229,3 +229,29 @@ td{
     clear: both;
     display: table;
   }
+
+
+  
+/////search
+
+  
+
+input[type=search]::-webkit-search-cancel-button {
+          -webkit-appearance: searchfield-cancel-button;
+}
+
+
+.search-div{
+  margin: 10px;
+    }
+    .search-clear-button{
+        width: 10px;
+    }
+    .search-form-field{
+        width: 80%;
+        margin-left: 10px;
+        background-color: white;
+        border-radius: 3px;
+        }
+    
+      
