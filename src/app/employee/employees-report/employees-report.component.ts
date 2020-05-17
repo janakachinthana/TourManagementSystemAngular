@@ -27,35 +27,6 @@ export class EmployeesReportComponent implements OnInit {
         this.service.list = [];}
   }
 
-  // @ViewChild('content')content: ElementRef;
-  
-  // public downloadPDF(){
-
-  //   let doc =new jsPDF('landscape', 'px', 'ledger') ;
-
-  //   let specialElimentHandlers = {
-
-  //     '#editor': function(element: any, renderer: any){
-  //       return true;
-  //     }
-
-  //   };
-
-  //   let content = this.content.nativeElement;
-
-  //   doc.fromHTML(content.innerHTML, 100,15,{
-
-  //     'width': 590,
-  //     'elementHandlers': specialElimentHandlers
-
-  //   });
-
-  //   doc.save('Employee Details (Eliphase Vacation).pdf');
-
-  // }
-
-
-
   downloadPDF() {
     const options = {
       filename : 'Employee Report',

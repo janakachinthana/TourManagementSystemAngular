@@ -90,6 +90,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ChartsModule } from 'ng2-charts';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DesPrintComponent } from './destinations/des-print/des-print.component';
 
 
 
@@ -143,6 +144,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     CompletedListComponent,
     CompletedFormComponent,
     DriverReportComponent,
+    DesPrintComponent
     
     
   
