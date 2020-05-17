@@ -67,7 +67,11 @@ export class VehicleListComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;
     dialogConfig.width = '70%';
+    dialogConfig.maxHeight = '100%';
+    dialogConfig.height = '100%';
     dialogConfig.data = {veh};
+    dialogConfig.scrollStrategy ;
+
     // dialogConfig.hasBackdrop;
     this.dialog.open(VehicleComponent, dialogConfig);
   }

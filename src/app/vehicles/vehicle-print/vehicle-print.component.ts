@@ -36,6 +36,7 @@ export class VehiclePrintComponent implements OnInit {
   Honda = this.service.list.filter(x => x.Brand== 'Honda').length;
   Fiat = this.service.list.filter(x => x.Brand== 'Fiat').length;
   Isuzu = this.service.list.filter(x => x.Brand== 'Isuzu').length;
+  Other = this.service.list.filter(x => x.Brand== 'Other').length;
 
 
 
@@ -58,6 +59,7 @@ export class VehiclePrintComponent implements OnInit {
     ['Honda',this.Honda],
     ['Fiat',this.Fiat],
     ['Isuzu',this.Isuzu],
+    // ['Other',this.Other],
    ];
 
    data = [
