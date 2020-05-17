@@ -586,12 +586,16 @@
               <thead class="thead-dark">
                 <tr >
                   <th scope="col" class="text-success">Package Cost (including Service charges)</th> 
+                  <th scope="col" class="text-success">Tour Executive Name</th>
+                  <th scope="col" class="text-success">Contact Number</th>
                 </tr>
               </thead>
  
               <tbody>
                   <tr>
                    <td scope="col" class="text-info bg-white">{{serviceHome.formData.OverollCost}}</td>
+                   <td scope="col" class="text-info bg-white">{{UserName}}  {{UserLastName}}</td>
+                   <td scope="col" class="text-info bg-white">{{UserContact}}</td>
                   </tr> 
               </tbody>
             </table>
@@ -644,14 +648,12 @@
         <input type="number" class="form-control" id="total" name="TotalExpenses"  #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"  placeholder="TotalExpenses" />
       </div> 
       <br>
-<<<<<<< HEAD
-      <button type="button"  class="btn btn-lg btn-info btn-block" (click)="calcTot()" >Calculate Total Expenses</button>
-=======
+
       <!-- <button type="button" (click)="calcTot()" >Calculate Total Expenses</button> -->
       <div style="text-align: center;">
         <button mat-raised-button color="primary"  (click)="calcTot()">Calculate Total Expenses</button>
       </div>
->>>>>>> 5007815334fb20da6ca971284294d8efde851b74
+
       <br>
       <br>
     </div>
@@ -689,12 +691,10 @@
           <!-- <input type="hidden" name="AgentProfitPrasentage" id="" #AgentProfitPrasentage="ngModel" [(ngModel)]="serviceHome.formData.AgentProfitPrasentage"> -->
         </div>
         <br>
-<<<<<<< HEAD
-        <button type="button" class="btn btn-lg btn-info btn-block" (click)="calOverOll(form)" >Calculate Profit</button>
-=======
+
         <!-- <button type="button" (click)="calOverOll(form)" >Calculate Profit</button> -->
         <button mat-stroked-button color="primary" (click)="calOverOll(form)">Calculate Profit</button>
->>>>>>> 5007815334fb20da6ca971284294d8efde851b74
+
         <br>
         <br>
         <div class="form-group">
@@ -714,16 +714,14 @@
             Total Package Cost (USD)
           </label>
           <input type="text" class="form-control text-danger" name="OverollCost"  #OverollCost="ngModel" [(ngModel)]="serviceHome.formData.OverollCost"  id="#" placeholder="Total Package Cost (LKR)" />
+          <input type="hidden" class="form-control text-danger" name="EmployeeFirstName"  #EmployeeFirstName="ngModel" [(ngModel)]="serviceHome.formData.EmployeeFirstName"/>
+          <input type="hidden" class="form-control text-danger" name="EmployeeLastName"  #EmployeeLastName="ngModel" [(ngModel)]="serviceHome.formData.EmployeeLastName"/>
         </div>
-<<<<<<< HEAD
-        <button type="button" class="btn btn-lg btn-info btn-block" style="background-color: teal;" (click)="onSubmit(form)">F I N I S H</button>
-        <br>
-=======
+
         <!-- <button type="button"  (click)="onSubmit(form)">finish</button> -->
         <div style="text-align: center;">
           <button mat-raised-button color="primary" (click)="onSubmit(form)">Finish</button>
         </div>
->>>>>>> 5007815334fb20da6ca971284294d8efde851b74
 
     </div>
   </div>

@@ -62,6 +62,8 @@ ngOnInit() :void{
         numberOfAdult: null,
         numberOfChild: null,
         OverollCost: null,
+        EmployeeFirstName : null,
+        EmployeeLastName : null,
     };
     
     }
@@ -81,6 +83,8 @@ ngOnInit() :void{
       numberOfAdult: null,
       numberOfChild: null,
       OverollCost: null,
+      EmployeeFirstName : null,
+      EmployeeLastName : null,
     }    
   }
 

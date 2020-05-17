@@ -28,6 +28,8 @@ import * as html2pdf from 'html2pdf.js'
 })
 export class HomeComponent implements OnInit {
   UserName : String ;
+  UserLastName : String;
+  UserContact : String;
   hotelCosting=new HotelCosting()
   dataarry=[];
   HomeHotelArray : HomeHotel[];
@@ -449,6 +451,10 @@ removeForm(index){
       this.serviceHomeHotel.refreshList();
       this.serviceHomeDestination.refreshList();
       this.UserName = this.service5.formData.FirstName;
+      this.UserLastName = this.service5.formData.LastName;
+      this.UserContact = this.service5.formData.Contact;
+      this.serviceHome.formData.EmployeeFirstName = this.UserName; 
+      this.serviceHome.formData.EmployeeLastName = this.UserLastName;
   }
 
 resetForm(form? : NgForm){
@@ -465,6 +471,8 @@ this.serviceHome.formData ={
     numberOfAdult: null,
     numberOfChild: null,
     OverollCost: null,
+    EmployeeFirstName : null,
+    EmployeeLastName : null,
 }
 this.serviceHomeDestination.formData ={
   HomeDestinationID: null,
@@ -514,10 +522,7 @@ this.toastr.warning('Select a Customer', 'Elephas Vacation');
 else
 {
   this.insertRecord(form);
-  this.downloadPDF();
-  this.testRemove();
-  this.toastr.success('Package is built successfully..!', 'Elephas Vacation');
-  this.router.navigateByUrl('estimatedTours');
+ 
 
 }
 }
@@ -557,7 +562,10 @@ insertRecord(form : NgForm){
 
 this.serviceHome.postHome(form.value).subscribe(res =>{
 
-
+  this.downloadPDF();
+  this.testRemove();
+  this.toastr.success('Package is built successfully..!', 'Elephas Vacation');
+  this.router.navigateByUrl('estimatedTours');
 });
 
 // for (let index = 0; index < this.dataarry.length; index++) {
