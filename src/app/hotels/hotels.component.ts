@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HotelService } from '../shared/hotel.service';
+import { EmployeeService } from '../shared/employee.service';
 
 
 
@@ -9,10 +10,11 @@ import { HotelService } from '../shared/hotel.service';
   styleUrls: ['./hotels.component.scss']
 })
 export class HotelsComponent implements OnInit {
-
-  constructor() { }
+  UserName : string;
+  constructor(public serviceEmployee : EmployeeService) { }
 
   ngOnInit(): void {
+    this.UserName = this.serviceEmployee.formData.FirstName;
   }
 
 }

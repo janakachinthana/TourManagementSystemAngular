@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeService } from '../shared/employee.service';
 
 @Component({
   selector: 'app-vehicles',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vehicles.component.scss']
 })
 export class VehiclesComponent implements OnInit {
-
-  constructor() { }
+  UserName : string;
+  constructor(public serviceEmployee : EmployeeService) { }
 
   ngOnInit():void {
+    this.UserName = this.serviceEmployee.formData.FirstName;
   }
 
 }

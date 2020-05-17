@@ -152,6 +152,7 @@ ngOnInit() :void{
         dialogConfig.disableClose = true;
         dialogConfig.width = '100%';
         dialogConfig.height = '100%';
+        this.service.refreshList();
         this.dialog.open(UserListComponent, dialogConfig);
         
       }
