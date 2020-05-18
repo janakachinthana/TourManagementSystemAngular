@@ -45,7 +45,7 @@
 
 </div> -->
 
-  
+<h1><strong>Estimated Tour Section</strong></h1>  
 
   <br>
   <div class="row" #content> 
@@ -91,8 +91,14 @@
 
      <br>
 
-     <div style="margin-left: 45%;">
+     <!-- <div style="margin-left: 45%;">
       <button style="text-align: center; margin-top: 20px;" *ngIf="isShow" (click)="gotoTop()">SCROLL TOP</button>
+    </div> -->
+
+    <div style="text-align: center;">
+      <button mat-fab color="white" aria-label="scroll up" matTooltip="click to go up in this page" matTooltipPosition="right" *ngIf="isShow" (click)="gotoTop()">
+          <mat-icon>arrow_upward</mat-icon>
+      </button>
     </div>
 
 
