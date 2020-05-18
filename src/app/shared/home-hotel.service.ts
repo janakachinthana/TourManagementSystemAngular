@@ -12,7 +12,7 @@ export class HomeHotelService {
   list : HomeHotel[];
   guide1 : HomeHotel;
 
-  readonly rootURL = "http://localhost:62083/api"
+  readonly rootURL = "https://localhost:44392/api"
 
   constructor(public http : HttpClient) { }
 
