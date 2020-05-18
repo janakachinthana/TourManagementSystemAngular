@@ -439,8 +439,10 @@ removeForm(index){
   };
 
   ngOnInit(): void {
-  
-    this.ID = Math.floor(100 + Math.random() * 900).toString;
+
+    this.serviceHomeHotel.refreshList();
+    this.serviceHomeDestination.refreshList();
+
       this.service.refreshList();
       this.service1.refreshList();
       this.service2.refreshList();
@@ -514,6 +516,10 @@ this.serviceHomeHotel.formData ={
 
 }
 
+Clear(){
+  this.testRemove();
+  this.toastr.success('package clear successfully..!', 'Elephas Vacation');
+}
 
 onSubmit(form : NgForm){
 
@@ -611,7 +617,6 @@ addDestination(form : NgForm){
         Rules: null,
         TotalSightSeenCost: null,
 
-
     }
       // this.serviceHome.refreshList();
       this.serviceHomeDestination.refreshList();
@@ -668,7 +673,6 @@ addHotel(form : NgForm){
         tripleRoomCost: null,
         guideRoomCost: null,
         TotalMealAnddRooms:null,
-
       }
       this.MealSingle = null;
       // this.serviceHome.refreshList();
@@ -783,6 +787,7 @@ testRemove(){
   for (let index = 0; index < this.serviceHomeHotel.list.length; index++) {
     this.serviceHomeHotel.deleteHomeHotel(this.serviceHomeHotel.list[index].HomeHotelID).subscribe(res=>{
     this.service.refreshList();
+    this.serviceHomeHotel.refreshList();
      });
 }
 
@@ -790,6 +795,7 @@ testRemove(){
 for (let index = 0; index < this.serviceHomeDestination.list.length; index++) {
   this.serviceHomeDestination.deleteDestination(this.serviceHomeDestination.list[index].HomeDestinationID).subscribe(res=>{
   this.service.refreshList();
+  this.serviceHomeDestination.refreshList();
      });
 }
 
