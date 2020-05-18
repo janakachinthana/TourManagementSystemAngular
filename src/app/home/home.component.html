@@ -92,7 +92,7 @@
                     </select></div>
                 </label>
                 <label>
-                 Vehicle Rate: (USD per KM)
+                 Vehicle Rate: (LKR per KM)
                 </label>
                 <input type="number" class="form-control" id="#" placeholder="Charge per Kilometer in LKR "   value="{{chargePerKm}}"  />
               </div>
@@ -105,7 +105,7 @@
               <!-- <Button id="btn" (click) ="checkTransportCost()">Check Transportation Cost</Button> -->
               <div class="form-group">
                 <label>
-                  Transportation Cost (USD)
+                  Transportation Cost (LKR)
                 </label>
                 <input type="number" class="form-control"  id="total" value="{{totalTransportCost}}"  placeholder="Total Transportation Cost Altogether" />
               </div>              
@@ -158,7 +158,7 @@
              
               <div class="form-group">
                 <label>
-                  Total (USD)
+                  Total (LKR)
                 </label>
                 <input type="text" class="form-control" id="total" value="{{TotalDAndGPrice}}" placeholder="Guide & Drivers Total" disabled />
               </div>
@@ -268,7 +268,7 @@
 
                             <div class="form-group">
                               <label>
-                                Total (USD)
+                                Total (LKR)
                               </label>
                               <input type="text" class="form-control" id="total" placeholder="Sight Seen Cost"  name="TotalSightSeenCost"  #TotalSightSeenCost="ngModel" [(ngModel)]="serviceHomeDestination.formData.TotalSightSeenCost" />
                             </div>
@@ -593,7 +593,7 @@
  
               <tbody>
                   <tr>
-                   <td scope="col" class="text-info bg-white">{{serviceHome.formData.OverollCost}}</td>
+                   <td scope="col" class="text-info bg-white">{{USD}}</td>
                    <td scope="col" class="text-info bg-white">{{UserName}}  {{UserLastName}}</td>
                    <td scope="col" class="text-info bg-white">{{UserContact}}</td>
                   </tr> 
@@ -643,7 +643,7 @@
       </select>
       <div class="form-group">
         <label>
-          Total Expenses (USD)
+          Total Expenses (LKR)
         </label>
         <input type="number" class="form-control" id="total" name="TotalExpenses"  #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"  placeholder="TotalExpenses" />
       </div> 
@@ -670,7 +670,7 @@
       <br>
         <div class="form-group">
           <label>
-            Total Expenses (USD)
+            Total Expenses (LKR)
           </label>
           <input type="text" class="form-control" id="#" name="TotalExpenses"  #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"  placeholder="Total Expenses (LKR)" />
           <!-- <input type="hidden" name="TotalExpenses" id="" #TotalExpenses="ngModel" [(ngModel)]="serviceHome.formData.TotalExpenses"> -->
@@ -699,19 +699,19 @@
         <br>
         <div class="form-group">
           <label>
-            Company Total Profit (USD)
+            Company Total Profit (LKR)
           </label>
           <input type="text" class="form-control" id="#" name="comanyProfit"  #comanyProfit="ngModel" [(ngModel)]="serviceHome.formData.comanyProfit" placeholder="Company Profit (LKR)" />
         </div>
         <div class="form-group">
           <label>
-            Agent Total Profit (USD)
+            Agent Total Profit (LKR)
           </label>
           <input type="text" class="form-control" id="#" name="AgentProfit"  #AgentProfit="ngModel" [(ngModel)]="serviceHome.formData.AgentProfit" placeholder="Agent Profit (LKR)" />
         </div>
         <div class="form-group">
           <label class="text-danger">
-            Total Package Cost (USD)
+            Total Package Cost (LKR)
           </label>
           <input type="text" class="form-control text-danger" name="OverollCost"  #OverollCost="ngModel" [(ngModel)]="serviceHome.formData.OverollCost"  id="#" placeholder="Total Package Cost (LKR)" />
           <input type="hidden" class="form-control text-danger" name="EmployeeFirstName"  #EmployeeFirstName="ngModel" [(ngModel)]="serviceHome.formData.EmployeeFirstName"/>

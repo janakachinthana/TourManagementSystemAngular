@@ -32,8 +32,16 @@ export class UserListComponent implements OnInit {
   }
 
   adminLogin(){
-    this.router.navigateByUrl('employee');
-    this.dialogRef.close();
+    // this.router.navigateByUrl('employee');
+    if (this.service.AdminUserName == null) {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.autoFocus = true;
+      dialogConfig.disableClose = true;
+      dialogConfig.width = '35%';
+      dialogConfig.height = '70%';
+      this.dialog.open(AdminLoginComponent, dialogConfig);
+      this.dialogRef.close();
+    }
   }
 
   populateForm(emp : Employee){
