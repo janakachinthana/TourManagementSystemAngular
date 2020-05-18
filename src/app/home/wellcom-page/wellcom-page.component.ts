@@ -3,6 +3,7 @@ import { MatDialogConfig, MatDialog, MatDialogRef } from '@angular/material/dial
 import { EmployeeService } from 'src/app/shared/employee.service';
 import { UserListComponent } from 'src/app/user/user-list/user-list.component';
 
+
 @Component({
   selector: 'app-wellcom-page',
   templateUrl: './wellcom-page.component.html',
@@ -12,7 +13,8 @@ export class WellcomPageComponent implements OnInit {
 
   constructor(private dialog:MatDialog,
               public service: EmployeeService,
-              public dialogRef: MatDialogRef<WellcomPageComponent> ) { }
+              public dialogRef: MatDialogRef<WellcomPageComponent> 
+              ) { }
 
   ngOnInit(): void {
   }
