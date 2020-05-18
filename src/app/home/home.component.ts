@@ -131,6 +131,7 @@ export class HomeComponent implements OnInit {
   public AgentProfit: number = 0;
   public OverollCost: number = 0.00;
   public CompanyPres: number = 0;
+  public USD: number = 0;
 
   public GuideX : any;
   public DestinationX : any;
@@ -742,7 +743,7 @@ calOverOll(form : NgForm){
   this.serviceHome.formData.comanyProfit = ((this.TotalExpenses * 1) * ((form.value.CompanyPresentage* 1) / 100));
 
   this.serviceHome.formData.AgentProfit =  ((this.TotalExpenses * 1) * ((form.value.AgentProfitPrasentage * 1) / 100));
-
+  this.USD = this.OverollCost / 180;
   this.serviceHome.formData.OverollCost =  this.OverollCost;
   // this.serviceHome.formData.CompanyPresentage = (this.CompanyPres * 1);
 
