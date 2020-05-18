@@ -34,7 +34,7 @@
 
               <mat-form-field appearance="outline">
                 <mat-label>Vehicle number</mat-label>
-                <input name="VehicleNo" #VehicleNo="ngModel" matInput placeholder="xx XXX 0000" [(ngModel)]="service.formData.VehicleNo" required>
+                <input name="VehicleNo" #VehicleNo="ngModel" matInput placeholder=" Ex: cp CAA 0000" [(ngModel)]="service.formData.VehicleNo" required>
                 <mat-error *ngIf="VehicleNo.invalid && VehicleNo.touched">This field is required</mat-error>
               </mat-form-field>
 
@@ -81,7 +81,7 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Model</mat-label>
-                <input name="Model" #Model="ngModel" [(ngModel)]="service.formData.Model"  matInput placeholder="enter the model"  required>
+                <input name="Model" #Model="ngModel" [(ngModel)]="service.formData.Model"  matInput placeholder="Ex: Vits"  required>
                 <mat-error *ngIf="Model.invalid && Model.touched">This field is required</mat-error>
               </mat-form-field>
 
@@ -93,8 +93,8 @@
 
 
             <mat-form-field appearance="outline">
-                <mat-label>Registration Number</mat-label>
-                <input name="RegistrationNo" #RegistrationNo="ngModel" matInput placeholder="enter the registration number" [(ngModel)]="service.formData.RegistrationNo" required>
+                <mat-label>Tourism Registration Number</mat-label>
+                <input name="RegistrationNo" #RegistrationNo="ngModel" matInput placeholder="EX: CAR5548545" [(ngModel)]="service.formData.RegistrationNo" required>
                 <mat-error  *ngIf="RegistrationNo.invalid && RegistrationNo.touched">This field is required</mat-error>
               </mat-form-field>
 
@@ -114,7 +114,7 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Manufactured year</mat-label>
-                <input  name="ManuYr"  type="number" minlength="4" maxlength="4" #ManuYr="ngModel" matInput min="2000" max=currentYear placeholder="enter the Manufactured year" [(ngModel)]="service.formData.ManuYr" required>
+                <input  name="ManuYr"  type="number" minlength="4" maxlength="4" #ManuYr="ngModel" matInput min="2000" max=currentYear placeholder="EX : 2018" [(ngModel)]="service.formData.ManuYr" required>
                 <mat-error  *ngIf="ManuYr.invalid && ManuYr.dirty">Year can be only between 2000 to present </mat-error>
                 <mat-error  *ngIf="ManuYr.touched">This field is required</mat-error>
      </mat-form-field>
@@ -129,7 +129,7 @@
 
         <mat-form-field appearance="outline">
             <mat-label>MNumber of seats</mat-label>
-            <input  name="NoOfSeats" min="4" type="number"  #NoOfSeats="ngModel" matInput placeholder="enter the no. Of Seats" [(ngModel)]="service.formData.NoOfSeats" required>
+            <input  name="NoOfSeats" min="4" type="number"  #NoOfSeats="ngModel" matInput placeholder="EX : 4" [(ngModel)]="service.formData.NoOfSeats" required>
             <mat-error  *ngIf="NoOfSeats.invalid && NoOfSeats.touched">This field is required, Minimum 4 seats </mat-error>
           </mat-form-field>
 
@@ -168,7 +168,7 @@
           
             <mat-form-field style="width: 425px;" appearance="outline">
                 <mat-label>Owner's name</mat-label>
-                <input  name="OwnersName"  #OwnersName="ngModel" matInput placeholder="enter the Owners Name" [(ngModel)]="service.formData.OwnersName" required>
+                <input  name="OwnersName"  #OwnersName="ngModel" matInput placeholder="EX: Minton Silva" [(ngModel)]="service.formData.OwnersName" required>
                 <mat-error  *ngIf="OwnersName.invalid && OwnersName.touched">This field is required</mat-error>
               </mat-form-field>
 
@@ -185,7 +185,7 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Owner's ID number</mat-label>
-                <input  name="OwneresID"  #OwneresID="ngModel" minlength="10" maxlength="12" matInput placeholder="enter the Owner's ID number" [(ngModel)]="service.formData.OwneresID" required>
+                <input  name="OwneresID"  #OwneresID="ngModel" minlength="10" maxlength="12" matInput placeholder="EX : 95654512V" [(ngModel)]="service.formData.OwneresID" required>
                 <mat-error  *ngIf="OwneresID.invalid && OwneresID.dirty">Invalid ID number</mat-error>
                 <mat-error  *ngIf="OwneresID.touched">This field is required</mat-error>
 
@@ -199,7 +199,7 @@
            
             <mat-form-field appearance="outline">
                 <mat-label>Owner's contact number</mat-label>
-                <input  name="OwnersContact"   pattern="^[0]{1}[0-9]{9}" maxlength="10" minlength="10"  #OwnersContact="ngModel" matInput placeholder="enter the Owner's contact number" [(ngModel)]="service.formData.OwnersContact" required>
+                <input  name="OwnersContact"   pattern="^[0]{1}[0-9]{9}" maxlength="10" minlength="10"  #OwnersContact="ngModel" matInput placeholder="EX : 0778495325" [(ngModel)]="service.formData.OwnersContact" required>
                 <mat-error  *ngIf="OwnersContact.invalid && OwnersContact.dirty ">Incorrect phone number</mat-error>
                 <mat-error  *ngIf="OwnersContact.touched">This field is required</mat-error>
 
@@ -218,7 +218,7 @@
 
            <mat-form-field appearance="outline">
                 <mat-label>Veihcle insuarnce number</mat-label>
-                <input  name="VehicleInsuaranceNo"  #VehicleInsuaranceNo="ngModel" matInput placeholder="enter the Veihcle insuarnce number" [(ngModel)]="service.formData.VehicleInsuaranceNo" required>
+                <input  name="VehicleInsuaranceNo"  #VehicleInsuaranceNo="ngModel" matInput placeholder="EX: INS458525" [(ngModel)]="service.formData.VehicleInsuaranceNo" required>
                 <mat-error  *ngIf="VehicleInsuaranceNo.invalid && VehicleInsuaranceNo.touched">This field is required</mat-error>
             </mat-form-field>   
           
@@ -230,7 +230,7 @@
 
             <mat-form-field appearance="outline">
                 <mat-label>Rate per Kilo meterr</mat-label>
-                <input  name="RatePerKM"   type="number"  #RatePerKM="ngModel" matInput placeholder="enter the Rate per Kilo meter" [(ngModel)]="service.formData.RatePerKM" required>
+                <input  name="RatePerKM"   type="number"  #RatePerKM="ngModel" matInput placeholder="EX  : 50" [(ngModel)]="service.formData.RatePerKM" required>
                 <mat-error  *ngIf="RatePerKM.invalid && RatePerKM.touched">This field is required,Only numbers are valid</mat-error>
             </mat-form-field>   
 
