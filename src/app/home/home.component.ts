@@ -61,6 +61,8 @@ export class HomeComponent implements OnInit {
   public Email : String = null;
   public Contact : String = null;
   public CustomerName : String = null;
+  public ExchangeRate : number ;
+  public NoOfDays: number;
 
 
   public driverFirstName : number;
@@ -250,10 +252,10 @@ removeForm(index){
       this.GuideContact = this.GuideX.ContactNo;
 
       if (this.rate > 0) {
-        this.TotalDAndGPrice =   this.rate*1 + this.guidePrice*1;
+        this.TotalDAndGPrice =   (this.rate*1 + this.guidePrice*1) * (this.NoOfDays * 1);
       }
       else if (this.rate == 0){
-        this.TotalDAndGPrice =   this.guidePrice*1;
+        this.TotalDAndGPrice =   (this.guidePrice*1) * (this.NoOfDays * 1);
 
       }
      });
@@ -362,6 +364,8 @@ removeForm(index){
        this.Nationality = this.CustomerX.Nationality;
        this.Email = this.CustomerX.Email;
        this.Contact = this.CustomerX.Phone;
+       this.ExchangeRate = this.CustomerX.ExchangeRate;
+       this.NoOfDays = this.CustomerX.NoDays;
        this.serviceHome.formData.customerName  = this.CustomerX.Name;
        this.serviceHome.formData.numberOfAdult  = this.CustomerX.NoPeople;
        this.serviceHome.formData.numberOfChild  = this.CustomerX.NoChildren;
@@ -387,7 +391,7 @@ removeForm(index){
        this.driverContact = this.DriverX.PhoneNumber;
 
        if (this.rate > 0) {
-        this.TotalDAndGPrice =   this.rate*1 ;
+        this.TotalDAndGPrice =   (this.rate*1) * (this.NoOfDays * 1) ;
       }else{
         this.toastr.warning('Please Select a Driver', 'Elephas Vacation');
         this.TotalDAndGPrice =  0;
@@ -743,7 +747,7 @@ calOverOll(form : NgForm){
   this.serviceHome.formData.comanyProfit = ((this.TotalExpenses * 1) * ((form.value.CompanyPresentage* 1) / 100));
 
   this.serviceHome.formData.AgentProfit =  ((this.TotalExpenses * 1) * ((form.value.AgentProfitPrasentage * 1) / 100));
-  this.USD = this.OverollCost / 180;
+  this.USD = this.OverollCost / this.ExchangeRate;
   this.serviceHome.formData.OverollCost =  this.OverollCost;
   // this.serviceHome.formData.CompanyPresentage = (this.CompanyPres * 1);
 
