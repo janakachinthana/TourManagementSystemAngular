@@ -19,8 +19,6 @@ UserName : String = "Admin";
   ngOnInit(): void {
 
     if (this.service.AdminUserName == null) {
-      
-    
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
     dialogConfig.disableClose = true;

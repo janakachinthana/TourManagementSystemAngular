@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { EmployeeService } from '../shared/employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -8,11 +9,15 @@ import { EmployeeService } from '../shared/employee.service';
 })
 export class MainComponent implements OnInit {
   UserName : String;
-  constructor(public serviceEmployee: EmployeeService) { }
+  constructor(public serviceEmployee: EmployeeService,
+    private router: Router) { }
   
   ngOnInit(): void {
-    this.UserName = this.serviceEmployee.UserName.FirstName;
+    this.UserName = this.serviceEmployee.formData.FirstName;
   }
-  
+
+  navigate() {
+    this.router.navigate(['home']);
+}
 
 }

@@ -27,7 +27,9 @@ import * as html2pdf from 'html2pdf.js'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  UserName : String;
+  UserName : String ;
+  UserLastName : String;
+  UserContact : String;
   hotelCosting=new HotelCosting()
   dataarry=[];
   HomeHotelArray : HomeHotel[];
@@ -59,6 +61,8 @@ export class HomeComponent implements OnInit {
   public Email : String = null;
   public Contact : String = null;
   public CustomerName : String = null;
+  public ExchangeRate : number ;
+  public NoOfDays: number;
 
 
   public driverFirstName : number;
@@ -129,6 +133,7 @@ export class HomeComponent implements OnInit {
   public AgentProfit: number = 0;
   public OverollCost: number = 0.00;
   public CompanyPres: number = 0;
+  public USD: number = 0;
 
   public GuideX : any;
   public DestinationX : any;
@@ -247,10 +252,10 @@ removeForm(index){
       this.GuideContact = this.GuideX.ContactNo;
 
       if (this.rate > 0) {
-        this.TotalDAndGPrice =   this.rate*1 + this.guidePrice*1;
+        this.TotalDAndGPrice =   (this.rate*1 + this.guidePrice*1) * (this.NoOfDays * 1);
       }
       else if (this.rate == 0){
-        this.TotalDAndGPrice =   this.guidePrice*1;
+        this.TotalDAndGPrice =   (this.guidePrice*1) * (this.NoOfDays * 1);
 
       }
      });
@@ -359,6 +364,8 @@ removeForm(index){
        this.Nationality = this.CustomerX.Nationality;
        this.Email = this.CustomerX.Email;
        this.Contact = this.CustomerX.Phone;
+       this.ExchangeRate = this.CustomerX.ExchangeRate;
+       this.NoOfDays = this.CustomerX.NoDays;
        this.serviceHome.formData.customerName  = this.CustomerX.Name;
        this.serviceHome.formData.numberOfAdult  = this.CustomerX.NoPeople;
        this.serviceHome.formData.numberOfChild  = this.CustomerX.NoChildren;
@@ -384,7 +391,7 @@ removeForm(index){
        this.driverContact = this.DriverX.PhoneNumber;
 
        if (this.rate > 0) {
-        this.TotalDAndGPrice =   this.rate*1 ;
+        this.TotalDAndGPrice =   (this.rate*1) * (this.NoOfDays * 1) ;
       }else{
         this.toastr.warning('Please Select a Driver', 'Elephas Vacation');
         this.TotalDAndGPrice =  0;
@@ -432,6 +439,7 @@ removeForm(index){
   };
 
   ngOnInit(): void {
+  
     this.ID = Math.floor(100 + Math.random() * 900).toString;
       this.service.refreshList();
       this.service1.refreshList();
@@ -447,6 +455,11 @@ removeForm(index){
       this.UserName = this.service5.UserName.FirstName;
       this.serviceHomeHotel.refreshList();
       this.serviceHomeDestination.refreshList();
+      this.UserName = this.service5.formData.FirstName;
+      this.UserLastName = this.service5.formData.LastName;
+      this.UserContact = this.service5.formData.Contact;
+      this.serviceHome.formData.EmployeeFirstName = this.UserName; 
+      this.serviceHome.formData.EmployeeLastName = this.UserLastName;
   }
 
 resetForm(form? : NgForm){
@@ -463,6 +476,8 @@ this.serviceHome.formData ={
     numberOfAdult: null,
     numberOfChild: null,
     OverollCost: null,
+    EmployeeFirstName : null,
+    EmployeeLastName : null,
 }
 this.serviceHomeDestination.formData ={
   HomeDestinationID: null,
@@ -512,10 +527,7 @@ this.toastr.warning('Select a Customer', 'Elephas Vacation');
 else
 {
   this.insertRecord(form);
-  this.downloadPDF();
-  this.testRemove();
-  this.toastr.success('Package is built successfully..!', 'Elephas Vacation');
-  this.router.navigateByUrl('estimatedTours');
+ 
 
 }
 }
@@ -555,7 +567,10 @@ insertRecord(form : NgForm){
 
 this.serviceHome.postHome(form.value).subscribe(res =>{
 
-
+  this.downloadPDF();
+  this.testRemove();
+  this.toastr.success('Package is built successfully..!', 'Elephas Vacation');
+  this.router.navigateByUrl('estimatedTours');
 });
 
 // for (let index = 0; index < this.dataarry.length; index++) {
@@ -732,7 +747,7 @@ calOverOll(form : NgForm){
   this.serviceHome.formData.comanyProfit = ((this.TotalExpenses * 1) * ((form.value.CompanyPresentage* 1) / 100));
 
   this.serviceHome.formData.AgentProfit =  ((this.TotalExpenses * 1) * ((form.value.AgentProfitPrasentage * 1) / 100));
-
+  this.USD = this.OverollCost / this.ExchangeRate;
   this.serviceHome.formData.OverollCost =  this.OverollCost;
   // this.serviceHome.formData.CompanyPresentage = (this.CompanyPres * 1);
 
@@ -785,7 +800,7 @@ for (let index = 0; index < this.serviceHomeDestination.list.length; index++) {
 
 public downloadPDF(){
   const options = {
-    filename : 'Employee Report',
+    filename : '( '+this.CustomerName +' ) Tour Plan Report',
     image: {type: 'jpeg', quality: 1 },
     html2canvas:  { scale : 5},
     margin : 10,

@@ -7,11 +7,11 @@ import { EmployeeService } from '../shared/employee.service';
   styleUrls: ['./drivers.component.scss']
 })
 export class DriversComponent implements OnInit {
-  UserName : String = "Admin";
+  UserName : String;
   constructor(public serviceEmployee: EmployeeService) { }
 
   ngOnInit(): void {
-    this.UserName = this.serviceEmployee.UserName.FirstName;
+    this.UserName = this.serviceEmployee.formData.FirstName;
   }
 
 }

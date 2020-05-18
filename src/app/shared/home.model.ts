@@ -9,4 +9,6 @@ export class Home {
     numberOfAdult: Number;
     numberOfChild: Number;
     OverollCost: number;
+    EmployeeFirstName : String;
+    EmployeeLastName : String;
 }

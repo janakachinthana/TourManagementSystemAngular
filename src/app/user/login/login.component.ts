@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
 }
  
 ngOnInit() :void{
-    
+  
   if (this.data.emp == null) {
      this.resetForm();
     } else {
@@ -128,6 +128,8 @@ ngOnInit() :void{
     updateRecord(form : NgForm){
       if(form.value.Password == this.temp.Password )
       {
+        // this.service.formData.FirstName = this.formData.FirstName;
+        this.service.AdminUserName = form.value.FirstName;
         this.currentUser = Object.assign({}, form.value);
         this.service.UserName = Object.assign({},form.value);
         this.router.navigateByUrl('main');

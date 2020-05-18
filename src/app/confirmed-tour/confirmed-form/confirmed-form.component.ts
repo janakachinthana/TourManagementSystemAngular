@@ -63,6 +63,8 @@ ngOnInit() :void{
         numberOfAdult: null,
         numberOfChild: null,
         OverollCost: null,
+        EmployeeFirstName : null,
+        EmployeeLastName : null,
     };
     
     }
@@ -82,6 +84,8 @@ ngOnInit() :void{
       numberOfAdult: null,
       numberOfChild: null,
       OverollCost: null,
+      EmployeeFirstName : null,
+      EmployeeLastName : null,
     }    
   }
 
@@ -90,16 +94,7 @@ ngOnInit() :void{
          
             this.insertRecord(form);
 
-            this.service.deleteHome(form.value.homeID).subscribe(res=>{
-              this.service.refreshList();
-              this.toastr.warning('Deleted successfully', ' Elephas vacations',{
-                progressBar :true,
-                positionClass:'toast-top-right',
-                easing:'ease-in'
-              });    });
-
-              this.router.navigateByUrl('confirmed');
-      
+           
         
       // else{
       //   this.updateRecord(form);
@@ -109,10 +104,14 @@ ngOnInit() :void{
     insertRecord(form : NgForm){
           this.CompletedService.postHome(form.value).subscribe(res =>{
             this.dialogRef.close();
-          this.toastr.success('Employee Added successfully', 'Elaphase Vacation',{
+          this.toastr.success('The Package now in  Completed mode', 'Elaphase Vacation',{
           progressBar :true,
       positionClass:'toast-top-right'
           });
+          this.service.deleteHome(form.value.homeID).subscribe(res=>{
+            this.service.refreshList();
+           });
+          this.router.navigateByUrl('completed');
           this.resetForm(form);
           this.CompletedService.refreshList();
           });

@@ -3,6 +3,7 @@ import { HotelService } from 'src/app/shared/hotel.service';
 import { Hotel } from 'src/app/shared/hotel.model';
 import { ToastrService } from 'ngx-toastr';
 import * as jsPDF from 'jspdf';
+import * as html2pdf from 'html2pdf.js'
 
 @Component({
   selector: 'app-hotel-report',
@@ -31,31 +32,21 @@ export class HotelReportComponent implements OnInit {
   }
   }
 
-  @ViewChild('content')content: ElementRef;
-  
-  public downloadPDF(){
-
-    let doc =new jsPDF('landscape', 'px', 'ledger') ;
-
-    let specialElimentHandlers = {
-
-      '#editor': function(element: any, renderer: any){
-        return true;
-      }
-
+  downloadPDF() {
+    const options = {
+      filename : 'Hotel Details Report',
+      image: {type: 'jpeg', quality: 1 },
+      html2canvas:  { scale : 5},
+      margin : 10,
+      jsPDF:{ format: 'a3', orientation: 'landscape',putOnlyUsedFonts:true}
     };
+    const content: Element = document.getElementById('container');
 
-    let content = this.content.nativeElement;
-
-    doc.fromHTML(content.innerHTML, 15,15,{
-
-      'width': 590,
-      'elementHandlers': specialElimentHandlers
-
-    });
-
-    doc.save('Employee Details (Eliphase Vacation).pdf');
-
+    html2pdf()
+      .from(content)
+      .set(options)
+      .save();
+  
   }
 
 }

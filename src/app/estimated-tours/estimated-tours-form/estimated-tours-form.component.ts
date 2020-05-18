@@ -62,6 +62,8 @@ ngOnInit() :void{
         numberOfAdult: null,
         numberOfChild: null,
         OverollCost: null,
+        EmployeeFirstName : null,
+        EmployeeLastName : null,
     };
     
     }
@@ -81,42 +83,29 @@ ngOnInit() :void{
       numberOfAdult: null,
       numberOfChild: null,
       OverollCost: null,
+      EmployeeFirstName : null,
+      EmployeeLastName : null,
     }    
   }
 
   
-    onSubmit(form : NgForm){
-         
-            this.insertRecord(form);
-
-            this.service.deleteHome(form.value.homeID).subscribe(res=>{
-              this.service.refreshList();
-              this.toastr.warning('Deleted successfully', ' Elephas vacations',{
-                progressBar :true,
-                positionClass:'toast-top-right',
-                easing:'ease-in'
-              });    });
-
-              
-      
-        
-      // else{
-      //   this.updateRecord(form);
-      // }
+    onSubmit(form : NgForm){   
+      this.insertRecord(form);
     }
 
     insertRecord(form : NgForm){
           this.ConfirmService.postHome(form.value).subscribe(res =>{
             this.dialogRef.close();
-          this.toastr.success('Employee Added successfully', 'Elaphase Vacation',{
-          progressBar :true,
-      positionClass:'toast-top-right'
-          });
-          this.resetForm(form);
-          this.ConfirmService.refreshList();
-          });
-
-          this.router.navigateByUrl('confirmed');
+            this.toastr.success('The Package now in  Confirmed mode', 'Elaphase Vacation',{
+              progressBar :true,
+              positionClass:'toast-top-right'
+              });
+            this.service.deleteHome(form.value.homeID).subscribe(res=>{
+              this.service.refreshList();
+              });
+            this.ConfirmService.refreshList();
+            });
+            this.router.navigateByUrl('confirmed');
     }
     onDelete(id : number){
       if (confirm('Are you sure to delete this Employee record?')){
