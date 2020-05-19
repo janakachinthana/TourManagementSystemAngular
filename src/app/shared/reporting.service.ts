@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ReportingService {
 
-  readonly rootURL = 'https://localhost:44392/api/Reports/downloadReport?';
+  readonly rootURL = "http://localhost:62083/api"
 
   constructor(private _http: HttpClient) { }
 

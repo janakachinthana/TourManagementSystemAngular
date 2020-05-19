@@ -98,7 +98,7 @@ export class hotelComponent implements OnInit {
       if(form.value.HotelID == null )
       {
         
-        if(form.value.HotelName == '' || form.value.Address == '' || form.value.PhoneNumber == '' || form.value.Email == '' || form.value.StarClass == null || form.value.Single== null || form.value.Double== null|| form.value.Triple== null || form.value.Quard== null || form.value.King== null || form.value.Queen== null|| form.value.RoomOnly== null || form.value.BedAndBreackfast== null || form.value.FullBoard== null || form.value.HalfBoard== null)
+        if(form.value.HotelName == '' || form.value.Address == '' || form.value.PhoneNumber == '' || form.value.Email == '' || form.value.StarClass == '' || form.value.Single== '' || form.value.Double== ''|| form.value.Triple== '' || form.value.Quard== '' || form.value.King== '' || form.value.Queen== ''|| form.value.RoomOnly== '' || form.value.BedAndBreackfast== '' || form.value.FullBoard== '' || form.value.HalfBoard== '')
         {
         this.toastr.warning('Insert faild', 'HTL. Register');
         }
@@ -109,13 +109,10 @@ export class hotelComponent implements OnInit {
       }
         
       else{
-        if(form.value.HotelName == '' ||  form.value.Address == '' || form.value.PhoneNumber == null || form.value.Email == '' || form.value.StarClass == null || form.value.Single == null || form.value.Double == null  || form.value.Triple == null || form.value.Quard == null || form.value.King == null || form.value.Queen == null || form.value.RoomOnly == null || form.value.BedAndBreackfast == null || form.value.FullBoard == null || form.value.HalfBoard == null)
-        {
-        this.toastr.warning('Update faild', 'HTL. Register');
-        }else
-        {
+        if(form.value.HotelID != null  && form.value.HotelName != null &&  form.value.Address != null && form.value.PhoneNumber != null && form.value.Email != null && form.value.StarClass != null && form.value.Single != null && form.value.Double != null  && form.value.Triple != null && form.value.Quard != null && form.value.King != null && form.value.Queen != null && form.value.RoomOnly != null && form.value.BedAndBreackfast != null && form.value.FullBoard != null && form.value.HalfBoard != null)
         this.updateRecord(form);
-        }
+        else
+        this.toastr.warning('Update faild', 'HTL. Register');
       }
     }
 

@@ -12,7 +12,7 @@ export class EmployeeService {
   list : Employee[];
   AdminUserName : String = null; 
   UserName : Employee = null;
-  readonly rootURL = "https://localhost:44392/api"
+  readonly rootURL = "http://localhost:62083/api"
   constructor(private http : HttpClient) { }
 
   postEmployeee(formData : Employee){
