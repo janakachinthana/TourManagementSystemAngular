@@ -69,7 +69,8 @@
             <mat-form-field appearance="outline">
                     <mat-label>Rate</mat-label>
                     <input matInput type="number" class="example-right-align" name="Rate" #Rate="ngModel" [(ngModel)]="service.formData.Rate" required>
-                    <span matPrefix>$&nbsp;</span>
+                    <!-- <span matPrefix>$&nbsp;</span> -->
+                    <span matPrefix>Rs.</span>
                     <span matSuffix>.00</span>
                     <mat-error *ngIf="Rate.invalid && Rate.touched">This field is required</mat-error>
             </mat-form-field>
