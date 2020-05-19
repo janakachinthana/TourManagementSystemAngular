@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
 import { inject } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import * as html2pdf from 'html2pdf.js'
+import { SinglevehComponent } from '../singleveh/singleveh.component';
 
 @Component({
   selector: 'app-vehicle',
@@ -127,6 +128,21 @@ fillForm(){
     category : "car"
   };
 }
+genSinVehReport(vehID:number) {
+
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.autoFocus = true;
+  dialogConfig.disableClose = false;
+  dialogConfig.width = '70%';
+  dialogConfig.maxHeight = '100%';
+  dialogConfig.height = '100%';
+  dialogConfig.data = {vehID};
+  dialogConfig.scrollStrategy ;
+
+  dialogConfig.hasBackdrop;
+  this.dialog.open(SinglevehComponent, dialogConfig);
+}
+
 
 
 }

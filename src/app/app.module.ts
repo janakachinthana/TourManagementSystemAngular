@@ -93,6 +93,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DesPrintComponent } from './destinations/des-print/des-print.component';
 import { HotelReportComponent } from './hotels/hotel-report/hotel-report.component';
 import { EmployeeSigleReportComponent } from './employee/employee-sigle-report/employee-sigle-report.component';
+import { SinglevehComponent } from './vehicles/singleveh/singleveh.component';
 
 
 
@@ -148,7 +149,8 @@ import { EmployeeSigleReportComponent } from './employee/employee-sigle-report/e
     DriverReportComponent,
     DesPrintComponent,
     HotelReportComponent,
-    EmployeeSigleReportComponent
+    EmployeeSigleReportComponent,
+    SinglevehComponent
     
     
   
