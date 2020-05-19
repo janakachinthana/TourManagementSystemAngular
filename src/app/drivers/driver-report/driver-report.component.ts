@@ -47,7 +47,7 @@ export class DriverReportComponent implements OnInit {
       image: {type: 'jpeg', quality: 1},
       html2canvas: {scale: 5},
       margin : 10,
-      jsPDF : {format: 'letter', orientation: 'portrait', putOnlyUsedFonts: true}
+      jsPDF : {format: 'letter', orientation: 'landscape', putOnlyUsedFonts: true}
     };
 
     const content: Element = document.getElementById('content');
