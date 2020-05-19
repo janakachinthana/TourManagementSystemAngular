@@ -1,6 +1,11 @@
 
-<h1>{{UserName}}</h1>
+<!-- <h1>{{UserName}}</h1> -->
 
+<div style="text-align: center; background-color: blanchedalmond;">
+  <hr>
+  <h2>Wellcome {{UserName}}</h2>
+  <hr>
+</div>
    
     <br>
     <div class="jumbotron divmain container ">
@@ -280,7 +285,8 @@
             </div>
           
             <div style="text-align: center;"> 
-            <button type="submit" [disabled]="form.invalid"  class="btn btn-lg btn-info btn-block">Add to Package</button>
+            <!-- <button type="submit" [disabled]="form.invalid"  class="btn btn-lg btn-info btn-block">Add to Package</button> -->
+            <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Add to Package</button>
           </div>
           </form>
           <br>
@@ -413,7 +419,8 @@
 
       <div class="row">
         <div class="col-md-4">
-          <button type="button" (click)="calcTotMEalAndRoom()" class="card-link btn btn-sm btn-outline-success ybtn">Check Total</button>
+          <!-- <button type="button" (click)="calcTotMEalAndRoom()" class="card-link btn btn-sm btn-outline-success ybtn">Check Total</button> -->
+          <button mat-stroked-button type="button" color="primary" (click)="calcTotMEalAndRoom()">Check Total</button>
             <!-- <input type="number" name="Tot" class="form-control" value="{{Tot}}"> -->
 
             <input type="number" name="TotalMealAnddRooms" class="form-control"  #TotalMealAnddRooms="ngModel" [(ngModel)]="serviceHomeHotel.formData.TotalMealAnddRooms">
@@ -422,10 +429,10 @@
 
         <div class="col-md-4">
      <div style="text-align: center;">
-        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-info btn-block">Confirm Day Plan</button>
+        <!-- <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-info btn-block">Confirm Day Plan</button> -->
+        <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Confirm Day Plan</button>
       </div>
       </div>
-      
     
     
         <!-- <div class="col-md-4">
