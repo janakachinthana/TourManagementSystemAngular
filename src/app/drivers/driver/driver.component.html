@@ -69,12 +69,23 @@
             <mat-form-field appearance="outline">
                     <mat-label>Rate</mat-label>
                     <input matInput type="number" class="example-right-align" name="Rate" #Rate="ngModel" [(ngModel)]="service.formData.Rate" required>
-                    <span matPrefix>$&nbsp;</span>
+                    <!-- <span matPrefix>$&nbsp;</span> -->
+                    <span matPrefix>Rs.</span>
                     <span matSuffix>.00</span>
                     <mat-error *ngIf="Rate.invalid && Rate.touched">This field is required</mat-error>
             </mat-form-field>
         </div>
 
+        <!-- <div class="form-group col-md-4">
+            <mat-form-field appearance="outline">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput type="date" name="DateOfBirth" #DateOfBirth="ngModel" [(ngModel)]="service.formData.DateOfBirth" required>
+                <mat-error *ngIf="DateOfBirth.invalid && DateOfBirth.touched">This field is required</mat-error>
+            </mat-form-field>
+        </div> -->
+    </div>
+
+    <div class="form-row">
         <div class="form-group col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>Date of Birth</mat-label>
@@ -82,9 +93,6 @@
                 <mat-error *ngIf="DateOfBirth.invalid && DateOfBirth.touched">This field is required</mat-error>
             </mat-form-field>
         </div>
-    </div>
-
-    <div class="form-row">
         <div class="form-group col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>Phone Number</mat-label>
@@ -95,7 +103,7 @@
               </mat-form-field>
         </div>
     
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-4">
             <mat-form-field appearance="outline">
                 <mat-label>License Number</mat-label>
                 <input matInput pattern="^[A-Z]+[0-9]+[A-Z]" maxlength="9" name="LicenseNumber" #LicenseNumber="ngModel" [(ngModel)]="service.formData.LicenseNumber" required>

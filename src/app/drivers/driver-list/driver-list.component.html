@@ -11,7 +11,7 @@
         </button>
         
         <div class="search-form-field" style="width: 925px;">
-                <input matInput type="search" name="search" [(ngModel)]="searchText" autocomplete="off"  placeholder="Start searching">
+                <input matInput type="search" name="search" [(ngModel)]="searchText" autocomplete="off"  placeholder="Search Drivers">
         </div> 
     </div>
 </div>
@@ -24,11 +24,11 @@
 <div class="row">
     <div class="col-md-4" *ngFor="let d of service.list | filter:searchText | paginate: {itemsPerPage:6, currentPage: pageActual}; let i=index">
         <br>
-        <div class="card" style="width: 20rem;" >
+        <div class="card" style="width: 20rem; background-color:steelblue;">
             <div class="card-body">
                 <div style="text-align: center;">
                     <!-- <h5 class="card-title center">Driver: {{i+1}}</h5> -->
-                    <h5 class="card-title center">Driver: {{d.DriverID}}</h5>
+                    <h5 class="card-title center" style="color: white;"><strong>Driver: {{d.DriverID}}</strong></h5>
                 </div>
             </div>
                 <ul class="list-group list-group-flush">
@@ -36,7 +36,8 @@
                     <li class="list-group-item"><strong>Last Name : </strong>{{d.LastName}}</li>
                     <li class="list-group-item"><strong>NIC : </strong>{{d.NIC}}</li>
                     <li class="list-group-item"><strong>Gender : </strong>{{d.Gender}}</li>
-                    <li class="list-group-item"><strong>Rate : $</strong>{{d.Rate}}</li>
+                    <!-- <li class="list-group-item"><strong>Rate : $</strong>{{d.Rate}}</li> -->
+                    <li class="list-group-item"><strong>Rate (Per Day) : Rs.</strong>{{d.Rate}}</li>
                     <li class="list-group-item"><strong>Date of Birth : </strong>{{d.DateOfBirth}}</li>
                     <li class="list-group-item"><strong>Phone number : </strong>{{d.PhoneNumber}}</li>
                     <li class="list-group-item"><strong>License number : </strong>{{d.LicenseNumber}}</li>
@@ -73,8 +74,10 @@
 </div>
 
 <hr>
-<div style="text-align: center;">
+<div style="text-align: center; background-color: aliceblue;">
+    <br>
     <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+    <br>
 </div>
 <hr>
 
