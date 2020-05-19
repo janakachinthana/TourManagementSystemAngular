@@ -1,0 +1,131 @@
+
+
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  <input type="hidden" name="GuideID" #GuideID="ngModel" [(ngModel)]="service.formData.GuideID">
+  
+
+  <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Image</span>
+        <img [src]="imageUrl"  style="width:200px;height:200px">
+      </div> <div class="col-md-6">
+
+        <button type="button" class="card-link btn btn-sm btn-outline-success ybtn" (click)="demo()" *ngIf="service.formData.GuideID==null;">Demo</button>
+      </div>
+    </div>
+    <input type="file" name="Image" #Image accept="image/*" (change)="handleFileInput($event.target.files)" #Image="ngModel" [(ngModel)]="service.formData.Image" >
+    <br> <br>
+    <div class="row">
+      <div class="col-md-6">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">First Name</span>
+     
+      <input required  name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control">
+      <div class="validation-error"*ngIf="FirstName.invalid && FirstName.touched" >This field required</div>
+    </div >
+    </div>
+
+  <div class="col-md-6">
+    <div class="input-group-prepend">
+      <span class="input-group-text bg-info text-white" id="basic-addon1">Last Name</span>
+    
+    <input required  name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control">
+    <div class="validation-error"*ngIf="LastName.invalid && LastName.touched" >This field required</div>
+  </div >
+  </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Address</span>
+      
+      <input required name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address" class="form-control">
+      <div class="validation-error"*ngIf="Address.invalid && Address.touched" >This field required</div>
+    </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Birth Day</span>
+     
+      <input required type="date" name="BirthDay" #BirthDay="ngModel" [(ngModel)]="service.formData.BirthDay" class="form-control">
+      <div class="validation-error"*ngIf="BirthDay.invalid && BirthDay.touched" >This field required</div>
+    </div>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">NIC Number</span>
+      
+      <input required name="NicNo" #NicNo="ngModel" [(ngModel)]="service.formData.NicNo" class="form-control">
+      <div class="validation-error"*ngIf="NicNo.invalid && NicNo.touched" >This field required</div>
+    </div>
+  </div>
+
+    <div class="col-md-6">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Email</span>
+      
+      <input required type="email" name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
+      <div class="validation-error"*ngIf="Email.invalid && Email.touched" >This field required</div>
+    </div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="col-md-6">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Contact Nu</span>
+   
+      <input required type="number" name="ContactNo" #ContactNo="ngModel" [(ngModel)]="service.formData.ContactNo" class="form-control">
+      <div class="validation-error"*ngIf="ContactNo.invalid && ContactNo.touched" >This field required</div>
+    </div>
+  </div>
+
+    <div class="col-md-6">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Gender</span>
+     
+      <select required name="Gender" #Gender="ngModel" [(ngModel)]="service.formData.Gender" class="form-control">
+      <option value="Male">Male</option> 
+      <option value="Female">Female</option> </select>
+    </div>
+    </div>
+  </div>
+    
+    <div class="row">
+      <div class="col-md-6">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Languages</span>
+      
+      <textarea rows="2" cols="35" required  name="Languages" #Languages="ngModel" [(ngModel)]="service.formData.Languages" class="form-control"></textarea>
+      <div class="validation-error"*ngIf="Languages.invalid && Languages.touched" >This field required</div>
+    </div>
+  </div>
+
+    <div class="col-md-6">
+      <div class="input-group-prepend">
+        <span class="input-group-text bg-info text-white" id="basic-addon1">Price</span>
+      
+      <input required type="number" name="Price" #Price="ngModel" [(ngModel)]="service.formData.Price" class="form-control">
+      <div class="validation-error"*ngIf="Price.invalid && Price.touched" >This field required</div>
+    </div>
+    </div>
+  </div>
+
+ <br>
+
+
+  <div class="form-group">
+      <button type="submit" class="btn btn-lg btn-block">Submit</button>
+  </div>
+
+
+    <div class="input-group-prepend">
+      <button type="button" class="card-link btn btn-sm btn-outline-danger ybtn" [mat-dialog-close]>CLOSE</button>
+ 
+</div>
+</form>

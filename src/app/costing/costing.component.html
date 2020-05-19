@@ -1,0 +1,45 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text bg-info text-white" id="basic-addon1">Guide</span>
+        </div>
+        <select  name="Guide"   class="form-control" id="guide" (change)="selectChangeHandler($event)">
+            <option>Select Guide</option> 
+            <option value="{{guide.Price}}" *ngFor="let guide of service.list "> {{guide.FirstName}}  </option>
+                   
+        </select></div>
+        <br><br>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-info text-white" id="basic-addon1">Price</span>
+          </div >
+          <input required id="guidePrice2" name="FirstName" value="{{selectedDay}}" class="form-control" disabled>
+  
+      </div>
+
+<br>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text bg-info text-white" id="basic-addon1">Destination</span>
+            </div>
+            <select required name="Gender"   class="form-control" (change)="selectChangeHandler1($event)" >
+                <option>Select Destination</option> 
+                <option value="{{des.DestinationName}}" *ngFor="let des of service1.list">{{des.DestinationName}}</option> 
+          
+            </select></div>
+   
+<div><H1></H1></div>
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text bg-info text-white" id="basic-addon1">Place</span>
+    </div >
+    <input required  name="LastName"  class="form-control" value="{{selectedDay1}}" disabled>
+    
+</div>
+
+  <br>
+    <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-block">Submit</button>
+    </div>
+  </form>
+  

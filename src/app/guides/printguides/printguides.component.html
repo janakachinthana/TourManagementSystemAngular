@@ -1,0 +1,36 @@
+<div id="container">
+  <table class="table table-hover">
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">BirthDay</th>
+            <th scope="col">NIC Number</th>
+            <th scope="col">Email</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Language</th>
+            <th scope="col">Price</th>
+            
+          </tr>
+    
+  
+  <tr *ngFor="let guide of service.list">
+  <td class="text-info">{{guide.FirstName}}</td>
+  <td class="text-info">{{guide.LastName}}</td>
+  <td class="text-info">{{guide.Address}}</td>
+  <td class="text-info">{{guide.ContactNo}}</td>
+  <td class="text-info">{{guide.BirthDay}}</td>
+  <td class="text-info">{{guide.NicNo}}</td>
+  <td class="text-info">{{guide.Email}}</td>
+  <td class="text-info">{{guide.Gender}}</td>
+  <td class="text-info">{{guide.Languages}}</td>
+  <td class="text-info">{{guide.Price}}</td>
+  
+  </tr>
+  
+  
+  </table>
+  </div>
+  <button type="button" (click)="onExportClick()">Download report</button>
+  

@@ -1,0 +1,97 @@
+
+
+     <button class="btn btn-primary btn-lg addbtn" mat-raised-button style="margin-left: -20px;" (click)="downloadPDFBtn()">
+      Generate Report</button>
+
+     <button class="btn btn-primary btn-lg addbtn" mat-raised-button style="margin-left: 20px;" (click)="AddOrEditHotels(null)">
+      Add new
+    </button>
+   
+    <div class="row" > 
+          <div class="col-md-6" *ngFor="let htl of service.list " >
+            
+  <br>
+  <div class="card" style="width: 28rem;" >
+    <div class="bg-dark text-success" >
+    <hr>
+    {{htl.HotelName}}
+    <h6>Star Class: {{htl.StarClass}}</h6>
+    <hr>
+  </div>
+      <div class="card-body">
+        <!-- <h5 class="card-title">{{emp.EmployeeID}}</h5> -->
+        
+      </div>
+     
+      <div class="row">
+        <div class="col-md-3">
+            <h6>Address:</h6> <h6 class="text-info">{{htl.Address}}</h6>
+        </div>
+        <div class="col-md-3">
+          <h6> Contact No:</h6> <h6 class="text-info">{{htl.PhoneNumber}}</h6>
+        </div>
+        <div class="col-md-6">
+          <h6>Email:</h6> <h6 class="text-info">{{htl.Email}}</h6>
+        </div>
+        </div>
+        <hr>
+        <h3 class="text-success bg-dark">Room Charges</h3>
+        <div class="row">
+          <div class="col-md-4">
+              <h6>Single Room:</h6> <h6 class="text-info">{{htl.Single}}</h6>
+          </div>
+          <div class="col-md-4">
+            <h6> Double Room:</h6> <h6 class="text-info">{{htl.Double}}</h6>
+          </div>
+          <div class="col-md-4">
+            <h6>Trible Room:</h6> <h6 class="text-info">{{htl.Triple}}</h6>
+          </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-4">
+                <h6>Quard Room:</h6> <h6 class="text-info">{{htl.Quard}}</h6>
+            </div>
+            <div class="col-md-4">
+              <h6>King Room:</h6> <h6 class="text-info">{{htl.King}}</h6>
+            </div>
+            <div class="col-md-4">
+              <h6>Queen Room:</h6> <h6 class="text-info">{{htl.Queen}}</h6>
+            </div>
+            </div>
+        
+        <hr>
+        <h3 class="text-success bg-dark">Meal Plan</h3>
+        <div class="row">
+          <div class="col-md-3">
+              <h6>Room Only:</h6> <h6 class="text-info">{{htl.RoomOnly}}</h6>
+          </div>
+          <div class="col-md-3">
+            <h6>Bed & Breakfirst:</h6> <h6 class="text-info">{{htl.BedAndBreackfast}}</h6>
+          </div>
+          <div class="col-md-3">
+            <h6>Full Board:</h6> <h6 class="text-info">{{htl.FullBoard}}</h6>
+          </div>
+          <div class="col-md-3">
+            <h6>Half Board:</h6> <h6 class="text-info">{{htl.HalfBoard}}</h6>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">  
+        <button (click)="populateForm(htl)" class="btn-sm btn-outline-success">Change</button>
+      </div>
+      <div class="col-md-3">
+        <button (click)="onDelete(htl.HotelID)" class=" btn-sm btn-outline-danger">delete</button>
+          </div>
+          </div>
+    </div>
+    <br>
+  </div>
+       </div>
+
+       <br>
+       <div>
+        <button style="text-align: center; margin-top: 20px; font-size: 20px;" *ngIf="isShow" (click)="gotoTop()">SCROLL TOP</button>
+      </div>
+
+    <!-- <button (click)="genarateReport()">Genarate report</button> -->

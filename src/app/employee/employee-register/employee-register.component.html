@@ -1,0 +1,108 @@
+<div style="text-align: center;">
+  <h1><strong>{{!service.formData.EmployeeID ?  'New Employee' : 'Update Employee'}}</strong></h1>
+</div>
+
+<br>
+
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
+ 
+     
+ 
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field appearance="outline">
+      <mat-label>First Name</mat-label>
+        <input matInput required pattern="^[A-Z]+[a-z]+$"  name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName">
+        <mat-error *ngIf="FirstName.errors &&  FirstName.errors.required && FirstName.touched">This field required</mat-error>
+        <mat-error *ngIf="FirstName.invalid && FirstName.touched">Invalid Name (Only First Letter shuold be Upercase)</mat-error>
+      </mat-form-field>
+    </div >
+    <div class="col-md-6">
+      <mat-form-field appearance="outline">
+      <mat-label>Last Name</mat-label>
+        <input matInput required pattern="^[A-Z]+[a-z]+$"  name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName">
+        <mat-error *ngIf="LastName.errors &&  LastName.errors.required && LastName.touched">This field required</mat-error>
+        <mat-error *ngIf="LastName.invalid && LastName.touched">Invalid Name (Only First Letter shuold be Upercase)</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+  <div class="col-md-6">
+    <mat-form-field appearance="outline">
+    <mat-label>Address</mat-label>
+      <input matInput required name="Address" #Address="ngModel" [(ngModel)]="service.formData.Address">
+      <mat-error *ngIf="Address.invalid && Address.touched">This field required</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="col-md-6">
+    <mat-form-field appearance="outline">
+    <mat-label>Birth Day</mat-label>
+      <input matInput required type="date" min="1943-01-01" max="2005-01-01" name="BirthDay" #BirthDay="ngModel" [(ngModel)]="service.formData.BirthDay">
+      <mat-error *ngIf="Address.invalid && Address.touched">This field required</mat-error>
+    </mat-form-field>
+  </div>
+  </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+        <mat-label>NIC</mat-label>
+          <input matInput required name="NicNo" #NicNo="ngModel" [(ngModel)]="service.formData.NicNo">
+          <mat-error *ngIf="NicNo.invalid && NicNo.touched">This field required</mat-error>
+        </mat-form-field>
+      </div> 
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+        <mat-label>Contact</mat-label>
+          <input matInput required pattern="^[0-9]{9}" type="number" name="Contact" #Contact="ngModel" [(ngModel)]="service.formData.Contact">
+          <mat-error *ngIf="Contact.errors &&  Contact.errors.required && Contact.touched">This field required</mat-error>
+          <mat-error *ngIf="Contact.invalid && Contact.touched">Invalid Phone number (10 numbers required)</mat-error>
+        </mat-form-field>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+        <input matInput required pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.com+$"  name="Email" type="email" #email="ngModel" [(ngModel)]="service.formData.Email">
+        <mat-error *ngIf="email.errors &&  email.errors.required && email.touched">This field required</mat-error>
+        <mat-error *ngIf="email.invalid && email.touched">Invalid E-mail (example@xxx.com)</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+        <input matInput required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  name="Password" type="password" #Password="ngModel" [(ngModel)]="service.formData.Password">
+        <mat-error *ngIf="Password.errors &&  Password.errors.required && Password.touched">This field required</mat-error>
+        <mat-error *ngIf="Password.invalid && Password.touched">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="input-group-prepend">
+      <button matTooltip="fill the form with sample data"  style="margin-left: 30px;" type="button" class="card-link btn btn-sm btn-outline-success ybtn" (click)="demo()" *ngIf="service.formData.EmployeeID==null;">Demo</button>
+    </div>  
+    </div>
+    <div class="col-md-6">
+      <div class="input-group-prepend">
+        <button type="submit" [disabled]="form.invalid" class="card-link btn btn-sm btn-outline-info ybtn" style="margin-left: 30px;" *ngIf="service.formData.EmployeeID==null;"> <mat-icon> send</mat-icon></button>
+        <button type="button" (click)="updateRecord(form)" [disabled]="form.invalid" class="card-link btn btn-sm btn-outline-info ybtn" style="margin-left: 30px;" *ngIf="service.formData.EmployeeID!=null;"> save</button>
+      </div>
+    </div>
+  </div>
+  <hr>
+    
+    <div class="col-md-12">
+      <div class="input-group-prepend">
+        <button type="button" class="card-link btn btn-sm btn-outline-danger ybtn" [mat-dialog-close]>CLOSE</button>
+        <button type="button" class="card-link btn btn-sm btn-outline-danger ybtn" *ngIf="service.formData.EmployeeID!=null;" style ="margin-left: 45%;" (click)="downloadPDFBtn()">
+          Download Details
+           <mat-icon>save_alt</mat-icon>
+    </button>
+      </div>
+    </div>
+    
+
+</form>

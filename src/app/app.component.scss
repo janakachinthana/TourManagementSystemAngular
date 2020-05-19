@@ -1,0 +1,28 @@
+.divmain{
+    background-color: rgba(166, 202, 226, 0.979);
+    border-radius: 0px;
+}
+
+#username
+{
+    color: red;
+}
+
+.txtColor:hover{
+    cursor: pointer;
+    color: white;
+    background-color:blue;
+   
+}
+
+.txtColor{
+    color: rgb(238, 18, 18);
+   
+   
+}
+.txtColor:active{
+    cursor: pointer;
+    color: white;
+    background-color:green;
+   
+}

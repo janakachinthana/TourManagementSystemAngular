@@ -1,0 +1,104 @@
+
+<div id="content">
+
+  <div id=container>
+  <h1  id="header1" >Vehicles Report</h1>
+  
+  <h2  id="header1" >Elephas tourism management</h2>
+  <p class="date">{{currentDate | date:'yyyy-MM-dd'}}</p>
+  <hr>
+  <div  class="bar"> Number of vehicles : {{counterAll}}</div>
+  
+  <p style="text-align: center; margin-top: 40px;">Managed by : A.D.S de Zoysa | IT1823666</p>
+  <div class="html2pdf__page-break"></div>
+  
+  
+  <div >
+  
+  
+  <div id="printgraph" style="text-align: center; "> 
+    <div class="row"> 
+    <div class="col-md-5">
+    <google-chart #chart 
+     [title]="title2"
+     [type]="type"
+     [data]="data"
+     [options]="options"
+     [width]="width"
+     [height]="height">
+    </google-chart>
+    </div> 
+    <div class="col-md-7">
+    <google-chart #chart 
+     [title]="title"
+     [type]="type2"
+     [data]="data"
+     [options]="options"
+     [width]="width"
+     [height]="height">
+    </google-chart>
+  </div>
+  </div>
+  
+    <google-chart #chart 
+       [title]="title3"
+       [type]="type2"
+       [data]="data2"
+       [options]="options"
+       [width]="width2"
+       [height]="height2">
+    </google-chart>
+  </div>
+  
+  
+  <div class="html2pdf__page-break"></div>
+  <br>
+  <div  style="left:20%; width: 250px;" >      
+      <select (change)="showSelectValue($event)" id="vehType" class="form-control">
+        <option type="submit" value="All">All</option>
+        <option type="submit" value="van">van</option>
+        <option type="submit"  value="bus">bus</option> 
+        <option type="submit" value="car">car</option>
+        <option type="submit" value="suv">suv</option>
+      </select>
+  </div>
+  
+  <div id=onlytable>
+  <p style="text-align: center;">List of Vehicles registered in Elephas Tourism ({{selected}})</p>
+  <table class="table fonttable" id="table">
+      <tr style="color: darkblue;">
+          <td>Vehicle no</td>
+          <td>Brand</td>
+          <td>Model</td>
+          <td>Reg. no</td>
+          <td>Manu. Yr</td>
+          <td>Seats</td>
+          <td>Owner's Name</td>
+          <td>Owner's ID</td>
+          <td>Owner's Contact</td>
+          <td>Ins. no</td>
+          <td>Rate(km)</td>
+      <tr *ngFor="let veh of filterItemsOfType(selected)">
+      <td style="color: crimson">{{veh.VehicleNo}}</td>
+      <td>{{veh.Brand}}</td>
+      <td>{{veh.Model}}</td>
+      <td>{{veh.RegistrationNo}}</td>
+      <td>{{veh.ManuYr}}</td>
+      <td>{{veh.NoOfSeats}}</td>
+      <td>{{veh.OwnersName}}</td>
+      <td>{{veh.OwneresID}}</td>
+      <td>{{veh.OwnersContact}}</td>
+      <td>{{veh.VehicleInsuaranceNo}}</td>
+      <td>{{veh.RatePerKM }}</td>
+  </table>
+  </div>
+  </div>
+  
+  </div>
+  
+  <br>
+  <div style="text-align: center;">
+  <button type="button" (click)="onExportClick()">Download the full report</button>
+  <button type="button" (click)="onExportClickTable()">Download the table</button>
+  <button type="button" (click)="onExportClickGraph()">Download the graphs</button>
+  </div>
