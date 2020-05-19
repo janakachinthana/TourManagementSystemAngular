@@ -1,3 +1,9 @@
+<div style="text-align: center;">
+  <h1><strong>{{!service.formData.EmployeeID ?  'New Employee' : 'Update Employee'}}</strong></h1>
+</div>
+
+<br>
+
 <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
   <input type="hidden" name="EmployeeID" #EmployeeID="ngModel" [(ngModel)]="service.formData.EmployeeID">
  
