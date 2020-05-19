@@ -1,31 +1,42 @@
 
-<div id="printable">
+<div id="printable" style="margin: 20px; background-color: rgb(235, 221, 189);" >
 
-    <div style="text-align: center;">
+<div style=" margin-top: 50px; margin-right: 20px; margin-left: 20px;">
+    <div style="text-align: center; margin: 20px;">
         <h1> VEHICLE CERTIFICATION - ELEPHAS </h1> 
     </div>
     <hr>
 
-    <h2 style=" margin-top: 50px;margin-left: 100px; ">Vehicle details</h2>
-    <ul style="margin-left: 200px;">
-        <li><strong> Vehicle No : {{VehicleNo}} </strong></li>
+<div class="row" style="margin-top: 50px;">
+    <div class="col-md-6" > 
+    <h2 style="margin-left: 50px;">Vehicle details</h2>
+    <ul style="margin-left: 50px;" >
+        <li> Vehicle No : <strong>{{VehicleNo}} </strong></li>
         <li>Vehicle Model : {{Brand}} <strong> {{Model}} </strong></li>
         <li>Tourism Registration Number : {{RegistrationNo}}</li> 
         <li>Manufactured year  : {{ManuYr}}</li>
         <li>Number of seats : {{NoOfSeats}}</li>
         <li>Vehicle Insuarance Number : {{VehicleInsuaranceNo}}</li>
-        <li>Rate per Kilo meter : {{RatePerKM}}</li>
+        <li>Rate per Kilo meter :Rs {{RatePerKM}} /=</li>
         <li>Vehicle category : {{category}}</li>
     </ul>
-
-    <h2 style="margin-top: 10px; margin-left: 100px;">Owner's details</h2>
-    <ul style="margin-left: 200px;">
+    </div>
+    <div class="col-md-6">
+    <h2 >Owner's details</h2>
+    <ul >
         <li>Owner's name : <strong> {{OwnersName}} </strong></li>
         <li>Owner's National ID number : {{OwneresID}}</li>
         <li>Owner's Contact Number{{OwnersContact}}</li>
     </ul>
+    </div> 
+</div> 
 
+
+<div>
     <p style="text-align: center; margin-top: 100px;">Genarated by {{employeeFirst}} {{employeeSecond}}</p>
+    <p style="text-align: center; margin-top: 10px; margin-bottom: 50px" class="date">{{currentDate | date:'yyyy-MM-dd'}}</p>
+</div>
+</div>
 </div>
 
 <div style="text-align: center;">

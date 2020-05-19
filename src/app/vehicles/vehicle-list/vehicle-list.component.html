@@ -90,18 +90,18 @@
       </div>
 
       <ul class="list-group list-group-flush">
-        <li class="list-group-item" style="color: rgb(2, 12, 12); font-weight: bold; text-align: center; font-size: x-large; background-color: mediumturquoise;">{{veh.Brand}} {{veh.Model}}</li>
+        <li class="list-group-item" style="color: rgb(1, 95, 107); font-weight: bold; text-align: center; font-size: x-large; background-color: mediumturquoise;">{{veh.Brand}} {{veh.Model}}</li>
        
         <div class="row" style="margin-top: 5px;">
-          <div class="col-md-5">
+          <div class="col-md-6 " style="text-align: center; ">
             <h6 style="margin-left: 5px;"><strong>Seats: </strong> {{veh.NoOfSeats}}</h6>
           </div>
-          <div class="col-md-7" >
-            <h6  style="color: rgb(25, 0, 247); font-weight: bold;; margin-right: 5px;"><strong> Contact:</strong>  {{veh.OwnersContact}}</h6>
+          <div class="col-md-6" >
+            <h6  style="color: rgb(25, 0, 247); font-weight: bold;; margin-right: 5px;">{{veh.OwnersContact}}</h6>
           </div>
         </div>
 
-        <li class="list-group-item"><strong> Owner:</strong>   {{veh.OwnersName}}</li>
+        <li class="list-group-item" style="text-align: center;"><strong> Owner:</strong>   {{veh.OwnersName}}</li>
         <li class="list-group-item " style="font-weight: bolder; text-align: center; color: red;"><strong> Rate per:</strong>  Rs.{{veh.RatePerKM}}/=</li>
       </ul>
 

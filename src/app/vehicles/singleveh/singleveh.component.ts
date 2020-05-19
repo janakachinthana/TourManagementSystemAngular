@@ -12,6 +12,7 @@ import { EmployeeService } from 'src/app/shared/employee.service';
   styleUrls: ['./singleveh.component.scss']
 })
 export class SinglevehComponent implements OnInit {
+  currentDate = new Date();
 
   public VehicalModel : string;
 
