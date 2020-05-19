@@ -12,14 +12,10 @@ export class GuideService {
   list : Guide[];
   guide1 : Guide;
 
-<<<<<<< HEAD
 
   // readonly rootURL = "https://localhost:44392/api"
   //readonly rootURL = "http://localhost:62083/api"
   readonly rootURL = "https://localhost:44357/api"
-=======
-  readonly rootURL = "https://localhost:44392/api"
->>>>>>> 1787ac4ba482930dadeeb44b1bc9de29d0aea7bb
 
   constructor(public http : HttpClient) { }
 

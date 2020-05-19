@@ -10,10 +10,6 @@ export class DestinationService {
 
   formData : Destination;
   list : Destination[];
-<<<<<<< HEAD
-=======
-  readonly rootURL = "https://localhost:44392/api"
->>>>>>> 1787ac4ba482930dadeeb44b1bc9de29d0aea7bb
 
   // readonly rootURL = "https://localhost:44392/api"
   //readonly rootURL = "http://localhost:62083/api"
