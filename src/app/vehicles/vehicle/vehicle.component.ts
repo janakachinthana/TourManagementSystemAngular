@@ -7,6 +7,7 @@ import { NgForm } from '@angular/forms';
 import { inject } from '@angular/core/testing';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import * as html2pdf from 'html2pdf.js'
+import { SinglevehComponent } from '../singleveh/singleveh.component';
 
 @Component({
   selector: 'app-vehicle',
@@ -16,7 +17,6 @@ import * as html2pdf from 'html2pdf.js'
 export class VehicleComponent implements OnInit {
   formData: Vehicle;
   temp: Vehicle;
- 
 
 
   constructor(public service : VehicleService,
@@ -34,6 +34,8 @@ export class VehicleComponent implements OnInit {
 
         // fill all the field with related data in the pop-up
          this.temp = Object.assign({}, this.data.veh);
+
+        
          this.service.formData = {
             VehicleID: this.temp.VehicleID, 
             VehicleNo : this.temp.VehicleNo,
@@ -127,6 +129,28 @@ fillForm(){
     category : "car"
   };
 }
+
+
+
+genSinVehReport(vehID:number) {
+
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.autoFocus = true;
+  dialogConfig.disableClose = false;
+  dialogConfig.width = '70%';
+  dialogConfig.maxHeight = '100%';
+  dialogConfig.height = '100%';
+  dialogConfig.data = {vehID};
+  dialogConfig.scrollStrategy ;
+
+  dialogConfig.hasBackdrop;
+  this.dialog.open(SinglevehComponent, dialogConfig);
+}
+
+
+
+
+
 
 
 }

@@ -1,11 +1,6 @@
 
-<!-- <h1>{{UserName}}</h1> -->
+<p style=" background-color: black; color:white; float: right; margin-right: 10px; padding: 5px;">{{UserName}}</p>
 
-<div style="text-align: center; background-color: rgb(119, 159, 245);">
-  <hr>
-  <h2>Wellcome {{UserName}}</h2>
-  <hr>
-</div>
    
     <br>
     <div class="jumbotron divmain container ">
@@ -285,8 +280,7 @@
             </div>
           
             <div style="text-align: center;"> 
-            <!-- <button type="submit" [disabled]="form.invalid"  class="btn btn-lg btn-info btn-block">Add to Package</button> -->
-            <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Add to Package</button>
+            <button type="submit" [disabled]="form.invalid"  class="btn btn-lg btn-info btn-block">Add to Package</button>
           </div>
           </form>
           <br>
@@ -419,8 +413,7 @@
 
       <div class="row">
         <div class="col-md-4">
-          <!-- <button type="button" (click)="calcTotMEalAndRoom()" class="card-link btn btn-sm btn-outline-success ybtn">Check Total</button> -->
-          <button mat-stroked-button type="button" color="primary" (click)="calcTotMEalAndRoom()">Check Total</button>
+          <button type="button" (click)="calcTotMEalAndRoom()" class="card-link btn btn-sm btn-outline-success ybtn">Check Total</button>
             <!-- <input type="number" name="Tot" class="form-control" value="{{Tot}}"> -->
 
             <input type="number" name="TotalMealAnddRooms" class="form-control"  #TotalMealAnddRooms="ngModel" [(ngModel)]="serviceHomeHotel.formData.TotalMealAnddRooms">
@@ -429,10 +422,10 @@
 
         <div class="col-md-4">
      <div style="text-align: center;">
-        <!-- <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-info btn-block">Confirm Day Plan</button> -->
-        <button mat-raised-button type="submit" color="primary" [disabled]="form.invalid">Confirm Day Plan</button>
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-info btn-block">Confirm Day Plan</button>
       </div>
       </div>
+      
     
     
         <!-- <div class="col-md-4">
@@ -593,7 +586,7 @@
               <thead class="thead-dark">
                 <tr >
                   <th scope="col" class="text-success">Package Cost (including Service charges)</th> 
-                  <th scope="col" class="text-success">Sales Executive Name</th>
+                  <th scope="col" class="text-success">Tour Executive Name</th>
                   <th scope="col" class="text-success">Contact Number</th>
                 </tr>
               </thead>
@@ -609,10 +602,7 @@
 
             </div>
 
-            <div style="text-align: center;">
-              <button mat-raised-button color="primary"  (click)="Clear()">Clear Half Done Package</button>
-            </div>
-            <br>
+            
     
             <div class="row">
               <div class="form-group col-md-1"></div>
