@@ -5,6 +5,7 @@ import { ToastrService, ToastrModule } from 'ngx-toastr';
 import { Employee } from 'src/app/shared/employee.model';
 import {  MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import { inject } from '@angular/core/testing';
+import { EmployeeSigleReportComponent } from '../employee-sigle-report/employee-sigle-report.component';
 
 @Component({
   selector: 'app-employee-register',
@@ -22,6 +23,7 @@ export class EmployeeRegisterComponent implements OnInit {
 
   constructor(public service : EmployeeService,
       private toastr : ToastrService,
+      private dialog:MatDialog,
       @Inject(MAT_DIALOG_DATA) public data,
       public dialogRef: MatDialogRef<EmployeeRegisterComponent>) { }
    
@@ -124,6 +126,15 @@ updateRecord(form : NgForm){
   else{
     this.dialogRef.close();
   }
+}
+
+downloadPDFBtn(){
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.autoFocus = true;
+  dialogConfig.disableClose = false;
+  dialogConfig.width = '57%';
+  dialogConfig.height = '100%';
+  this.dialog.open(EmployeeSigleReportComponent, dialogConfig);
 }
 
 demo(){

@@ -92,6 +92,7 @@ import { ChartsModule } from 'ng2-charts';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DesPrintComponent } from './destinations/des-print/des-print.component';
 import { HotelReportComponent } from './hotels/hotel-report/hotel-report.component';
+import { EmployeeSigleReportComponent } from './employee/employee-sigle-report/employee-sigle-report.component';
 
 
 
@@ -146,7 +147,8 @@ import { HotelReportComponent } from './hotels/hotel-report/hotel-report.compone
     CompletedFormComponent,
     DriverReportComponent,
     DesPrintComponent,
-    HotelReportComponent
+    HotelReportComponent,
+    EmployeeSigleReportComponent
     
     
   
