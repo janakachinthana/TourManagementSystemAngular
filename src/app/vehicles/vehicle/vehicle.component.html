@@ -143,18 +143,12 @@
        <div class="col-md-6">
 
         <mat-form-field appearance="outline">
-            <mat-label>Select vehicle Category</mat-label>
-            <mat-select name="category" #category="ngModel" [(ngModel)]="service.formData.category" required>
-                <mat-option value="car">car</mat-option>
-                <mat-option value="van">van</mat-option>
-                <mat-option value="SUV">SUV</mat-option>
-                <mat-option value="bus">bus</mat-option>
-                <mat-option value="other">other</mat-option>
-            </mat-select>
-            <mat-error *ngIf="category.invalid && category.touched">This field is required</mat-error>
-          </mat-form-field>
-
-       </div>
+            <mat-label>Rate per Kilo meterr</mat-label>
+            <span matPrefix>Rs.</span>
+            <input  name="RatePerKM"   type="number"  #RatePerKM="ngModel" matInput placeholder="EX  : 50" [(ngModel)]="service.formData.RatePerKM" required>
+            <mat-error  *ngIf="RatePerKM.invalid && RatePerKM.touched">This field is required,Only numbers are valid</mat-error>
+        </mat-form-field>   
+   </div>
     </div>
 
 </div>
@@ -166,7 +160,7 @@
         <div class="col-md-6">
         <div class="form-group">
           
-            <mat-form-field style="width: 425px;" appearance="outline">
+            <mat-form-field style="width: 460px;" appearance="outline">
                 <mat-label>Owner's name</mat-label>
                 <input  name="OwnersName"  #OwnersName="ngModel" matInput placeholder="EX: Minton Silva" [(ngModel)]="service.formData.OwnersName" required>
                 <mat-error  *ngIf="OwnersName.invalid && OwnersName.touched">This field is required</mat-error>
@@ -229,10 +223,16 @@
         <div class="form-group">
 
             <mat-form-field appearance="outline">
-                <mat-label>Rate per Kilo meterr</mat-label>
-                <input  name="RatePerKM"   type="number"  #RatePerKM="ngModel" matInput placeholder="EX  : 50" [(ngModel)]="service.formData.RatePerKM" required>
-                <mat-error  *ngIf="RatePerKM.invalid && RatePerKM.touched">This field is required,Only numbers are valid</mat-error>
-            </mat-form-field>   
+                <mat-label>Select vehicle Category</mat-label>
+                <mat-select name="category" #category="ngModel" [(ngModel)]="service.formData.category" required>
+                    <mat-option value="car">car</mat-option>
+                    <mat-option value="van">van</mat-option>
+                    <mat-option value="SUV">SUV</mat-option>
+                    <mat-option value="bus">bus</mat-option>
+                    <mat-option value="other">other</mat-option>
+                </mat-select>
+                <mat-error *ngIf="category.invalid && category.touched">This field is required</mat-error>
+              </mat-form-field>
 
         </div>
         </div>
